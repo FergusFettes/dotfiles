@@ -1,0 +1,46 @@
+function dcr-soft() {
+  if [ -z $1 ]
+  then
+    file=docker-compose.yaml
+  else
+    file=$1
+  fi
+  echo "stopping, building and restarting $file"
+  docker-compose -f $file down
+  docker-compose -f $file build
+  docker-compose -f $file up
+}
+
+function dcr-hard() {
+  if [ -z $1 ]
+  then
+    file=docker-compose.yaml
+  else
+    file=$1
+  fi
+  echo "killing, rming, building and restarting $file"
+  docker-compose -f $file kill
+  docker-compose -f $file rm -f
+  docker-compose -f $file build
+  docker-compose -f $file up
+}
+
+# function fga() {
+#   $1 | \
+#   grep $2 | \
+#   if [ -z $3 ]
+#   then
+#     awk_number='$1'
+#   elif [ 'f' -eq $3 ]
+#   then
+#     awk_number='$NF'
+#   else
+#     awk_number=$3
+#   fi
+#   awk "{ print $awk_number }"
+# }
+
+# function tstt() {
+#   grep $1 | \
+#   awk '{ print $1 }'
+# }

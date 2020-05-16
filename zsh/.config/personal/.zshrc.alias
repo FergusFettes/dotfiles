@@ -1,0 +1,34 @@
+alias \?='uname -n'
+
+alias vi=nvim
+alias dk=docker
+alias dc=docker-compose
+alias dc-restart="docker-compose down && docker-compose build && docker-compose up -d && docker-compose logs -f"
+alias v="vi ."
+
+alias gl='git log --graph --decorate --oneline $(git rev-list -g --all)'
+alias glp="git log -p"
+alias gll="git pull"
+
+alias x=exit
+alias xz="exec zsh"
+alias t=tmux
+alias tk="tmux attach"
+
+alias m8=microk8s
+alias ku=kubectl
+
+alias l=k
+alias la="k -a"
+alias cat=bat
+alias bcat=/bin/cat
+alias man=~/.local/bat-extras/src/batman.sh
+alias grpcurl=~/.local/grpcurl
+
+alias tips="vi $TIPS"
+alias scratch="vi $SCRATCH"
+
+# alias rsync="rsync -Phav"
+# alias rsync_no_links="rsync -rptgoDLK"
+# alias rsync_remote="rsync -Phavz"
+
