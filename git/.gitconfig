@@ -1,3 +1,5 @@
 [user]
 	email = fergusfettes@gmail.com
 	name = fergus
+[commit]
+	template = /home/fergus/.gitmessage
