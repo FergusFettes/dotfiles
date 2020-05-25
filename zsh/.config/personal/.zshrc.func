@@ -8,7 +8,8 @@ function dcr-soft() {
   echo "stopping, building and restarting $file"
   docker-compose -f $file down
   docker-compose -f $file build
-  docker-compose -f $file up
+  docker-compose -f $file up -d
+  docker-compose -f $file logs -f
 }
 
 function dcr-hard() {
@@ -22,7 +23,19 @@ function dcr-hard() {
   docker-compose -f $file kill
   docker-compose -f $file rm -f
   docker-compose -f $file build
-  docker-compose -f $file up
+  docker-compose -f $file up -d
+  docker-compose -f $file logs -f
+}
+
+function informative_prompt() {
+  if [ "$RPROMPT" = "$MINIMAL_RPROMPT" ]
+  then
+    export PROMPT="$INFORMATIVE_PROMPT"
+    export RPROMPT="$INFORMATIVE_RPROMPT"
+  else
+    export PROMPT="$MINIMAL_PROMPT"
+    export RPROMPT="$MINIMAL_RPROMPT"
+  fi
 }
 
 # function fga() {

@@ -32,3 +32,4 @@ alias scratch="vi $SCRATCH"
 # alias rsync_no_links="rsync -rptgoDLK"
 # alias rsync_remote="rsync -Phavz"
 
+alias ,=informative_prompt
