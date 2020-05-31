@@ -1,8 +1,8 @@
 export ZSH="/home/ffettes/.zsh"
-export PATH="$PATH":/snap/bin:/.cargo/bin
+export PATH="$PATH":/snap/bin:/home/ffettes/.cargo/bin
 
 ZSH_THEME="random"
-# ZSH_THEME_RANDOM_CANDIDATES=( "nanotech" "robbyrussell" "agnoster" "amuse" )
+# ZSH_THEME_RANDOM_CANDIDATES=( "nanotech" "robbyrussell" "agnoster" "amuse" "fox" )
 HYPHEN_INSENSITIVE="true"
 
 plugins=(
