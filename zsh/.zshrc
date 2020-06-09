@@ -1,8 +1,8 @@
 export ZSH="/home/ffettes/.zsh"
 export PATH="$PATH":/snap/bin:/home/ffettes/.cargo/bin
 
-ZSH_THEME="random"
-# ZSH_THEME_RANDOM_CANDIDATES=( "nanotech" "robbyrussell" "agnoster" "amuse" "fox" )
+# ZSH_THEME="random"
+# ZSH_THEME_RANDOM_CANDIDATES=( "nanotech" "robbyrussell" "agnoster" "amuse" "fox" "pygmalion" "wedisagree" "strug" )
 HYPHEN_INSENSITIVE="true"
 
 plugins=(
@@ -38,3 +38,6 @@ bindkey '^[/' backward-delete-word
 bindkey "^[\'" delete-word
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+,
+
