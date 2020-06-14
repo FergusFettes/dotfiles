@@ -1,8 +1,6 @@
 " Plugins {{{
 call plug#begin(expand('~/.vim/plugged'))
 
-"" File management/searching
-Plug 'scrooloose/nerdtree'
 "" Silver Searcher (note, depreciated, maybe use Ack)
 Plug 'rking/ag.vim'
 "" CtrlP --fuzzy file searcher
@@ -30,9 +28,16 @@ Plug 'w0rp/ale'
 
 "" Other
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-commentary'
 Plug 'Raimondi/delimitMate'
 Plug 'sheerun/vim-polyglot'
+Plug 'mbbill/undotree'
+
+" Plug 'majutsushi/tagbar'
+
+"" Movement
+Plug 'easymotion/vim-easymotion'
 
 "" Close buffers
 Plug 'Asheq/close-buffers.vim'
@@ -44,10 +49,14 @@ Plug 'racer-rust/vim-racer'
 " YouCompleteMe
 Plug 'valloric/youcompleteme'
 
+" Repeat (for easymotion)
+Plug 'tpope/vim-repeat'
+Plug 'svermeulen/vim-easyclip'
+
 " " Plugs I want to check out at some point:
 " Plug 'skanehira/docker.vim'
 " Plug 'ivanov/vim-ipython'
-"
+
 " Track the engine.
 " Plug 'SirVer/ultisnips'
 
@@ -166,6 +175,12 @@ if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
 
+" Adding marks back after easyclip removed them
+nnoremap gm m
+
+" Add system clipboard as default
+set clipboard=unnamed,unnamedplus
+
 "*****************************************************************************
 "" Abbreviations: I guess these are for simple spelling mistakes?
 "*****************************************************************************
@@ -244,10 +259,9 @@ map <leader>o :setlocal spell! spelllang=en_us<CR>
 map <leader>fk :Goyo \| set linebreak<CR>
 map <leader>fj :Goyo 80% \| set linebreak<CR>
 
-" Gundo map
-"   nnoremap <leader>u :GundoToggle<CR>
-" Need to install gundo first
-"
+" Undotree map
+nnoremap <leader>u :UndotreeToggle<cr>
+
 " save session
 nnoremap <leader>ss :mksession! ~/.vim/session/default<CR>
 nnoremap <leader>s :mksession! ~/.vim/session/
@@ -340,18 +354,6 @@ let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
 
-"" NERDTree configuration
-let g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-let g:NERDTreeShowBookmarks=1
-let g:nerdtree_tabs_focus_on_files=1
-let g:NERDTreeWinSize = 50
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 "" Gitgutter
 let g:gitgutter_grep=''
 set updatetime=500
@@ -376,6 +378,12 @@ let g:UltiSnipsListSnippets="sd"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" Better maps for keys for easyclip
+let g:EasyClipUsePasteToggleDefaults = 0
+
+nmap <c-f> <plug>EasyClipSwapPasteForward
+nmap <c-d> <plug>EasyClipSwapPasteBackwards
 
 " }}}
 " Autogroups {{{
