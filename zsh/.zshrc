@@ -40,4 +40,3 @@ bindkey "^[\'" delete-word
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ,
-
