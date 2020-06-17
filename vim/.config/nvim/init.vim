@@ -275,7 +275,7 @@ nnoremap <silent> <leader>vsh :vs<Bar>:terminal<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
-nnoremap <leader>, :e %<CR>
+nnoremap <leader>m :e %<CR>
 
 "" Buffer nav
 noremap <leader>z :bp<CR>
@@ -312,18 +312,9 @@ noremap <leader>e :e<space>
 noremap <leader>fw :w !sudo tee %<CR>
 noremap <leader>fwc :w !sudo tee %
 
-"" Terminal escape
-tnoremap <Esc> <C-w><C-n>
-
 "" Ale next
 nnoremap <space> :ALENext<CR>
 nnoremap <backspace> :ALEPrevious<CR>
-
-"" NERDTreeToggle
-nnoremap <leader>m :NERDTreeToggle<CR>
-
-"" yank to system
-nnoremap <leader>y "+
 
 " }}}
 " CtrlP Settings {{{
@@ -382,8 +373,8 @@ let g:UltiSnipsEditSplit="vertical"
 " Better maps for keys for easyclip
 let g:EasyClipUsePasteToggleDefaults = 0
 
-nmap <c-f> <plug>EasyClipSwapPasteForward
-nmap <c-d> <plug>EasyClipSwapPasteBackwards
+nmap <c-v> <plug>EasyClipSwapPasteForward
+nmap <c-c> <plug>EasyClipSwapPasteBackwards
 
 " }}}
 " Autogroups {{{
