@@ -16,7 +16,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/custom/plugins/enhancd/init.sh
+source ~/$ZSH/custom/plugins/enhancd/init.sh
 # source /home/ffettes/.config/broot/launcher/bash/br
 
 if [ `uname -n` = "ondewo10" ]; then
