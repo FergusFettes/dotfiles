@@ -1,4 +1,4 @@
-export ZSH="/home/ffettes/.zsh"
+export ZSH="/home/ffettes/.oh-my-zsh"
 export PATH="$PATH":/snap/bin:/home/ffettes/.cargo/bin
 
 # ZSH_THEME="random"
@@ -7,8 +7,8 @@ HYPHEN_INSENSITIVE="true"
 
 plugins=(
 	git
-  git-flow
-  python
+    git-flow
+    python
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	zsh-navigation-tools
