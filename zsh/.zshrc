@@ -17,7 +17,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/custom/plugins/enhancd/init.sh
-# source /home/ffettes/.config/broot/launcher/bash/br
 
 if [ `uname -n` = "ondewo10" ]; then
 source ~/.config/personal/.zshrc.work; fi
@@ -27,8 +26,6 @@ source ~/.config/personal/.zshrc.vars
 source ~/.config/personal/.zshrc.alias
 # Export all the functions
 source ~/.config/personal/.zshrc.func
-
-# User configuration
 
 bindkey '^[n' beginning-of-line
 bindkey '^[m' forward-word
