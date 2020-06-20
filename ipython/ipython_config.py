@@ -33,10 +33,10 @@ c.InteractiveShellApp.exec_lines = [
 # r"%load_ext cython",
 # r"%load_ext line_profiler",
 # r"%load_ext memory_profiler",
-r"import array",
-r"import numpy as np",
-r"import pandas as pd",
-r"import matplotlib.pyplot as plt",
+# r"import array",
+# r"import numpy as np",
+# r"import pandas as pd",
+# r"import matplotlib.pyplot as plt",
 #r"import src.Cfuncs as cf",
 #r"import src.Cyarr as cy",
 #r"import src.Cyphys as cph",
@@ -225,11 +225,11 @@ r"import matplotlib.pyplot as plt",
 #c.InteractiveShell.enable_html_pager = False
 
 ## Total length of command history
-#c.InteractiveShell.history_length = 10000
+c.InteractiveShell.history_length = 100000
 
 ## The number of saved history entries to be loaded into the history buffer at
 #  startup.
-#c.InteractiveShell.history_load_length = 1000
+c.InteractiveShell.history_load_length = 10000
 
 ##
 #c.InteractiveShell.ipython_dir = ''
@@ -314,7 +314,7 @@ r"import matplotlib.pyplot as plt",
 #c.TerminalInteractiveShell.editing_mode = 'emacs'
 
 ## Set the editor used by IPython (default to $EDITOR/vi/notepad).
-#c.TerminalInteractiveShell.editor = 'vi'
+c.TerminalInteractiveShell.editor = 'nvim'
 
 ## Allows to enable/disable the prompt toolkit history search
 #c.TerminalInteractiveShell.enable_history_search = True
