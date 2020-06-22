@@ -27,33 +27,23 @@ function dcr-hard() {
   docker-compose -f $file logs -f
 }
 
-function informative_prompt() {
-  if [ "$RPROMPT" = "$MINIMAL_RPROMPT" ]
+function prompt_rotate() {
+  if [ $PROMPT_VERBOSITY -eq 0 ]
+  then
+    export PROMPT="$MINIMAL_PROMPT"
+    export RPROMPT="$MINIMAL_RPROMPT"
+  elif [ $PROMPT_VERBOSITY -eq 1 ]
   then
     export PROMPT="$INFORMATIVE_PROMPT"
     export RPROMPT="$INFORMATIVE_RPROMPT"
-  else
-    export PROMPT="$MINIMAL_PROMPT"
-    export RPROMPT="$MINIMAL_RPROMPT"
+  elif [ $PROMPT_VERBOSITY -eq 2 ]
+  then
+    export PROMPT="$FULL_PROMPT"
+    export RPROMPT="$FULL_RPROMPT"
+  fi
+
+  PROMPT_VERBOSITY=$((PROMPT_VERBOSITY + 1))
+  if [ $PROMPT_VERBOSITY -gt 2 ]; then
+    PROMPT_VERBOSITY=0
   fi
 }
-
-# function fga() {
-#   $1 | \
-#   grep $2 | \
-#   if [ -z $3 ]
-#   then
-#     awk_number='$1'
-#   elif [ 'f' -eq $3 ]
-#   then
-#     awk_number='$NF'
-#   else
-#     awk_number=$3
-#   fi
-#   awk "{ print $awk_number }"
-# }
-
-# function tstt() {
-#   grep $1 | \
-#   awk '{ print $1 }'
-# }

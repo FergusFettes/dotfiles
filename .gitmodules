@@ -1,0 +1,3 @@
+[submodule "local/.local/bat-extras"]
+	path = local/.local/bat-extras
+	url = git@github.com:eth-p/bat-extras
