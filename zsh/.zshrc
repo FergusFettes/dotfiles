@@ -1,4 +1,4 @@
-export ZSH="/home/ffettes/.oh-my-zsh"
+export ZSH="/home/ffettes/.zsh"
 export PATH="$PATH":/snap/bin:/home/ffettes/.cargo/bin
 
 # ZSH_THEME="random"
