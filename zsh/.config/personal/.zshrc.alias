@@ -19,6 +19,7 @@ alias m8=microk8s
 alias ku=kubectl
 
 alias l=k
+alias p=pwd
 alias la="k -a"
 alias cat=bat
 alias bcat=/bin/cat
