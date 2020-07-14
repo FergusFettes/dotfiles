@@ -1,14 +1,14 @@
 export ZSH="/home/ffettes/.zsh"
 export PATH="$PATH":/snap/bin:/home/ffettes/.cargo/bin
 
-# ZSH_THEME="random"
+# ZSH_THEME="strug"
 # ZSH_THEME_RANDOM_CANDIDATES=( "nanotech" "robbyrussell" "agnoster" "amuse" "fox" "pygmalion" "wedisagree" "strug" )
 HYPHEN_INSENSITIVE="true"
 
 plugins=(
 	git
-    git-flow
-    python
+  git-flow
+  python
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	zsh-navigation-tools
