@@ -225,7 +225,7 @@ noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
 
 nnoremap <leader>sp :sp<CR>
-nnoremap <leader>vs :vsp<CR>
+nnoremap <leader>vsp :vsp<CR>
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.

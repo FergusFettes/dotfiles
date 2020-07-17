@@ -20,6 +20,7 @@ alias ku=kubectl
 alias hd=hyperdrive
 
 alias l=k
+alias p=pwd
 alias la="k -a"
 alias cat=bat
 alias bcat=/bin/cat
@@ -39,3 +40,4 @@ alias zshrcs="vi ~/.zshrc ~/.config/personal/.zshrc.alias ~/.config/personal/.zs
 
 alias pip=pip3
 alias python=python3
+alias nk=n-kill
