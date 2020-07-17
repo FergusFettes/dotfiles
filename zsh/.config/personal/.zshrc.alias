@@ -17,6 +17,7 @@ alias tk="tmux attach"
 
 alias m8=microk8s
 alias ku=kubectl
+alias hd=hyperdrive
 
 alias l=k
 alias la="k -a"
@@ -35,3 +36,6 @@ alias rsync_remote="rsync -Phavz"
 alias ,=prompt_rotate
 
 alias zshrcs="vi ~/.zshrc ~/.config/personal/.zshrc.alias ~/.config/personal/.zshrc.vars ~/.config/personal/.zshrc.work ~/.config/personal/.zshrc.func"
+
+alias pip=pip3
+alias python=python3
