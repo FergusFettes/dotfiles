@@ -20,7 +20,8 @@ alias ku=kubectl
 alias hd=hyperdrive
 
 alias l=k
-alias p=pwd
+alias p="pwd -P"
+alias s="sudo -s"
 alias la="k -a"
 alias cat=bat
 alias bcat=/bin/cat
