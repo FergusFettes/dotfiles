@@ -3,7 +3,6 @@
 
 # # The next line updates PATH for the Google Cloud SDK.
 # if [ -f '/usr/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/path.zsh.inc'; fi
-alias grpcurl=~/installs/grpcurl
 
 # # The next line enables shell command completion for gcloud.
 # if [ -f '/usr/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/completion.zsh.inc'; fi
@@ -19,20 +18,6 @@ function npm_export() {
 # source <(microk8s.kubectl completion zsh)
 # alias ku=microk8s.kubectl
 # alias m8=microk8s
-
-# export KUBECONFIG=/home/ffettes/.bluemix/plugins/container-service/clusters/bmmrootd03m17d43d4v0/kube-config-hou02-asterisk_server.yml
-
-# # The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/usr/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/path.zsh.inc'; fi
-
-# # The next line enables shell command completion for gcloud.
-# if [ -f '/usr/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/completion.zsh.inc'; fi
-# PYPI_LOCAL=http://localhost:3141/root/pypi/+simple/
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# nvm use v10
 
 export GOOGLE_APPLICATION_CREDENTIALS="/home/ffettes/ondewo/ondewo-s2t-cloud/etc/google/test-558c418a9aac.json"
 export IBM_KEY="lZmanejSGJFnCNXP4Ca-8bHBFqssfucfvjJHH8VScBvo"
