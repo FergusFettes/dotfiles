@@ -27,6 +27,7 @@ alias cat=bat
 alias bcat=/bin/cat
 alias man=~/.local/bat-extras/src/batman.sh
 alias grpcurl=~/.local/grpcurl
+alias fpp=~/.local/PathPicker/fpp
 alias r=ranger
 
 alias tips="vi $TIPS"
