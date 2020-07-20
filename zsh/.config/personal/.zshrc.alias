@@ -17,14 +17,18 @@ alias tk="tmux attach"
 
 alias m8=microk8s
 alias ku=kubectl
+alias hd=hyperdrive
 
 alias l=k
-alias p=pwd
+alias p="pwd -P"
+alias s="sudo -s"
 alias la="k -a"
 alias cat=bat
 alias bcat=/bin/cat
 alias man=~/.local/bat-extras/src/batman.sh
 alias grpcurl=~/.local/grpcurl
+alias fpp=~/.local/PathPicker/fpp
+alias r=ranger
 
 alias tips="vi $TIPS"
 alias scratch="vi $SCRATCH"
@@ -36,5 +40,8 @@ alias rsync_remote="rsync -Phavz"
 alias ,=prompt_rotate
 
 alias zshrcs="vi ~/.zshrc ~/.config/personal/.zshrc.alias ~/.config/personal/.zshrc.vars ~/.config/personal/.zshrc.work ~/.config/personal/.zshrc.func"
+alias config="vi ~/.config/nvim/init.vim ~/.tmux.conf ~/.zshrc ~/.config/personal/.zshrc.alias ~/.config/personal/.zshrc.vars ~/.config/personal/.zshrc.work ~/.config/personal/.zshrc.func"
 
+alias pip=pip3
+alias python=python3
 alias nk=n-kill
