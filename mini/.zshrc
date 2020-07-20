@@ -29,6 +29,7 @@ alias gd='git diff'
 alias gm='git merge'
 alias gp='git push'
 alias grhh='git reset --hard'
+alias gst='git status'
 
 alias x=exit
 alias xz="exec zsh"

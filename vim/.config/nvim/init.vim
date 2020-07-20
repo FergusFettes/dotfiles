@@ -114,7 +114,7 @@ set smartcase
 " Folding {{{
 set foldenable          " enable folding
 
-set foldlevelstart=10   " open most folds by default
+set foldlevelstart=4   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 
 set foldmethod=indent   " fold based on indent level
@@ -206,7 +206,7 @@ let g:session_command_aliases = 1
 " }}}
 " Custom Maps {{{
 " open/closes folds
-nnoremap <leader>fd za
+nnoremap <space> za
 nnoremap <leader>pp :set paste!<CR>
 
 
@@ -313,8 +313,7 @@ noremap <leader>fw :w !sudo tee %<CR>
 noremap <leader>fwc :w !sudo tee %
 
 "" Ale next
-nnoremap <space> :ALENext<CR>
-nnoremap <backspace> :ALEPrevious<CR>
+nnoremap <backspace> :ALENext<CR>
 
 " }}}
 " CtrlP Settings {{{
