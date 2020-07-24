@@ -20,9 +20,9 @@ alias ku=kubectl
 alias hd=hyperdrive
 
 alias l=k
+alias la="k -a"
 alias p="pwd -P"
 alias s="sudo -s"
-alias la="k -a"
 alias cat=bat
 alias bcat=/bin/cat
 alias man=~/.local/bat-extras/src/batman.sh
