@@ -18,7 +18,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/plugins/enhancd/init.sh
 
-if [ `uname -n` = "ondewo10" ]; then
+if [ `uname -n` = "ondewo-6" ]; then
 source ~/.config/personal/.zshrc.work; fi
 # Export all the environmental variables
 source ~/.config/personal/.zshrc.vars
