@@ -1,0 +1,71 @@
+" Setup {{{
+"" Number setup to show relative number
+set number relativenumber
+
+" "" Disable the blinking cursor.
+" set gcr=a:blinkon0
+" set scrolloff=3
+" set cursorline
+
+set visualbell
+set noerrorbells
+let mapleader = ","
+
+"" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+" }}}
+" " Folding {{{
+" set foldenable          " enable folding
+
+" set foldlevelstart=10   " open most folds by default
+" set foldnestmax=10      " 10 nested fold max
+
+" set foldmethod=indent   " fold based on indent level
+" " }}}
+
+" Deeply radical..
+" jk is escape
+inoremap jk <esc>
+
+"" Enter inserts empty line
+map <CR> o<Esc>
+
+" space open/closes folds
+nnoremap <space> za
+
+"" Switching windows
+noremap <A-j> <C-w>j
+noremap <A-k> <C-w>k
+noremap <A-l> <C-w>l
+noremap <A-h> <C-w>h
+
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+"" Clean search (highlight)
+nnoremap <silent> <leader><space> :noh<cr>
+
+nnoremap <leader>s :action ActivateTerminalToolWindow <CR>
+nnoremap <leader>p :action ActivatePythonConsoleToolWindow <CR>
+
+nnoremap <leader>x :action NextTab <CR>
+nnoremap <leader>z :action PreviousTab <CR>
+
+nnoremap <leader>n :action Maven.NavigatorActionsToolbar <CR>
+
+nnoremap <leader>rc :source ~/.ideavimrc <CR>
+
+"" Runs {{{
+nnoremap <leader>rt :action RerunFailedTests <CR>
+nnoremap <leader>rr :action Run <CR>
+
+" nnoremap gc :action CommentByLineComment <CR>
+
+nnoremap <leader>q :q <CR>
+" }}}
+" vim:foldmethod=marker:foldlevel=0
