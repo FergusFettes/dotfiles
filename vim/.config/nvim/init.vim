@@ -21,7 +21,15 @@ Plug 'vim-airline/vim-airline-themes'
 "" Goyo, beautiful reading mode
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'junegunn/seoul256.vim'
+
+"" Colorscheme
+" Plug 'junegunn/seoul256.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'sts10/vim-pink-moon'
+Plug 'ayu-theme/ayu-vim'
+
+"" Markdown two panel
+Plug 'vim-voom/voom'
 
 "" Linter
 Plug 'w0rp/ale'
@@ -72,10 +80,26 @@ filetype plugin indent on
 
 " }}}
 " Colors {{{
-colorscheme seoul256
+if has('termguicolors')
+  set termguicolors
+endif
+
+" colorscheme seoul256
+
+" colorscheme nord
+
+" colorscheme pink-moon
+" set background=dark
+
+" can also be 'mirage' or 'dark'
+let ayucolor="light"
+colorscheme ayu
+
 syntax enable
 set t_Co=256
 set ruler
+
+
 " }}}
 " Spaces & Tabs {{{
 "" Fix backspace indent
