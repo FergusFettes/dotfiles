@@ -1,3 +1,10 @@
+window:
+  decorations: none
+  startup_mode: Maximized
+
+shell:
+  program: /usr/bin/zsh
+
 schemes:
   # Colors (Solarized Light)
   solarized_light: &sol_light
@@ -154,4 +161,4 @@ schemes:
        cyan:    '#8FBCBB'
        white:   '#ECEFF4'
 
-colors: *ayu_mirage
+colors: *ayu_dark
