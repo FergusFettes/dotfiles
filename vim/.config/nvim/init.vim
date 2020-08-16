@@ -92,7 +92,7 @@ endif
 " set background=dark
 
 " can also be 'mirage' or 'dark'
-let ayucolor="light"
+let ayucolor="mirage"
 colorscheme ayu
 
 syntax enable

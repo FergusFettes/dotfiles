@@ -154,4 +154,4 @@ schemes:
        cyan:    '#8FBCBB'
        white:   '#ECEFF4'
 
-colors: *nord
+colors: *ayu_mirage
