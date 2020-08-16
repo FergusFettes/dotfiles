@@ -3,7 +3,7 @@
 
 # source <(microk8s.kubectl completion zsh)
 # alias ku=microk8s.kubectl
-# alias m8=microk8sexport GOOGLE_APPLICATION_CREDENTIALS="/home/ffettes/ondewo/ondewo-s2t-cloud/etc/google/test-558c418a9aac.json"
+# alias m8=microk8s
 
 function npm_export() {
   export NVM_DIR="$HOME/.nvm"
