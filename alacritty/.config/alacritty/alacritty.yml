@@ -78,7 +78,7 @@ schemes:
   ayu_dark: &ayu_dark
     # Default colors
     primary:
-      background: '#0A0E14'
+      background: '#000000'
       foreground: '#B3B1AD'
 
     # Normal colors
