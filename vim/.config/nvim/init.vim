@@ -29,7 +29,7 @@ Plug 'sts10/vim-pink-moon'
 Plug 'ayu-theme/ayu-vim'
 
 "" Markdown two panel
-Plug 'vim-voom/voom'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 "" Linter
 Plug 'w0rp/ale'
@@ -268,6 +268,9 @@ nnoremap [Q :cfirst<CR>
 
 " }}}
 " Leader Maps {{{
+"" Change fold method
+nnoremap <leader>fi :set foldmethod=indent<CR>
+nnoremap <leader>fm :set foldmethod=marker<CR>
 
 "" Open, save and source vim/zsh rc files
 nnoremap <leader>rc :vsp $MYVIMRC<CR>
@@ -347,6 +350,9 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'"
 " }}}
 " Settings for plugs {{{
+"" Markdown toggle shortcut
+let vim_markdown_preview_hotkey='<leader>pm'
+
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 if exists("*fugitive#statusline")
   set statusline+=%{fugitive#statusline()}
