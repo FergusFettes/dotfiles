@@ -17,6 +17,7 @@ alias tk="tmux attach"
 
 alias m8=microk8s
 alias ku=kubectl
+alias hd=hyperdrive
 
 alias l=k
 alias la="k -a"
