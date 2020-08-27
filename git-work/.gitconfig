@@ -1,0 +1,12 @@
+[user]
+	email = fergus.fettes@ondewo.com
+	name = Fergus Fettes
+[filter "ip"]
+	smudge = /home/ffettes/privtext/git/ip_smudge.sh
+	clean = /home/ffettes/privtext/git/ip_clean.sh
+[filter "docker"]
+	smudge = /home/ffettes/privtext/git/docker_smudge.sh
+	clean = /home/ffettes/privtext/git/docker_clean.sh
+[filter "dd_ip"]
+	smudge = /home/ffettes/privtext/git/docker_dyna_smudge.sh
+	clean = /home/ffettes/privtext/git/docker_dyna_clean.sh

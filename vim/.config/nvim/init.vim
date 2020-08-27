@@ -21,7 +21,15 @@ Plug 'vim-airline/vim-airline-themes'
 "" Goyo, beautiful reading mode
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'junegunn/seoul256.vim'
+
+"" Colorscheme
+" Plug 'junegunn/seoul256.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'sts10/vim-pink-moon'
+Plug 'ayu-theme/ayu-vim'
+
+"" Markdown two panel
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 "" Linter
 Plug 'w0rp/ale'
@@ -72,10 +80,26 @@ filetype plugin indent on
 
 " }}}
 " Colors {{{
-colorscheme seoul256
+if has('termguicolors')
+  set termguicolors
+endif
+
+" colorscheme seoul256
+
+" colorscheme nord
+
+" colorscheme pink-moon
+" set background=dark
+
+" can also be 'mirage' or 'dark'
+let ayucolor="mirage"
+colorscheme ayu
+
 syntax enable
 set t_Co=256
 set ruler
+
+
 " }}}
 " Spaces & Tabs {{{
 "" Fix backspace indent
@@ -114,7 +138,7 @@ set smartcase
 " Folding {{{
 set foldenable          " enable folding
 
-set foldlevelstart=10   " open most folds by default
+set foldlevelstart=4   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 
 set foldmethod=indent   " fold based on indent level
@@ -206,7 +230,7 @@ let g:session_command_aliases = 1
 " }}}
 " Custom Maps {{{
 " open/closes folds
-nnoremap <leader>fd za
+nnoremap <space> za
 nnoremap <leader>pp :set paste!<CR>
 
 
@@ -225,7 +249,7 @@ noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
 
 nnoremap <leader>sp :sp<CR>
-nnoremap <leader>vs :vsp<CR>
+nnoremap <leader>vsp :vsp<CR>
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
@@ -244,6 +268,9 @@ nnoremap [Q :cfirst<CR>
 
 " }}}
 " Leader Maps {{{
+"" Change fold method
+nnoremap <leader>fi :set foldmethod=indent<CR>
+nnoremap <leader>fm :set foldmethod=marker<CR>
 
 "" Open, save and source vim/zsh rc files
 nnoremap <leader>rc :vsp $MYVIMRC<CR>
@@ -313,8 +340,7 @@ noremap <leader>fw :w !sudo tee %<CR>
 noremap <leader>fwc :w !sudo tee %
 
 "" Ale next
-nnoremap <space> :ALENext<CR>
-nnoremap <backspace> :ALEPrevious<CR>
+nnoremap <backspace> :ALENext<CR>
 
 " }}}
 " CtrlP Settings {{{
@@ -324,6 +350,9 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'"
 " }}}
 " Settings for plugs {{{
+"" Markdown toggle shortcut
+let vim_markdown_preview_hotkey='<leader>pm'
+
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 if exists("*fugitive#statusline")
   set statusline+=%{fugitive#statusline()}

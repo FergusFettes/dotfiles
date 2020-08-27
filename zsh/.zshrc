@@ -1,7 +1,7 @@
 export ZSH="/home/ffettes/.zsh"
 export PATH="$PATH":/snap/bin:/home/ffettes/.cargo/bin:/home/ffettes/.local:/home/ffettes/.local/bin
 
-# ZSH_THEME="random"
+# ZSH_THEME="strug"
 # ZSH_THEME_RANDOM_CANDIDATES=( "nanotech" "robbyrussell" "agnoster" "amuse" "fox" "pygmalion" "wedisagree" "strug" )
 HYPHEN_INSENSITIVE="true"
 
@@ -16,9 +16,9 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/custom/plugins/enhancd/init.sh
+source $ZSH/custom/plugins/enhancd/init.sh
 
-if [ `uname -n` = "ondewo10" ]; then
+if [ `uname -n` = "ondewo-6" ]; then
 source ~/.config/personal/.zshrc.work; fi
 # Export all the environmental variables
 source ~/.config/personal/.zshrc.vars

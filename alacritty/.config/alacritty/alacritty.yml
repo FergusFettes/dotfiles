@@ -1,0 +1,164 @@
+window:
+  decorations: none
+  startup_mode: Maximized
+
+shell:
+  program: /usr/bin/zsh
+
+schemes:
+  # Colors (Solarized Light)
+  solarized_light: &sol_light
+    # Default colors
+    primary:
+      background: '#fdf6e3' # base3
+      foreground: '#657b83' # base00
+
+    # Cursor colors
+    cursor:
+      text:   '#fdf6e3' # base3
+      cursor: '#657b83' # base00
+
+    # Normal colors
+    normal:
+      black:   '#073642' # base02
+      red:     '#dc322f' # red
+      green:   '#859900' # green
+      yellow:  '#b58900' # yellow
+      blue:    '#268bd2' # blue
+      magenta: '#d33682' # magenta
+      cyan:    '#2aa198' # cyan
+      white:   '#eee8d5' # base2
+
+    # Bright colors
+    bright:
+      black:   '#002b36' # base03
+      red:     '#cb4b16' # orange
+      green:   '#586e75' # base01
+      yellow:  '#657b83' # base00
+      blue:    '#839496' # base0
+      magenta: '#6c71c4' # violet
+      cyan:    '#93a1a1' # base1
+      white:   '#fdf6e3' # base3
+
+  # Colors (Solarized Dark)
+  solarized_dark:   &sol_dark
+    # Default colors
+    primary:
+      background: '#002b36' # base03
+      foreground: '#839496' # base0
+
+    # Cursor colors
+    cursor:
+      text:   '#002b36' # base03
+      cursor: '#839496' # base0
+
+    # Normal colors
+    normal:
+      black:   '#073642' # base02
+      red:     '#dc322f' # red
+      green:   '#859900' # green
+      yellow:  '#b58900' # yellow
+      blue:    '#268bd2' # blue
+      magenta: '#d33682' # magenta
+      cyan:    '#2aa198' # cyan
+      white:   '#eee8d5' # base2
+
+    # Bright colors
+    bright:
+      black:   '#002b36' # base03
+      red:     '#cb4b16' # orange
+      green:   '#586e75' # base01
+      yellow:  '#657b83' # base00
+      blue:    '#839496' # base0
+      magenta: '#6c71c4' # violet
+      cyan:    '#93a1a1' # base1
+      white:   '#fdf6e3' # base3
+
+    # Colors (Ayu Dark)
+  ayu_dark: &ayu_dark
+    # Default colors
+    primary:
+      background: '#000000'
+      foreground: '#B3B1AD'
+
+    # Normal colors
+    normal:
+      black: '#01060E'
+      red: '#EA6C73'
+      green: '#91B362'
+      yellow: '#F9AF4F'
+      blue: '#53BDFA'
+      magenta: '#FAE994'
+      cyan: '#90E1C6'
+      white: '#C7C7C7'
+
+    # Bright colors
+    bright:
+      black: '#686868'
+      red: '#F07178'
+      green: '#C2D94C'
+      yellow: '#FFB454'
+      blue: '#59C2FF'
+      magenta: '#FFEE99'
+      cyan: '#95E6CB'
+      white: '#FFFFFF'
+
+    # Colors (Ayu Mirage)
+  ayu_mirage: &ayu_mirage
+    # Default colors
+    primary:
+      background: '#202734'
+      foreground: '#CBCCC6'
+
+    # Normal colors
+    normal:
+      black: '#191E2A'
+      red: '#FF3333'
+      green: '#BAE67E'
+      yellow: '#FFA759'
+      blue: '#73D0FF'
+      magenta: '#FFD580'
+      cyan: '#95E6CB'
+      white: '#C7C7C7'
+
+    # Bright colors
+    bright:
+      black: '#686868'
+      red: '#F27983'
+      green: '#A6CC70'
+      yellow: '#FFCC66'
+      blue: '#5CCFE6'
+      magenta: '#FFEE99'
+      cyan: '#95E6CB'
+      white: '#FFFFFF'
+
+    # Colors (Nord)
+  nord: &nord
+     # Default colors
+     primary:
+       background: '#2E3440'
+       foreground: '#D8DEE9'
+
+     # Normal colors
+     normal:
+       black:   '#3B4252'
+       red:     '#BF616A'
+       green:   '#A3BE8C'
+       yellow:  '#EBCB8B'
+       blue:    '#81A1C1'
+       magenta: '#B48EAD'
+       cyan:    '#88C0D0'
+       white:   '#E5E9F0'
+
+     # Bright colors
+     bright:
+       black:   '#4C566A'
+       red:     '#BF616A'
+       green:   '#A3BE8C'
+       yellow:  '#EBCB8B'
+       blue:    '#81A1C1'
+       magenta: '#B48EAD'
+       cyan:    '#8FBCBB'
+       white:   '#ECEFF4'
+
+colors: *ayu_dark
