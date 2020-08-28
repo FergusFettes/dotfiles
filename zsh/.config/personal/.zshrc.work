@@ -5,6 +5,8 @@
 # alias ku=microk8s.kubectl
 # alias m8=microk8s
 
+alias barra="export TERM=xterm; barracudavpn"
+
 function npm_export() {
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

@@ -13,6 +13,7 @@ plugins=(
 	zsh-autosuggestions
 	zsh-navigation-tools
 	k
+  sudo
 )
 
 source $ZSH/oh-my-zsh.sh

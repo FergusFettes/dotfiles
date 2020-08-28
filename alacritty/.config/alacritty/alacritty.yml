@@ -20,7 +20,7 @@ schemes:
 
     # Normal colors
     normal:
-      black:   '#073642' # base02
+      black:   '#1f1f1f' # base02
       red:     '#dc322f' # red
       green:   '#859900' # green
       yellow:  '#b58900' # yellow
@@ -54,7 +54,7 @@ schemes:
 
     # Normal colors
     normal:
-      black:   '#073642' # base02
+      black:   '#1f1f1f' # base02
       red:     '#dc322f' # red
       green:   '#859900' # green
       yellow:  '#b58900' # yellow
@@ -83,7 +83,7 @@ schemes:
 
     # Normal colors
     normal:
-      black: '#01060E'
+      black: '#1f1f1f'
       red: '#EA6C73'
       green: '#91B362'
       yellow: '#F9AF4F'
