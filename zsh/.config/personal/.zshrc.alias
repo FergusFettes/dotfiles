@@ -31,7 +31,7 @@ alias fpp=~/.local/PathPicker/fpp
 alias r=ranger
 
 alias tips="vi $TIPS"
-alias scratch="vi $SCRATCH"
+alias scratch="cd ~/scratch && vi $SCRATCH"
 
 alias rsync="rsync -Phav"
 alias rsync_no_links="rsync -rptgoDLK"
