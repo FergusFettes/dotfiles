@@ -42,6 +42,9 @@ Plug 'Raimondi/delimitMate'
 Plug 'sheerun/vim-polyglot'
 Plug 'mbbill/undotree'
 
+" SonicPi plugin
+Plug 'dermusikman/sonicpi.vim'
+
 " Plug 'majutsushi/tagbar'
 
 "" Movement
@@ -328,12 +331,12 @@ noremap <Leader>gr :Gremove<CR>
 noremap <leader>ff :FZF<CR>
 
 "" Save/quit easily
-noremap <leader>w :w<CR>
+" noremap <leader>w :w<CR>
 noremap <leader>q :q<CR>
 noremap <leader>qq :qa!<CR>
 noremap <leader>qa :qa<CR>
 noremap <leader>wq :wq<CR>
-noremap <leader>e :e<space>
+" noremap <leader>e :e<space>
 
 "" Save readonly
 noremap <leader>fw :w !sudo tee %<CR>
@@ -350,6 +353,15 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'"
 " }}}
 " Settings for plugs {{{
+
+"" Sonic Pi Settings
+nnoremap <leader>e :SonicPiStop<CR>
+noremap <leader>w :w<CR>:SonicPiSendBuffer<CR>
+let g:sonicpi_command = 'sonic-py-tool'
+let g:sonicpi_send = 'eval-stdin'
+let g:sonicpi_stop = 'stop'
+let g:vim_redraw = 1
+
 "" Markdown toggle shortcut
 let vim_markdown_preview_hotkey='<leader>pm'
 
