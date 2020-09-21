@@ -1,5 +1,5 @@
 # if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
-# export KUBECONFIG=/home/ffettes/.bluemix/plugins/container-service/clusters/bmmrootd03m17d43d4v0/kube-config-hou02-asterisk_server.yml
+# export KUBECONFIG=/home/$USER/.bluemix/plugins/container-service/clusters/bmmrootd03m17d43d4v0/kube-config-hou02-asterisk_server.yml
 
 # source <(microk8s.kubectl completion zsh)
 # alias ku=microk8s.kubectl
@@ -16,7 +16,7 @@ function npm_export() {
 
 # These are some aliases for running things locally
 alias onlyduckling="cd ~/ondewo/ondewo-cai && make start-duckling-locally"
-alias envoy="docker kill envoy || true && docker run --rm -d --name envoy -v /home/ffettes/ondewo/ondewo-aim/envoy.yml:/etc/envoy/envoy.yaml --network=host envoyproxy/envoy:v1.10.0"
+alias envoy="docker kill envoy || true && docker run --rm -d --name envoy -v /home/$USER/ondewo/ondewo-aim/envoy.yml:/etc/envoy/envoy.yaml --network=host envoyproxy/envoy:v1.10.0"
 alias aimp_bridge="envoy && onlyduckling"
 alias postgres="docker pull dockerregistry.ondewo.com:5000/postgres:latest; docker rm -f postgres; docker run --restart always --name postgres -d -p 5432:5432 -e POSTGRES_USER=cai -e POSTGRES_PASSWORD=asdf dockerregistry.ondewo.com:5000/postgres:latest postgres -c log_statement=all"
 alias make_speech_services="make --directory=~/ondewo/ondewo-s2t-cloud run_stream_local && make --directory=~/ondewo/ondewo-s2t-demultiplexer run_demux_local && make --directory=~/ondewo/ondewo-t2s-cloud run_batch_local"

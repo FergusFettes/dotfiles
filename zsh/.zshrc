@@ -1,5 +1,5 @@
-export ZSH="/home/ffettes/.zsh"
-export PATH="$PATH":/snap/bin:/home/ffettes/.cargo/bin:/home/ffettes/.local:/home/ffettes/.local/bin
+export ZSH="/home/$USER/.zsh"
+export PATH="$PATH":/snap/bin:/home/$USER/.cargo/bin:/home/$USER/.local:/home/$USER/.local/bin
 
 # ZSH_THEME="strug"
 # ZSH_THEME_RANDOM_CANDIDATES=( "nanotech" "robbyrussell" "agnoster" "amuse" "fox" "pygmalion" "wedisagree" "strug" )
