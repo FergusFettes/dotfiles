@@ -41,7 +41,11 @@ alias ,=prompt_rotate
 
 alias zshrcs="vi ~/.zshrc ~/.config/personal/.zshrc.alias ~/.config/personal/.zshrc.vars ~/.config/personal/.zshrc.work ~/.config/personal/.zshrc.func"
 alias config="vi ~/.config/nvim/init.vim ~/.tmux.conf ~/.config/alacritty/alacritty.yml ~/.zshrc ~/.config/personal/.zshrc.alias ~/.config/personal/.zshrc.vars ~/.config/personal/.zshrc.work ~/.config/personal/.zshrc.func"
+alias configs=config
 
 alias pip=pip3
 alias python=python3
 alias nk=n-kill
+
+alias xi='xclip -f -sel clip'
+alias pass='cat /home/$USER/.passwords/my_long_pass | xi'
