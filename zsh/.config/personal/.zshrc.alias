@@ -48,4 +48,8 @@ alias python=python3
 alias nk=n-kill
 
 alias xi='xclip -f -sel clip'
-alias pass='cat /home/$USER/.passwords/my_long_pass | xi'
+alias pass='cat /home/$USER/.password-store/my_long_pass | xi'
+alias pass-dzm='cat /home/$USER/.password-store/dzm_pass | xi'
+alias pass-wko='cat /home/$USER/.password-store/wko_pass | xi'
+
+alias ipp="echo $IP | xi"
