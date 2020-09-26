@@ -1,4 +1,4 @@
-export ZSH="/home/$USER/.zsh"
+export ZSH="/home/$USER/.oh-my-zsh"
 export PATH="$PATH":/snap/bin:/home/$USER/.cargo/bin:/home/$USER/.local:/home/$USER/.local/bin:/usr/local/cuda-11.1/bin
 
 # ZSH_THEME="strug"
@@ -9,10 +9,7 @@ plugins=(
 	git
   git-flow
   python
-	zsh-syntax-highlighting
-	zsh-autosuggestions
 	zsh-navigation-tools
-	k
   sudo
 )
 
@@ -38,3 +35,4 @@ bindkey "^[\'" delete-word
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ,
+source ~/.antigenrc

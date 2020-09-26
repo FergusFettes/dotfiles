@@ -5,6 +5,10 @@ Will start to migrate all my configs from privtext to here. Just need to add [in
 # TODO
 
 * consider adding zsh plugins
-* consider adding oh-my-zsh entirely
 * consider adding a selection of vim plugins
-* can also have sections for credentials for different services
+
+keybindings in 'dconf' need to be loaded:
+
+`dconf load /org/gnome/desktop/wm/keybindings/ < ./dconf/keybindings.dconf`
+
+`dconf load /org/gnome/desktop/wm/custom-keybindings/ < ./dconf/custom-keybindings/keybindings.dconf`
