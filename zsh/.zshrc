@@ -9,10 +9,7 @@ plugins=(
 	git
   git-flow
   python
-	zsh-syntax-highlighting
-	zsh-autosuggestions
 	zsh-navigation-tools
-	k
   sudo
 )
 
