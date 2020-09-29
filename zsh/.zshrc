@@ -14,7 +14,8 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source $ZSH/custom/plugins/enhancd/init.sh
+source $HOME/custom/plugins/init.sh
+source ~/.antigenrc
 
 if [ `uname -n` = "ondewo-6" ]; then
 source ~/.config/personal/.zshrc.work; fi
@@ -35,4 +36,3 @@ bindkey "^[\'" delete-word
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ,
-source ~/.antigenrc
