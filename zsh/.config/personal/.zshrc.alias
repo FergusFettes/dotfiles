@@ -9,6 +9,7 @@ alias v="vi ."
 alias gl='git log --graph --decorate --oneline $(git rev-list -g --all)'
 alias glp="git log -p"
 alias gll="git pull"
+alias gp="git push --tags"
 
 alias x=exit
 alias xz="exec zsh"
@@ -48,8 +49,5 @@ alias python=python3
 alias nk=n-kill
 
 alias xi='xclip -f -sel clip'
-alias pass='cat /home/$USER/.password-store/my_long_pass | xi'
-alias pass-dzm='cat /home/$USER/.password-store/dzm_pass | xi'
-alias pass-wko='cat /home/$USER/.password-store/wko_pass | xi'
 
 alias ipp="echo $IP | xi"
