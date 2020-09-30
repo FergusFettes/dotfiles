@@ -14,7 +14,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source $ZSH/custom/plugins/enhancd/init.sh
+source $HOME/custom/plugins/init.sh
 source ~/.antigenrc
 
 if [ `uname -n` = "ondewo-6" ]; then
