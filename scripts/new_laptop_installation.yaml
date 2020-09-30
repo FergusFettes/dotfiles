@@ -1,0 +1,239 @@
+- hosts: new-machine
+  become: yes
+  become_user: root
+  vars:
+    local_user: ffettes
+    default_users:
+      - ffettes
+      # - sofolofo
+      - work
+    user_groups: docker,sudo
+    passwords_folder: "/home/ffettes/privtext/passwords/"
+
+  tasks:
+    - name: include pip role
+      include_role:
+        name: geerlingguy.pip
+      vars:
+        pip_executable: pip3
+        pip_install_packages:
+          - docker
+          - docker-compose
+          - numpy
+          - pandas
+    - name: include docker role
+      include_role:
+        name: geerlingguy.docker
+
+    - name: Create default users
+      user:
+        name: "{{ item }}"
+        groups: "{{ user_groups }}"
+        shell: /bin/bash
+        password: "{{ lookup('password', passwords_folder + 'masked-' + item|string + ' length=64 chars=ascii_letters,digits')}}"
+      with_items:
+        - "{{ default_users }}"
+
+    - name: Add user to sudo
+      lineinfile:
+        path: "/etc/sudoers.d/{{ item }}"
+        line: "{{ item }} ALL=(ALL) NOPASSWD: ALL"
+        state: present
+        mode: 0440
+        create: yes
+        validate: 'visudo -cf %s'
+      with_items:
+        - "{{ default_users }}"
+
+    - name: copy ssh keys for user
+      synchronize:
+        src: "~/.ssh/"
+        dest: "/home/ffettes/.ssh"
+
+    - name: Add specified repository into sources list using specified filename.
+      apt_repository:
+        repo: "{{ item }}"
+      with_items:
+        - 'ppa:regolith-linux/release'
+        - 'ppa:jgmath2000/et'
+
+    - name: install standard ubuntu packages
+      apt:
+        update_cache: yes
+        pkg:
+          # improved ssh tunelling/net tools
+          - et
+          - mosh
+          - unzip
+          - curl
+          - nfs-common
+          - net-tools
+          - openssh-server
+          # command line tools for navigation etc
+          - tree
+          - ranger
+          - parallel
+          - zsh
+          - tmux
+          - fzf
+          - jq
+          - stow
+          - ripgrep
+          - vim
+          - python3-neovim
+          # development tools
+          - git
+          - python3-pip
+          - python3-dev
+          - htop
+          - cmake
+          - software-properties-common
+          # ubuntu tools
+          - indicator-multiload
+          - gnome-tweaks
+          - pavucontrol
+          # Regolith
+          - regolith-desktop
+          - i3xrocks-net-traffic
+          - i3xrocks-cpu-usage
+          - i3xrocks-time
+          # deps for alacritty
+          - pkg-config
+          - libfreetype6-dev
+          - libfontconfig1-dev
+          - libxcb-xfixes0-dev
+    - name: uninstall ubuntu stuff
+      apt:
+        pkg:
+          - gnome-shell-extension-desktop-icons
+          - gnome-shell-extension-ubuntu-dock
+        state: absent
+
+    - name: install cargo
+      include_role:
+        name: robertdebock.cargo
+    - name: Rust clones
+      git:
+        repo: "https://github.com/{{ item }}"
+        dest: "/home/ffettes/.cargo/"
+        accept_hostkey: yes
+        depth: 1
+        recursive: yes
+        version: master
+      with_items:
+        - "alacritty/alacritty.git"
+      become: no
+    - name: Rust builds
+      shell:
+        cmd: "cargo build --release"
+        chdir: "/home/ffettes/.cargo/{{ item }}"
+      with_items:
+        - "alacritty"
+    - name: Install alacritty build
+      file:
+        src: "/home/ffettes/.cargo/target/release/alacritty"
+        path: "/usr/bin/alacritty"
+        state: link
+
+    - name: install fd, bat
+      include_role:
+        name: "gantsign.{{ item }}"
+      with_items:
+        - fd
+        - bat
+        - ctop
+        - atom
+        # - swapspace
+        # - zswap
+
+    - name: install oh-my-zsh and completion
+      include_role:
+        name: gantsign.antigen
+      vars:
+        users:
+          - username: ffettes
+            antigen_libraries:
+              - name: oh-my-zsh
+            antigen_bundles:
+              - name: hub
+              - name: git
+              - name: git-flow
+              - name: pip
+              - name: command-not-found
+              - name: sudo
+              - name: python
+              - name: k
+                url: supercrabtree/k
+              - name: zsh-syntax-highlighting
+                url: zsh-users/zsh-syntax-highlighting
+              - name: zsh-autosuggestions
+                url: zsh-users/zsh-autosuggestions
+              - name: zsh-navigation-tools
+                url: psprint/zsh-navigation-tools
+              - name: zsh-cmd-architect
+                url: psprint/zsh-cmd-architect
+        antigen_install_oh_my_zsh: yes
+    - name: place oh-my-zsh where you expect it
+      file:
+        src: "/home/ffettes/.antigen/bundles/robbyrussell/oh-my-zsh"
+        path: "/home/ffettes/.oh-my-zsh"
+        state: link
+      become: no
+    - name: Install enhancd
+      git:
+        repo: "https://github.com/b4b4r07/enhancd"
+        dest: "/home/ffettes/custom/plugins/"
+        accept_hostkey: yes
+        depth: 1
+        recursive: yes
+        version: master
+      become: no
+
+    - name: Create dirs for vim plug
+      file:
+        path: "/home/ffettes/.local/share/nvim/site/autoload/"
+        state: directory
+    - name: Download vim plug
+      get_url:
+        url: nttps://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        dest: "/home/ffettes/.local/share/nvim/site/autoload/plug.vim"
+
+    - name: Clone dotfiles
+      git:
+        repo: "https://github.com/fergusfettes/dotfiles"
+        dest: "/home/ffettes/dotfiles"
+        accept_hostkey: yes
+        depth: 1
+        recursive: yes
+        version: master
+      become: no
+    - name: Clear out .zshrc
+      file:
+        path: "/home/ffettes/.zshrc"
+        state: absent
+    - name: Stow dotfiles
+      shell:
+        cmd: "stow {{ item }}"
+        chdir: "/home/ffettes/dotfiles/"
+      with_items:
+        - "alacritty"
+        - "ansible"
+        - "git"
+        - "ipython"
+        - "pip"
+        - "ranger"
+        - "regolith"
+        # - "ssh"
+        - "tmux"
+        - "vim"
+        - "zsh"
+      become: no
+    - name: Load keybindings
+      shell:
+        cmd: "dconf load /usr/gnome/desktop/{{ item }}/ < {{ item }}"
+        chdir: "/home/ffettes/dotfiles/dconf/"
+      with_items:
+        - 'wm/keybindings'
+        - 'wm/custom-keybindings'
+        - 'input-sources'
+      become: no
