@@ -83,6 +83,7 @@
           - python3-neovim
           # development tools
           - git
+          - git-flow
           - python3-pip
           - python3-dev
           - htop
