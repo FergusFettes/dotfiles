@@ -21,6 +21,12 @@
           - docker-compose
           - numpy
           - pandas
+          - matplotlib
+          - pytest
+          - ipython
+          # for ALE
+          - flake8
+          - pylint
     - name: include docker role
       include_role:
         name: geerlingguy.docker

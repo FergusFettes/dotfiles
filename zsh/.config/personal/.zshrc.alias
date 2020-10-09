@@ -10,6 +10,8 @@ alias gl='git log --graph --decorate --oneline $(git rev-list -g --all)'
 alias glp="git log -p"
 alias gll="git pull"
 alias gp="git push --follow-tags"
+alias gs="git stash"  # overwrite ghostscript alias, its too annoying when it pops up
+alias gsp="git stash pop"
 
 alias x=exit
 alias xz="exec zsh"
@@ -49,6 +51,7 @@ alias python=python3
 alias nk=n-kill
 
 alias xi='xclip -f -sel clip'
-alias kill_ssh='kill -9 $(ps aux | rg "ssh -fNL" | head -1 | tee /dev/tty | awk '\''{ print $2 }'\'')'
+alias kill_ssh='kill -9 $(ps aux | rg "ssh -fN" | head -1 | tee /dev/tty | awk '\''{ print $2 }'\'')'
+alias show_ssh='ps aux | rg "ssh -fN"'
 
 alias ipp="echo $IP | xi"

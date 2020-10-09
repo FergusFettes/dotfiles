@@ -32,7 +32,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'JamshedVesuna/vim-markdown-preview'
 
 "" Linter
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 "" Other
 Plug 'ntpeters/vim-better-whitespace'
