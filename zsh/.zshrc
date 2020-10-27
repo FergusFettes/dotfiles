@@ -11,6 +11,8 @@ plugins=(
   python
 	zsh-navigation-tools
   sudo
+  # zsh-interactive-cd
+  # urltools
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -36,6 +38,9 @@ bindkey '^[,' forward-char
 bindkey '^[.' backward-word
 bindkey '^[/' backward-delete-word
 bindkey "^[\'" delete-word
+
+# bindkey for Zsh Command Architect
+bindkey '^K' zca-widget
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
