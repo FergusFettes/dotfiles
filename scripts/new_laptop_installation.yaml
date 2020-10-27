@@ -24,6 +24,7 @@
           - matplotlib
           - pytest
           - ipython
+          - ipdb
           # for ALE
           - flake8
           - pylint
@@ -109,6 +110,8 @@
           - libfreetype6-dev
           - libfontconfig1-dev
           - libxcb-xfixes0-dev
+          # other tools
+          - inkscape
     - name: uninstall ubuntu stuff
       apt:
         pkg:
