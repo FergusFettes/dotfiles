@@ -14,6 +14,12 @@ function npm_export() {
   nvm use v10
 }
 
+function npm_export_simple() {
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
+
 # These are some aliases for running things locally
 alias onlyduckling="cd ~/ondewo/ondewo-cai && make start-duckling-locally"
 alias envoy="docker kill envoy || true && docker run --rm -d --name envoy -v /home/$USER/ondewo/ondewo-aim/envoy.yml:/etc/envoy/envoy.yaml --network=host envoyproxy/envoy:v1.10.0"
