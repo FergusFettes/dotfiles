@@ -72,10 +72,10 @@ Plug 'svermeulen/vim-easyclip'
 " Plug 'ivanov/vim-ipython'
 
 " Track the engine.
-" Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-" Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 " " Slimv
 " Plug 'kovisoft/slimv'
@@ -414,10 +414,10 @@ let g:ycm_path_to_python_interpreter="/usr/bin/python3"
 " Ale ignore
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="df"
-let g:UltiSnipsJumpForwardTrigger="df"
-let g:UltiSnipsJumpBackwardTrigger="fd"
-let g:UltiSnipsListSnippets="sd"
+let g:UltiSnipsExpandTrigger="<c-t>"
+let g:UltiSnipsJumpForwardTrigger="<c-g>"
+let g:UltiSnipsJumpBackwardTrigger="<c-f>"
+let g:UltiSnipsListSnippets="<c-y>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"

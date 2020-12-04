@@ -32,13 +32,6 @@ source ~/.config/personal/.zshrc.alias
 # Export all the functions
 source ~/.config/personal/.zshrc.func
 
-bindkey '^[n' beginning-of-line
-bindkey '^[m' forward-word
-bindkey '^[,' forward-char
-bindkey '^[.' backward-word
-bindkey '^[/' backward-delete-word
-bindkey "^[\'" delete-word
-
 bindkey '^H' beginning-of-line
 bindkey '^J' forward-word
 bindkey '^K' forward-char
