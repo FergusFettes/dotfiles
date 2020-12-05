@@ -24,6 +24,7 @@
           - matplotlib
           - pytest
           - ipython
+          - ipdb
           # for ALE
           - flake8
           - pylint
@@ -109,6 +110,8 @@
           - libfreetype6-dev
           - libfontconfig1-dev
           - libxcb-xfixes0-dev
+          # other tools
+          - inkscape
     - name: uninstall ubuntu stuff
       apt:
         pkg:
@@ -202,7 +205,7 @@
         state: directory
     - name: Download vim plug
       get_url:
-        url: nttps://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         dest: "/home/ffettes/.local/share/nvim/site/autoload/plug.vim"
 
     - name: Clone dotfiles

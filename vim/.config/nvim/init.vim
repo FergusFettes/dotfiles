@@ -1,6 +1,10 @@
 " Plugins {{{
 call plug#begin(expand('~/.vim/plugged'))
 
+"" NERDtree
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin'
+
 "" Silver Searcher (note, depreciated, maybe use Ack)
 Plug 'rking/ag.vim'
 "" CtrlP --fuzzy file searcher
@@ -11,7 +15,6 @@ Plug 'junegunn/fzf.vim'
 
 "" Git-related
 Plug 'airblade/vim-gitgutter'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 
 "" Fancy status bar
@@ -69,10 +72,10 @@ Plug 'svermeulen/vim-easyclip'
 " Plug 'ivanov/vim-ipython'
 
 " Track the engine.
-" Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-" Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 " " Slimv
 " Plug 'kovisoft/slimv'
@@ -271,6 +274,11 @@ nnoremap [Q :cfirst<CR>
 
 " }}}
 " Leader Maps {{{
+
+"" NERDtree toggle
+nnoremap <leader>t :NERDTreeToggle<CR>
+
+
 "" Change fold method
 nnoremap <leader>fi :set foldmethod=indent<CR>
 nnoremap <leader>fm :set foldmethod=marker<CR>
@@ -279,8 +287,8 @@ nnoremap <leader>fm :set foldmethod=marker<CR>
 nnoremap <leader>rc :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-"" Open tips_megafile
-nnoremap <leader>t :vsp $TIPS<CR>
+" "" Open tips_megafile
+" nnoremap <leader>t :vsp $TIPS<CR>
 
 " Spellchecker mapped to <leader>o
 map <leader>o :setlocal spell! spelllang=en_us<CR>
@@ -354,6 +362,9 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'"
 " }}}
 " Settings for plugs {{{
 
+"" Fix for NERDtree window closing
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 "" Sonic Pi Settings
 nnoremap <leader>e :SonicPiStop<CR>
 noremap <leader>w :w<CR>:SonicPiSendBuffer<CR>
@@ -403,10 +414,10 @@ let g:ycm_path_to_python_interpreter="/usr/bin/python3"
 " Ale ignore
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="df"
-let g:UltiSnipsJumpForwardTrigger="df"
-let g:UltiSnipsJumpBackwardTrigger="fd"
-let g:UltiSnipsListSnippets="sd"
+let g:UltiSnipsExpandTrigger="<c-t>"
+let g:UltiSnipsJumpForwardTrigger="<c-g>"
+let g:UltiSnipsJumpBackwardTrigger="<c-f>"
+let g:UltiSnipsListSnippets="<c-y>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"

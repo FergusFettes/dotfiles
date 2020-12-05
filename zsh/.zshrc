@@ -11,6 +11,8 @@ plugins=(
   python
 	zsh-navigation-tools
   sudo
+  # zsh-interactive-cd
+  # urltools
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -30,12 +32,15 @@ source ~/.config/personal/.zshrc.alias
 # Export all the functions
 source ~/.config/personal/.zshrc.func
 
-bindkey '^[n' beginning-of-line
-bindkey '^[m' forward-word
-bindkey '^[,' forward-char
-bindkey '^[.' backward-word
-bindkey '^[/' backward-delete-word
-bindkey "^[\'" delete-word
+bindkey '^H' beginning-of-line
+bindkey '^J' forward-word
+bindkey '^K' forward-char
+bindkey '^L' backward-word
+bindkey "^\"" backward-delete-word
+bindkey "^\'" delete-word
+
+# bindkey for Zsh Command Architect
+bindkey '^N' zca-widget
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
