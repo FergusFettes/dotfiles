@@ -37,10 +37,10 @@ bindkey '^J' forward-word
 bindkey '^K' forward-char
 bindkey '^Q' backward-word
 bindkey '^W' backward-delete-word
-bindkey '^I' delete-word
+bindkey '^E' delete-word
 
 # bindkey for Zsh Command Architect
-bindkey '^Y' zca-widget
+bindkey '^N' zca-widget
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
