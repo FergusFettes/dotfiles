@@ -35,12 +35,12 @@ source ~/.config/personal/.zshrc.func
 bindkey '^H' beginning-of-line
 bindkey '^J' forward-word
 bindkey '^K' forward-char
-bindkey '^L' backward-word
-bindkey "^\"" backward-delete-word
-bindkey "^\'" delete-word
+bindkey '^Q' backward-word
+bindkey '^W' backward-delete-word
+bindkey '^I' delete-word
 
 # bindkey for Zsh Command Architect
-bindkey '^N' zca-widget
+bindkey '^Y' zca-widget
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
