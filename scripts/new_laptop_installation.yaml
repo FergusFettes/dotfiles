@@ -96,6 +96,7 @@
           - htop
           - cmake
           - software-properties-common
+          - virtualenv
           # ubuntu tools
           - indicator-multiload
           - gnome-tweaks
@@ -246,4 +247,5 @@
         - 'wm/keybindings'
         - 'wm/custom-keybindings'
         - 'input-sources'
-      become: no
+      become: yes
+      become_user: ffettes

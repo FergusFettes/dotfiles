@@ -9,6 +9,8 @@ My config files and a couple of scripts (in `./scripts/`) for reinstalling every
 * vim plugins need installed
 * youcompleteme needs installed (`~/.vim/plugged/youcompleteme/install.sh`)
 * change remotes (git remote remove origin)
+* dconf load /org/gnome/desktop/wm/keybindings/ < ./dconf/wm/keybindings
+* dconf load /org/gnome/desktop/wm/custom-keybindings/ < ./dconf/custom-keybindings/keybindings.dconf
 * caps and ctrl need swapped in tweaks
 * turn off animations
 * replace the desktop background
