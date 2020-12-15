@@ -25,6 +25,8 @@
           - pytest
           - ipython
           - ipdb
+          - pre-commit
+          - neovim
           # for ALE
           - flake8
           - pylint
@@ -83,6 +85,7 @@
           - zsh
           - tmux
           - fzf
+          - silversearch-ag
           - jq
           - stow
           - ripgrep
@@ -97,6 +100,7 @@
           - cmake
           - software-properties-common
           - virtualenv
+          - ansible
           # ubuntu tools
           - indicator-multiload
           - gnome-tweaks
@@ -231,10 +235,11 @@
         - "ansible"
         - "git"
         - "ipython"
-        - "pip"
         - "ranger"
         - "regolith"
+        # - "pip"
         # - "ssh"
+        - "pylintrc"
         - "tmux"
         - "vim"
         - "zsh"
