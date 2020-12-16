@@ -9,11 +9,12 @@ My config files and a couple of scripts (in `./scripts/`) for reinstalling every
 3. Install ansible roles `ansible-galaxy install geerlingguy.pip geerlingguy.docker robertdebock.cargo gantsign.fd gantsign.bat gantsign.ctop gantsign.atom gantsign.antigen`
 4. Add the target machines ips to `/etc/ansible/hosts` under '[new-machine]'.
 5. Make sure you have changed the password folder and chosen a password (and created a masked password).
-6. Run ansible with
+6. WARNING: if you are running the install from the taget machine, make sure you have a copy of the password, or you will get locked out!
+7. Run ansible with
 ```bash
  ansible-playbook scripts/new_laptop_installation.yaml --extra-vars 'ansible_sudo_pass=<SUDO PASS FOR NEW MACHINE>'
  ```
-6. Sit back, have a margarita, and watch your work being done for you.
+8. Sit back, have a margarita, and watch your work being done for you.
 
 ## TODO
 
