@@ -8,7 +8,7 @@
       # - sofolofo
       - work
     user_groups: docker,sudo
-    passwords_folder: "/home/ffettes/privtext/passwords/"
+    passwords_folder: "/home/ffettes/.password-store/"
 
   tasks:
     - name: include pip role
@@ -85,7 +85,7 @@
           - zsh
           - tmux
           - fzf
-          - silversearch-ag
+          - silversearcher-ag
           - jq
           - stow
           - ripgrep
@@ -157,7 +157,7 @@
         - fd
         - bat
         - ctop
-        - atom
+        # - atom
         # - swapspace
         # - zswap
 
@@ -249,8 +249,8 @@
         cmd: "dconf load /usr/gnome/desktop/{{ item }}/ < {{ item }}"
         chdir: "/home/ffettes/dotfiles/dconf/"
       with_items:
-        - 'wm/keybindings'
-        - 'wm/custom-keybindings'
-        - 'input-sources'
+        - './wm/keybindings'
+        - './wm/custom-keybindings'
+        - './input-sources'
       become: yes
       become_user: ffettes
