@@ -8,7 +8,7 @@
       # - sofolofo
       - work
     user_groups: docker,sudo
-    passwords_folder: "/home/ffettes/privtext/passwords/"
+    passwords_folder: "/home/ffettes/.password-store/"
 
   tasks:
     - name: include pip role
@@ -25,6 +25,8 @@
           - pytest
           - ipython
           - ipdb
+          - pre-commit
+          - neovim
           # for ALE
           - flake8
           - pylint
@@ -83,6 +85,7 @@
           - zsh
           - tmux
           - fzf
+          - silversearcher-ag
           - jq
           - stow
           - ripgrep
@@ -96,6 +99,8 @@
           - htop
           - cmake
           - software-properties-common
+          - virtualenv
+          - ansible
           # ubuntu tools
           - indicator-multiload
           - gnome-tweaks
@@ -155,7 +160,7 @@
         - fd
         - bat
         - ctop
-        - atom
+        # - atom
         # - swapspace
         # - zswap
 
@@ -233,10 +238,11 @@
         - "ansible"
         - "git"
         - "ipython"
-        - "pip"
         - "ranger"
         - "regolith"
+        # - "pip"
         # - "ssh"
+        - "pylintrc"
         - "tmux"
         - "vim"
         - "zsh"
@@ -246,7 +252,8 @@
         cmd: "dconf load /usr/gnome/desktop/{{ item }}/ < {{ item }}"
         chdir: "/home/ffettes/dotfiles/dconf/"
       with_items:
-        - 'wm/keybindings'
-        - 'wm/custom-keybindings'
-        - 'input-sources'
-      become: no
+        - './wm/keybindings'
+        - './wm/custom-keybindings'
+        - './input-sources'
+      become: yes
+      become_user: ffettes

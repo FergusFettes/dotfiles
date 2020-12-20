@@ -18,13 +18,12 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source ~/.antigenrc
 
-if [ `uname -n` = "ondewo-6" ]
+if [ `uname -n` = "ondewo-xmg-01" ]
 then
   source ~/.config/personal/.zshrc.work
-  source $ZSH/custom/plugins/enhancd/init.sh
 else
-  source $HOME/custom/plugins/init.sh
 fi
+source $HOME/custom/plugins/init.sh
 # Export all the environmental variables
 source ~/.config/personal/.zshrc.vars
 # Export all the aliases

@@ -17,8 +17,21 @@ else
   fi
 fi
 
-# restricting some haracters that cause headaches
-pass=$(pwgen -s 64 | shuf)
+if [ -z $2 ]
+then
+  pass=$(pwgen -s 64 | shuf)
+  read -p "pass will be $pass, is this okay? [y/n]" -n 2 -r
+else
+  read -p "pass provided was $2, is this correct? [y/n]" -n 2 -r
+  pass="$2"
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    echo okay nice
+  else
+    echo name required please thank you
+    exit 1
+  fi
+fi
 
 echo creating plaintext-$1 file with user/pass
 echo user: $1 > overview-$1
