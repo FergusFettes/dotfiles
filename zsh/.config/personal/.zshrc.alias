@@ -34,7 +34,8 @@ alias grpcurl=~/.local/grpcurl
 alias r=ranger
 
 alias tips="vi $TIPS"
-alias scratch="cd ~/scratch && vi $SCRATCH"
+alias scratch="cd ~/journal && vi $SCRATCH"
+alias todo="cd ~/journal && vi Lists/Todo.md"
 
 alias rsync="rsync -Phav"
 alias rsync_no_links="rsync -rptgoDLK"

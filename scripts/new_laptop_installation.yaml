@@ -112,6 +112,9 @@
           - libxcb-xfixes0-dev
           # other tools
           - inkscape
+          - hugo
+          - lynx
+          - feh
     - name: uninstall ubuntu stuff
       apt:
         pkg:

@@ -173,6 +173,8 @@ nnoremap ^ <nop>
 " Deeply radical..
 " jk is escape
 inoremap jk <esc>
+nnoremap ;1 :!
+nnoremap ;12 :!<UP>
 
 " open ag.vim
 nnoremap <leader>as :Ag!
