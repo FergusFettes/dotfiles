@@ -18,6 +18,8 @@ My config files and a couple of scripts (in `./scripts/`) for reinstalling every
 
 ## TODO
 
+* install cronjobs
+* install bat-extras
 * alacritty not working?
 * consider adding zsh plugins
 * consider adding a selection of vim plugins
