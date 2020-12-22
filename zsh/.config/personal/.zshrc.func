@@ -64,3 +64,17 @@ function prompt_rotate() {
     PROMPT_VERBOSITY=0
   fi
 }
+
+function dark() {
+  sed -i "s/# \(.*# dark_theme\)/\1/" $ALACRITTYRC
+  sed -i 's/^.*light_theme/# &/' $ALACRITTYRC
+  sed -i 's/" \(.*" dark_theme\)/\1/' $VIMRC
+  sed -i 's/^.*light_theme/" &/' $VIMRC
+}
+
+function light() {
+  sed -i "s/# \(.*# light_theme\)/\1/" $ALACRITTYRC
+  sed -i 's/^.*dark_theme/# &/' $ALACRITTYRC
+  sed -i 's/" \(.*" light_theme\)/\1/' $VIMRC
+  sed -i 's/^.*dark_theme/" &/' $VIMRC
+}

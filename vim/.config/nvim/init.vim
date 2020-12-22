@@ -26,10 +26,12 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 "" Colorscheme
-" Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/seoul256.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'sts10/vim-pink-moon'
 Plug 'ayu-theme/ayu-vim'
+Plug 'ajmwagar/vim-deus'
+Plug 'scheakur/vim-scheakur'
 
 "" Markdown two panel
 Plug 'JamshedVesuna/vim-markdown-preview'
@@ -90,16 +92,14 @@ if has('termguicolors')
   set termguicolors
 endif
 
+" " can also be 'mirage' or 'dark'
+" let ayucolor="light"|   " light_theme
+" let ayucolor="mirage"
+" colorscheme ayu|        " light_theme
 " colorscheme seoul256
-
 " colorscheme nord
+colorscheme pink-moon|  " dark_theme
 
-" colorscheme pink-moon
-" set background=dark
-
-" can also be 'mirage' or 'dark'
-let ayucolor="mirage"
-colorscheme ayu
 
 syntax enable
 set t_Co=256
