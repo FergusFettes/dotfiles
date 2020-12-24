@@ -1,4 +1,5 @@
 alias \?='uname -n'
+alias THEME=dark
 
 alias vi=nvim
 alias dk=docker
