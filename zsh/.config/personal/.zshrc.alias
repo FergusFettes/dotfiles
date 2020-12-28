@@ -22,6 +22,7 @@ alias tk="tmux attach"
 alias m8=microk8s
 alias ku="microk8s kubectl"
 alias hd=hyperdrive
+alias mime='file --mime-type -b'
 
 alias l=k
 alias la="k -a"
