@@ -105,6 +105,9 @@
           - indicator-multiload
           - gnome-tweaks
           - pavucontrol
+          - tlp
+          - linux-tools-common
+          - linux-tools-generic
           # Regolith
           - regolith-desktop
           - i3xrocks-net-traffic

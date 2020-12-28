@@ -241,7 +241,7 @@ let g:session_command_aliases = 1
 nnoremap <space> za
 nnoremap <leader>pp :set paste!<CR>
 
-nnoremap <leader>pc :r!date "+\%Y-\%m-\%dT\%H:\%M:\%S+01:00"<CR>
+nnoremap <leader>pc :r!date "+\%Y-\%m-\%dT\%H:\%M:\%S+01:00"<CR>kJ
 
 "" Enter inserts empty line
 map <CR> o<Esc>
