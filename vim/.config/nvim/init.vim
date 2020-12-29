@@ -4,6 +4,8 @@ call plug#begin(expand('~/.vim/plugged'))
 "" NERDtree
 Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 "" Silver Searcher (note, depreciated, maybe use Ack)
 Plug 'rking/ag.vim'
@@ -281,7 +283,6 @@ nnoremap [Q :cfirst<CR>
 "" NERDtree toggle
 nnoremap <leader>t :NERDTreeToggle<CR>
 
-
 "" Change fold method
 nnoremap <leader>fi :set foldmethod=indent<CR>
 nnoremap <leader>fm :set foldmethod=marker<CR>
@@ -367,6 +368,13 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'"
 
 "" Fix for NERDtree window closing
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:ranger_map_keys = 0
+noremap <leader>re :Ranger<CR>
+noremap <leader>rn :RangerNewTab<CR>
+" add this line if you use NERDTree
+let g:NERDTreeHijackNetrw = 0
+" open ranger when vim open a directory
+let g:ranger_replace_netrw = 1
 
 "" Sonic Pi Settings
 nnoremap <leader>e :SonicPiStop<CR>
