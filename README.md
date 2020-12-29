@@ -18,12 +18,8 @@ My config files and a couple of scripts (in `./scripts/`) for reinstalling every
 
 ## TODO
 
-* install tmux plugins `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 * tmux plugins: prefix + I
 * install cronjobs
-* install bat-extras
-* alacritty not working?
-* consider adding zsh plugins
 * consider adding a selection of vim plugins
 * virtualenv deps (ipython and neovim)
 * vim plugins need installed
