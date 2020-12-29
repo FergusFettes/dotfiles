@@ -5,12 +5,18 @@
     local_user: ffettes
     default_users:
       - ffettes
-      # - sofolofo
-      - work
+      # - mfettes
+      # - work
     user_groups: docker,sudo
     passwords_folder: "/home/ffettes/.password-store/"
-
+    maximal: no
   tasks:
+    - name: Update and upgrade all apt packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+        force_apt_get: yes
+
     - name: include pip role
       include_role:
         name: geerlingguy.pip
@@ -30,6 +36,7 @@
           # for ALE
           - flake8
           - pylint
+      when: maximal
     - name: include docker role
       include_role:
         name: geerlingguy.docker
@@ -42,7 +49,7 @@
         password: "{{ lookup('password', passwords_folder + 'masked-' + item|string + ' length=64 chars=ascii_letters,digits')}}"
       with_items:
         - "{{ default_users }}"
-
+      when: maximal
     - name: Add user to sudo
       lineinfile:
         path: "/etc/sudoers.d/{{ item }}"
@@ -53,11 +60,12 @@
         validate: 'visudo -cf %s'
       with_items:
         - "{{ default_users }}"
-
+      when: maximal
     - name: copy ssh keys for user
       synchronize:
         src: "~/.ssh/"
         dest: "/home/ffettes/.ssh"
+      when: maximal
 
     - name: Add specified repository into sources list using specified filename.
       apt_repository:
@@ -101,6 +109,10 @@
           - software-properties-common
           - virtualenv
           - ansible
+    - name: install extra ubuntu packages
+      apt:
+        update_cache: yes
+        pkg:
           # ubuntu tools
           - indicator-multiload
           - gnome-tweaks
@@ -123,38 +135,44 @@
           - hugo
           - lynx
           - feh
+          - vlc
+      when: maximal
     - name: uninstall ubuntu stuff
       apt:
         pkg:
           - gnome-shell-extension-desktop-icons
           - gnome-shell-extension-ubuntu-dock
         state: absent
+      when: maximal
 
-    - name: install cargo
-      include_role:
-        name: robertdebock.cargo
-    - name: Rust clones
-      git:
-        repo: "https://github.com/{{ item }}"
-        dest: "/home/ffettes/.cargo/"
-        accept_hostkey: yes
-        depth: 1
-        recursive: yes
-        version: master
-      with_items:
-        - "alacritty/alacritty.git"
-      become: no
-    - name: Rust builds
-      shell:
-        cmd: "cargo build --release"
-        chdir: "/home/ffettes/.cargo/{{ item }}"
-      with_items:
-        - "alacritty"
-    - name: Install alacritty build
-      file:
-        src: "/home/ffettes/.cargo/target/release/alacritty"
-        path: "/usr/bin/alacritty"
-        state: link
+    - name: install cargo for alacritty and alacritty
+      block:
+        - name: install cargo
+          include_role:
+            name: robertdebock.cargo
+        - name: Rust clones
+          git:
+            repo: "https://github.com/{{ item }}"
+            dest: "/home/ffettes/.cargo/"
+            accept_hostkey: yes
+            depth: 1
+            recursive: yes
+            version: master
+          with_items:
+            - "alacritty/alacritty.git"
+          become: no
+        - name: Rust builds
+          shell:
+            cmd: "cargo build --release"
+            chdir: "/home/ffettes/.cargo/{{ item }}"
+          with_items:
+            - "alacritty"
+        - name: Install alacritty build
+          file:
+            src: "/home/ffettes/.cargo/target/release/alacritty"
+            path: "/usr/bin/alacritty"
+            state: link
+      when: maximal
 
     - name: install fd, bat
       include_role:
@@ -260,3 +278,4 @@
         - './input-sources'
       become: yes
       become_user: ffettes
+      when: maximal
