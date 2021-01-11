@@ -56,6 +56,7 @@ Plug 'dermusikman/sonicpi.vim'
 
 "" Movement
 Plug 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-sneak'
 
 "" Close buffers
 Plug 'Asheq/close-buffers.vim'
@@ -102,11 +103,9 @@ endif
 " colorscheme nord
 colorscheme pink-moon|  " dark_theme
 
-
 syntax enable
 set t_Co=256
 set ruler
-
 
 " }}}
 " Spaces & Tabs {{{
@@ -281,6 +280,8 @@ nnoremap [Q :cfirst<CR>
 " mapping for making a word into a markdown link
 " NOTE! this is made before the 'm' is mapped to 'gm', so it has to be 'm'!
 nnoremap <leader>l :let @y=@+<CR>"ryiwmhciw[r][r]<Esc>Gi[r]: y<Esc>`hE
+
+nnoremap / ms/
 " }}}
 " Leader Maps {{{
 
