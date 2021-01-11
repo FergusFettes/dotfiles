@@ -135,6 +135,7 @@ set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw only when we need to.
 
 set showmatch           " highlight matching [{()}]
+set noshowmode
 " }}}
 " Search {{{
 "" Searching
@@ -277,6 +278,9 @@ nnoremap [q :cprevious<CR>
 nnoremap ]Q :clast<CR>
 nnoremap [Q :cfirst<CR>
 
+" mapping for making a word into a markdown link
+" NOTE! this is made before the 'm' is mapped to 'gm', so it has to be 'm'!
+nnoremap <leader>l :let @y=@+<CR>"ryiwmhciw[r][r]<Esc>Gi[r]: y<Esc>`hE
 " }}}
 " Leader Maps {{{
 
@@ -512,5 +516,44 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+" }}}
+" Lynx {{{
+function! s:init_lynx()
+  nnoremap <nowait><buffer> <C-F> i<PageDown><C-\><C-N>
+  tnoremap <nowait><buffer> <C-F> <PageDown>
+
+  nnoremap <nowait><buffer> <C-B> i<PageUp><C-\><C-N>
+  tnoremap <nowait><buffer> <C-B> <PageUp>
+
+  nnoremap <nowait><buffer> <C-D> i:DOWN_HALF<CR><C-\><C-N>
+  tnoremap <nowait><buffer> <C-D> :DOWN_HALF<CR>
+
+  nnoremap <nowait><buffer> <C-U> i:UP_HALF<CR><C-\><C-N>
+  tnoremap <nowait><buffer> <C-U> :UP_HALF<CR>
+
+  nnoremap <nowait><buffer> <C-N> i<Delete><C-\><C-N>
+  tnoremap <nowait><buffer> <C-N> <Delete>
+
+  nnoremap <nowait><buffer> <C-P> i<Insert><C-\><C-N>
+  tnoremap <nowait><buffer> <C-P> <Insert>
+
+  nnoremap <nowait><buffer> u     i<Left><C-\><C-N>
+  nnoremap <nowait><buffer> U     i<C-U><C-\><C-N>
+  nnoremap <nowait><buffer> <CR>  i<CR><C-\><C-N>
+  nnoremap <nowait><buffer> gg    i:HOME<CR><C-\><C-N>
+  nnoremap <nowait><buffer> G     i:END<CR><C-\><C-N>
+  nnoremap <nowait><buffer> zl    i:SHIFT_LEFT<CR><C-\><C-N>
+  nnoremap <nowait><buffer> zL    i:SHIFT_LEFT<CR><C-\><C-N>
+  nnoremap <nowait><buffer> zr    i:SHIFT_RIGHT<CR><C-\><C-N>
+  nnoremap <nowait><buffer> zR    i:SHIFT_RIGHT<CR><C-\><C-N>
+  nnoremap <nowait><buffer> gh    i:HELP<CR><C-\><C-N>
+  nnoremap <nowait><buffer> cow   i:LINEWRAP_TOGGLE<CR><C-\><C-N>
+
+  tnoremap <buffer> <C-C> <C-G><C-\><C-N>
+  nnoremap <buffer> <C-C> i<C-G><C-\><C-N>
+endfunction
+command! -nargs=1 Web       vnew|call termopen('lynx -scrollbar '.shellescape(substitute(<q-args>,'#','%23','g')))|call <SID>init_lynx()
+command! -nargs=1 Websearch vnew|call termopen('lynx -scrollbar https://duckduckgo.com/?q='.shellescape(substitute(<q-args>,'#','%23','g')))|call <SID>init_lynx()
+
 " }}}
 " vim:foldmethod=marker:foldlevel=0
