@@ -370,6 +370,8 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'"
 " }}}
 " Settings for plugs {{{
+"" enable clever sneak
+let g:sneak#s_next = 1
 
 "" Fix for NERDtree window closing
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
