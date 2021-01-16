@@ -5,16 +5,17 @@ My config files and a couple of scripts (in `./scripts/`) for reinstalling every
 # Quickstart
 
 1. Install ssh `apt install openssh-server` on the target machines.
-2. Install ansible on the client machine `apt install ansible`.
-3. Install ansible roles `ansible-galaxy install geerlingguy.pip geerlingguy.docker robertdebock.cargo gantsign.fd gantsign.bat gantsign.ctop gantsign.atom gantsign.antigen`
-4. Add the target machines ips to `/etc/ansible/hosts` under '[new-machine]'.
-5. Make sure you have changed the password folder and chosen a password (and created a masked password).
-6. WARNING: if you are running the install from the taget machine, make sure you have a copy of the password, or you will get locked out!
-7. Run ansible with
+2. If you are installing from the target machine, create ssh keys and add them to authorized_keys list: `ssh-keygen -t rsa -b 4096 -C "maxfettes@hotmail.com" -N ''`
+3. Install ansible on the client machine `apt install ansible`.
+4. Install ansible roles `ansible-galaxy install geerlingguy.pip geerlingguy.docker robertdebock.cargo gantsign.fd gantsign.bat gantsign.ctop gantsign.atom gantsign.antigen`
+5. Add the target machines ips to `/etc/ansible/hosts` under '[new-machine]'.
+6. Make sure you have changed the password folder and chosen a password (and created a masked password).
+7. WARNING: if you are running the install from the taget machine, make sure you have a copy of the password, or you will get locked out!
+8. Run ansible with
 ```bash
  ansible-playbook scripts/new_laptop_installation.yaml --extra-vars 'ansible_sudo_pass=<SUDO PASS FOR NEW MACHINE>'
  ```
-8. Sit back, have a margarita, and watch your work being done for you.
+9. Sit back, have a margarita, and watch your work being done for you.
 
 ## TODO
 
