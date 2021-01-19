@@ -38,7 +38,8 @@ if [ -f '/home/ffettes/.local/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ff
 if [ -f '/usr/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/completion.zsh.inc'; fi
 if [ -f '/home/ffettes/.local/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ffettes/.local/google-cloud-sdk/completion.zsh.inc'; fi
 
-alias pass='cat /home/$USER/.password-store/my_long_pass | xi'
+alias pass-a100='cat /home/$USER/.password-store/my_long_pass | xi'
 alias pass-dzm='cat /home/$USER/.password-store/dzm_pass | xi'
 alias pass-wko='cat /home/$USER/.password-store/wko_pass | xi'
 alias pass-admin='cat /home/$USER/.password-store/admin_pass | xi'
+alias pass-vpn='cat /home/$USER/.password-store/vpn_pass | xi'
