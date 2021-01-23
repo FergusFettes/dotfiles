@@ -317,7 +317,7 @@ nnoremap <leader>s :mksession! ~/.vim/session/
 nnoremap <silent> <leader><space> :noh<cr>
 
 " terminal emulation
-nnoremap <silent> <leader>sh :terminal<CR>
+nnoremap <silent> <leader>sh :sp<Bar>:terminal<CR>
 nnoremap <silent> <leader>vsh :vs<Bar>:terminal<CR>
 
 "" Set working directory
