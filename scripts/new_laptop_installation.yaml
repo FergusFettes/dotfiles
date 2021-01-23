@@ -86,6 +86,7 @@
           - nfs-common
           - net-tools
           - openssh-server
+          - fping
           # command line tools for navigation etc
           - tree
           - ranger

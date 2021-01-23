@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+echo "dont forget to install:
+sudo apt install tlp
+sudo apt-get install -y linux-tools-$(uname -r)
+"
+
 end=$((SECONDS+3))
 
 echo "watching the CPU speed (press ctrl+C to continue)"
