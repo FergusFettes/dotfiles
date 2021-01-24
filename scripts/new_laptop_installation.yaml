@@ -137,6 +137,7 @@
           - lynx
           - feh
           - vlc
+          - nvidia-cuda-toolkit
       when: maximal
     - name: uninstall ubuntu stuff
       apt:
