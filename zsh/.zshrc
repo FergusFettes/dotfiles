@@ -1,3 +1,7 @@
+if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty3" ]; then
+  exec sway
+fi
+
 export ZSH="/home/$USER/.oh-my-zsh"
 export PATH="$PATH":/snap/bin:/home/$USER/.cargo/bin:/home/$USER/.local:/home/$USER/.local/bin:/usr/local/cuda-11.1/bin
 
@@ -18,10 +22,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source ~/.antigenrc
 
-if [ `uname -n` = "ondewo-xmg-01" ]
-then
+if [ `uname -n` = "ondewo-xmg-01" ]; then
   source ~/.config/personal/.zshrc.work
-else
 fi
 source $HOME/custom/plugins/init.sh
 # Export all the environmental variables
