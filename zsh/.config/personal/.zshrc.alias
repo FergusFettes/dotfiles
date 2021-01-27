@@ -1,11 +1,12 @@
 alias \?='uname -n'
 alias THEME=dark
 
-alias vi=nvim
 alias dk=docker
 alias dc=docker-compose
 alias dc-restart="docker-compose down && docker-compose build && docker-compose up -d && docker-compose logs -f"
+alias vi=nvim
 alias v="vi ."
+alias vf='vi $(fzf)'
 
 alias gl='git log --graph --decorate --oneline $(git rev-list -g --all)'
 alias glp="git log -p"

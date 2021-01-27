@@ -6,6 +6,7 @@
 # alias m8=microk8s
 
 alias barra="export TERM=xterm; barracudavpn"
+alias vpn="sudo openvpn --config /home/$USER/.local/openvpn_ffettes/openvpn_ffettes.ovpn"
 
 function npm_export() {
   export NVM_DIR="$HOME/.nvm"
