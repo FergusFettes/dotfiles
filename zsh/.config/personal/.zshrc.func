@@ -91,3 +91,11 @@ function light() {
     export THEME=light
   fi
 }
+
+function python_do() {
+  if [ -z $2 ]; then
+    python3 -c "print($1)"
+  else
+    python3 -c "import $2; print($1)"
+  fi
+}

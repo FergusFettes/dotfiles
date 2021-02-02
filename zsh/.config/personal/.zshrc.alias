@@ -54,6 +54,7 @@ alias configs=config
 alias pip=pip3
 alias python=python3
 alias nk=n-kill
+alias pd=python_do
 
 alias xi='xclip -f -sel clip'
 alias xo='xclip -o -sel clip'
