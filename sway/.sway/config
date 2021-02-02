@@ -62,6 +62,7 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $modalt+n exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -72,6 +73,7 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
+    bindsym $modalt+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $modalt+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
@@ -160,6 +162,8 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     # respectively.
     bindsym $mod+v splith
     bindsym $mod+s splitv
+    bindsym $modalt+Shift+v splith
+    bindsym $modalt+Shift+s splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+q layout stacking
@@ -172,6 +176,7 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
+    bindsym $modalt+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
@@ -186,12 +191,12 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 
     # Move the currently focused window to the scratchpad
     bindsym $mod+Shift+z move scratchpad
-    bindsym $modalt+b move scratchpad
+    bindsym $modalt+Shift+b move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+z scratchpad show
-    bindsym $modalt+n scratchpad show
+    bindsym $modalt+b scratchpad show
 #
 # Resizing containers:
 #
