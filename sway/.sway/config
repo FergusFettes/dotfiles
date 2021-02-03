@@ -36,12 +36,12 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 input "1452:591:RK-Keyboard_5.1_Keyboard" {
     xkb_layout us,de
     xkb_variant ,nodeadkeys
-    xkb_options ctrl:nocaps,altwin:swap_alt_win
+    xkb_options ctrl:nocap
 }
 input "1452:591:RK-Keyboard_5.1_Consumer_Control" {
     xkb_layout us,de
     xkb_variant ,nodeadkeys
-    xkb_options ctrl:nocaps,altwin:swap_alt_win
+    xkb_options ctrl:nocaps
 }
 input "1:1:AT_Translated_Set_2_keyboard" {
     xkb_layout us,de
