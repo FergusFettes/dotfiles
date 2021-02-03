@@ -10,6 +10,7 @@ set $right l
 
 # Your preferred terminal emulator
 set $term /usr/bin/alacritty
+set $term2 /usr/bin/x-terminal-emulator
 
 # Your preferred application launcher
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
@@ -55,6 +56,8 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     # Start a terminal
     bindsym $mod+Return exec $term
     bindsym $modalt+Return exec $term
+    bindsym $mod+Shift+Return exec $term2
+    bindsym $modalt+Shift+Return exec $term2
 
     # Kill focused window
     bindsym $mod+Shift+q kill
