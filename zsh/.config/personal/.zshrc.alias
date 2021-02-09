@@ -28,6 +28,7 @@ alias mime='file --mime-type -b'
 alias l=k
 alias la="k -a"
 alias p="pwd -P"
+alias c=cd
 alias s="sudo -s"
 alias cat=bat
 alias bcat=/bin/cat
@@ -67,3 +68,4 @@ alias cpu="watch -n 0.2 -d lscpu"
 alias cpup="watch -n 0.2 'sudo cpupower frequency-info'"
 
 alias venv="source venv*/bin/activate"
+alias tik=ticker
