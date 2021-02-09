@@ -292,6 +292,9 @@ nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>fi :set foldmethod=indent<CR>
 nnoremap <leader>fm :set foldmethod=marker<CR>
 
+"" Ctag alias
+nnoremap <leader>ft "xyiw:ts <C-r>x<CR>
+
 "" Open, save and source vim/zsh rc files
 nnoremap <leader>rc :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
