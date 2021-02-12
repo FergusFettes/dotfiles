@@ -67,5 +67,5 @@ alias passinfo="sed '1i\\USERNAME USER_ID GROUP_ID HOME_DIRECTORY SHELL' /etc/pa
 alias cpu="watch -n 0.2 -d lscpu"
 alias cpup="watch -n 0.2 'sudo cpupower frequency-info'"
 
-alias venv="source venv*/bin/activate"
+alias venv="unalias python; unalias pip; source venv*/bin/activate"
 alias tik=ticker

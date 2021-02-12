@@ -1,4 +1,5 @@
 function dcr-soft() {
+  export COMPOSE_DOCKER_CLI_BUILD=1
   if [ -z $1 ]
   then
     file=docker-compose.yaml
@@ -21,6 +22,7 @@ function dcr-soft() {
 }
 
 function dcr-hard() {
+  export COMPOSE_DOCKER_CLI_BUILD=1
   if [ -z $1 ]
   then
     file=docker-compose.yaml
