@@ -20,8 +20,6 @@ alias xz="exec zsh"
 alias t=tmux
 alias tk="tmux attach"
 
-alias m8=microk8s
-alias ku="microk8s kubectl"
 alias hd=hyperdrive
 alias mime='file --mime-type -b'
 
@@ -30,6 +28,22 @@ alias la="k -a"
 alias p="pwd -P"
 alias c=cd
 alias s="sudo -s"
+
+alias ,=prompt_rotate
+
+# File Shortcuts {{{
+alias tips="vi $TIPS"
+alias scratch="vi $SCRATCH"
+alias scr=scratch
+alias todo="vi $TODO"
+
+alias config="vi $VIMRC ~/.tmux.conf $ALACRITTYRC ~/.zshrc ~/.config/personal/.zshrc.alias ~/.config/personal/.zshrc.vars ~/.config/personal/.zshrc.work ~/.config/personal/.zshrc.func ~/.sway/config"
+alias configs=config
+# }}}
+# Software Aliases {{{
+alias pip=pip3
+alias python=python3
+
 alias cat=bat
 alias bcat=/bin/cat
 alias man=~/.local/bat-extras/src/batman.sh
@@ -37,35 +51,26 @@ alias grpcurl=~/.local/grpcurl
 # alias fpp=~/.local/PathPicker/fpp
 alias r=ranger
 
-alias tips="vi $TIPS"
-alias scratch="vi $SCRATCH"
-alias scr=scratch
-alias todo="vi $TODO"
-
 alias rsync="rsync -Phav"
 alias rsync_no_links="rsync -rptgoDLK"
 alias rsync_remote="rsync -Phavz"
 
-alias ,=prompt_rotate
-
-alias zshrcs="vi ~/.zshrc ~/.config/personal/.zshrc.alias ~/.config/personal/.zshrc.vars ~/.config/personal/.zshrc.work ~/.config/personal/.zshrc.func"
-alias config="vi $VIMRC ~/.tmux.conf $ALACRITTYRC ~/.zshrc ~/.config/personal/.zshrc.alias ~/.config/personal/.zshrc.vars ~/.config/personal/.zshrc.work ~/.config/personal/.zshrc.func ~/.sway/config"
-alias configs=config
-
-alias pip=pip3
-alias python=python3
 alias nk=n-kill
 alias pd=python_do
 
+alias tik=ticker
+# }}}
+# Mini Scripts {{{
 alias xi='xclip -f -sel clip'
 alias xo='xclip -o -sel clip'
 alias kill_ssh='kill -9 $(ps aux | rg "ssh -fN" | head -1 | tee /dev/tty | awk '\''{ print $2 }'\'')'
 alias show_ssh='ps aux | rg "ssh -fN"'
-
-alias ipp="echo $IP | xi"
 alias passinfo="sed '1i\\USERNAME USER_ID GROUP_ID HOME_DIRECTORY SHELL' /etc/passwd | awk 'BEGIN { FS=\":\" } { print \$1,\$3,\$4,\$6,\$7 }' | column -t"
-alias cpu="watch -n 0.2 -d lscpu"
-alias cpup="watch -n 0.2 'sudo cpupower frequency-info'"
 
 alias venv="unalias python; unalias pip; source venv*/bin/activate"
-alias tik=ticker
+
+alias ipp="echo $IP | xi"
+alias cpu="watch -n 0.2 -d lscpu"
+alias cpup="watch -n 0.2 'sudo cpupower frequency-info'"
+# }}}
+# vim:foldmethod=marker:foldlevel=0

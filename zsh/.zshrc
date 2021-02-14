@@ -1,14 +1,13 @@
+# Pre-init {{{
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty3" ]; then
   exec sway
 fi
 
 export ZSH="/home/$USER/.oh-my-zsh"
 export PATH="$PATH":/snap/bin:/home/$USER/.cargo/bin:/home/$USER/.local:/home/$USER/.local/bin:/usr/local/cuda-11.1/bin:/home/$USER/.local/node/bin:/home/$USER/go/bin
-
-# ZSH_THEME="random"
-# ZSH_THEME_RANDOM_CANDIDATES=( "nanotech" "robbyrussell" "agnoster" "amuse" "fox" "pygmalion" "wedisagree" "strug" )
+# }}}
+# Zsh init {{{
 HYPHEN_INSENSITIVE="true"
-
 plugins=(
 	git
   git-flow
@@ -22,6 +21,17 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source ~/.antigenrc
 
+bindkey '^H' beginning-of-line
+bindkey '^J' forward-word
+bindkey '^K' forward-char
+bindkey '^Q' backward-word
+bindkey '^W' backward-delete-word
+bindkey '^E' delete-word
+
+# bindkey for Zsh Command Architect
+bindkey '^N' zca-widget
+# }}}
+# Env Setup {{{
 if [ `uname -n` = "ondewo-xmg-01" ]; then
   source ~/.config/personal/.zshrc.work
 fi
@@ -33,16 +43,6 @@ source ~/.config/personal/.zshrc.alias
 # Export all the functions
 source ~/.config/personal/.zshrc.func
 
-bindkey '^H' beginning-of-line
-bindkey '^J' forward-word
-bindkey '^K' forward-char
-bindkey '^Q' backward-word
-bindkey '^W' backward-delete-word
-bindkey '^E' delete-word
-
-# bindkey for Zsh Command Architect
-bindkey '^N' zca-widget
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 ,
+# }}}
+# vim:foldmethod=marker:foldlevel=0

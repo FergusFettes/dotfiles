@@ -1,28 +1,36 @@
 # Kubernetes {{{
-# if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
-# export KUBECONFIG=/home/$USER/.bluemix/plugins/container-service/clusters/bmmrootd03m17d43d4v0/kube-config-hou02-asterisk_server.yml
+function setup_kubernetes() {
+  if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+  export KUBECONFIG=/home/$USER/.bluemix/plugins/container-service/clusters/bmmrootd03m17d43d4v0/kube-config-hou02-asterisk_server.yml
 
-# source <(microk8s.kubectl completion zsh)
-# alias ku=microk8s.kubectl
-# alias m8=microk8s
+  source <(microk8s.kubectl completion zsh)
+  alias ku=microk8s.kubectl
+  alias m8=microk8s
+}
 # }}}
 # VPNS {{{
 alias barra="export TERM=xterm; barracudavpn"
 alias vpn="sudo openvpn --config /home/$USER/.local/openvpn_ffettes/openvpn_ffettes.ovpn"
 # }}}
 # JavaScript {{{
-function npm_export_10() {
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-  nvm use v10
-}
-
 function npm_export() {
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
+
+function npm_export_10() {
+  npm_export
+  nvm use v10
+}
+# }}}
+# GCP {{{
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/usr/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/ffettes/.local/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ffettes/.local/google-cloud-sdk/path.zsh.inc'; fi
+# The next line enables shell command completion for gcloud.
+if [ -f '/usr/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/ffettes/.local/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ffettes/.local/google-cloud-sdk/completion.zsh.inc'; fi
 # }}}
 # Misc {{{
 # These are some aliases for running things locally
@@ -35,14 +43,6 @@ alias make_speech_services="make --directory=~/ondewo/ondewo-s2t-cloud run_strea
 # These variables have to be set to run cai locally
 export CAI_IMAGE_NAME_GPU=smh
 export CAI_IMAGE_NAME_CPU=smh
-# }}}
-# GCP {{{
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/usr/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/home/ffettes/.local/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ffettes/.local/google-cloud-sdk/path.zsh.inc'; fi
-# The next line enables shell command completion for gcloud.
-if [ -f '/usr/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/completion.zsh.inc'; fi
-if [ -f '/home/ffettes/.local/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ffettes/.local/google-cloud-sdk/completion.zsh.inc'; fi
 # }}}
 # Password info {{{
 source ~/.password-store/aliases
