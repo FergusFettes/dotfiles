@@ -13,13 +13,13 @@ alias barra="export TERM=xterm; barracudavpn"
 alias vpn="sudo openvpn --config /home/$USER/.local/openvpn_ffettes/openvpn_ffettes.ovpn"
 # }}}
 # JavaScript {{{
-function npm_export() {
+function setup_npm() {
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
 
-function npm_export_10() {
+function setup_npm_10() {
   npm_export
   nvm use v10
 }
@@ -31,6 +31,18 @@ if [ -f '/home/ffettes/.local/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ff
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/completion.zsh.inc'; fi
 if [ -f '/home/ffettes/.local/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ffettes/.local/google-cloud-sdk/completion.zsh.inc'; fi
+# }}}
+# Golang {{{
+function setup_golang() {
+  export PATH=$PATH:/usr/local/go/bin
+}
+function setup_golang_9() {
+  setup_golang
+  export GOPATH=`pwd -P`
+  [ -d src ] || echo no src folder!
+  [ -d bin ] || echo no bin folder!
+  [ -d pkg ] || echo no pkg folder!
+}
 # }}}
 # Misc {{{
 # These are some aliases for running things locally
