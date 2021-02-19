@@ -1,3 +1,9 @@
+function nvenv(){
+  virtualenv venv $2 venv-$1
+  pip install neovim ipython ipdv jedi=0.17.2
+  venv
+}
+
 function dcr-soft() {
   export COMPOSE_DOCKER_CLI_BUILD=1
   if [ -z $1 ]
