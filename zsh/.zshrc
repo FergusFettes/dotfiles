@@ -1,4 +1,24 @@
-# Pre-init {{{
+# Load Order {{{
+# Load Order    Interactive  Interactive  Script
+# Startup       Only login   Always
+# ------------- -----------  -----------  ------
+#  /etc/zshenv       1            1         1
+#    ~/.zshenv       2            2         2
+# /etc/zprofile      3
+#   ~/.zprofile      4
+# /etc/zshrc         5            3
+#   ~/.zshrc         6            4
+# /etc/zlogin        7
+#   ~/.zlogin        8
+#
+# Shutdown
+# ------------- -----------  -----------  ------
+#   ~/.zlogout       9
+# /etc/zlogout      10
+#
+# Note: ZSH seems to read ~/.profile as well, if ~/.zshrc is not present.
+# }}}
+## Pre-init {{{
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty3" ]; then
   exec sway
 fi
@@ -44,5 +64,7 @@ source ~/.config/personal/.zshrc.alias
 source ~/.config/personal/.zshrc.func
 
 ,
+
+eval "$(zoxide init zsh)"
 # }}}
 # vim:foldmethod=marker:foldlevel=0

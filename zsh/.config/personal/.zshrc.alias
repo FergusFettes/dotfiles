@@ -1,27 +1,21 @@
+# Suffix aliases {{{
+alias -s {ape,avi,flv,m4a,mkv,mov,mp3,mp4,mpeg,mpg,ogg,ogm,wav,webm}=mpv
+alias -s git="git clone"
+# }}}
+# Global aliases {{{
+alias -g X='xclip -f -sel clip'
+alias -g NF='./*(oc[1])'
+alias -g G='| grep'
+alias -g R='| rg'
+alias -g L='| less'
+alias -g V='| vim -'
+alias -g F="| fzf " # ls -l ?
+alias -g X="| xargs " # ls -l X rm
+# alias -g CC="| pbcopy " (`cat test.txt CC`)
+# alias -g Y="| yank "
+# }}}
+# Bash Shortcuts {{{
 alias \?='uname -n'
-alias THEME=dark
-
-alias dk=docker
-alias dc=docker-compose
-alias dc-restart="docker-compose down && docker-compose build && docker-compose up -d && docker-compose logs -f"
-alias vi=nvim
-alias v="vi ."
-alias vf='vi $(fzf)'
-
-alias gl='git log --graph --decorate --oneline $(git rev-list -g --all)'
-alias glp="git log -p"
-alias gll="git pull"
-alias gp="git push --follow-tags"
-alias gs="git stash"  # overwrite ghostscript alias, its too annoying when it pops up
-alias gsp="git stash pop"
-
-alias x=exit
-alias xz="exec zsh"
-alias t=tmux
-alias tk="tmux attach"
-
-alias hd=hyperdrive
-alias mime='file --mime-type -b'
 
 alias l=k
 alias la="k -a"
@@ -30,8 +24,10 @@ alias c=cd
 alias s="sudo -s"
 
 alias ,=prompt_rotate
-
+# }}}
 # File Shortcuts {{{
+alias mime='file --mime-type -b'
+
 alias tips="vi $TIPS"
 alias scratch="vi $SCRATCH"
 alias scr=scratch
@@ -41,6 +37,15 @@ alias config="vi $VIMRC ~/.tmux.conf $ALACRITTYRC ~/.zshrc ~/.config/personal/.z
 alias configs=config
 # }}}
 # Software Aliases {{{
+alias dk=docker
+alias dc=docker-compose
+alias dc-restart="docker-compose down && docker-compose build && docker-compose up -d && docker-compose logs -f"
+alias vi=nvim
+alias v="vi ."
+alias vf='vi $(fzf)'
+
+alias hd=hyperdrive
+
 alias pip=pip3
 alias python=python3
 
@@ -60,6 +65,26 @@ alias pd=python_do
 
 alias tik=ticker
 # }}}
+# Software Shortcuts {{{
+alias gl='git log --graph --decorate --oneline $(git rev-list -g --all)'
+alias glp="git log -p"
+alias gll="git pull"
+alias gp="git push --follow-tags"
+alias gs="git stash"  # overwrite ghostscript alias, its too annoying when it pops up
+alias gsp="git stash pop"
+
+alias l=k
+alias la="k -a"
+alias p="pwd -P"
+alias c=cd
+alias s="sudo -s"
+
+alias x=exit
+alias xz="exec zsh"
+alias t=tmux
+alias tk="tmux attach"
+
+# }}}
 # Mini Scripts {{{
 alias xi='xclip -f -sel clip'
 alias xo='xclip -o -sel clip'
@@ -72,5 +97,7 @@ alias venv="unalias python; unalias pip; source venv*/bin/activate"
 alias ipp="echo $IP | xi"
 alias cpu="watch -n 0.2 -d lscpu"
 alias cpup="watch -n 0.2 'sudo cpupower frequency-info'"
+# }}}
+# Global aliases {{{
 # }}}
 # vim:foldmethod=marker:foldlevel=0
