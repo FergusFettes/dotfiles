@@ -7,10 +7,11 @@ alias -g X='xclip -f -sel clip'
 alias -g NF='./*(oc[1])'
 alias -g G='| grep'
 alias -g R='| rg'
-alias -g L='| less'
+alias -g C='| cat'
 alias -g V='| vim -'
 alias -g F="| fzf " # ls -l ?
 alias -g X="| xargs " # ls -l X rm
+# alias -g L='| less'
 # alias -g CC="| pbcopy " (`cat test.txt CC`)
 # alias -g Y="| yank "
 # }}}
@@ -22,6 +23,8 @@ alias la="k -a"
 alias p="pwd -P"
 alias c=cd
 alias s="sudo -s"
+
+alias ec=echo
 
 alias ,=prompt_rotate
 # }}}
