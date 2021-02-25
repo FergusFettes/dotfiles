@@ -3,9 +3,15 @@ alias -s {ape,avi,flv,m4a,mkv,mov,mp3,mp4,mpeg,mpg,ogg,ogm,wav,webm}=mpv
 alias -s git="git clone"
 # }}}
 # Global aliases {{{
-alias -g X='xclip -f -sel clip'
+alias -g cn=\(cd
+alias -g A='| awk '
+alias -g AP="| awk '{ print "
+alias -g PA="}'"
+alias -g Y='| xclip -f -sel clip'
 alias -g NF='./*(oc[1])'
 alias -g G='| grep'
+alias -g H='| head '
+alias -g T='| tail '
 alias -g R='| rg'
 alias -g C='| cat'
 alias -g V='| vim -'
