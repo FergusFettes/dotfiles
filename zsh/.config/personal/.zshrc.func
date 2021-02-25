@@ -10,8 +10,8 @@
 
 function nvenv(){
   virtualenv $2 venv-$1
-  pip install neovim ipython jedi==0.17.2
   venv
+  pip install neovim ipython jedi==0.17.2
 }
 
 function dcr-soft() {

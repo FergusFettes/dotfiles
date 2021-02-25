@@ -18,7 +18,7 @@
 #
 # Note: ZSH seems to read ~/.profile as well, if ~/.zshrc is not present.
 # }}}
-## Pre-init {{{
+# Pre-init {{{
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty3" ]; then
   exec sway
 fi
