@@ -11,11 +11,10 @@
 function nvenv(){
   virtualenv $2 venv-$1
   venv
-  pip install neovim ipython jedi==0.17.2
+  pip install neovim ipython "jedi==0.17.2" ipdb
 }
 
 function dcr-soft() {
-  export COMPOSE_DOCKER_CLI_BUILD=1
   if [ -z $1 ]
   then
     file=docker-compose.yaml
@@ -38,7 +37,6 @@ function dcr-soft() {
 }
 
 function dcr-hard() {
-  export COMPOSE_DOCKER_CLI_BUILD=1
   if [ -z $1 ]
   then
     file=docker-compose.yaml
@@ -59,6 +57,22 @@ function dcr-hard() {
     docker-compose -f $file --env-file $2 build
     docker-compose -f $file --env-file $2 up -d
     docker-compose -f $file --env-file $2 logs -f
+  fi
+}
+
+function dc-down() {
+  if [ -z $1 ]
+  then
+    file=docker-compose.yaml
+  else
+    file=$1
+  fi
+  echo "rming $file"
+  if [ -z $2 ]
+  then
+    docker-compose -f $file down
+  else
+    docker-compose -f $file --env-file $2 down
   fi
 }
 
