@@ -110,6 +110,4 @@ alias ipp="echo $IP | xi"
 alias cpu="watch -n 0.2 -d lscpu"
 alias cpup="watch -n 0.2 'sudo cpupower frequency-info'"
 # }}}
-# Global aliases {{{
-# }}}
 # vim:foldmethod=marker:foldlevel=0
