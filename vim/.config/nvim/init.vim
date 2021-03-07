@@ -180,6 +180,15 @@ nnoremap ;12 :!<UP>
 
 " open ag.vim
 nnoremap <leader>as :Ag!
+
+" Global Marks {{{
+function! SetGMark(mark, filename, line_nr)
+    let l:mybuf = bufnr(a:filename, 1)
+    call setpos("'".a:mark, [l:mybuf, a:line_nr, 1, 0])
+endf
+
+call SetGMark('V', '/home/ffettes/.config/nvim/init.vim', 10)
+" }}}
 " }}}
 " Setup {{{
 "" Encoding
@@ -296,8 +305,7 @@ nnoremap <leader>fm :set foldmethod=marker<CR>
 nnoremap <leader>ft "xyiw:ts <C-r>x<CR>
 
 "" Open, save and source vim/zsh rc files
-nnoremap <leader>rc :vsp $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>sv :source $VIMRC<CR>
 
 " "" Open tips_megafile
 " nnoremap <leader>t :vsp $TIPS<CR>
