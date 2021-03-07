@@ -41,20 +41,28 @@ alias ,=prompt_rotate
 alias mime='file --mime-type -b'
 
 alias tips="vi $TIPS"
-alias scratch="vi $SCRATCH"
-alias scr=scratch
-alias todo="vi $TODO"
+alias scratch="vi /home/$USER/personal/journal/scratch.md"
+alias todo="vi /home/$USER/personal/journal/Lists/Todo.md"
 
-alias config="vi $VIMRC ~/.tmux.conf $ALACRITTYRC ~/.zshrc ~/.config/personal/.zshrc.alias ~/.config/personal/.zshrc.vars ~/.config/personal/.zshrc.work ~/.config/personal/.zshrc.func ~/.sway/config"
+alias config="vi \
+$VIMRC \
+$ALACRITTYRC \
+/home/$USER/.tmux.conf \
+/home/$USER/.zshrc \
+/home/$USER/.config/personal/.zshrc.alias \
+/home/$USER/.config/personal/.zshrc.vars \
+/home/$USER/.config/personal/.zshrc.work \
+/home/$USER/.config/personal/.zshrc.func \
+/home/$USER/.sway/config"
 alias configs=config
 # }}}
 # Software Aliases {{{
 alias dk=docker
 alias dc=docker-compose
 alias dc-restart="docker-compose down && docker-compose build && docker-compose up -d && docker-compose logs -f"
-alias vi=nvim
-alias v="vi ."
-alias vf='vi $(fzf)'
+alias nv=nvim
+alias v="nv ."
+alias vf='nv $(fzf)'
 
 alias hd=hyperdrive
 

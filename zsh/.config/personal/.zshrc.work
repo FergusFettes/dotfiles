@@ -1,3 +1,6 @@
+# Aliases {{{
+alias meeting='vi /home/$USER/personal/journal/meetings.md'
+# }}}
 # Kubernetes {{{
 function setup_kubernetes() {
   if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
