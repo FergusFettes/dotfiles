@@ -1,7 +1,7 @@
 # Sway config vars {{{
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
-set $modalt Mod1
+set $alt Mod1
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -50,17 +50,17 @@ input "type:keyboard" {
 
     # Start a terminal
     bindsym $mod+Return exec $term
-    bindsym $modalt+Return exec $term
+    bindsym $alt+Return exec $term
     bindsym $mod+Shift+Return exec $term2
-    bindsym $modalt+Shift+Return exec $term2
+    bindsym $alt+Shift+Return exec $term2
 
     # Kill focused window
     bindsym $mod+Shift+q kill
-    bindsym $modalt+Shift+q kill
+    bindsym $alt+Shift+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    bindsym $modalt+n exec $menu
+    bindsym $alt+n exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -71,10 +71,10 @@ input "type:keyboard" {
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
-    bindsym $modalt+Shift+c reload
+    bindsym $alt+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $modalt+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $alt+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
     bindsym $mod+Shift+e exec swaymsg exit
 # }}}
 # Moving around: {{{
@@ -129,29 +129,30 @@ input "type:keyboard" {
     # We just use 1-10 as the default.
 
     # Switch to workspace
-    bindsym $modalt+1 workspace 1
-    bindsym $modalt+2 workspace 2
-    bindsym $modalt+3 workspace 3
-    bindsym $modalt+4 workspace 4
-    bindsym $modalt+5 workspace 5
-    bindsym $modalt+6 workspace 6
-    bindsym $modalt+7 workspace 7
-    bindsym $modalt+8 workspace 8
-    bindsym $modalt+9 workspace 9
-    bindsym $modalt+0 workspace 10
+    bindsym $alt+1 workspace 1
+    bindsym $alt+2 workspace 2
+    bindsym $alt+3 workspace 3
+    bindsym $alt+4 workspace 4
+    bindsym $alt+5 workspace 5
+    bindsym $alt+6 workspace 6
+    bindsym $alt+7 workspace 7
+    bindsym $alt+8 workspace 8
+    bindsym $alt+9 workspace 9
+    bindsym $alt+0 workspace 10
     # Move focused container to workspace
-    bindsym $modalt+Shift+1 move container to workspace 1
-    bindsym $modalt+Shift+2 move container to workspace 2
-    bindsym $modalt+Shift+3 move container to workspace 3
-    bindsym $modalt+Shift+4 move container to workspace 4
-    bindsym $modalt+Shift+5 move container to workspace 5
-    bindsym $modalt+Shift+6 move container to workspace 6
-    bindsym $modalt+Shift+7 move container to workspace 7
-    bindsym $modalt+Shift+8 move container to workspace 8
-    bindsym $modalt+Shift+9 move container to workspace 9
-    bindsym $modalt+Shift+0 move container to workspace 10
+    bindsym $alt+Shift+1 move container to workspace 1
+    bindsym $alt+Shift+2 move container to workspace 2
+    bindsym $alt+Shift+3 move container to workspace 3
+    bindsym $alt+Shift+4 move container to workspace 4
+    bindsym $alt+Shift+5 move container to workspace 5
+    bindsym $alt+Shift+6 move container to workspace 6
+    bindsym $alt+Shift+7 move container to workspace 7
+    bindsym $alt+Shift+8 move container to workspace 8
+    bindsym $alt+Shift+9 move container to workspace 9
+    bindsym $alt+Shift+0 move container to workspace 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
 # }}}
 # Layout stuff: {{{
 #
@@ -160,8 +161,8 @@ input "type:keyboard" {
     # respectively.
     bindsym $mod+v splith
     bindsym $mod+s splitv
-    bindsym $modalt+Shift+v splith
-    bindsym $modalt+Shift+s splitv
+    bindsym $alt+Shift+v splith
+    bindsym $alt+Shift+s splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+q layout stacking
@@ -170,11 +171,11 @@ input "type:keyboard" {
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
-    bindsym $modalt+f fullscreen
+    bindsym $alt+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
-    bindsym $modalt+Shift+space floating toggle
+    bindsym $alt+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
@@ -189,12 +190,12 @@ input "type:keyboard" {
 
     # Move the currently focused window to the scratchpad
     bindsym $mod+Shift+z move scratchpad
-    bindsym $modalt+Shift+b move scratchpad
+    bindsym $alt+Shift+b move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+z scratchpad show
-    bindsym $modalt+b scratchpad show
+    bindsym $alt+b scratchpad show
 #
 # Resizing containers:
 #
@@ -219,7 +220,7 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-bindsym $modalt+r mode "resize"
+bindsym $alt+r mode "resize"
 # }}}
 # }}}
 # Status Bar: {{{
