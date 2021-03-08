@@ -38,13 +38,14 @@ alias ec=echo
 alias ,=prompt_rotate
 # }}}
 # File Shortcuts {{{
+alias blog='cd /home/$USER/site-backend/ffettes'
 alias mime='file --mime-type -b'
 
 alias tips="vi $TIPS"
 alias scratch="vi /home/$USER/personal/journal/scratch.md"
 alias todo="vi /home/$USER/personal/journal/Lists/Todo.md"
 
-alias config="vi \
+alias conf="nv \
 $VIMRC \
 $ALACRITTYRC \
 /home/$USER/.tmux.conf \
@@ -54,7 +55,15 @@ $ALACRITTYRC \
 /home/$USER/.config/personal/.zshrc.work \
 /home/$USER/.config/personal/.zshrc.func \
 /home/$USER/.sway/config"
-alias configs=config
+alias zconf="vi \
+/home/$USER/.zshrc \
+/home/$USER/.config/personal/.zshrc.alias \
+/home/$USER/.config/personal/.zshrc.vars \
+/home/$USER/.config/personal/.zshrc.work \
+/home/$USER/.config/personal/.zshrc.func"
+alias vconf="vi $VIMRC"
+alias aconf="vi $ALACRITTYRC"
+alias tconf="vi /home/$USER/.tmux.conf"
 # }}}
 # Software Aliases {{{
 alias dk=docker
