@@ -45,7 +45,7 @@ alias tips="vi $TIPS"
 alias scratch="vi /home/$USER/personal/journal/scratch.md"
 alias todo="vi /home/$USER/personal/journal/Lists/Todo.md"
 
-alias conf="nv \
+alias conf="vi \
 $VIMRC \
 $ALACRITTYRC \
 /home/$USER/.tmux.conf \
@@ -54,7 +54,8 @@ $ALACRITTYRC \
 /home/$USER/.config/personal/.zshrc.vars \
 /home/$USER/.config/personal/.zshrc.work \
 /home/$USER/.config/personal/.zshrc.func \
-/home/$USER/.sway/config"
+/home/$USER/.sway/config \
+/home/$USER/.config/regolith/i3/config"
 alias zconf="vi \
 /home/$USER/.zshrc \
 /home/$USER/.config/personal/.zshrc.alias \
@@ -69,9 +70,9 @@ alias tconf="vi /home/$USER/.tmux.conf"
 alias dk=docker
 alias dc=docker-compose
 alias dc-restart="docker-compose down && docker-compose build && docker-compose up -d && docker-compose logs -f"
-alias nv=nvim
-alias v="nv ."
-alias vf='nv $(fzf)'
+alias vi=nvim
+alias v="vi ."
+alias vf='vi $(fzf)'
 
 alias hd=hyperdrive
 
