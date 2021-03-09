@@ -133,27 +133,27 @@ bindsym $mod+Shift+Ctrl+8 move container to workspace number $ws18
 bindsym $mod+Shift+Ctrl+9 move container to workspace number $ws19
 
 # Switch to workspace
-bindsym $alt+1 workspace 1
-bindsym $alt+2 workspace 2
-bindsym $alt+3 workspace 3
-bindsym $alt+4 workspace 4
-bindsym $alt+5 workspace 5
-bindsym $alt+6 workspace 6
-bindsym $alt+7 workspace 7
-bindsym $alt+8 workspace 8
-bindsym $alt+9 workspace 9
-bindsym $alt+0 workspace 10
+bindsym $alt+1 workspace number $ws1
+bindsym $alt+2 workspace number $ws2
+bindsym $alt+3 workspace number $ws3
+bindsym $alt+4 workspace number $ws4
+bindsym $alt+5 workspace number $ws5
+bindsym $alt+6 workspace number $ws6
+bindsym $alt+7 workspace number $ws7
+bindsym $alt+8 workspace number $ws8
+bindsym $alt+9 workspace number $ws9
+bindsym $alt+0 workspace number $ws10
 # Move focused container to workspace
-bindsym $alt+Shift+1 move container to workspace 1
-bindsym $alt+Shift+2 move container to workspace 2
-bindsym $alt+Shift+3 move container to workspace 3
-bindsym $alt+Shift+4 move container to workspace 4
-bindsym $alt+Shift+5 move container to workspace 5
-bindsym $alt+Shift+6 move container to workspace 6
-bindsym $alt+Shift+7 move container to workspace 7
-bindsym $alt+Shift+8 move container to workspace 8
-bindsym $alt+Shift+9 move container to workspace 9
-bindsym $alt+Shift+0 move container to workspace 10
+bindsym $alt+Shift+1 move container to workspace number $ws1
+bindsym $alt+Shift+2 move container to workspace number $ws2
+bindsym $alt+Shift+3 move container to workspace number $ws3
+bindsym $alt+Shift+4 move container to workspace number $ws4
+bindsym $alt+Shift+5 move container to workspace number $ws5
+bindsym $alt+Shift+6 move container to workspace number $ws6
+bindsym $alt+Shift+7 move container to workspace number $ws7
+bindsym $alt+Shift+8 move container to workspace number $ws8
+bindsym $alt+Shift+9 move container to workspace number $ws9
+bindsym $alt+Shift+0 move container to workspace number $ws10
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
 
@@ -300,11 +300,6 @@ bindsym $mod+n exec $i3-wm.program.notification_ui
 bindsym $mod+comma  exec /usr/bin/i3-snapshot -o > /tmp/i3-snapshot
 ## Modify // Load Window Layout // <> . ##
 bindsym $mod+period exec /usr/bin/i3-snapshot -c < /tmp/i3-snapshot
-
-# Toggle bar visibility
-## Modify // Toggle Bar // <> i ##
-bindsym $mod+i bar mode toggle
-bindsym $alt+i bar mode toggle
 
 # Cause Settings app to float above tiled windows
 floating_maximum_size -1 x -1
