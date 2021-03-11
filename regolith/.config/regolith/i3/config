@@ -55,6 +55,7 @@ set_from_resource $rofiTheme rofi.theme /etc/regolith/styles/lascaille/rofi.rasi
 ## Launch // Application // <> Space ##
 set_from_resource $i3-wm.program.launcher.app i3-wm.program.launcher.app rofi -show drun -theme $rofiTheme
 bindsym $mod+space exec $i3-wm.program.launcher.app
+bindsym $alt+space exec $i3-wm.program.launcher.app
 
 ## Launch // Command // <><Shift> Space ##
 set_from_resource $i3-wm.program.launcher.cmd i3-wm.program.launcher.cmd rofi -show run -theme $rofiTheme
@@ -201,7 +202,7 @@ bindsym $mod+Ctrl+Shift+Up move workspace to output up
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
 ## Modify // Next Window Orientation // <> Backspace ##
-bindsym $mod+BackSpace split toggle
+bindsym $mod+v split toggle
 
 ## Modify // Window Fullscreen Toggle // <> f ##
 bindsym $mod+f fullscreen toggle
@@ -347,6 +348,7 @@ mode "Resize Mode" {
         bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "Resize Mode"
+bindsym $alt+r mode "Resize Mode"
 
 ###############################################################################
 # i3 Appearance and Behavior
