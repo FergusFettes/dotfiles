@@ -155,14 +155,10 @@ input "type:keyboard" {
 
 # }}}
 # Layout stuff: {{{
-#
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+v splith
-    bindsym $mod+s splitv
-    bindsym $alt+Shift+v splith
-    bindsym $alt+Shift+s splitv
+
+    ## Modify // Next Window Orientation // <> Backspace ##
+    bindsym $mod+v split toggle
+    bindsym $alt+v split toggle
 
     # Switch the current container between different layout styles
     bindsym $mod+q layout stacking
