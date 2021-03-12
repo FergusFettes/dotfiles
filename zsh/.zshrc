@@ -66,5 +66,7 @@ source ~/.config/personal/.zshrc.func
 ,
 
 eval "$(zoxide init zsh)"
+
+sk rk
 # }}}
 # vim:foldmethod=marker:foldlevel=0

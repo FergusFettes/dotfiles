@@ -8,6 +8,11 @@
 # zle -N globalias
 # bindkey " " globalias # space key to expand globalalias
 
+function sk() {
+  setxkbmap -layout $1 -option
+  setxkbmap -layout $1 -option "caps:ctrl_modifier"
+}
+
 function nvenv(){
   virtualenv $2 venv-$1
   venv
