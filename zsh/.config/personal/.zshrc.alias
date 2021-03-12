@@ -128,4 +128,8 @@ alias ipp="echo $IP | xi"
 alias cpu="watch -n 0.2 -d lscpu"
 alias cpup="watch -n 0.2 'sudo cpupower frequency-info'"
 # }}}
+# Config Shortcuts {{{
+alias rk="sk rk"
+alias rk2="sk rk2"
+# }}}
 # vim:foldmethod=marker:foldlevel=0

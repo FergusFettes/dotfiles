@@ -63,10 +63,9 @@ source ~/.config/personal/.zshrc.alias
 # Export all the functions
 source ~/.config/personal/.zshrc.func
 
-,
-
 eval "$(zoxide init zsh)"
 
+prompt_rotate
 sk rk
 # }}}
 # vim:foldmethod=marker:foldlevel=0
