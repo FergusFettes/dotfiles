@@ -41,9 +41,7 @@ alias ,=prompt_rotate
 alias blog='cd /home/$USER/site-backend/ffettes'
 alias mime='file --mime-type -b'
 
-alias tips="vi $TIPS"
-alias scratch="vi /home/$USER/personal/journal/scratch.md"
-alias todo="vi /home/$USER/personal/journal/Lists/Todo.md"
+alias scratch="vi /tmp/scratch.md"
 
 alias conf="vi \
 $VIMRC \
@@ -74,6 +72,8 @@ alias vi=nvim
 alias v="vi ."
 alias vf='vi $(fzf)'
 
+alias nt=notes
+alias nto='notes open'
 alias hd=hyperdrive
 
 alias pip=pip3
