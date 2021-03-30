@@ -54,6 +54,7 @@ bindkey '^N' zca-widget
 # Env Setup {{{
 if [ `uname -n` = "ondewo-xmg-01" ]; then
   source ~/.config/personal/.zshrc.work
+  sk rk
 fi
 source $HOME/custom/plugins/init.sh
 # Export all the environmental variables
@@ -66,6 +67,5 @@ source ~/.config/personal/.zshrc.func
 eval "$(zoxide init zsh)"
 
 prompt_rotate
-sk rk
 # }}}
 # vim:foldmethod=marker:foldlevel=0

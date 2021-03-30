@@ -110,6 +110,8 @@
           - software-properties-common
           - virtualenv
           - ansible
+          - # TODO: zoxide
+          - # TODO: notes
     - name: install extra ubuntu packages
       apt:
         update_cache: yes
