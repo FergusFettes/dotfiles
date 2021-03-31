@@ -5,24 +5,23 @@ alias -s git="git clone"
 # Global aliases {{{
 alias -g cn=\(cd
 alias -g A='| awk '
-alias -g A1="| awk '{ print \$1 }'"
-alias -g A2="| awk '{ print \$2 }'"
-alias -g A3="| awk '{ print \$3 }'"
-alias -g A4="| awk '{ print \$4 }'"
-alias -g A5="| awk '{ print \$5 }'"
+alias -g C="| cut"
+alias -g C1="| cut -f1 Y"
+alias -g C2="| cut -f2 Y"
+alias -g C3="| cut -f3 Y"
+alias -g C4="| cut -f4 Y"
+alias -g C5="| cut -f5 Y"
 alias -g Y='| xclip -f -sel clip'
 alias -g NF='./*(oc[1])'
 alias -g G='| grep'
 alias -g H='| head '
 alias -g T='| tail '
+alias -g S='| sed '
 alias -g R='| rg'
-alias -g C='| cat'
+alias -g P='| cat'
 alias -g V='| vim -'
-alias -g F="| fzf " # ls -l ?
+alias -g F="| fzf " # ls -l F
 alias -g X="| xargs " # ls -l X rm
-# alias -g L='| less'
-# alias -g CC="| pbcopy " (`cat test.txt CC`)
-# alias -g Y="| yank "
 # }}}
 # Bash Shortcuts {{{
 alias \?='uname -n'
