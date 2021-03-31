@@ -1,5 +1,5 @@
 # Aliases {{{
-alias meeting='vi /home/$USER/personal/journal/meetings.md'
+alias work='notes o work_todo'
 # }}}
 # Kubernetes {{{
 function setup_kubernetes() {
