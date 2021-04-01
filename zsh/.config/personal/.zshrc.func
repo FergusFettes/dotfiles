@@ -103,7 +103,8 @@ function prompt_rotate() {
 }
 
 function dark() {
-  if [ "$THEME" = "dark" ]
+  ALACRITTY_LIGHT=`rg "#.{5,}dark" $ALACRITTYRC`
+  if [ -z "$ALACRITTY_LIGHT" ]
   then
     echo "was already dark!"
   else
@@ -117,15 +118,16 @@ function dark() {
 }
 
 function light() {
-  if [ "$THEME" = "light" ]
+  ALACRITTY_LIGHT=`rg "#.{5,}dark" $ALACRITTYRC`
+  if [ -z "$ALACRITTY_LIGHT" ]
   then
-    echo "was already light!"
-  else
     sed -i "s/# \(.*# light_theme\)/\1/" $ALACRITTYRC
     sed -i 's/^.*dark_theme/# &/' $ALACRITTYRC
     sed -i 's/" \(.*" light_theme\)/\1/' $VIMRC
     sed -i 's/^.*dark_theme/" &/' $VIMRC
     export THEME=light
+  else
+    echo "was already light!"
   fi
 }
 
