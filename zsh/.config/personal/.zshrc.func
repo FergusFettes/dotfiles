@@ -112,7 +112,6 @@ function dark() {
     sed -i 's/^.*light_theme/# &/' $ALACRITTYRC
     sed -i 's/" \(.*" dark_theme\)/\1/' $VIMRC
     sed -i 's/^.*light_theme/" &/' $VIMRC
-    export THEME=dark
   fi
 
 }
@@ -125,7 +124,6 @@ function light() {
     sed -i 's/^.*dark_theme/# &/' $ALACRITTYRC
     sed -i 's/" \(.*" light_theme\)/\1/' $VIMRC
     sed -i 's/^.*dark_theme/" &/' $VIMRC
-    export THEME=light
   else
     echo "was already light!"
   fi
