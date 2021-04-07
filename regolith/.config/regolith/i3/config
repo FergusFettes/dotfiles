@@ -171,12 +171,10 @@ bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+$alt+Left workspace prev
 
 # Move the currently focused window to the scratchpad
-bindsym $mod+Shift+z move scratchpad
 bindsym $alt+Shift+b move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+z scratchpad show
 bindsym $alt+b scratchpad show
 
 ###############################################################################
@@ -258,7 +256,8 @@ bindsym $mod+Shift+p exec $i3-wm.program.shutdown
 
 ## Session // Lock Screen // <> Escape ##
 set_from_resource $i3-wm.program.lock i3-wm.program.lock dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
-bindsym $mod+Escape exec $i3-wm.program.lock
+bindsym $alt+Shift+z exec $i3-wm.program.lock
+bindsym $mod+Shift+z exec $i3-wm.program.lock
 
 ## Session // Sleep // <><Shift> s ##
 set_from_resource $i3-wm.program.sleep i3-wm.program.sleep systemctl suspend
