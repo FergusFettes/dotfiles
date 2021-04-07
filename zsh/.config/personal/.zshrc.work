@@ -1,6 +1,3 @@
-# Aliases {{{
-alias work='notes o work_todo'
-# }}}
 # Kubernetes {{{
 function setup_kubernetes() {
   if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
