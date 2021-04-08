@@ -121,7 +121,7 @@ alias kill_ssh='kill -9 $(ps aux | rg "ssh -fN" | head -1 | tee /dev/tty | awk '
 alias show_ssh='ps aux | rg "ssh -fN"'
 alias passinfo="sed '1i\\USERNAME USER_ID GROUP_ID HOME_DIRECTORY SHELL' /etc/passwd | awk 'BEGIN { FS=\":\" } { print \$1,\$3,\$4,\$6,\$7 }' | column -t"
 
-alias venv="unalias python; unalias pip; source venv*/bin/activate"
+alias venv="source venv*/bin/activate"
 
 alias ipp="echo $IP | xi"
 alias cpu="watch -n 0.2 -d lscpu"
