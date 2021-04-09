@@ -52,7 +52,7 @@ bindkey '^E' delete-word
 bindkey '^N' zca-widget
 # }}}
 # Env Setup {{{
-if [ `uname -n` = "ondewo-xmg-01" ]; then
+if [ `uname -n` = "ondewo-ffettes" ]; then
   source ~/.config/personal/.zshrc.work
   sk rk
 fi

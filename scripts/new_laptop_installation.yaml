@@ -1,4 +1,4 @@
-- hosts: new-machine
+- hosts: new
   become: yes
   become_user: root
   vars:
@@ -9,7 +9,7 @@
       # - work
     user_groups: docker,sudo
     passwords_folder: "/home/ffettes/.password-store/"
-    maximal: no
+    maximal: yes
   tasks:
     - name: Update and upgrade all apt packages
       apt:
@@ -124,7 +124,7 @@
           - linux-tools-common
           - linux-tools-generic
           # Regolith
-          - regolith-desktop
+          - regolith-desktop-standard
           - i3xrocks-net-traffic
           - i3xrocks-cpu-usage
           - i3xrocks-time
@@ -139,6 +139,7 @@
           - lynx
           - feh
           - vlc
+          - mpv
           - nvidia-cuda-toolkit
       when: maximal
     - name: uninstall ubuntu stuff
