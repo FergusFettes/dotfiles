@@ -100,6 +100,7 @@
           - ripgrep
           - vim
           - python3-neovim
+          - ncdu
           # development tools
           - git
           - git-flow
@@ -110,6 +111,8 @@
           - software-properties-common
           - virtualenv
           - ansible
+          - pwgen
+          - apache2-utils
     - name: install extra ubuntu packages
       apt:
         update_cache: yes
