@@ -113,6 +113,8 @@
           - ansible
           - pwgen
           - apache2-utils
+          - # TODO: zoxide
+          - # TODO: notes
     - name: install extra ubuntu packages
       apt:
         update_cache: yes
