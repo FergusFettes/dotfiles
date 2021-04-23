@@ -13,6 +13,13 @@ function sk() {
   setxkbmap -layout $1 -option "caps:ctrl_modifier"
 }
 
+function nvenv2(){
+  python3 -m venv $2 venv-$1
+  venv
+  pip install wheel
+  pip install neovim ipython "jedi==0.17.2" ipdb
+}
+
 function nvenv(){
   virtualenv $2 venv-$1
   venv
