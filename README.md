@@ -36,3 +36,6 @@ My config files and a couple of scripts (in `./scripts/`) for reinstalling every
 * skip all the canonical startup stuff
 
 I think the last ones also need to be dont with dconf, though the custom keybindings seem to have worked, so maybe they just weren't saved properly.
+
+install notes-- is this the one?
+https://github.com/rhysd/notes-cli
