@@ -67,6 +67,11 @@ source ~/.config/personal/.zshrc.work
 
 eval "$(zoxide init zsh)"
 
+if [ `uname -n` = "ondewo-ffettes" ]; then
+  source ~/.config/personal/.zshrc.work
+  sk rk
+fi
+
 prompt_rotate
 # }}}
 # vim:foldmethod=marker:foldlevel=0
