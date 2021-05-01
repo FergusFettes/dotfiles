@@ -1,16 +1,17 @@
+# https://github.com/achannarasappa/ticker
 # ~/.ticker.yaml
 show-tags: true
 show-fundamentals: true
 show-separator: true
 interval: 10
 watchlist:
-  - AAPL
   - ABNB
   - AMZN
   - BNTX
   - BYND
-  - GME
   - NVDA
   - TSM
   - BTC-GBP
   - ETH-GBP
+  - BEST-GBP
+  - BAT-GBP
