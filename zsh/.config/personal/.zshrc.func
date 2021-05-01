@@ -48,6 +48,25 @@ function dcr-soft() {
   fi
 }
 
+function dcr() {
+  if [ -z $1 ]
+  then
+    file=docker-compose.yaml
+  else
+    file=$1
+  fi
+  echo "stopping and restarting $file"
+  if [ -z $2 ]
+  then
+    docker-compose -f $file down
+    docker-compose -f $file up -d
+    docker-compose -f $file logs -f
+  else
+    docker-compose -f $file --env-file $2 down
+    docker-compose -f $file --env-file $2 up -d
+    docker-compose -f $file --env-file $2 logs -f
+  fi
+}
 function dcr-hard() {
   if [ -z $1 ]
   then
