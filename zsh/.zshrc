@@ -52,10 +52,6 @@ bindkey '^E' delete-word
 bindkey '^N' zca-widget
 # }}}
 # Env Setup {{{
-if [ `uname -n` = "ondewo-ffettes" ]; then
-  source ~/.config/personal/.zshrc.work
-  sk rk
-fi
 source $HOME/custom/plugins/init.sh
 # Export all the environmental variables
 source ~/.config/personal/.zshrc.vars
@@ -63,6 +59,11 @@ source ~/.config/personal/.zshrc.vars
 source ~/.config/personal/.zshrc.alias
 # Export all the functions
 source ~/.config/personal/.zshrc.func
+
+# if [ `uname -n` = "ondewo-ffettes" ]; then
+source ~/.config/personal/.zshrc.work
+# sk rk
+# fi
 
 eval "$(zoxide init zsh)"
 
