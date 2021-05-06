@@ -5,6 +5,12 @@ alias -s git="git clone"
 # Global aliases {{{
 alias -g cn=\(cd
 alias -g A='| awk '
+alias -g A1="| awk '{ print \$1 }' Y"
+alias -g A2="| awk '{ print \$2 }' Y"
+alias -g A3="| awk '{ print \$3 }' Y"
+alias -g A4="| awk '{ print \$4 }' Y"
+alias -g A5="| awk '{ print \$5 }' Y"
+alias -g AL="| awk '{ print \$NF }' Y"
 alias -g C="| cut"
 alias -g C1="| cut -f1 Y"
 alias -g C2="| cut -f2 Y"
