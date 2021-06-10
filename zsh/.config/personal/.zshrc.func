@@ -67,6 +67,7 @@ function dcr() {
     docker-compose -f $file --env-file $2 logs -f
   fi
 }
+
 function dcr-hard() {
   if [ -z $1 ]
   then
