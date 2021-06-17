@@ -55,7 +55,7 @@ function dcr() {
   else
     file=$1
   fi
-  echo "stopping, building and restarting $file"
+  echo "stopping and restarting $file"
   if [ -z $2 ]
   then
     docker-compose -f $file down

@@ -60,6 +60,11 @@ source ~/.config/personal/.zshrc.alias
 # Export all the functions
 source ~/.config/personal/.zshrc.func
 
+# if [ `uname -n` = "ondewo-ffettes" ]; then
+source ~/.config/personal/.zshrc.work
+# sk rk
+# fi
+
 eval "$(zoxide init zsh)"
 
 if [ `uname -n` = "ondewo-ffettes" ]; then
