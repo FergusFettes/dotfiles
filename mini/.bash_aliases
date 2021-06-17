@@ -29,6 +29,22 @@ function dcr-hard() {
   docker-compose -f $file logs -f
 }
 
+function dc-down() {
+  if [ -z $1 ]
+  then
+    file=docker-compose.yaml
+  else
+    file=$1
+  fi
+  echo "rming $file"
+  if [ -z $2 ]
+  then
+    docker-compose -f $file down
+  else
+    docker-compose -f $file --env-file $2 down
+  fi
+}
+
 alias vi=vim
 alias dk=docker
 alias dc=docker-compose
