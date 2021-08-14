@@ -23,6 +23,7 @@ then
   source ~/.config/personal/.zshrc.work
   source $ZSH/custom/plugins/enhancd/init.sh
 else
+  source ~/.config/personal/.zshrc.work
   source $HOME/custom/plugins/init.sh
 fi
 # Export all the environmental variables
