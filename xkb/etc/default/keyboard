@@ -1,0 +1,3 @@
+XKBLAYOUT=rk
+BACKSPACE=guess
+XKBOPTIONS="caps:ctrl_modifier"

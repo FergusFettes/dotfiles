@@ -1,0 +1,13 @@
+// https://medium.com/@damko/a-simple-humble-but-comprehensive-guide-to-xkb-for-linux-6f1ad5e13450
+default  partial alphanumeric_keys modifier_keys
+xkb_symbols "rk" {
+  name[Group1] = "Fergus' Basic Keyboard";
+
+  include "us(basic)"
+
+  key <LEFT>      {	[ Left			  ]	};
+  key <UP>        {	[ Up	  ]	};
+  key <RGHT>      {	[	Right	    ]	};
+  key <TLDE>      {	[ Escape		]	};
+  key <ESC>       {	[     grave,	asciitilde	]	};
+};

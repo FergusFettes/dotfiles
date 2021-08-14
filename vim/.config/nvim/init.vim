@@ -4,6 +4,8 @@ call plug#begin(expand('~/.vim/plugged'))
 "" NERDtree
 Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 "" Silver Searcher (note, depreciated, maybe use Ack)
 Plug 'rking/ag.vim'
@@ -26,10 +28,12 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 "" Colorscheme
-" Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/seoul256.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'sts10/vim-pink-moon'
 Plug 'ayu-theme/ayu-vim'
+Plug 'ajmwagar/vim-deus'
+Plug 'scheakur/vim-scheakur'
 
 "" Markdown two panel
 Plug 'JamshedVesuna/vim-markdown-preview'
@@ -52,6 +56,7 @@ Plug 'dermusikman/sonicpi.vim'
 
 "" Movement
 Plug 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-sneak'
 
 "" Close buffers
 Plug 'Asheq/close-buffers.vim'
@@ -90,21 +95,17 @@ if has('termguicolors')
   set termguicolors
 endif
 
+" " can also be 'mirage' or 'dark'
+" let ayucolor="light"|   " light_theme
+" let ayucolor="mirage"
+" colorscheme ayu|        " light_theme
 " colorscheme seoul256
-
 " colorscheme nord
-
-" colorscheme pink-moon
-" set background=dark
-
-" can also be 'mirage' or 'dark'
-let ayucolor="mirage"
-colorscheme ayu
+colorscheme pink-moon|  " dark_theme
 
 syntax enable
 set t_Co=256
 set ruler
-
 
 " }}}
 " Spaces & Tabs {{{
@@ -133,6 +134,7 @@ set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw only when we need to.
 
 set showmatch           " highlight matching [{()}]
+set noshowmode
 " }}}
 " Search {{{
 "" Searching
@@ -173,9 +175,20 @@ nnoremap ^ <nop>
 " Deeply radical..
 " jk is escape
 inoremap jk <esc>
+nnoremap ;1 :!
+nnoremap ;12 :!<UP>
 
 " open ag.vim
 nnoremap <leader>as :Ag!
+
+" Global Marks {{{
+function! SetGMark(mark, filename, line_nr)
+    let l:mybuf = bufnr(a:filename, 1)
+    call setpos("'".a:mark, [l:mybuf, a:line_nr, 1, 0])
+endf
+
+call SetGMark('V', '/home/ffettes/.config/nvim/init.vim', 10)
+" }}}
 " }}}
 " Setup {{{
 "" Encoding
@@ -239,7 +252,7 @@ let g:session_command_aliases = 1
 nnoremap <space> za
 nnoremap <leader>pp :set paste!<CR>
 
-nnoremap <leader>pc :r!date "+\%Y-\%m-\%dT\%H:\%M:\%S+01:00"<CR>
+nnoremap <leader>pc :r!date "+\%Y-\%m-\%dT\%H:\%M:\%S+01:00"<CR>kJ
 
 "" Enter inserts empty line
 map <CR> o<Esc>
@@ -273,20 +286,26 @@ nnoremap [q :cprevious<CR>
 nnoremap ]Q :clast<CR>
 nnoremap [Q :cfirst<CR>
 
+" mapping for making a word into a markdown link
+" NOTE! this is made before the 'm' is mapped to 'gm', so it has to be 'm'!
+nnoremap <leader>l :let @y=@+<CR>"ryiwmhciw[r][r]<Esc>Gi[r]: y<Esc>`hE
+
+nnoremap / ms/
 " }}}
 " Leader Maps {{{
 
 "" NERDtree toggle
 nnoremap <leader>t :NERDTreeToggle<CR>
 
-
 "" Change fold method
 nnoremap <leader>fi :set foldmethod=indent<CR>
 nnoremap <leader>fm :set foldmethod=marker<CR>
 
+"" Ctag alias
+nnoremap <leader>ft "xyiw:ts <C-r>x<CR>
+
 "" Open, save and source vim/zsh rc files
-nnoremap <leader>rc :vsp $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>sv :source $VIMRC<CR>
 
 " "" Open tips_megafile
 " nnoremap <leader>t :vsp $TIPS<CR>
@@ -309,8 +328,9 @@ nnoremap <leader>s :mksession! ~/.vim/session/
 nnoremap <silent> <leader><space> :noh<cr>
 
 " terminal emulation
-nnoremap <silent> <leader>sh :terminal<CR>
+nnoremap <silent> <leader>sh :sp<Bar>:terminal<CR>
 nnoremap <silent> <leader>vsh :vs<Bar>:terminal<CR>
+tnoremap <silent> ty <C-\><C-N>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -362,9 +382,19 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'"
 " }}}
 " Settings for plugs {{{
+"" enable clever sneak
+let g:sneak#s_next = 1
+nnoremap <UP> /
 
 "" Fix for NERDtree window closing
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:ranger_map_keys = 0
+noremap <leader>re :Ranger<CR>
+noremap <leader>rn :RangerNewTab<CR>
+" add this line if you use NERDTree
+let g:NERDTreeHijackNetrw = 0
+" open ranger when vim open a directory
+let g:ranger_replace_netrw = 1
 
 "" Sonic Pi Settings
 nnoremap <leader>e :SonicPiStop<CR>
@@ -502,5 +532,44 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+" }}}
+" Lynx {{{
+function! s:init_lynx()
+  nnoremap <nowait><buffer> <C-F> i<PageDown><C-\><C-N>
+  tnoremap <nowait><buffer> <C-F> <PageDown>
+
+  nnoremap <nowait><buffer> <C-B> i<PageUp><C-\><C-N>
+  tnoremap <nowait><buffer> <C-B> <PageUp>
+
+  nnoremap <nowait><buffer> <C-D> i:DOWN_HALF<CR><C-\><C-N>
+  tnoremap <nowait><buffer> <C-D> :DOWN_HALF<CR>
+
+  nnoremap <nowait><buffer> <C-U> i:UP_HALF<CR><C-\><C-N>
+  tnoremap <nowait><buffer> <C-U> :UP_HALF<CR>
+
+  nnoremap <nowait><buffer> <C-N> i<Delete><C-\><C-N>
+  tnoremap <nowait><buffer> <C-N> <Delete>
+
+  nnoremap <nowait><buffer> <C-P> i<Insert><C-\><C-N>
+  tnoremap <nowait><buffer> <C-P> <Insert>
+
+  nnoremap <nowait><buffer> u     i<Left><C-\><C-N>
+  nnoremap <nowait><buffer> U     i<C-U><C-\><C-N>
+  nnoremap <nowait><buffer> <CR>  i<CR><C-\><C-N>
+  nnoremap <nowait><buffer> gg    i:HOME<CR><C-\><C-N>
+  nnoremap <nowait><buffer> G     i:END<CR><C-\><C-N>
+  nnoremap <nowait><buffer> zl    i:SHIFT_LEFT<CR><C-\><C-N>
+  nnoremap <nowait><buffer> zL    i:SHIFT_LEFT<CR><C-\><C-N>
+  nnoremap <nowait><buffer> zr    i:SHIFT_RIGHT<CR><C-\><C-N>
+  nnoremap <nowait><buffer> zR    i:SHIFT_RIGHT<CR><C-\><C-N>
+  nnoremap <nowait><buffer> gh    i:HELP<CR><C-\><C-N>
+  nnoremap <nowait><buffer> cow   i:LINEWRAP_TOGGLE<CR><C-\><C-N>
+
+  tnoremap <buffer> <C-C> <C-G><C-\><C-N>
+  nnoremap <buffer> <C-C> i<C-G><C-\><C-N>
+endfunction
+command! -nargs=1 Web       vnew|call termopen('lynx -scrollbar '.shellescape(substitute(<q-args>,'#','%23','g')))|call <SID>init_lynx()
+command! -nargs=1 Websearch vnew|call termopen('lynx -scrollbar https://duckduckgo.com/?q='.shellescape(substitute(<q-args>,'#','%23','g')))|call <SID>init_lynx()
+
 " }}}
 " vim:foldmethod=marker:foldlevel=0

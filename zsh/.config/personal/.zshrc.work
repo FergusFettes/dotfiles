@@ -1,25 +1,50 @@
-# if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
-# export KUBECONFIG=/home/$USER/.bluemix/plugins/container-service/clusters/bmmrootd03m17d43d4v0/kube-config-hou02-asterisk_server.yml
+# Kubernetes {{{
+function setup_kubernetes() {
+  if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+  export KUBECONFIG=/home/$USER/.bluemix/plugins/container-service/clusters/bmmrootd03m17d43d4v0/kube-config-hou02-asterisk_server.yml
 
-# source <(microk8s.kubectl completion zsh)
-# alias ku=microk8s.kubectl
-# alias m8=microk8s
-
+  source <(microk8s.kubectl completion zsh)
+  alias ku=microk8s.kubectl
+  alias m8=microk8s
+}
+# }}}
+# VPNS {{{
 alias barra="export TERM=xterm; barracudavpn"
-
-function npm_export() {
+alias vpn="sudo openvpn --config /home/$USER/.local/openvpn_ffettes/openvpn_ffettes.ovpn"
+# }}}
+# JavaScript {{{
+function setup_npm() {
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
+
+function setup_npm_10() {
+  npm_export
   nvm use v10
 }
-
-function npm_export_simple() {
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# }}}
+# GCP {{{
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/usr/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/ffettes/.local/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ffettes/.local/google-cloud-sdk/path.zsh.inc'; fi
+# The next line enables shell command completion for gcloud.
+if [ -f '/usr/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/ffettes/.local/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ffettes/.local/google-cloud-sdk/completion.zsh.inc'; fi
+# }}}
+# Golang {{{
+function setup_golang() {
+  export PATH=$PATH:/usr/local/go/bin
 }
-
+function setup_golang_9() {
+  setup_golang
+  export GOPATH=`pwd -P`
+  [ -d src ] || echo no src folder!
+  [ -d bin ] || echo no bin folder!
+  [ -d pkg ] || echo no pkg folder!
+}
+# }}}
+# Misc {{{
 # These are some aliases for running things locally
 alias onlyduckling="cd ~/ondewo/ondewo-cai && make start-duckling-locally"
 alias envoy="docker kill envoy || true && docker run --rm -d --name envoy -v /home/$USER/ondewo/ondewo-aim/envoy.yml:/etc/envoy/envoy.yaml --network=host envoyproxy/envoy:v1.10.0"
@@ -30,15 +55,8 @@ alias make_speech_services="make --directory=~/ondewo/ondewo-s2t-cloud run_strea
 # These variables have to be set to run cai locally
 export CAI_IMAGE_NAME_GPU=smh
 export CAI_IMAGE_NAME_CPU=smh
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/usr/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/home/ffettes/.local/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ffettes/.local/google-cloud-sdk/path.zsh.inc'; fi
-# The next line enables shell command completion for gcloud.
-if [ -f '/usr/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/completion.zsh.inc'; fi
-if [ -f '/home/ffettes/.local/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ffettes/.local/google-cloud-sdk/completion.zsh.inc'; fi
-
-alias pass='cat /home/$USER/.password-store/my_long_pass | xi'
-alias pass-dzm='cat /home/$USER/.password-store/dzm_pass | xi'
-alias pass-wko='cat /home/$USER/.password-store/wko_pass | xi'
-alias pass-admin='cat /home/$USER/.password-store/admin_pass | xi'
+# }}}
+# Password info {{{
+source ~/.password-store/aliases
+# }}}
+# vim:foldmethod=marker:foldlevel=0

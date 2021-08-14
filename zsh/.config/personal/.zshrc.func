@@ -1,3 +1,31 @@
+# globalias() {
+#   if [[ $LBUFFER =~ '[A-Z0-9]+$' ]]; then
+#     zle _expand_alias
+#     zle expand-word
+#   fi
+#   zle self-insert
+# }
+# zle -N globalias
+# bindkey " " globalias # space key to expand globalalias
+
+function sk() {
+  setxkbmap -layout $1 -option
+  setxkbmap -layout $1 -option "caps:ctrl_modifier"
+}
+
+function nvenv2(){
+  python3 -m venv $2 venv-$1
+  venv
+  pip install wheel
+  pip install neovim ipython "jedi==0.17.2" ipdb
+}
+
+function nvenv(){
+  virtualenv $2 venv-$1
+  venv
+  pip install neovim ipython "jedi==0.17.2" ipdb
+}
+
 function dcr-soft() {
   if [ -z $1 ]
   then
@@ -15,6 +43,26 @@ function dcr-soft() {
   else
     docker-compose -f $file --env-file $2 down
     docker-compose -f $file --env-file $2 build
+    docker-compose -f $file --env-file $2 up -d
+    docker-compose -f $file --env-file $2 logs -f
+  fi
+}
+
+function dcr() {
+  if [ -z $1 ]
+  then
+    file=docker-compose.yaml
+  else
+    file=$1
+  fi
+  echo "stopping and restarting $file"
+  if [ -z $2 ]
+  then
+    docker-compose -f $file down
+    docker-compose -f $file up -d
+    docker-compose -f $file logs -f
+  else
+    docker-compose -f $file --env-file $2 down
     docker-compose -f $file --env-file $2 up -d
     docker-compose -f $file --env-file $2 logs -f
   fi
@@ -44,6 +92,22 @@ function dcr-hard() {
   fi
 }
 
+function dc-down() {
+  if [ -z $1 ]
+  then
+    file=docker-compose.yaml
+  else
+    file=$1
+  fi
+  echo "rming $file"
+  if [ -z $2 ]
+  then
+    docker-compose -f $file down
+  else
+    docker-compose -f $file --env-file $2 down
+  fi
+}
+
 function prompt_rotate() {
   if [ $PROMPT_VERBOSITY -eq 0 ]
   then
@@ -62,5 +126,40 @@ function prompt_rotate() {
   PROMPT_VERBOSITY=$((PROMPT_VERBOSITY + 1))
   if [ $PROMPT_VERBOSITY -gt 2 ]; then
     PROMPT_VERBOSITY=0
+  fi
+}
+
+function dark() {
+  ALACRITTY_LIGHT=`rg "#.{5,}dark" $ALACRITTYRC`
+  if [ -z "$ALACRITTY_LIGHT" ]
+  then
+    echo "was already dark!"
+  else
+    sed -i "s/# \(.*# dark_theme\)/\1/" $ALACRITTYRC
+    sed -i 's/^.*light_theme/# &/' $ALACRITTYRC
+    sed -i 's/" \(.*" dark_theme\)/\1/' $VIMRC
+    sed -i 's/^.*light_theme/" &/' $VIMRC
+  fi
+
+}
+
+function light() {
+  ALACRITTY_LIGHT=`rg "#.{5,}dark" $ALACRITTYRC`
+  if [ -z "$ALACRITTY_LIGHT" ]
+  then
+    sed -i "s/# \(.*# light_theme\)/\1/" $ALACRITTYRC
+    sed -i 's/^.*dark_theme/# &/' $ALACRITTYRC
+    sed -i 's/" \(.*" light_theme\)/\1/' $VIMRC
+    sed -i 's/^.*dark_theme/" &/' $VIMRC
+  else
+    echo "was already light!"
+  fi
+}
+
+function python_do() {
+  if [ -z $2 ]; then
+    python3 -c "print($1)"
+  else
+    python3 -c "import $2; print($1)"
   fi
 }

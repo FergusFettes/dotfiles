@@ -1,31 +1,89 @@
+# Suffix aliases {{{
+alias -s {ape,avi,flv,m4a,mkv,mov,mp3,mp4,mpeg,mpg,ogg,ogm,wav,webm}=mpv
+alias -s git="git clone"
+# }}}
+# Global aliases {{{
+alias -g cn=\(cd
+alias -g A='| awk '
+alias -g A1="| awk '{ print \$1 }' Y"
+alias -g A2="| awk '{ print \$2 }' Y"
+alias -g A3="| awk '{ print \$3 }' Y"
+alias -g A4="| awk '{ print \$4 }' Y"
+alias -g A5="| awk '{ print \$5 }' Y"
+alias -g AL="| awk '{ print \$NF }' Y"
+alias -g C="| cut"
+alias -g C1="| cut -f1 Y"
+alias -g C2="| cut -f2 Y"
+alias -g C3="| cut -f3 Y"
+alias -g C4="| cut -f4 Y"
+alias -g C5="| cut -f5 Y"
+alias -g Y='| xclip -f -sel clip'
+alias -g NF='./*(oc[1])'
+alias -g G='| grep'
+alias -g H='| head '
+alias -g T='| tail '
+alias -g S='| sed '
+alias -g R='| rg'
+alias -g P='| cat'
+alias -g V='| vim -'
+alias -g F="| fzf " # ls -l F
+alias -g X="| xargs " # ls -l X rm
+# }}}
+# Bash Shortcuts {{{
 alias \?='uname -n'
-
-alias vi=nvim
-alias dk=docker
-alias dc=docker-compose
-alias dc-restart="docker-compose down && docker-compose build && docker-compose up -d && docker-compose logs -f"
-alias v="vi ."
-
-alias gl='git log --graph --decorate --oneline $(git rev-list -g --all)'
-alias glp="git log -p"
-alias gll="git pull"
-alias gp="git push --follow-tags"
-alias gs="git stash"  # overwrite ghostscript alias, its too annoying when it pops up
-alias gsp="git stash pop"
-
-alias x=exit
-alias xz="exec zsh"
-alias t=tmux
-alias tk="tmux attach"
-
-alias m8=microk8s
-alias ku="microk8s kubectl"
-alias hd=hyperdrive
 
 alias l=k
 alias la="k -a"
 alias p="pwd -P"
+alias c=cd
 alias s="sudo -s"
+
+alias ec=echo
+
+alias ,=prompt_rotate
+# }}}
+# File Shortcuts {{{
+alias blog='cd /home/$USER/site-backend/ffettes'
+alias mime='file --mime-type -b'
+
+alias scratch="vi /tmp/scratch.md"
+
+alias conf="vi \
+$VIMRC \
+$ALACRITTYRC \
+/home/$USER/.tmux.conf \
+/home/$USER/.zshrc \
+/home/$USER/.config/personal/.zshrc.alias \
+/home/$USER/.config/personal/.zshrc.vars \
+/home/$USER/.config/personal/.zshrc.work \
+/home/$USER/.config/personal/.zshrc.func \
+/home/$USER/.sway/config \
+/home/$USER/.config/regolith/i3/config"
+alias zconf="vi \
+/home/$USER/.zshrc \
+/home/$USER/.config/personal/.zshrc.alias \
+/home/$USER/.config/personal/.zshrc.vars \
+/home/$USER/.config/personal/.zshrc.work \
+/home/$USER/.config/personal/.zshrc.func"
+alias vconf="vi $VIMRC"
+alias aconf="vi $ALACRITTYRC"
+alias tconf="vi /home/$USER/.tmux.conf"
+# }}}
+# Software Aliases {{{
+alias dk=docker
+alias dc=docker-compose
+alias dc-restart="docker-compose down && docker-compose build && docker-compose up -d && docker-compose logs -f"
+alias vi=nvim
+alias v="vi ."
+alias vf='vi $(fzf)'
+
+alias nt=notes
+alias nto='notes open'
+alias hd=hyperdrive
+
+alias pip=pip3
+alias python=python3
+
 alias cat=bat
 alias bcat=/bin/cat
 alias man=~/.local/bat-extras/src/batman.sh
@@ -33,25 +91,50 @@ alias grpcurl=~/.local/grpcurl
 # alias fpp=~/.local/PathPicker/fpp
 alias r=ranger
 
-alias tips="vi $TIPS"
-alias scratch="cd ~/scratch && vi $SCRATCH"
-
 alias rsync="rsync -Phav"
 alias rsync_no_links="rsync -rptgoDLK"
 alias rsync_remote="rsync -Phavz"
 
-alias ,=prompt_rotate
-
-alias zshrcs="vi ~/.zshrc ~/.config/personal/.zshrc.alias ~/.config/personal/.zshrc.vars ~/.config/personal/.zshrc.work ~/.config/personal/.zshrc.func"
-alias config="vi ~/.config/nvim/init.vim ~/.tmux.conf ~/.config/alacritty/alacritty.yml ~/.zshrc ~/.config/personal/.zshrc.alias ~/.config/personal/.zshrc.vars ~/.config/personal/.zshrc.work ~/.config/personal/.zshrc.func"
-alias configs=config
-
-alias pip=pip3
-alias python=python3
 alias nk=n-kill
+alias pd=python_do
 
+alias tik=ticker
+# }}}
+# Software Shortcuts {{{
+alias gl='git log --graph --decorate --oneline $(git rev-list -g --all)'
+alias glp="git log -p"
+alias gll="git pull"
+alias gp="git push --follow-tags"
+alias gs="git stash"  # overwrite ghostscript alias, its too annoying when it pops up
+alias gsp="git stash pop"
+
+alias l=k
+alias la="k -a"
+alias p="pwd -P"
+alias c=cd
+alias s="sudo -s"
+
+alias x=exit
+alias xz="exec zsh"
+alias t=tmux
+alias tk="tmux attach"
+
+# }}}
+# Mini Scripts {{{
 alias xi='xclip -f -sel clip'
+alias xo='xclip -o -sel clip'
 alias kill_ssh='kill -9 $(ps aux | rg "ssh -fN" | head -1 | tee /dev/tty | awk '\''{ print $2 }'\'')'
 alias show_ssh='ps aux | rg "ssh -fN"'
+alias passinfo="sed '1i\\USERNAME USER_ID GROUP_ID HOME_DIRECTORY SHELL' /etc/passwd | awk 'BEGIN { FS=\":\" } { print \$1,\$3,\$4,\$6,\$7 }' | column -t"
+
+alias venv="unalias python; unalias pip; source venv*/bin/activate"
 
 alias ipp="echo $IP | xi"
+alias cpu="watch -n 0.2 -d lscpu"
+alias cpup="watch -n 0.2 'sudo cpupower frequency-info'"
+# }}}
+# Config Shortcuts {{{
+alias rk="sk rk"
+alias rk2="sk rk2"
+# }}}
+# vim:foldmethod=marker:foldlevel=0
