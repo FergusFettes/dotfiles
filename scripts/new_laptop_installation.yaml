@@ -1,4 +1,4 @@
-- hosts: new
+- hosts: localhost
   become: yes
   become_user: root
   vars:
@@ -11,12 +11,18 @@
     passwords_folder: "/home/ffettes/.password-store/"
     maximal: yes
     local_install: yes
+    cuda: no
   tasks:
     - name: Update and upgrade all apt packages
       apt:
         update_cache: yes
         upgrade: dist
         force_apt_get: yes
+
+    - name: Install CUDA stuff
+      include_role:
+        name: tyhal.cuda
+      when: cuda
 
     - name: include pip role
       include_role:
