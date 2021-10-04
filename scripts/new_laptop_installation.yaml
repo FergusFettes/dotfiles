@@ -10,6 +10,7 @@
     user_groups: docker,sudo
     passwords_folder: "/home/ffettes/.password-store/"
     maximal: yes
+    local_install: yes
   tasks:
     - name: Update and upgrade all apt packages
       apt:
@@ -72,14 +73,12 @@
         repo: "{{ item }}"
       with_items:
         - 'ppa:regolith-linux/release'
-        - 'ppa:jgmath2000/et'
 
     - name: install standard ubuntu packages
       apt:
         update_cache: yes
         pkg:
           # improved ssh tunelling/net tools
-          - et
           - mosh
           - unzip
           - curl
@@ -113,8 +112,9 @@
           - ansible
           - pwgen
           - apache2-utils
-          - # TODO: zoxide
-          - # TODO: notes
+          # TODO: zoxide
+          # TODO: notes
+          - libxkbcommon-dev
     - name: install extra ubuntu packages
       apt:
         update_cache: yes
@@ -255,6 +255,7 @@
         recursive: yes
         version: master
       become: no
+      when: local_install
     - name: Clear out .zshrc
       file:
         path: "/home/ffettes/.zshrc"
@@ -277,17 +278,6 @@
         - "vim"
         - "zsh"
       become: no
-    - name: Load keybindings
-      shell:
-        cmd: "dconf load /usr/gnome/desktop/{{ item }}/ < {{ item }}"
-        chdir: "/home/ffettes/dotfiles/dconf/"
-      with_items:
-        - './wm/keybindings'
-        - './wm/custom-keybindings'
-        - './input-sources'
-      become: yes
-      become_user: ffettes
-      when: maximal
 
     - name: Clone Tmux package manager
       git:
