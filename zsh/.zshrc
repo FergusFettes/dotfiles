@@ -67,11 +67,14 @@ source ~/.config/personal/.zshrc.work
 
 eval "$(zoxide init zsh)"
 
-if [ `uname -n` = "ondewo-ffettes" ]; then
+if [ `uname -n` = "ffettes-XPS15" ]; then
   source ~/.config/personal/.zshrc.work
-  sk rk
+  source /w/openpilot/activate.sh
 fi
 
 prompt_rotate
 # }}}
 # vim:foldmethod=marker:foldlevel=0
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
