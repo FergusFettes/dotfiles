@@ -78,3 +78,7 @@ prompt_rotate
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# fnm
+export PATH=/home/ffettes/.fnm:$PATH
+eval "`fnm env`"
