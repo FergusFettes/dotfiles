@@ -84,6 +84,7 @@
         repo: "{{ item }}"
       with_items:
         - 'ppa:regolith-linux/release'
+        - 'ppa:neovim-ppa/unstable'
 
     - name: install standard ubuntu packages
       apt:
