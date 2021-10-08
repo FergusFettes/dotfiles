@@ -84,7 +84,6 @@ Plug 'honza/vim-snippets'
 
 " " Slimv
 " Plug 'kovisoft/slimv'
-"
 
 call plug#end()
 filetype plugin indent on
@@ -348,7 +347,7 @@ nnoremap <leader>h :h <C-R><C-W><CR>
 
 "" Git
 noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
+noremap <Leader>gc :Git commit<CR>
 noremap <Leader>gsh :Gpush<CR>
 noremap <Leader>gll :Gpull<CR>
 noremap <Leader>gs :Gstatus<CR>

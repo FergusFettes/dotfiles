@@ -19,6 +19,8 @@ My config files and a couple of scripts (in `./scripts/`) for reinstalling every
 
 ## TODO
 
+* install notes: `curl -Ls https://raw.githubusercontent.com/pimterry/notes/latest-release/install.sh | sudo bash`
+* install vscode
 * tmux plugins: prefix + I
 * install cronjobs
 * consider adding a selection of vim plugins

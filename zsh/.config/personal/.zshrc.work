@@ -8,10 +8,6 @@ function setup_kubernetes() {
   alias m8=microk8s
 }
 # }}}
-# VPNS {{{
-alias barra="export TERM=xterm; barracudavpn"
-alias vpn="sudo openvpn --config /home/$USER/.local/openvpn_ffettes/openvpn_ffettes.ovpn"
-# }}}
 # JavaScript {{{
 function setup_npm() {
   export NVM_DIR="$HOME/.nvm"
@@ -24,18 +20,11 @@ function setup_npm_10() {
   nvm use v10
 }
 # }}}
-# GCP {{{
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/usr/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/home/ffettes/.local/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ffettes/.local/google-cloud-sdk/path.zsh.inc'; fi
-# The next line enables shell command completion for gcloud.
-if [ -f '/usr/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/bin/google-cloud-sdk/completion.zsh.inc'; fi
-if [ -f '/home/ffettes/.local/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ffettes/.local/google-cloud-sdk/completion.zsh.inc'; fi
-# }}}
 # Golang {{{
 function setup_golang() {
   export PATH=$PATH:/usr/local/go/bin
 }
+
 function setup_golang_9() {
   setup_golang
   export GOPATH=`pwd -P`
@@ -45,18 +34,8 @@ function setup_golang_9() {
 }
 # }}}
 # Misc {{{
-# These are some aliases for running things locally
-alias onlyduckling="cd ~/ondewo/ondewo-cai && make start-duckling-locally"
-alias envoy="docker kill envoy || true && docker run --rm -d --name envoy -v /home/$USER/ondewo/ondewo-aim/envoy.yml:/etc/envoy/envoy.yaml --network=host envoyproxy/envoy:v1.10.0"
-alias aimp_bridge="envoy && onlyduckling"
-alias postgres="docker pull dockerregistry.ondewo.com:5000/postgres:latest; docker rm -f postgres; docker run --restart always --name postgres -d -p 5432:5432 -e POSTGRES_USER=cai -e POSTGRES_PASSWORD=asdf dockerregistry.ondewo.com:5000/postgres:latest postgres -c log_statement=all"
-alias make_speech_services="make --directory=~/ondewo/ondewo-s2t-cloud run_stream_local && make --directory=~/ondewo/ondewo-s2t-demultiplexer run_demux_local && make --directory=~/ondewo/ondewo-t2s-cloud run_batch_local"
-
-# These variables have to be set to run cai locally
-export CAI_IMAGE_NAME_GPU=smh
-export CAI_IMAGE_NAME_CPU=smh
 # }}}
 # Password info {{{
-source ~/.password-store/aliases
+source ~/.password-store/aliases.sh
 # }}}
 # vim:foldmethod=marker:foldlevel=0
