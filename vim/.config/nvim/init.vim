@@ -85,6 +85,10 @@ Plug 'honza/vim-snippets'
 " " Slimv
 " Plug 'kovisoft/slimv'
 
+" Table making!
+Plug 'dhruvasagar/vim-table-mode'
+
+
 call plug#end()
 filetype plugin indent on
 
@@ -119,7 +123,7 @@ set expandtab
 " }}}
 " UI Config {{{
 "" Number setup to show relative number
-set number relativenumber
+" set number relativenumber
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
