@@ -99,6 +99,8 @@ alias nk=n-kill
 alias pd=python_do
 
 alias tik=ticker
+
+alias scim=sc-im
 # }}}
 # Software Shortcuts {{{
 alias gl='git log --graph --decorate --oneline $(git rev-list -g --all)'
