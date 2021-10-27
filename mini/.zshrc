@@ -70,3 +70,9 @@ alias ll="ls"
 
 PROMPT='%F{green}%2c%F{blue} [%f '
 RPROMPT=' %F{blue}] %F{green}%D{%L:%M} %F{yellow}%D{%p}%f'
+
+source ~/.config/personal/.zshrc.vars
+# Export all the aliases
+source ~/.config/personal/.zshrc.alias
+# Export all the functions
+source ~/.config/personal/.zshrc.func
