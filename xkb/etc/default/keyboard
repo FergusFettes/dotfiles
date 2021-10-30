@@ -1,3 +1,4 @@
-XKBLAYOUT=rk
-BACKSPACE=guess
+XKBLAYOUT="rk"
 XKBOPTIONS="caps:ctrl_modifier"
+
+BACKSPACE="guess"
