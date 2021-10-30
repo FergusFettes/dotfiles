@@ -494,6 +494,8 @@ au FileType rust nmap <leader>rv :w<CR>:!cargo run --verbose<CR>
 au FileType python nmap <leader>rr :w<CR>:!python3 %<CR>
 au FileType python nmap <leader>rp :w<CR>:!python3 %<CR>
 au FileType python nmap <leader>rt :w<CR>:!python3 -m pytest %<CR>
+
+au FileType make nmap <leader>rr :w<CR>yiw:!make <C-R>"<CR>
 " }}}
 " Powerline Vars {{{
 "*****************************************************************************
