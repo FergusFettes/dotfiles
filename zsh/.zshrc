@@ -62,7 +62,6 @@ source ~/.config/personal/.zshrc.func
 
 # if [ `uname -n` = "ondewo-ffettes" ]; then
 source ~/.config/personal/.zshrc.work
-# sk rk
 # fi
 
 eval "$(zoxide init zsh)"
@@ -70,6 +69,7 @@ eval "$(zoxide init zsh)"
 if [ `uname -n` = "ffettes-XPS15" ]; then
   source ~/.config/personal/.zshrc.work
   source /w/openpilot/activate.sh
+  sk rk
 fi
 
 prompt_rotate

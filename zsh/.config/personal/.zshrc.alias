@@ -80,6 +80,7 @@ alias vf='vi $(fzf)'
 alias nt=notes
 alias nto='notes open'
 alias hd=hyperdrive
+alias w="watch -d -n 0.2"
 
 alias pip=pip3
 alias python=python3
