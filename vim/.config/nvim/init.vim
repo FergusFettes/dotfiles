@@ -355,7 +355,7 @@ noremap <Leader>gc :Git commit<CR>
 noremap <Leader>gsh :Gpush<CR>
 noremap <Leader>gll :Gpull<CR>
 noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gb :Git blame<CR>
 noremap <Leader>gdi :Gvdiff<CR>
 noremap <Leader>gr :Gremove<CR>
 
@@ -438,6 +438,7 @@ set updatetime=500
 " get rid of <s as brackets in delimitMate
 let delimitMate_matchpairs = "(:),[:],{:}"
 nnoremap <leader>" :DelimitMateSwitch<CR>
+inoremap <C-R><C-D> <ESC>:DelimitMateSwitch<CR>i
 
 " turn on the experimental completer for racer
 let g:racer_experimental_completer = 1
@@ -496,6 +497,8 @@ au FileType python nmap <leader>rp :w<CR>:!python3 %<CR>
 au FileType python nmap <leader>rt :w<CR>:!python3 -m pytest %<CR>
 
 au FileType make nmap <leader>rr :w<CR>yiw:!make <C-R>"<CR>
+
+au FileType requirements nmap <leader>rr :w<CR>:!pip install -r requirements.txt<CR>
 " }}}
 " Powerline Vars {{{
 "*****************************************************************************

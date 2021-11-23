@@ -90,7 +90,7 @@ alias bcat=/bin/cat
 alias man=~/.local/bat-extras/src/batman.sh
 alias grpcurl=~/.local/grpcurl
 # alias fpp=~/.local/PathPicker/fpp
-alias r=ranger
+alias ra=ranger
 
 alias rsync="rsync -Phav"
 alias rsync_no_links="rsync -rptgoDLK"
