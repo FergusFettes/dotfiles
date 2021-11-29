@@ -110,6 +110,9 @@ alias gll="git pull"
 alias gp="git push --follow-tags"
 alias gs="git stash"  # overwrite ghostscript alias, its too annoying when it pops up
 alias gsp="git stash pop"
+alias gcaM="git commit -a --no-verify -m"
+alias gcn="git clean -i"
+alias gcnn="git clean -f"
 
 alias l=k
 alias la="k -a"
