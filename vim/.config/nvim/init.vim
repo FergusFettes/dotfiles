@@ -469,9 +469,6 @@ augroup configgroup
     autocmd!
     autocmd VimEnter * highlight clear SignColumn
     autocmd FileType python setlocal commentstring=#\ %s
-    autocmd FileType python setlocal tabstop=4
-    autocmd FileType python setlocal shiftwidth=4
-    autocmd FileType python setlocal softtabstop=4
     autocmd BufEnter *.cls setlocal filetype=java
     autocmd BufEnter *.zsh-theme setlocal filetype=zsh
     autocmd BufEnter Makefile setlocal noexpandtab
@@ -498,6 +495,11 @@ au FileType rust nmap <leader>rv :w<CR>:!cargo run --verbose<CR>
 au FileType python nmap <leader>rr :w<CR>:!python3 %<CR>
 au FileType python nmap <leader>rp :w<CR>:!python3 %<CR>
 au FileType python nmap <leader>rt :w<CR>:!python3 -m pytest %<CR>
+
+nnoremap <leader>nn :set number!<CR>
+nnoremap <leader>t2 :setlocal tabstop=4<CR>:setlocal shiftwidth=4<CR>:setlocal softtabstop=4<CR>
+nnoremap <leader>t4 :setlocal tabstop=4<CR>:setlocal shiftwidth=4<CR>:setlocal softtabstop=4<CR>
+
 
 au FileType make nmap <leader>rr :w<CR>yiw:!make <C-R>"<CR>
 
