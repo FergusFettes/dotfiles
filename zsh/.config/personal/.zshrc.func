@@ -137,6 +137,26 @@ function prompt_rotate() {
   fi
 }
 
+function rk_on() {
+  RK_OFF=`rg "#.*sk.rk" $ZSHRC`
+  if [ -z "$RK_OFF" ]
+  then
+    echo "was already on!"
+  else
+    sed -i "s/# \(.*sk rk\)/\1/" $ZSHRC
+  fi
+}
+
+function rk_off() {
+  RK_OFF=`rg "#.*sk.rk" $ZSHRC`
+  if [ -z "$RK_OFF" ]
+  then
+    sed -i "s/\(.*sk rk\)/# \1/" $ZSHRC
+  else
+    echo "was already off!"
+  fi
+}
+
 function dark() {
   ALACRITTY_LIGHT=`rg "#.{5,}dark" $ALACRITTYRC`
   if [ -z "$ALACRITTY_LIGHT" ]
