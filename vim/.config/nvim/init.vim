@@ -496,6 +496,9 @@ au FileType python nmap <leader>rr :w<CR>:!python3 %<CR>
 au FileType python nmap <leader>rp :w<CR>:!python3 %<CR>
 au FileType python nmap <leader>rt :w<CR>:!python3 -m pytest %<CR>
 
+" sql
+au FileType sql nmap <leader>rr :w<CR>:Redir ! %<CR>
+
 nnoremap <leader>nn :set number!<CR>
 nnoremap <leader>t2 :setlocal tabstop=4<CR>:setlocal shiftwidth=4<CR>:setlocal softtabstop=4<CR>
 nnoremap <leader>t4 :setlocal tabstop=4<CR>:setlocal shiftwidth=4<CR>:setlocal softtabstop=4<CR>
@@ -585,4 +588,36 @@ command! -nargs=1 Web       vnew|call termopen('lynx -scrollbar '.shellescape(su
 command! -nargs=1 Websearch vnew|call termopen('lynx -scrollbar https://duckduckgo.com/?q='.shellescape(substitute(<q-args>,'#','%23','g')))|call <SID>init_lynx()
 
 " }}}
-" vim:foldmethod=marker:foldlevel=0
+" Redir Func {{{
+function! Redir(cmd, rng, start, end)
+	for win in range(1, winnr('$'))
+		if getwinvar(win, 'scratch')
+			execute win . 'windo close'
+		endif
+	endfor
+	if a:cmd =~ '^!'
+		let cmd = a:cmd =~' %'
+			\ ? matchstr(substitute(a:cmd, ' %', ' ' . expand('%:p'), ''), '^!\zs.*')
+			\ : matchstr(a:cmd, '^!\zs.*')
+		if a:rng == 0
+			let output = systemlist(cmd)
+		else
+			let joined_lines = join(getline(a:start, a:end), '\n')
+			let cleaned_lines = substitute(shellescape(joined_lines), "'\\\\''", "\\\\'", 'g')
+			let output = systemlist(cmd . " <<< $" . cleaned_lines)
+		endif
+	else
+		redir => output
+		execute a:cmd
+		redir END
+		let output = split(output, "\n")
+	endif
+	vnew
+	let w:scratch = 1
+	setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile
+	call setline(1, output)
+endfunction
+
+command! -nargs=1 -complete=command -bar -range Redir silent call Redir(<q-args>, <range>, <line1>, <line2>)
+" }}}
+" vim:foldmethod=marker:foldlevel=5
