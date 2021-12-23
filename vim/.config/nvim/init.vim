@@ -497,7 +497,10 @@ au FileType python nmap <leader>rp :w<CR>:!python3 %<CR>
 au FileType python nmap <leader>rt :w<CR>:!python3 -m pytest %<CR>
 
 " sql
-au FileType sql nmap <leader>rr :w<CR>:Redir ! %<CR>
+au FileType sql nmap <leader>rv :w<CR>:Redir ! /pa/postgres_apply.sh %<CR>
+au FileType sql nmap <leader>rr :w<CR>:! tmux -L sqldump send-keys -t dump:1.0 "/pa/postgres_apply_test.sh % &> /tmp/sql_output_test" ENTER<CR>
+au FileType sql nmap <leader>rt :w<CR>:! tmux -L sqldump send-keys -t dump:1.1 "/pa/postgres_apply_prod.sh % &> /tmp/sql_output_prod" ENTER<CR>
+
 
 nnoremap <leader>nn :set number!<CR>
 nnoremap <leader>t2 :setlocal tabstop=4<CR>:setlocal shiftwidth=4<CR>:setlocal softtabstop=4<CR>
