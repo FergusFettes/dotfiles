@@ -13,7 +13,7 @@ function rsed2() {
 }
 
 function rsed() {
-  fd -tf -x sed -i -e "$1" {};
+  fd -tf "$2" "$3" -x sed -i -e "$1" {};
 }
 
 function sk() {
@@ -21,16 +21,27 @@ function sk() {
   setxkbmap -layout $1 -option "caps:ctrl_modifier"
 }
 
+function venv() {
+  unalias python
+  unalias pip
+  if [ -z $1 ]
+  then
+    source venv*/bin/activate
+  else
+    source venv-$1/bin/activate
+  fi
+}
+
 function nvenv2(){
   python3 -m venv $2 venv-$1
-  venv
+  venv $1
   pip install wheel
   pip install neovim ipython "jedi==0.17.2" ipdb
 }
 
 function nvenv(){
   virtualenv $2 venv-$1
-  venv
+  venv $1
   pip install neovim ipython "jedi==0.17.2" ipdb
 }
 
