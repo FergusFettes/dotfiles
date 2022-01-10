@@ -185,21 +185,19 @@ bindsym $alt+Shift+Ctrl+9 move container to workspace number $ws19
 
 ## Navigate // Next Workspace // <> Tab ##
 bindsym $mod+Tab workspace next
-
-## Navigate // Next Workspace // <><Alt> → ##
-bindsym $mod+$alt+Right workspace next
+bindsym $alt+Tab workspace next
 
 ## Navigate // Previous Workspace // <><Shift> Tab ##
 bindsym $mod+Shift+Tab workspace prev
-
-## Navigate // Previous Workspace // <><Alt> ← ##
-bindsym $mod+$alt+Left workspace prev
+bindsym $alt+Shift+Tab workspace prev
 
 # Move the currently focused window to the scratchpad
+# bindsym $mod+Shift+b move scratchpad
 bindsym $alt+Shift+b move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
+# bindsym $mod+b scratchpad show
 bindsym $alt+b scratchpad show
 # }}}
 ###############################################################################
@@ -266,18 +264,20 @@ bindsym $mod+Shift+r exec --no-startup-id $i3-wm.program.refresh_ui
 
 ## Session // Restart i3 // <><Ctrl> r ##
 bindsym $mod+Ctrl+r restart
+bindsym $alt+Ctrl+r restart
 
-## Session // Logout // <><Shift> e ##
-set_from_resource $i3-wm.program.logout i3-wm.program.logout /usr/bin/gnome-session-quit --logout
-bindsym $mod+Shift+e exec $i3-wm.program.logout
+# ## Session // Logout // <><Shift> e ##
+# set_from_resource $i3-wm.program.logout i3-wm.program.logout /usr/bin/gnome-session-quit --logout
+# bindsym $mod+Shift+e exec $i3-wm.program.logout
 
-## Session // Reboot // <><Shift> b ##
-set_from_resource $i3-wm.program.reboot i3-wm.program.reboot /usr/bin/gnome-session-quit --reboot
-bindsym $mod+Shift+b exec $i3-wm.program.reboot
+# ## Session // Reboot // <><Shift> b ##
+# set_from_resource $i3-wm.program.reboot i3-wm.program.reboot /usr/bin/gnome-session-quit --reboot
+# bindsym $mod+Shift+b exec $i3-wm.program.reboot
 
 ## Session // Power Down // <><Shift> p ##
 set_from_resource $i3-wm.program.shutdown i3-wm.program.shutdown /usr/bin/gnome-session-quit --power-off
 bindsym $mod+Shift+p exec $i3-wm.program.shutdown
+bindsym $alt+Shift+p exec $i3-wm.program.shutdown
 
 ## Session // Lock Screen // <> Escape ##
 set_from_resource $i3-wm.program.lock i3-wm.program.lock dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
@@ -285,8 +285,9 @@ bindsym $alt+Shift+z exec $i3-wm.program.lock
 bindsym $mod+Shift+z exec $i3-wm.program.lock
 
 ## Session // Sleep // <><Shift> s ##
-set_from_resource $i3-wm.program.sleep i3-wm.program.sleep systemctl suspend
+set_from_resource $i3-wm.program.sleep i3-wm.program.sleep sudo pm-suspend
 bindsym $mod+Shift+s exec $i3-wm.program.sleep
+bindsym $alt+Shift+s exec $i3-wm.program.sleep
 # }}}
 ###############################################################################
 # System Management
