@@ -85,6 +85,9 @@ Plug 'honza/vim-snippets'
 " " Slimv
 " Plug 'kovisoft/slimv'
 
+" Python
+Plug 'pappasam/nvim-repl'
+
 " Table making!
 Plug 'dhruvasagar/vim-table-mode'
 
@@ -266,6 +269,29 @@ nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
 
 "" Switching windows
+function! TmuxMove(direction)
+        let wnr = winnr()
+        silent! execute 'wincmd ' . a:direction
+        " If the winnr is still the same after we moved, it is the last pane
+        if wnr == winnr()
+                call system('tmux select-pane -' . tr(a:direction, 'phjkl', 'lLDUR'))
+        end
+endfunction
+
+nnoremap <silent> <A-h> :call TmuxMove('h')<cr>
+nnoremap <silent> <A-j> :call TmuxMove('j')<cr>
+nnoremap <silent> <A-k> :call TmuxMove('k')<cr>
+nnoremap <silent> <A-l> :call TmuxMove('l')<cr>
+
+tnoremap <silent> <A-h> <C-\><C-N> :call TmuxMove('h')<cr>
+tnoremap <silent> <A-j> <C-\><C-N> :call TmuxMove('j')<cr>
+tnoremap <silent> <A-k> <C-\><C-N> :call TmuxMove('k')<cr>
+tnoremap <silent> <A-l> <C-\><C-N> :call TmuxMove('l')<cr>
+inoremap <silent> <A-h> <C-\><C-N> :call TmuxMove('h')<cr>
+inoremap <silent> <A-j> <C-\><C-N> :call TmuxMove('j')<cr>
+inoremap <silent> <A-k> <C-\><C-N> :call TmuxMove('k')<cr>
+inoremap <silent> <A-l> <C-\><C-N> :call TmuxMove('l')<cr>
+
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
@@ -493,13 +519,19 @@ au FileType rust nmap <leader>rv :w<CR>:!cargo run --verbose<CR>
 
 " python
 au FileType python nmap <leader>rr :w<CR>:!python3 %<CR>
-au FileType python nmap <leader>rp :w<CR>:!python3 %<CR>
+au FileType python nnoremap <leader>rp :ReplToggle<CR>
+au FileType python nmap <leader>rs <Plug>ReplSendLine
+au FileType python vmap <leader>re <Plug>ReplSendVisual
 au FileType python nmap <leader>rt :w<CR>:!python3 -m pytest %<CR>
+
+let g:repl_filetype_commands = {
+    \ 'python': 'ipython',
+    \ }
 
 " sql
 au FileType sql nmap <leader>rv :w<CR>:Redir ! /pa/postgres_apply.sh %<CR>
-au FileType sql nmap <leader>rr :w<CR>:! tmux -L sqldump send-keys -t dump:1.0 "/pa/postgres_apply_test.sh % &> /tmp/sql_output_test" ENTER<CR>
-au FileType sql nmap <leader>rt :w<CR>:! tmux -L sqldump send-keys -t dump:1.1 "/pa/postgres_apply_prod.sh % &> /tmp/sql_output_prod" ENTER<CR>
+au FileType sql nmap <leader>rr :w<CR>:! tmux -L sqldump send-keys -t 0:1.0 "/pa/postgres_apply_test.sh % &> /tmp/sql_output_test" ENTER<CR>
+au FileType sql nmap <leader>rt :w<CR>:! tmux -L sqldump send-keys -t 0:1.1 "/pa/postgres_apply_prod.sh % &> /tmp/sql_output_prod" ENTER<CR>
 
 
 nnoremap <leader>nn :set number!<CR>
