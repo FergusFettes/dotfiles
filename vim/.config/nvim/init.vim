@@ -517,15 +517,25 @@ au FileType rust nmap <leader>rs :w<CR>:!rustc %<CR>
 au FileType rust nmap <leader>rw :w<CR>:!wasm-pack build<CR>
 au FileType rust nmap <leader>rv :w<CR>:!cargo run --verbose<CR>
 
+" repl
+nnoremap <leader>rp :ReplToggle<CR>
+
 " python
-au FileType python nmap <leader>rr :w<CR>:!python3 %<CR>
-au FileType python nnoremap <leader>rp :ReplToggle<CR>
-au FileType python nmap <leader>rs <Plug>ReplSendLine
-au FileType python vmap <leader>re <Plug>ReplSendVisual
+au FileType python nmap <leader>ri :w<CR>:!python3 %<CR>
 au FileType python nmap <leader>rt :w<CR>:!python3 -m pytest %<CR>
+au FileType python nmap <leader>rr <Plug>ReplSendLine
+au FileType python vmap <leader>re <Plug>ReplSendVisual
+au FileType python vmap <leader>rr y<C-w>h""pi<CR><C-\><C-N><C-w>l
+au FileType python nnoremap <leader>rs yap<C-w>h""pi<CR><C-\><C-N><C-w>l
+
+" bash
+au FileType sh nmap <leader>rr yy<C-w>h""pi<CR><C-\><C-N><C-w>l
+au FileType sh vmap <leader>rr y<C-w>h""pi<CR><C-\><C-N><C-w>l
+au FileType sh nnoremap <leader>rs yap<C-w>h""pi<CR><C-\><C-N><C-w>l
 
 let g:repl_filetype_commands = {
     \ 'python': 'ipython',
+    \ 'sh': 'zsh',
     \ }
 
 " sql
