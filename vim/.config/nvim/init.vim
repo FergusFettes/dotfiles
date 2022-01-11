@@ -283,14 +283,14 @@ nnoremap <silent> <A-j> :call TmuxMove('j')<cr>
 nnoremap <silent> <A-k> :call TmuxMove('k')<cr>
 nnoremap <silent> <A-l> :call TmuxMove('l')<cr>
 
-tnoremap <silent> <A-h> <C-\><C-N> :call TmuxMove('h')<cr>
-tnoremap <silent> <A-j> <C-\><C-N> :call TmuxMove('j')<cr>
-tnoremap <silent> <A-k> <C-\><C-N> :call TmuxMove('k')<cr>
-tnoremap <silent> <A-l> <C-\><C-N> :call TmuxMove('l')<cr>
-inoremap <silent> <A-h> <C-\><C-N> :call TmuxMove('h')<cr>
-inoremap <silent> <A-j> <C-\><C-N> :call TmuxMove('j')<cr>
-inoremap <silent> <A-k> <C-\><C-N> :call TmuxMove('k')<cr>
-inoremap <silent> <A-l> <C-\><C-N> :call TmuxMove('l')<cr>
+tnoremap <silent> <A-h> <C-\><C-N>:call TmuxMove('h')<cr>
+tnoremap <silent> <A-j> <C-\><C-N>:call TmuxMove('j')<cr>
+tnoremap <silent> <A-k> <C-\><C-N>:call TmuxMove('k')<cr>
+tnoremap <silent> <A-l> <C-\><C-N>:call TmuxMove('l')<cr>
+inoremap <silent> <A-h> <C-\><C-N>:call TmuxMove('h')<cr>
+inoremap <silent> <A-j> <C-\><C-N>:call TmuxMove('j')<cr>
+inoremap <silent> <A-k> <C-\><C-N>:call TmuxMove('k')<cr>
+inoremap <silent> <A-l> <C-\><C-N>:call TmuxMove('l')<cr>
 
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
@@ -525,8 +525,8 @@ au FileType python nmap <leader>ri :w<CR>:!python3 %<CR>
 au FileType python nmap <leader>rt :w<CR>:!python3 -m pytest %<CR>
 au FileType python nmap <leader>rr <Plug>ReplSendLine
 au FileType python vmap <leader>re <Plug>ReplSendVisual
-au FileType python vmap <leader>rr y<C-w>h""pi<CR><C-\><C-N><C-w>l
-au FileType python nnoremap <leader>rs yap<C-w>h""pi<CR><C-\><C-N><C-w>l
+au FileType python vmap <leader>rr y<C-w>h""pi<CR><CR><C-\><C-N><C-w>l
+au FileType python nnoremap <leader>rs yap<C-w>h""pi<CR><CR><C-\><C-N><C-w>l
 
 " bash
 au FileType sh nmap <leader>rr yy<C-w>h""pi<CR><C-\><C-N><C-w>l
