@@ -113,6 +113,7 @@ alias gsp="git stash pop"
 alias gcaM="git commit -a --no-verify -m"
 alias gcn="git clean -i"
 alias gcnn="git clean -f"
+alias gpt="git push --tags"
 
 alias l=k
 alias la="k -a"
