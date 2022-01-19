@@ -540,8 +540,8 @@ let g:repl_filetype_commands = {
 
 " sql
 au FileType sql nmap <leader>rv :w<CR>:Redir ! /pa/postgres_apply.sh %<CR>
-au FileType sql nmap <leader>rr :w<CR>:! tmux -L sqldump send-keys -t 0:1.0 "/pa/postgres_apply_test.sh % &> /tmp/sql_output_test" ENTER<CR>
-au FileType sql nmap <leader>rt :w<CR>:! tmux -L sqldump send-keys -t 0:1.1 "/pa/postgres_apply_prod.sh % &> /tmp/sql_output_prod" ENTER<CR>
+au FileType sql nmap <leader>rr :w<CR>:! tmux send-keys -t sqldump:1.0 "/pa/postgres_apply_test.sh % &> /tmp/sql_output_test" ENTER<CR>
+au FileType sql nmap <leader>rt :w<CR>:! tmux send-keys -t sqldump:1.1 "/pa/postgres_apply_prod.sh % &> /tmp/sql_output_prod" ENTER<CR>
 
 
 nnoremap <leader>nn :set number!<CR>
