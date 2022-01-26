@@ -35,7 +35,7 @@ alias \?='uname -n'
 alias l=k
 alias la="k -a"
 alias p="pwd -P"
-alias c=cd
+alias c=z
 alias s="sudo -s"
 
 alias ec=echo
@@ -48,7 +48,7 @@ alias mime='file --mime-type -b'
 
 alias scratch="vi /tmp/scratch.md"
 
-alias conf="vi \
+alias conf="vi -p \
 $VIMRC \
 $ALACRITTYRC \
 /home/$USER/.tmux.conf \
@@ -114,12 +114,6 @@ alias gcaM="git commit -a --no-verify -m"
 alias gcn="git clean -i"
 alias gcnn="git clean -f"
 alias gpt="git push --tags"
-
-alias l=k
-alias la="k -a"
-alias p="pwd -P"
-alias c=cd
-alias s="sudo -s"
 
 alias x=exit
 alias xz="exec zsh"

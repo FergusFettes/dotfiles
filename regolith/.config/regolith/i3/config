@@ -316,6 +316,7 @@ bindsym $mod+Shift+n exec $i3-wm.program.files
 ## Launch // Notification Viewer // <> n ##
 set_from_resource $i3-wm.program.notification_ui i3-wm.program.notification_ui /usr/bin/rofication-gui
 bindsym $mod+n exec $i3-wm.program.notification_ui
+bindsym $alt+n exec $i3-wm.program.notification_ui
 # }}}
 ###############################################################################
 # Workspace Management
@@ -468,12 +469,20 @@ set_from_resource $i3-wm.font i3-wm.font pango:Source Code Pro Medium 13
 font $i3-wm.font
 # }}}
 ###############################################################################
+# Custom Popups
+###############################################################################
+# Popups {{{
+bindsym $mod+Ctrl+d exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'td --interactive'"
+bindsym $alt+Ctrl+d exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'td --interactive'"
+
+
+bindsym $mod+Ctrl+c exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'conf'"
+bindsym $alt+Ctrl+c exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'conf'"
+# }}}
+###############################################################################
 # i3 Bar
 ###############################################################################
 # Bar {{{
-bindsym $mod+Ctrl+d exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'td --interactive'"
-
-
 set_from_resource $i3-wm.bar.position i3-wm.bar.position bottom
 set_from_resource $i3-wm.bar.font i3-wm.bar.font pango:Source Code Pro Medium 13, Material Design Icons 13
 set_from_resource $i3-wm.bar.separator i3-wm.bar.separator " "
