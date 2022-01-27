@@ -250,6 +250,7 @@ hide_edge_borders smart
 # {{{
 ## Session // Exit App // <><Shift> q ##
 bindsym $mod+Shift+q [con_id="__focused__"] kill
+bindsym $alt+Shift+q [con_id="__focused__"] kill
 
 ## Session // Terminate App // <><Alt> q ##
 bindsym $mod+$alt+q [con_id="__focused__"] exec --no-startup-id kill -9 $(xdotool getwindowfocus getwindowpid)
@@ -472,12 +473,11 @@ font $i3-wm.font
 # Custom Popups
 ###############################################################################
 # Popups {{{
-bindsym $mod+Ctrl+d exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'td --interactive'"
-bindsym $alt+Ctrl+d exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'td --interactive'"
+bindsym $mod+Ctrl+d exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e '/home/ffettes/dotfiles/scripts/todo.sh'"
+bindsym $alt+Ctrl+d exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e '/home/ffettes/dotfiles/scripts/todo.sh'"
 
-
-bindsym $mod+Ctrl+c exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'conf'"
-bindsym $alt+Ctrl+c exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e 'conf'"
+bindsym $mod+Ctrl+c exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e '/home/ffettes/dotfiles/scripts/conf.sh'"
+bindsym $alt+Ctrl+c exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e '/home/ffettes/dotfiles/scripts/conf.sh'"
 # }}}
 ###############################################################################
 # i3 Bar
