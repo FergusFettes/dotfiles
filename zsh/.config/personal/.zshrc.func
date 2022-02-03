@@ -8,6 +8,52 @@
 # zle -N globalias
 # bindkey " " globalias # space key to expand globalalias
 
+function logs(){
+  pipeline=$1
+  if [ -z $2 ]; then
+    minutes_offset=15
+  else
+    minutes_offset=$2
+  fi
+
+  if [ -z $3 ]; then
+    pattern=Error
+  else
+    pattern=$3
+  fi
+
+  if [ -z $4 ]; then
+    stream=''
+  else
+    stream="--log-stream-name \'`date +%Y/%m/%d/`[\$LATEST]$4\'"
+    echo $stream
+  fi
+
+  aws logs filter-log-events \
+    --start-time $((`date +%s` * 1000 - ($minutes_offset * 60 * 1000))) \
+    --end-time $((`date +%s` * 1000)) \
+    --log-group-name /aws/lambda/$pipeline \
+    --filter-pattern $pattern \
+    $stream \
+    --output text
+}
+
+function logss(){
+  pipeline=$1
+
+  if [ -z $2 ]; then
+    stream=''
+  else
+    stream="--log-stream-name `date +%Y/%m/%d/`[\$LATEST]$2"
+    echo $stream
+  fi
+
+  aws logs get-log-events \
+    --log-group-name /aws/lambda/$pipeline \
+    $stream \
+    --output text
+}
+
 function rsed2() {
   find ./ -type f -exec sed -i -e "$1" {} \;
 }
@@ -40,6 +86,15 @@ function nvenv2(){
 }
 
 function nvenv(){
+  if [ -z $1 ]; then
+    echo "No name, okay? Y/n"
+    read REPLY
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        echo "Okay, creating venv."
+    else
+        exit 1
+    fi
+  fi
   virtualenv $2 venv-$1
   venv $1
   pip install neovim ipython "jedi==0.17.2" ipdb

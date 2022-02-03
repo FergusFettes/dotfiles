@@ -520,6 +520,9 @@ au FileType rust nmap <leader>rv :w<CR>:!cargo run --verbose<CR>
 " repl
 nnoremap <leader>rp :ReplToggle<CR>
 
+" jq (json format current file):
+nnoremap <leader>jq :%!jq<CR>
+
 " python
 au FileType python nmap <leader>ri :w<CR>:!python3 %<CR>
 au FileType python nmap <leader>rt :w<CR>:!python3 -m pytest %<CR>
