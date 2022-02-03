@@ -78,6 +78,12 @@ function venv() {
   fi
 }
 
+function hvenv() {
+  unalias python
+  unalias pip
+  source /h/venv*/bin/activate
+}
+
 function nvenv2(){
   python3 -m venv $2 venv-$1
   venv $1
