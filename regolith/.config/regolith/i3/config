@@ -478,6 +478,9 @@ bindsym $alt+Ctrl+d exec --no-startup-id "/usr/bin/gnome-terminal --class=floati
 
 bindsym $mod+Ctrl+c exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e '/home/ffettes/dotfiles/scripts/conf.sh'"
 bindsym $alt+Ctrl+c exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e '/home/ffettes/dotfiles/scripts/conf.sh'"
+
+bindsym $mod+Ctrl+h exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e '/home/ffettes/dotfiles/scripts/tips.sh'"
+bindsym $alt+Ctrl+h exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e '/home/ffettes/dotfiles/scripts/tips.sh'"
 # }}}
 ###############################################################################
 # i3 Bar
