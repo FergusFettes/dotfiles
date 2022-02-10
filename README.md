@@ -5,7 +5,7 @@ My config files and a couple of scripts (in `./scripts/`) for reinstalling every
 # Quickstart
 
 1. Install ssh `apt install openssh-server` on the target machines.
-2. If you are installing from the target machine, create ssh keys and add them to authorized_keys list: `ssh-keygen -t rsa -b 4096 -C "maxfettes@hotmail.com" -N ''`
+2. If you are installing from the target machine, create ssh keys and add them to authorized_keys list: `ssh-keygen -t rsa -b 4096 -C "test@fake.com" -N ''`
 3. Install ansible on the client machine `apt install ansible`.
 4. Install ansible roles `ansible-galaxy install geerlingguy.pip geerlingguy.docker robertdebock.cargo gantsign.fd gantsign.bat gantsign.ctop gantsign.atom gantsign.antigen`
 5. Add the target machines ips to `/etc/ansible/hosts` under '[new-machine]'.

@@ -529,7 +529,10 @@ au FileType python nmap <leader>rt :w<CR>:!python3 -m pytest %<CR>
 au FileType python nmap <leader>rr <Plug>ReplSendLine
 au FileType python vmap <leader>re <Plug>ReplSendVisual
 au FileType python vmap <leader>rr y<C-w>h""pi<CR><CR><C-\><C-N><C-w>l
+au FileType python vmap <leader>rs y<C-w>h""pi<CR><CR><C-\><C-N><C-w>l
 au FileType python nnoremap <leader>rs yap<C-w>h""pi<CR><CR><C-\><C-N><C-w>l
+au FileType python nnoremap <leader>nq gmzA      # noqa:<ESC>`z
+au FileType python nnoremap <leader>ti gmzA      # type: ignore<ESC>`z
 
 " bash
 au FileType sh nmap <leader>rr yy<C-w>h""pi<CR><C-\><C-N><C-w>l
