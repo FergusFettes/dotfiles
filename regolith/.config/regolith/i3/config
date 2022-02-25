@@ -286,7 +286,7 @@ bindsym $alt+Shift+z exec $i3-wm.program.lock
 bindsym $mod+Shift+z exec $i3-wm.program.lock
 
 ## Session // Sleep // <><Shift> s ##
-set_from_resource $i3-wm.program.sleep i3-wm.program.sleep sudo pm-suspend
+set_from_resource $i3-wm.program.sleep i3-wm.program.sleep sudo sh -c "echo mem > /sys/power/state"
 bindsym $mod+Shift+s exec $i3-wm.program.sleep
 bindsym $alt+Shift+s exec $i3-wm.program.sleep
 # }}}
