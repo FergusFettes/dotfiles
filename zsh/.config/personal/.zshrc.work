@@ -36,6 +36,6 @@ function setup_golang_9() {
 # Misc {{{
 # }}}
 # Password info {{{
-source ~/.password-store/aliases.sh
+# source ~/.password-store/aliases.sh
 # }}}
 # vim:foldmethod=marker:foldlevel=0

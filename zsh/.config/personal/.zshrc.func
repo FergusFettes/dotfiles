@@ -8,6 +8,12 @@
 # zle -N globalias
 # bindkey " " globalias # space key to expand globalalias
 
+function archive(){
+  FOLDER=./.archive/`date --iso-8601=minutes`
+  mkdir -p $FOLDER
+  mv * $FOLDER
+}
+
 function logs(){
   pipeline=$1
   if [ -z $2 ]; then

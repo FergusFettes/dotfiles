@@ -70,6 +70,7 @@ alias aconf="vi $ALACRITTYRC"
 alias tconf="vi /home/$USER/.tmux.conf"
 # }}}
 # Software Aliases {{{
+alias tgl=toggl
 alias dk=docker
 alias dc=docker-compose
 alias dc-restart="docker-compose down && docker-compose build && docker-compose up -d && docker-compose logs -f"
