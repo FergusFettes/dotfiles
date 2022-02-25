@@ -255,6 +255,7 @@ let g:session_command_aliases = 1
 " }}}
 " Custom Maps {{{
 " open/closes folds
+
 nnoremap <space> za
 nnoremap <leader>pp :set paste!<CR>
 
@@ -490,6 +491,10 @@ nmap <c-v> <plug>EasyClipSwapPasteForward
 nmap <c-c> <plug>EasyClipSwapPasteBackwards
 
 " }}}
+" Set registers {{{
+let @g = 'gmbgggcG`bgcap`b'
+let @h = 'gmvgcapgggcG`v'
+" }}}
 " Autogroups {{{
 augroup configgroup
     autocmd!
@@ -545,10 +550,16 @@ let g:repl_filetype_commands = {
     \ }
 
 " sql
-au FileType sql nmap <leader>rv :w<CR>:Redir ! /pa/postgres_apply.sh %<CR>
-au FileType sql nmap <leader>rr :w<CR>:! tmux send-keys -t sqldump:1.0 "/pa/postgres_apply_test.sh % &> /tmp/sql_output_test" ENTER<CR>
-au FileType sql nmap <leader>rt :w<CR>:! tmux send-keys -t sqldump:1.1 "/pa/postgres_apply_prod.sh % &> /tmp/sql_output_prod" ENTER<CR>
+au FileType sql nmap <leader>rv :w<CR>:Redir ! /c/scripts/sql/postgres_apply.sh %<CR>
 
+" Send file to postgres
+au FileType sql nmap <leader>rr :w<CR>:! /c/scripts/sql/tmux_postgres_script.sh test expand('%:p')<CR>
+au FileType sql nmap <leader>rt :w<CR>:! /c/scripts/sql/tmux_postgres_script.sh prod expand('%:p')<CR>
+au FileType sql nmap <leader>rl :w<CR>:! /c/scripts/sql/tmux_postgres_script.sh loca expand('%:p')<CR>
+
+" Send current block to postgres
+au FileType sql nmap <leader>rap :let temp_filename=printf("%s%s", "/tmp/sql_script_", rand())<CR>vap'<,'>:w `=echo(temp_filename)`<CR>:! /c/scripts/sql/tmux_postgres_script.sh test echo(temp_filename)<CR>
+au FileType sql nmap <leader>rap :let temp_filename=printf("%s%s", "/tmp/sql_script_", rand())<CR>vap'<,'>:w `=echo(temp_filename)`<CR>:! /c/scripts/sql/tmux_postgres_script.sh prod echo(temp_filename)<CR>
 
 nnoremap <leader>nn :set number!<CR>
 nnoremap <leader>t2 :setlocal tabstop=4<CR>:setlocal shiftwidth=4<CR>:setlocal softtabstop=4<CR>
