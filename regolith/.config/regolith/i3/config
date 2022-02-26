@@ -48,10 +48,8 @@ set_from_resource $ws19 i3-wm.workspace.19.name "19"
 ## Launch // Terminal // <> Enter ##
 bindsym $mod+Return exec $term
 bindsym $alt+Return exec $term
-bindsym $mod+Shift+Return exec $term --class floating_window
-bindsym $alt+Shift+Return exec $term --class floating_window
-# bindsym $mod+Shift+Return exec --no-startup-id "$term --title=floating_window"
-# bindsym $alt+Shift+Return exec --no-startup-id "$term --title=floating_window"
+bindsym $mod+Shift+Return exec --no-startup-id "$term --title=floating_window"
+bindsym $alt+Shift+Return exec --no-startup-id "$term --title=floating_window"
 # bindsym $mod+Ctrl+Return exec --no-startup-id "$term --title=htop -e htop"
 # bindsym $alt+Ctrl+Return exec --no-startup-id "$term --title=htop -e htop"
 
@@ -472,14 +470,12 @@ font $i3-wm.font
 # Custom Popups
 ###############################################################################
 # Popups {{{
-bindsym $mod+Ctrl+d exec /c/scripts/i3/popup.sh todo tl "30%x40%"
 bindsym $alt+Ctrl+d exec /c/scripts/i3/popup.sh todo tl "30%x40%"
-bindsym $mod+Ctrl+c exec /c/scripts/i3/popup.sh conf tc "95%x95%"
-bindsym $alt+Ctrl+c exec /c/scripts/i3/popup.sh conf tc "95%x95%"
-bindsym $mod+Ctrl+h exec /c/scripts/i3/popup.sh tips cr "40%x100%"
+bindsym $alt+Ctrl+c exec /c/scripts/i3/popup.sh conf cl "40%x100%"
 bindsym $alt+Ctrl+h exec /c/scripts/i3/popup.sh tips cr "40%x100%"
-bindsym $mod+Ctrl+Return exec /c/scripts/i3/popup.sh term tc "100%x30%"
-bindsym $alt+Ctrl+Return exec /c/scripts/i3/popup.sh term tc "100%x30%"
+bindsym $alt+Ctrl+Return exec /c/scripts/i3/popup.sh term tc "100%x40%"
+bindsym $alt+Ctrl+o exec /c/scripts/i3/popup.sh sql bc "80%x20%"
+bindsym $alt+Ctrl+p exec /c/scripts/i3/popup.sh sql2 bc "80%x20%"
 # }}}
 ###############################################################################
 # i3 Bar
