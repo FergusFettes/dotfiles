@@ -48,13 +48,12 @@ set_from_resource $ws19 i3-wm.workspace.19.name "19"
 ## Launch // Terminal // <> Enter ##
 bindsym $mod+Return exec $term
 bindsym $alt+Return exec $term
-# bindsym $mod+Shift+Return exec $term --class floating_window
-# bindsym $alt+Shift+Return exec $term --class floating_window
-bindsym $mod+Shift+Return exec --no-startup-id "$term --title=floating_window"
-bindsym $alt+Shift+Return exec --no-startup-id "$term --title=floating_window"
-
-bindsym $mod+Ctrl+Return exec --no-startup-id "$term --title=floating_window -e htop"
-bindsym $alt+Ctrl+Return exec --no-startup-id "$term --title=floating_window -e htop"
+bindsym $mod+Shift+Return exec $term --class floating_window
+bindsym $alt+Shift+Return exec $term --class floating_window
+# bindsym $mod+Shift+Return exec --no-startup-id "$term --title=floating_window"
+# bindsym $alt+Shift+Return exec --no-startup-id "$term --title=floating_window"
+# bindsym $mod+Ctrl+Return exec --no-startup-id "$term --title=htop -e htop"
+# bindsym $alt+Ctrl+Return exec --no-startup-id "$term --title=htop -e htop"
 
 set_from_resource $rofiTheme rofi.theme /etc/regolith/styles/lascaille/rofi.rasi
 
@@ -473,14 +472,14 @@ font $i3-wm.font
 # Custom Popups
 ###############################################################################
 # Popups {{{
-bindsym $mod+Ctrl+d exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e '/home/ffettes/dotfiles/scripts/todo.sh'"
-bindsym $alt+Ctrl+d exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e '/home/ffettes/dotfiles/scripts/todo.sh'"
-
-bindsym $mod+Ctrl+c exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e '/home/ffettes/dotfiles/scripts/conf.sh'"
-bindsym $alt+Ctrl+c exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e '/home/ffettes/dotfiles/scripts/conf.sh'"
-
-bindsym $mod+Ctrl+h exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e '/home/ffettes/dotfiles/scripts/tips.sh'"
-bindsym $alt+Ctrl+h exec --no-startup-id "/usr/bin/gnome-terminal --class=floating_window -e '/home/ffettes/dotfiles/scripts/tips.sh'"
+bindsym $mod+Ctrl+d exec /c/scripts/i3/popup.sh todo tl "30%x40%"
+bindsym $alt+Ctrl+d exec /c/scripts/i3/popup.sh todo tl "30%x40%"
+bindsym $mod+Ctrl+c exec /c/scripts/i3/popup.sh conf tc "95%x95%"
+bindsym $alt+Ctrl+c exec /c/scripts/i3/popup.sh conf tc "95%x95%"
+bindsym $mod+Ctrl+h exec /c/scripts/i3/popup.sh tips cr "40%x100%"
+bindsym $alt+Ctrl+h exec /c/scripts/i3/popup.sh tips cr "40%x100%"
+bindsym $mod+Ctrl+Return exec /c/scripts/i3/popup.sh term tc "100%x30%"
+bindsym $alt+Ctrl+Return exec /c/scripts/i3/popup.sh term tc "100%x30%"
 # }}}
 ###############################################################################
 # i3 Bar
