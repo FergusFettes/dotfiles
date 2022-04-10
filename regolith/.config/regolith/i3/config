@@ -475,10 +475,10 @@ bindsym $alt+Ctrl+g exec /c/scripts/i3/popup.sh toggl bl "20%x20%"
 bindsym $alt+Ctrl+c exec /c/scripts/i3/popup.sh conf cr "40%x100%"
 bindsym $alt+Ctrl+h exec /c/scripts/i3/popup.sh tips cr "40%x100%"
 bindsym $alt+Ctrl+n exec /c/scripts/i3/popup.sh notes cr "40%x100%"
-bindsym $alt+Ctrl+Return exec /c/scripts/i3/popup.sh term tc "100%x40%"
-bindsym $alt+Ctrl+o exec /c/scripts/i3/popup.sh tarm bc "100%x40%"
-bindsym $alt+Ctrl+p exec /c/scripts/i3/popup.sh tirm bc "100%x40%"
-bindsym $alt+Ctrl+a exec /c/scripts/i3/popup.sh tirm cl "40%x100%"
+bindsym $alt+Ctrl+Return exec /c/scripts/i3/popup.sh term tc "95%x40%"
+bindsym $alt+Ctrl+o exec /c/scripts/i3/popup.sh tarm bc "90%x40%"
+bindsym $alt+Ctrl+p exec /c/scripts/i3/popup.sh tirm bc "90%x40%"
+bindsym $alt+Ctrl+a exec /c/scripts/i3/popup.sh ai cl "40%x100%"
 # }}}
 ###############################################################################
 # i3 Bar
