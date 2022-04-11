@@ -35,6 +35,7 @@
       vars:
         pip_executable: pip3
         pip_install_packages:
+          - virtualenv
           - docker
           - docker-compose
           - numpy
