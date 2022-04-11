@@ -124,7 +124,7 @@
           - ansible
           - pwgen
           - apache2-utils
-          # TODO: zoxide
+          - zoxide
           # TODO: notes
           - libxkbcommon-dev
     - name: install extra ubuntu packages
@@ -149,6 +149,7 @@
           - libfontconfig1-dev
           - libxcb-xfixes0-dev
           # other tools
+          - pandoc
           - inkscape
           - hugo
           - lynx
