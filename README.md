@@ -32,3 +32,6 @@ My config files and a couple of scripts (in `./scripts/`) for reinstalling every
 * change remotes (git remote remove origin)
 * sign in to firefox!
 * caps and ctrl need swapped in tweaks
+* setup symlinks `./scripts/setup_symlinks.sh`
+* install brave `./scripts/setup_brave.sh`
+* install chrome (download from website, `dpkg -i /d/<download>`)
