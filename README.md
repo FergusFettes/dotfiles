@@ -4,41 +4,31 @@ My config files and a couple of scripts (in `./scripts/`) for reinstalling every
 
 # Quickstart
 
-1. Install ssh `apt install openssh-server` on the target machines.
-2. If you are installing from the target machine, create ssh keys and add them to authorized_keys list: `ssh-keygen -t rsa -b 4096 -C "test@fake.com" -N ''`
-3. Install ansible on the client machine `apt install ansible`.
-4. Install ansible roles `ansible-galaxy install geerlingguy.pip geerlingguy.docker robertdebock.cargo gantsign.fd gantsign.bat gantsign.ctop gantsign.atom gantsign.antigen`
-5. Add the target machines ips to `/etc/ansible/hosts` under '[new-machine]'.
-6. Make sure you have changed the password folder and chosen a password (and created a masked password).
-7. WARNING: if you are running the install from the taget machine, make sure you have a copy of the password, or you will get locked out!
+0. Ensure ssh installed on target: `apt install openssh-server`
+1. [Optional, if using one machine as taget and client]: create ssh keys and add them to authorized_keys list: `ssh-keygen -t rsa -b 4096 -C "test@fake.com" -N ''`
+2. [Client]: install ansible: `apt install ansible`.
+3. [Client]: install ansible roles: `ansible-galaxy install geerlingguy.pip geerlingguy.docker robertdebock.cargo gantsign.fd gantsign.bat gantsign.ctop gantsign.atom gantsign.antigen`
+4. [Client]: Add the target machines ips to `/etc/ansible/hosts` under '[new-machine]'.
+5. [Client]: Create a masked password: `take /tmp/ansible-pass; /c/scripts/linux/password_manager.sh ffettes; mv /tmp/ansible-pass/masked-ffettes /pa/`
+6. [Optional, if using one machine as target and client]: make sure you have a copy of the password, or you will get locked out! You must be able to type it in!
+7. [Client]: authorize self at target: `ssh-copy-id ffettes@<target ip>`
 8. Run ansible with
 ```bash
  ansible-playbook scripts/new_laptop_installation.yaml --extra-vars 'ansible_sudo_pass=<SUDO PASS FOR NEW MACHINE>'
  ```
-9. Sit back, have a margarita, and watch your work being done for you.
+9. Sit back, have a margarita, and watch your work being done for you. The new machines password will be changed to the password in `/tmp/ansible-pass/plaintext-ffettes`
 
 ## TODO
 
-* install node handler: `https://github.com/Schniz/fnm`
+* update password handling to use libsodium
+<!-- * install node handler: `https://github.com/Schniz/fnm` -- forget this, use nix-packages instead -->
 * install notes: `curl -Ls https://raw.githubusercontent.com/pimterry/notes/latest-release/install.sh | sudo bash`
-* install vscode
 * tmux plugins: prefix + I
-* install cronjobs
+<!-- * install cronjobs -->
 * consider adding a selection of vim plugins
 * virtualenv deps (ipython and neovim)
 * vim plugins need installed
 * youcompleteme needs installed (`~/.vim/plugged/youcompleteme/install.sh`)
 * change remotes (git remote remove origin)
 * sign in to firefox!
-* dconf load /org/gnome/desktop/wm/keybindings/ < ./dconf/wm/keybindings
-* dconf load /org/gnome/desktop/wm/custom-keybindings/ < ./dconf/wm/keybindings
-* dconf load /org/gnome/desktop/input-sources/ < ./dconf/input-sources
 * caps and ctrl need swapped in tweaks
-* turn off animations
-* replace the desktop background
-* skip all the canonical startup stuff
-
-I think the last ones also need to be dont with dconf, though the custom keybindings seem to have worked, so maybe they just weren't saved properly.
-
-install notes-- is this the one?
-https://github.com/rhysd/notes-cli
