@@ -46,31 +46,26 @@ set_from_resource $ws19 i3-wm.workspace.19.name "19"
 # Launchers {{{
 
 ## Launch // Terminal // <> Enter ##
-bindsym $mod+Return exec $term
 bindsym $alt+Return exec $term
-bindsym $mod+Shift+Return exec --no-startup-id "$term --title=floating_window"
 bindsym $alt+Shift+Return exec --no-startup-id "$term --title=floating_window"
-# bindsym $mod+Ctrl+Return exec --no-startup-id "$term --title=htop -e htop"
-# bindsym $alt+Ctrl+Return exec --no-startup-id "$term --title=htop -e htop"
 
 set_from_resource $rofiTheme rofi.theme /etc/regolith/styles/lascaille/rofi.rasi
 
 ## Launch // Application // <> Space ##
 set_from_resource $i3-wm.program.launcher.app i3-wm.program.launcher.app rofi -show drun -theme $rofiTheme
-bindsym $mod+space exec $i3-wm.program.launcher.app
 bindsym $alt+space exec $i3-wm.program.launcher.app
 
 ## Launch // Command // <><Shift> Space ##
 set_from_resource $i3-wm.program.launcher.cmd i3-wm.program.launcher.cmd rofi -show run -theme $rofiTheme
-bindsym $mod+Shift+space exec $i3-wm.program.launcher.cmd
+bindsym $alt+Shift+space exec $i3-wm.program.launcher.cmd
 
 ## Navigate // Window by Name // <><Ctrl> Space ##
 set_from_resource $i3-wm.program.launcher.window i3-wm.program.launcher.window rofi -show window -theme $rofiTheme
-bindsym $mod+Ctrl+space exec $i3-wm.program.launcher.window
+bindsym $alt+Ctrl+space exec $i3-wm.program.launcher.window
 
 ## Launch // This Dialog // <><Shift> ? ##
 set_from_resource $i3-wm.program.help i3-wm.program.help /usr/bin/remontoire-toggle
-bindsym $mod+Shift+question exec --no-startup-id $i3-wm.program.help
+bindsym $alt+Shift+question exec --no-startup-id $i3-wm.program.help
 
 ## Launch // File Search // <><Alt> Space ##
 set_from_resource $i3-wm.program.file_search i3-wm.program.file_search rofi -show find -modi find:/usr/share/rofi/modi/finder.sh
@@ -92,39 +87,6 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-## Navigate // Workspaces 1-10 // <> 0..9 ##
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
-## Navigate // Workspace 11 - 19 // <><Ctrl> 0..9 ##
-bindsym $mod+Ctrl+1 workspace number $ws11
-bindsym $mod+Ctrl+2 workspace number $ws12
-bindsym $mod+Ctrl+3 workspace number $ws13
-bindsym $mod+Ctrl+4 workspace number $ws14
-bindsym $mod+Ctrl+5 workspace number $ws15
-bindsym $mod+Ctrl+6 workspace number $ws16
-bindsym $mod+Ctrl+7 workspace number $ws17
-bindsym $mod+Ctrl+8 workspace number $ws18
-bindsym $mod+Ctrl+9 workspace number $ws19
-
-## Modify // Move Window to Workspace 1 - 10 // <><Shift> 0..9 ##
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
 ## Modify // Move Window to Workspace 11 - 19// <><Ctrl><Shift> 0..9 ##
 bindsym $mod+Shift+Ctrl+1 move container to workspace number $ws11
 bindsym $mod+Shift+Ctrl+2 move container to workspace number $ws12
@@ -170,6 +132,7 @@ bindsym $alt+Shift+9 move container to workspace number $ws9
 bindsym $alt+Shift+0 move container to workspace number $ws10
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
+# TODO: get these to work!
 bindsym $alt+Shift+Ctrl+1 move container to workspace number $ws11
 bindsym $alt+Shift+Ctrl+2 move container to workspace number $ws12
 bindsym $alt+Shift+Ctrl+3 move container to workspace number $ws13
@@ -181,20 +144,16 @@ bindsym $alt+Shift+Ctrl+8 move container to workspace number $ws18
 bindsym $alt+Shift+Ctrl+9 move container to workspace number $ws19
 
 ## Navigate // Next Workspace // <> Tab ##
-bindsym $mod+Tab workspace next
 bindsym $alt+Tab workspace next
 
 ## Navigate // Previous Workspace // <><Shift> Tab ##
-bindsym $mod+Shift+Tab workspace prev
 bindsym $alt+Shift+Tab workspace prev
 
 # Move the currently focused window to the scratchpad
-# bindsym $mod+Shift+b move scratchpad
 bindsym $alt+Shift+b move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-# bindsym $mod+b scratchpad show
 bindsym $alt+b scratchpad show
 # }}}
 ###############################################################################
@@ -223,7 +182,6 @@ bindsym $mod+Ctrl+Shift+Right move workspace to output right
 bindsym $mod+v split toggle
 
 ## Modify // Window Fullscreen Toggle // <> f ##
-bindsym $mod+f fullscreen toggle
 bindsym $alt+f fullscreen toggle
 
 ## Modify // Window Floating Toggle // <><Shift> f ##
@@ -246,22 +204,16 @@ hide_edge_borders smart
 ###############################################################################
 # {{{
 ## Session // Exit App // <><Shift> q ##
-bindsym $mod+Shift+q [con_id="__focused__"] kill
 bindsym $alt+Shift+q [con_id="__focused__"] kill
 
 ## Session // Terminate App // <><Alt> q ##
 bindsym $mod+$alt+q [con_id="__focused__"] exec --no-startup-id kill -9 $(xdotool getwindowfocus getwindowpid)
-
-## Session // Reload i3 Config // <><Shift> c ##
-bindsym $mod+Shift+c reload
-bindsym $alt+Shift+c reload
 
 ## Session // Refresh Session // <><Shift> r ##
 set_from_resource $i3-wm.program.refresh_ui i3-wm.program.refresh_ui /usr/bin/regolith-look refresh
 bindsym $mod+Shift+r exec --no-startup-id $i3-wm.program.refresh_ui
 
 ## Session // Restart i3 // <><Ctrl> r ##
-bindsym $mod+Ctrl+r restart
 bindsym $alt+Ctrl+r restart
 
 # ## Session // Logout // <><Shift> e ##
@@ -274,17 +226,14 @@ bindsym $alt+Ctrl+r restart
 
 ## Session // Power Down // <><Shift> p ##
 set_from_resource $i3-wm.program.shutdown i3-wm.program.shutdown /usr/bin/gnome-session-quit --power-off
-bindsym $mod+Shift+p exec $i3-wm.program.shutdown
 bindsym $alt+Shift+p exec $i3-wm.program.shutdown
 
 ## Session // Lock Screen // <> Escape ##
 set_from_resource $i3-wm.program.lock i3-wm.program.lock dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
-bindsym $alt+Shift+z exec $i3-wm.program.lock
 bindsym $mod+Shift+z exec $i3-wm.program.lock
 
 ## Session // Sleep // <><Shift> s ##
 set_from_resource $i3-wm.program.sleep i3-wm.program.sleep sudo sh -c "echo mem > /sys/power/state"
-bindsym $mod+Shift+s exec $i3-wm.program.sleep
 bindsym $alt+Shift+s exec $i3-wm.program.sleep
 # }}}
 ###############################################################################
@@ -371,9 +320,8 @@ mode "Resize Mode" {
         ## Resize // Exit Resize Mode // Escape or Enter ##
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+        bindsym $alt+r mode "default"
 }
-bindsym $mod+r mode "Resize Mode"
 bindsym $alt+r mode "Resize Mode"
 # }}}
 ###############################################################################
