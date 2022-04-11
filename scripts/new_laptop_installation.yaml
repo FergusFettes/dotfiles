@@ -151,6 +151,7 @@
           - libfontconfig1-dev
           - libxcb-xfixes0-dev
           # other tools
+          - pandoc
           - inkscape
           - hugo
           - lynx
