@@ -113,6 +113,7 @@
           - vim
           - python3-neovim
           - ncdu
+          - fdupes
           # development tools
           - git
           - git-flow
