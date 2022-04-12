@@ -1,0 +1,6 @@
+socket_name: sys
+name: input_local
+attach: false
+
+windows:
+  - 0:
