@@ -296,6 +296,7 @@
         # - "pip"
         # - "ssh"
         - "pylintrc"
+        - "tmuxinator"
         - "tmux"
         - "vim"
         - "zsh"
