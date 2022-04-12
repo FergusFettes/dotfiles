@@ -29,6 +29,13 @@
     #     name: tyhal.cuda
     #   when: cuda
 
+    - name: ruby gems
+      include_role:
+        name: geerlingguy.ruby
+      vars:
+        ruby_install_gems: [tmuxinator]
+      when: maximal
+
     - name: include pip role
       include_role:
         name: geerlingguy.pip
@@ -290,6 +297,7 @@
         # - "pip"
         # - "ssh"
         - "pylintrc"
+        - "tmuxinator"
         - "tmux"
         - "vim"
         - "zsh"

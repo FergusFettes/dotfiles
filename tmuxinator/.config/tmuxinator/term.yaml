@@ -1,0 +1,5 @@
+socket_name: term
+name: term
+
+windows:
+  - term:
