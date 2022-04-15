@@ -34,6 +34,7 @@ plugins=(
   python
 	zsh-navigation-tools
   sudo
+  poetry
   # zsh-interactive-cd
   # urltools
 )
@@ -82,3 +83,5 @@ prompt_rotate
 # # fnm
 # export PATH=/home/ffettes/.fnm:$PATH
 # eval "`fnm env`"
+
+export PATH="$HOME/.poetry/bin:$PATH"

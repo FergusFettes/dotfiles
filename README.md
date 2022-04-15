@@ -35,3 +35,4 @@ My config files and a couple of scripts (in `./scripts/`) for reinstalling every
 * setup symlinks `./scripts/setup_symlinks.sh`
 * install brave `./scripts/setup_brave.sh`
 * install chrome (download from website, `dpkg -i /d/<download>`)
+* add the zshprofle? so that zsh vars get initialized even when used as a script.

@@ -93,6 +93,8 @@ Plug 'pappasam/nvim-repl'
 " Table making!
 Plug 'dhruvasagar/vim-table-mode'
 
+Plug 'tpope/vim-dadbod'
+
 
 call plug#end()
 filetype plugin indent on
@@ -562,6 +564,9 @@ au FileType sql nmap <leader>rv :w<CR>:Redir ! /c/scripts/sql/postgres_apply.sh 
 au FileType sql nmap <leader>rr :w<CR>:! /c/scripts/sql/tmux_postgres_script.sh test '%:p'<CR>
 au FileType sql nmap <leader>rt :w<CR>:! /c/scripts/sql/tmux_postgres_script.sh prod '%:p'<CR>
 au FileType sql nmap <leader>rl :w<CR>:! /c/scripts/sql/tmux_postgres_script.sh local '%:p'<CR>
+
+" Send file to DB
+au FileType sql nmap <leader>d :%:DB<CR>
 
 " Send current block to postgres
 au FileType sql nmap <leader>rap :let temp_filename=printf("%s%s", "/tmp/sql_script_", rand())<CR>vap'<,'>:w `=echo(temp_filename)`<CR>:! /c/scripts/sql/tmux_postgres_script.sh test echo(temp_filename)<CR>

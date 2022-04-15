@@ -29,6 +29,24 @@ alias -g V='| vim -'
 alias -g F="| fzf " # ls -l F
 alias -g X="| xargs " # ls -l X rm
 # }}}
+# Silly aliases {{{
+alias 😀='echo "
+ ⊂_ヽ
+　 ＼＼
+　　 ＼( ͡° ͜ʖ ͡°)
+　　　 >　⌒ヽ
+　　　/ 　 へ＼
+　　 /　　/　＼＼
+　　 ﾚ　ノ　　 ヽ_つ
+　　/　/
+　 /　/|
+　(　(ヽ
+　|　|、＼
+　| 丿 ＼ ⌒)
+　| |　　) /
+ノ )　　Lﾉ
+(_／" | lolcat'
+# }}}
 # Bash Shortcuts {{{
 alias \?='uname -n'
 
