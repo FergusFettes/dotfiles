@@ -26,4 +26,4 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -e /home/ffettes/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ffettes/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+export PATH="$HOME/.poetry/bin:$PATH"

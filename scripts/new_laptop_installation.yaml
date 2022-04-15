@@ -42,6 +42,7 @@
       vars:
         pip_executable: pip3
         pip_install_packages:
+          - td-cli
           - togglCli
           - cookiecutter
           - virtualenv

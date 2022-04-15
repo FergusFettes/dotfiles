@@ -6,7 +6,6 @@ windows:
   - NOW:      td g NOW -i -v
   - personal: td g personal -i -v
   - main:     td -i -v
-  - i3:       td g i3 -i -v
   - tools:    td g tools -i -v
   - misc:     td g misc -i -v
   - home:     td g home -i -v
