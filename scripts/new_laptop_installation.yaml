@@ -43,6 +43,7 @@
         pip_executable: pip3
         pip_install_packages:
           - togglCli
+          - cookiecutter
           - virtualenv
           - docker
           - docker-compose
@@ -137,6 +138,7 @@
           - zoxide
           # TODO: notes
           - libxkbcommon-dev
+          - sqlite3
     - name: install extra ubuntu packages
       apt:
         update_cache: yes
