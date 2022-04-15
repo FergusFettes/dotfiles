@@ -34,7 +34,6 @@ plugins=(
   python
 	zsh-navigation-tools
   sudo
-  poetry
   # zsh-interactive-cd
   # urltools
 )
@@ -70,7 +69,8 @@ eval "$(zoxide init zsh)"
 if [ `uname -n` = "ffettes-XPS15" ]; then
   source ~/.config/personal/.zshrc.work
   source /w/openpilot/activate.sh
-  sk rk
+  source /pa/openai
+#   sk rk
 fi
 
 prompt_rotate
@@ -80,8 +80,9 @@ prompt_rotate
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-# # fnm
-# export PATH=/home/ffettes/.fnm:$PATH
-# eval "`fnm env`"
+# fnm
+export PATH=/home/ffettes/.fnm:$PATH
+eval "`fnm env`"
 
-export PATH="$HOME/.poetry/bin:$PATH"
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
