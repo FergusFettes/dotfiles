@@ -109,6 +109,7 @@
           - net-tools
           - openssh-server
           - fping
+          - xclip
           # command line tools for navigation etc
           - tree
           - ranger
@@ -140,6 +141,9 @@
           # TODO: notes
           - libxkbcommon-dev
           - sqlite3
+          - pandoc
+          - poppler-utils
+          - shotwell
     - name: install extra ubuntu packages
       apt:
         update_cache: yes
