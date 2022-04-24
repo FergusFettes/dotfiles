@@ -5,6 +5,11 @@ window:
 shell:
   program: /usr/bin/zsh
 
+font:
+  # Framwork laptop is massive for some reason,
+  # this fixes the term size.
+  size: 14
+
 schemes:
   # Colors (Solarized Light)
   solarized_light: &sol_light

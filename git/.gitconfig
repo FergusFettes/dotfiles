@@ -3,3 +3,5 @@
 	name = fergus
 [commit]
 	template = /home/ffettes/.gitmessage
+[merge]
+	conflictstyle = diff3
