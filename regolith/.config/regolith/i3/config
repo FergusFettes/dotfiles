@@ -63,10 +63,6 @@ bindsym $alt+Shift+space exec $i3-wm.program.launcher.cmd
 set_from_resource $i3-wm.program.launcher.window i3-wm.program.launcher.window rofi -show window -theme $rofiTheme
 bindsym $alt+Ctrl+space exec $i3-wm.program.launcher.window
 
-## Launch // This Dialog // <><Shift> ? ##
-set_from_resource $i3-wm.program.help i3-wm.program.help /usr/bin/remontoire-toggle
-bindsym $alt+Shift+question exec --no-startup-id $i3-wm.program.help
-
 ## Launch // File Search // <><Alt> Space ##
 set_from_resource $i3-wm.program.file_search i3-wm.program.file_search rofi -show find -modi find:/usr/share/rofi/modi/finder.sh
 bindsym $mod+$alt+space exec $i3-wm.program.file_search

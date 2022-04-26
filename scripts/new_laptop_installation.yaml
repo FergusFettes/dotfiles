@@ -144,6 +144,7 @@
           - pandoc
           - poppler-utils
           - shotwell
+          - shellcheck
     - name: install extra ubuntu packages
       apt:
         update_cache: yes
