@@ -1,104 +1,102 @@
 " Plugins {{{
 call plug#begin(expand('~/.vim/plugged'))
+  "" NERDtree
+  Plug 'preservim/nerdtree' |
+              \ Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'francoiscabrol/ranger.vim'
+  Plug 'rbgrouleff/bclose.vim'
 
-"" NERDtree
-Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
+  "" Silver Searcher (note, depreciated, maybe use Ack)
+  Plug 'rking/ag.vim'
+  "" CtrlP --fuzzy file searcher
+  Plug 'ctrlpvim/ctrlp.vim'
+  "" FZF mostly used for CtrlP I guess
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+  Plug 'junegunn/fzf.vim'
 
-"" Silver Searcher (note, depreciated, maybe use Ack)
-Plug 'rking/ag.vim'
-"" CtrlP --fuzzy file searcher
-Plug 'ctrlpvim/ctrlp.vim'
-"" FZF mostly used for CtrlP I guess
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
+  "" Git-related
+  Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-fugitive'
 
-"" Git-related
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
+  "" Fancy status bar
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 
-"" Fancy status bar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+  "" Goyo, beautiful reading mode
+  Plug 'junegunn/goyo.vim'
+  Plug 'junegunn/limelight.vim'
 
-"" Goyo, beautiful reading mode
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+  "" Colorscheme
+  Plug 'junegunn/seoul256.vim'
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'sts10/vim-pink-moon'
+  Plug 'ayu-theme/ayu-vim'
+  Plug 'ajmwagar/vim-deus'
+  Plug 'scheakur/vim-scheakur'
 
-"" Colorscheme
-Plug 'junegunn/seoul256.vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'sts10/vim-pink-moon'
-Plug 'ayu-theme/ayu-vim'
-Plug 'ajmwagar/vim-deus'
-Plug 'scheakur/vim-scheakur'
+  "" Markdown two panel
+  Plug 'JamshedVesuna/vim-markdown-preview'
 
-"" Markdown two panel
-Plug 'JamshedVesuna/vim-markdown-preview'
+  "" Linter
+  Plug 'dense-analysis/ale'
 
-"" Linter
-Plug 'dense-analysis/ale'
+  "" Other
+  Plug 'ntpeters/vim-better-whitespace'
+  Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'tpope/vim-commentary'
+  Plug 'Raimondi/delimitMate'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'mbbill/undotree'
 
-"" Other
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'tpope/vim-commentary'
-Plug 'Raimondi/delimitMate'
-Plug 'sheerun/vim-polyglot'
-Plug 'mbbill/undotree'
+  " SonicPi plugin
+  Plug 'dermusikman/sonicpi.vim'
 
-" SonicPi plugin
-Plug 'dermusikman/sonicpi.vim'
+  " Plug 'majutsushi/tagbar'
 
-" Plug 'majutsushi/tagbar'
+  "" Movement
+  Plug 'easymotion/vim-easymotion'
+  Plug 'justinmk/vim-sneak'
 
-"" Movement
-Plug 'easymotion/vim-easymotion'
-Plug 'justinmk/vim-sneak'
+  "" Close buffers
+  Plug 'Asheq/close-buffers.vim'
 
-"" Close buffers
-Plug 'Asheq/close-buffers.vim'
+  " " rust
+  " " Vim racer
+  Plug 'racer-rust/vim-racer'
 
-" " rust
-" " Vim racer
-Plug 'racer-rust/vim-racer'
+  " Completion
+  Plug 'valloric/youcompleteme'
+  Plug 'github/copilot.vim'
+  Plug 'jessfraz/openai.vim'
 
-" Completion
-Plug 'valloric/youcompleteme'
-Plug 'github/copilot.vim'
-Plug 'jessfraz/openai.vim'
+  " Repeat (for easymotion)
+  Plug 'tpope/vim-repeat'
+  Plug 'svermeulen/vim-easyclip'
 
-" Repeat (for easymotion)
-Plug 'tpope/vim-repeat'
-Plug 'svermeulen/vim-easyclip'
+  " " Plugs I want to check out at some point:
+  " Plug 'skanehira/docker.vim'
+  " Plug 'ivanov/vim-ipython'
 
-" " Plugs I want to check out at some point:
-" Plug 'skanehira/docker.vim'
-" Plug 'ivanov/vim-ipython'
+  " Track the engine.
+  Plug 'SirVer/ultisnips'
 
-" Track the engine.
-Plug 'SirVer/ultisnips'
+  " Snippets are separated from the engine. Add this if you want them:
+  Plug 'honza/vim-snippets'
 
-" Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
+  " " Slimv
+  " Plug 'kovisoft/slimv'
 
-" " Slimv
-" Plug 'kovisoft/slimv'
+  " Python
+  Plug 'pappasam/nvim-repl'
 
-" Python
-Plug 'pappasam/nvim-repl'
+  " Table making!
+  Plug 'dhruvasagar/vim-table-mode'
 
-" Table making!
-Plug 'dhruvasagar/vim-table-mode'
-
-Plug 'tpope/vim-dadbod'
-
+  " SQL dbadmin
+  Plug 'tpope/vim-dadbod'
 
 call plug#end()
 filetype plugin indent on
-
 " }}}
 " Colors {{{
 if has('termguicolors')
@@ -116,6 +114,8 @@ colorscheme pink-moon|  " dark_theme
 syntax enable
 set t_Co=256
 set ruler
+
+set colorcolumn=120
 
 " }}}
 " Spaces & Tabs {{{
@@ -174,13 +174,13 @@ nnoremap <leader>nr :set relativenumber!<CR>
 nnoremap j gj
 nnoremap k gk
 
-" Controversial! Maybe think about it..
-" move to beginning/end of line
-nnoremap B ^
-nnoremap E $
-" $/^ doesn't do anything
-nnoremap $ <nop>
-nnoremap ^ <nop>
+" " Controversial! Maybe think about it..
+" " move to beginning/end of line
+" nnoremap B ^
+" nnoremap E $
+" " $/^ doesn't do anything
+" nnoremap $ <nop>
+" nnoremap ^ <nop>
 
 " Deeply radical..
 " jk is escape
@@ -325,6 +325,8 @@ nnoremap [Q :cfirst<CR>
 nnoremap <leader>l :let @y=@+<CR>"ryiwmhciw[r][r]<Esc>Gi[r]: y<Esc>`hE
 
 nnoremap / ms/
+
+nnoremap <leader>br f,bi(<CR><Esc>:s:, :,\r    :g<CR>o)<Esc>
 " }}}
 " Leader Maps {{{
 
