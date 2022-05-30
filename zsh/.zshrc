@@ -59,10 +59,8 @@ source ~/.config/personal/.zshrc.vars
 source ~/.config/personal/.zshrc.alias
 # Export all the functions
 source ~/.config/personal/.zshrc.func
-
-# if [ `uname -n` = "ondewo-ffettes" ]; then
+# Export the work stuff
 source ~/.config/personal/.zshrc.work
-# fi
 
 eval "$(zoxide init zsh)"
 
@@ -74,15 +72,15 @@ if [ `uname -n` = "ffettes-XPS15" ]; then
 fi
 
 prompt_rotate
-# }}}
-# vim:foldmethod=marker:foldlevel=0
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-# # fnm
-# export PATH=/home/ffettes/.fnm:$PATH
-# eval "`fnm env`"
+# fnm
+export PATH=/home/ffettes/.fnm:$PATH
+eval "`fnm env`"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+# }}}
+# vim:foldmethod=marker:foldlevel=0
