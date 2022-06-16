@@ -276,6 +276,7 @@ floating_maximum_size -1 x -1
 for_window [class="Gnome-control-center"] floating enable
 for_window [class="floating_window"] floating enable
 for_window [title="floating_window"] floating enable
+for_window [class="slack"] floating enable
 # }}}
 ###############################################################################
 # Window Resize and Gaps
@@ -422,6 +423,7 @@ bindsym $alt+Ctrl+n exec /c/scripts/i3/popup.sh notes cr "40%x100%"
 bindsym $alt+Ctrl+Return exec /c/scripts/i3/popup.sh term tc "95%x40%"
 bindsym $alt+Ctrl+o exec /c/scripts/i3/popup.sh tarm bc "90%x40%"
 bindsym $alt+Ctrl+p exec /c/scripts/i3/popup.sh tirm bc "90%x40%"
+bindsym $alt+Ctrl+s exec /c/scripts/i3/popup.sh slack c "90%x90%"
 bindsym $alt+Ctrl+a exec /c/scripts/i3/popup.sh ai cl "40%x100%"
 # }}}
 ###############################################################################
