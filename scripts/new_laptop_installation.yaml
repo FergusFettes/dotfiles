@@ -138,7 +138,6 @@
           - pwgen
           - apache2-utils
           - zoxide
-          # TODO: notes
           - libxkbcommon-dev
           - sqlite3
           - pandoc

@@ -3,9 +3,8 @@ name: todo
 root: /home/ffettes
 
 windows:
-  - NOW:      td g NOW -i -v
-  - personal: td g personal -i -v
-  - main:     td -i -v
-  - tools:    td g tools -i -v
-  - misc:     td g misc -i -v
-  - home:     td g home -i -v
+  - NOW:      vi /p/journal/TODO/now.md
+  - main:     vi /p/journal/TODO/week.md
+  - month:    vi /p/journal/TODO/month.md
+  - year:     vi /p/journal/TODO/year.md
+  - tools:    vi /p/journal/Lists/tools.md
