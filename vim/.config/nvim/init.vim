@@ -366,7 +366,7 @@ nnoremap <silent> <leader><space> :noh<cr>
 " terminal emulation
 nnoremap <silent> <leader>sh :sp<Bar>:terminal<CR>
 nnoremap <silent> <leader>vsh :vs<Bar>:terminal<CR>
-tnoremap <silent> ty <C-\><C-N>
+tnoremap <silent> fg <C-\><C-N>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
