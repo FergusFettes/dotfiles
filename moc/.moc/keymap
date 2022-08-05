@@ -38,7 +38,7 @@
 #
 # Default key configuration for MOC (and a list of all available commands):
 
-go                      = ; ENTER
+go                      = l ENTER
 menu_down               = j DOWN
 menu_up                 = k UP
 menu_page_down          = ^f PAGE_DOWN
@@ -74,8 +74,8 @@ volume_down_1 =  <
 volume_up_1 =  >
 volume_down_5 =  ,
 volume_up_5 =  .
-seek_forward =  l RIGHT
-seek_backward =  h LEFT
+seek_forward =  RIGHT
+seek_backward =  LEFT
 seek_forward_fast = ]
 seek_backward_fast = [
 hide_message = I
@@ -87,7 +87,7 @@ search_menu             = /
 help                    = ?
 toggle_show_time = t
 toggle_show_format = F
-go_up =   U
+go_up =   h
 # next_search =   n
 cancel =  ^x ESCAPE
 go_url =  o
