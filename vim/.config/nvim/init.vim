@@ -496,6 +496,13 @@ let g:EasyClipUsePasteToggleDefaults = 0
 nmap <c-v> <plug>EasyClipSwapPasteForward
 nmap <c-c> <plug>EasyClipSwapPasteBackwards
 
+" Tags
+" If there is a local ctags file
+set tags=.tags;$HOME
+
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
 " }}}
 " Set registers {{{
 let @g = 'gmbgggcG`bgcap`b'

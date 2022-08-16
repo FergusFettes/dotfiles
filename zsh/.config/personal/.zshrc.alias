@@ -23,7 +23,7 @@ alias -g G='| grep'
 alias -g H='| head '
 alias -g T='| tail '
 alias -g S='| sed '
-alias -g R='| rg'
+alias -g R='| rg -i'
 alias -g P='| cat'
 alias -g V='| vim -'
 alias -g F="| fzf " # ls -l F
@@ -108,7 +108,7 @@ alias w="watch -d -n 0.2"
 alias pip=pip3
 alias python=python3
 
-alias cat=bat
+alias cat=batcat
 alias bcat=/bin/cat
 alias man=~/.local/bat-extras/src/batman.sh
 alias grpcurl=~/.local/grpcurl

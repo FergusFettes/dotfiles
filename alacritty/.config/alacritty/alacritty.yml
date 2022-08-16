@@ -8,8 +8,8 @@ shell:
 font:
   # Framwork laptop is massive for some reason,
   # this fixes the term size.
-  # size: 13
-  size: 7
+  size: 13
+  # size: 7
 
 schemes:
   # Colors (Solarized Light)
