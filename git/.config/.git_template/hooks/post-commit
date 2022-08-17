@@ -1,0 +1,8 @@
+#!/bin/sh
+
+ctags -R --exclude=@/home/ffettes/.ctagsexclude -o .tags .
+
+echo "Tags generated" > /tmp/debug_hooks.txt
+echo "Working dir: $(pwd)" >> /tmp/debug_hooks.txt
+echo "Tags file: $(pwd)/.tags" >> /tmp/debug_hooks.txt
+echo "$(date)" >> /tmp/debug_hooks.txt
