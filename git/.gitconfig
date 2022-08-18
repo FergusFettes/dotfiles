@@ -7,3 +7,5 @@
 ; 	conflictstyle = diff3
 [init]
 	templatedir = /home/ffettes/.config/.git_template/
+[pull]
+	rebase = false
