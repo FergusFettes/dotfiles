@@ -1,6 +1,6 @@
 socket_name: todo
 name: todo
-root: /home/ffettes
+root: /p/journal/
 
 windows:
   - NOW:      vi /p/journal/TODO/now.md
