@@ -1,4 +1,7 @@
 # ~/.shellcheckrc
 
-# Done suggest $(...) braces over `` braces.
+# Dont suggest $(...) braces over `` braces.
 disable=SC2006
+
+# Dont remind me about expanding variables in double quotes.
+disable=SC2016
