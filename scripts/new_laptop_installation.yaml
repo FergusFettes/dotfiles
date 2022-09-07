@@ -278,6 +278,16 @@
       apt: deb="/home/ffettes/Downloads/diskus.deb"
       sudo: true
 
+    - name: Download etcher
+      get_url:
+        url="https://github.com/balena-io/etcher/releases/download/v1.7.9/balena-etcher-electron-1.7.9-linux-x64.zip"
+        dest="/home/ffettes/.local/etcher"
+    - name: Install etcher
+      file:
+        src: "/home/ffettes/.local/etcher"
+        path: "/usr/bin/etcher"
+        state: link
+
     - name: Create dirs for vim plug
       file:
         path: "/home/ffettes/.local/share/nvim/site/autoload/"
