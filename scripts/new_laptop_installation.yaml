@@ -183,7 +183,7 @@
         state: absent
       when: maximal
 
-    - name: install cargo for alacritty and alacritty
+    - name: install cargo for alacritty and dust
       block:
         - name: install cargo
           include_role:
@@ -210,6 +210,10 @@
             src: "/home/ffettes/.cargo/target/release/alacritty"
             path: "/usr/bin/alacritty"
             state: link
+        - name: Other Cargo installs
+          shell:
+            cmd: "cargo install du-dust"
+          sudo: true
       when: maximal
 
     - name: install fd, bat
@@ -265,6 +269,14 @@
         recursive: yes
         version: master
       become: no
+
+    - name: Download diskus
+      get_url:
+        url="https://github.com/sharkdp/diskus/releases/download/v0.7.0/diskus_0.7.0_amd64.deb"
+        dest="/home/ffettes/Downloads/diskus.deb"
+    - name: Install diskus
+      apt: deb="/home/ffettes/Downloads/diskus.deb"
+      sudo: true
 
     - name: Create dirs for vim plug
       file:

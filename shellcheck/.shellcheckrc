@@ -1,0 +1,4 @@
+# ~/.shellcheckrc
+
+# Done suggest $(...) braces over `` braces.
+disable=SC2006

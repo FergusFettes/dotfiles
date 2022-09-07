@@ -538,6 +538,8 @@ au FileType rust nmap <leader>rv :w<CR>:!cargo run --verbose<CR>
 
 " repl
 nnoremap <leader>rp :ReplToggle<CR>
+vnoremap <leader>rr <Plug>ReplSendLine
+vnoremap <leader>re <Plug>ReplSendVisual
 
 " jq (json format current file):
 nnoremap <leader>jq :%!jq<CR>
