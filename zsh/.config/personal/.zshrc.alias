@@ -59,6 +59,11 @@ alias s="sudo -s"
 alias ec=echo
 
 alias ,=prompt_rotate
+
+alias pp="poetry shell"
+alias pr="poetry run"
+
+alias matrix='LC_ALL=C tr -c "[:digit:]" " " < /dev/urandom | dd cbs=$COLUMNS conv=unblock | GREP_COLOR="1;32" grep --color "[^ ]"'
 # }}}
 # Scripts {{{
 alias bu='/c/scripts/linux/backlight.sh up'

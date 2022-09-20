@@ -39,6 +39,7 @@ set_from_resource $ws16 i3-wm.workspace.16.name "16"
 set_from_resource $ws17 i3-wm.workspace.17.name "17"
 set_from_resource $ws18 i3-wm.workspace.18.name "18"
 set_from_resource $ws19 i3-wm.workspace.19.name "19"
+
 # }}}
 ###############################################################################
 # Launcher dialogs

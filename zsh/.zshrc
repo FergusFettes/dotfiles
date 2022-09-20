@@ -34,6 +34,7 @@ plugins=(
   python
 	zsh-navigation-tools
   sudo
+  poetry
   # zsh-interactive-cd
   # urltools
 )
