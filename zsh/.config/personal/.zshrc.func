@@ -8,6 +8,39 @@
 # zle -N globalias
 # bindkey " " globalias # space key to expand globalalias
 
+rga-fzf() {
+	RG_PREFIX="rga --files-with-matches"
+	local file
+	file="$(
+		FZF_DEFAULT_COMMAND="$RG_PREFIX '$1'" \
+			fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
+				--phony -q "$1" \
+				--bind "change:reload:$RG_PREFIX {q}" \
+				--preview-window="70%:wrap"
+	)" &&
+	echo "opening $file" &&
+	xdg-open "$file"
+}
+
+function latest() {
+  # Get the latest versions
+  EXPLORER_VERSION=`git --git-dir /w/explorer-api/.git describe --tags --abbrev=0`
+  DATA_VERSION=`git --git-dir /w/hm-data-utils/.git describe --tags --abbrev=0`
+  LAMBDAS_VERSION=`git --git-dir /w/hypermile-processing-lambdas/.git describe --tags --abbrev=0`
+
+  echo "Explorer: $EXPLORER_VERSION"
+  echo "Data Utils: $DATA_VERSION"
+  echo "Lambdas: $LAMBDAS_VERSION"
+}
+
+function set_xprop() {
+  STR="$PWD; `date --iso=seconds`; `history -1 | sed 's/^[ ]*[0-9]*[ ]*//g'`"
+  xprop -id $(xdotool getactivewindow) -f WM_CLASS 8s -set WM_CLASS "$STR"
+}
+
+# Add the function to the precmd_functions array
+precmd_functions+=(set_xprop)
+
 function aliases() {which `compgen -a` | fzf}
 
 function mdless() {
