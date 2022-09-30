@@ -36,34 +36,6 @@
         ruby_install_gems: [tmuxinator]
       when: maximal
 
-    - name: include pip role
-      include_role:
-        name: geerlingguy.pip
-      vars:
-        pip_executable: pip3
-        pip_install_packages:
-          - td-cli
-          - togglCli
-          - cookiecutter
-          - virtualenv
-          - docker
-          - docker-compose
-          - numpy
-          - pandas
-          - matplotlib
-          - pytest
-          - ipython
-          - ipdb
-          - pre-commit
-          - neovim
-          # for ALE
-          - flake8
-          - pylint
-      when: maximal
-    - name: include docker role
-      include_role:
-        name: geerlingguy.docker
-
     - name: Create default users
       user:
         name: "{{ item }}"
@@ -144,6 +116,13 @@
           - poppler-utils
           - shotwell
           - shellcheck
+          # Pdf stuff
+          - libpoppler-cpp-dev
+          - pkg-config
+          - tesseract-ocr
+          - ffmpeg
+          - ocrmypdf
+
     - name: install extra ubuntu packages
       apt:
         update_cache: yes
@@ -182,6 +161,39 @@
           - gnome-shell-extension-ubuntu-dock
         state: absent
       when: maximal
+
+    - name: include pip role
+      include_role:
+        name: geerlingguy.pip
+      vars:
+        pip_executable: pip3
+        pip_install_packages:
+          - td-cli
+          - togglCli
+          - cookiecutter
+          - virtualenv
+          - docker
+          - docker-compose
+          - numpy
+          - pandas
+          - matplotlib
+          - pytest
+          - ipython
+          - ipdb
+          - pre-commit
+          - neovim
+          # for ALE
+          - flake8
+          - pylint
+          - mypy
+          - bump2version
+          - pdftotext
+          - poetry
+          - se
+      when: maximal
+    - name: include docker role
+      include_role:
+        name: geerlingguy.docker
 
     - name: install cargo for alacritty and dust
       block:
@@ -338,6 +350,7 @@
         - "tmux"
         - "vim"
         - "zsh"
+        - "arbtt"
       become: no
 
     - name: Clone Tmux package manager
