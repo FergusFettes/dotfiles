@@ -12,4 +12,4 @@ sudo ln -s /home/ffettes/dotfiles /dt
 sudo ln -s /home/ffettes/ /h
 sudo ln -s /home/ffettes/.ssh /ss
 sudo ln -s /home/ffettes/work /w
-sudo ln -s /home/ffettes/.password-store /pa
+sudo ln -s /home/ffettes/personal/journal/.Code/secrets /pa
