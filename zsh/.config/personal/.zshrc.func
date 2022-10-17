@@ -35,7 +35,10 @@ function latest() {
 
 function set_xprop() {
   STR="$PWD; `date --iso=seconds`; `history -1 | sed 's/^[ ]*[0-9]*[ ]*//g'`"
-  xprop -id $(xdotool getactivewindow) -f WM_CLASS 8s -set WM_CLASS "$STR"
+  WINDOW=`xdotool getactivewindow` 2>/dev/null
+  if [ -n "$WINDOW" ]; then
+    xprop -id $WINDOW -f WM_CLASS 8s -set WM_CLASS "$STR"
+  fi
 }
 
 # Add the function to the precmd_functions array
