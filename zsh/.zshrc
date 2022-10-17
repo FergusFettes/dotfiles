@@ -85,3 +85,4 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 # }}}
 # vim:foldmethod=marker:foldlevel=0
+export PATH="$PATH:$HOME/.trigger"

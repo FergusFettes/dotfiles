@@ -4,9 +4,10 @@ sudo apt update
 sudo apt install software-properties-common
 sudo add-apt-repository --yes --update ppa:ansible/ansible
 
-sudo apt install -y ansible
+sudo apt install -y ansible ansible-core
 
-ansible-galaxy install geerlingguy.pip geerlingguy.docker robertdebock.cargo gantsign.fd gantsign.bat gantsign.ctop gantsign.atom gantsign.antigen tyhal.cuda nvidia.nvidia_driver
+ansible-galaxy install geerlingguy.ruby geerlingguy.pip geerlingguy.docker robertdebock.cargo gantsign.fd gantsign.ctop gantsign.antigen tyhal.cuda nvidia.nvidia_driver
+sudo mkdir -p /etc/ansible/
 echo "now add the target ip to
 
 /etc/ansible/hosts
@@ -14,6 +15,8 @@ echo "now add the target ip to
 under the heading
 
 [new-machine]"
+
+echo "[new-machine]" | sudo tee /etc/ansible/hosts
 
 echo "then, run ansible with
 

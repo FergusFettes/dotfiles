@@ -154,6 +154,7 @@ alias x=exit
 alias xz="exec zsh"
 alias t=tmux
 alias tk="tmux attach"
+alias tw="/usr/local/bin/t"
 
 # }}}
 # Mini Scripts {{{

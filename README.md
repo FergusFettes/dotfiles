@@ -6,10 +6,10 @@ My config files and a couple of scripts (in `./scripts/`) for reinstalling every
 
 0. Ensure ssh installed on target: `apt install openssh-server`
 1. [Optional, if using one machine as taget and client]: create ssh keys and add them to authorized_keys list: `ssh-keygen -t rsa -b 4096 -C "test@fake.com" -N ''`
-2. [Client]: install ansible: `apt install ansible`.
+2. [Client]: install ansible: `apt install ansible ansible-core`.
 3. [Client]: install ansible roles: 
 ```
-ansible-galaxy install geerlingguy.ruby geerlingguy.pip geerlingguy.docker robertdebock.cargo gantsign.fd gantsign.bat gantsign.ctop gantsign.atom gantsign.antigen
+ansible-galaxy install geerlingguy.ruby geerlingguy.pip geerlingguy.docker robertdebock.cargo gantsign.fd gantsign.ctop gantsign.antigen
 ```
 4. [Client]: Add the target machines ips to `/etc/ansible/hosts` under '[new-machine]'.
 5. [Client]: Create a masked password: `take /tmp/ansible-pass; /c/scripts/linux/password_manager.sh ffettes; mv /tmp/ansible-pass/masked-ffettes /pa/`

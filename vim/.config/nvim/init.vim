@@ -170,6 +170,11 @@ let mapleader=','
 nnoremap <leader>nn :set number!<CR>
 nnoremap <leader>nr :set relativenumber!<CR>
 
+nnoremap <silent> <leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <leader>9 :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+nnoremap <silent> <leader>0 :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -541,6 +546,8 @@ nnoremap <leader>rp :ReplToggle<CR>
 vnoremap <leader>rr <Plug>ReplSendLine
 vnoremap <leader>re <Plug>ReplSendVisual
 
+let g:repl_split = 'bottom'
+
 " jq (json format current file):
 nnoremap <leader>jq :%!jq<CR>
 
@@ -549,9 +556,9 @@ au FileType python nmap <leader>ri :w<CR>:!python3 %<CR>
 au FileType python nmap <leader>rt :w<CR>:!python3 -m pytest %<CR>
 au FileType python nmap <leader>rr <Plug>ReplSendLine
 au FileType python vmap <leader>re <Plug>ReplSendVisual
-au FileType python vmap <leader>rr y<C-w>h""pi<CR><CR><C-\><C-N><C-w>l
-au FileType python vmap <leader>rs y<C-w>h""pi<CR><CR><C-\><C-N><C-w>l
-au FileType python nnoremap <leader>rs yap<C-w>h""pi<CR><CR><C-\><C-N><C-w>l
+au FileType python vmap <leader>rr y<C-w>j""pi<CR><CR><C-\><C-N><C-w>k
+au FileType python vmap <leader>rs y<C-w>j""pi<CR><CR><C-\><C-N><C-w>k
+au FileType python nnoremap <leader>rs yap<C-w>j""pi<CR><CR><C-\><C-N><C-w>k
 au FileType python nnoremap <leader>nq gmzA      # noqa:<ESC>`z
 au FileType python nnoremap <leader>ti gmzA      # type: ignore<ESC>`z
 
@@ -577,7 +584,8 @@ au FileType sql nmap <leader>rt :w<CR>:! /c/scripts/sql/tmux_postgres_script.sh 
 au FileType sql nmap <leader>rl :w<CR>:! /c/scripts/sql/tmux_postgres_script.sh local '%:p'<CR>
 
 " Send file to DB
-au FileType sql nmap <leader>d :%:DB<CR>
+source /pa/passwords.vim
+au FileType sql nmap <leader>d :%:DB g:db<CR>
 
 " Send current block to postgres
 au FileType sql nmap <leader>rap :let temp_filename=printf("%s%s", "/tmp/sql_script_", rand())<CR>vap'<,'>:w `=echo(temp_filename)`<CR>:! /c/scripts/sql/tmux_postgres_script.sh test echo(temp_filename)<CR>

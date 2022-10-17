@@ -8,5 +8,8 @@ folder=/h/reading
 pdf=$(find $folder -maxdepth 1 -type f -name "*.pdf" | shuf -n1)
 echo "$pdf" > /tmp/debug_popup_pdf
 
-# # Open the pdf in the selected window.
+# # Show a list of active i3 workspaces.
+# i3-msg -t get_workspaces | jq -r '.[] | .name'
+
+# Open the pdf in the selected window.
 i3-msg "workspace 4; exec zathura \"$pdf\""

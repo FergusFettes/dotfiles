@@ -14,20 +14,21 @@
     cuda: yes
     gpu: yes
   tasks:
+
     - name: Update and upgrade all apt packages
       apt:
         update_cache: yes
         upgrade: dist
         force_apt_get: yes
 
-    # - name: Install NVIDIA
-    #   include_role:
-    #     name: nvidia.nvidia_driver
-    #   when: cuda
-    # - name: Install CUDA stuff
-    #   include_role:
-    #     name: tyhal.cuda
-    #   when: cuda
+    - name: Install NVIDIA
+      include_role:
+        name: nvidia.nvidia_driver
+      when: cuda
+    - name: Install CUDA stuff
+      include_role:
+        name: tyhal.cuda
+      when: cuda
 
     - name: ruby gems
       include_role:
@@ -35,6 +36,39 @@
       vars:
         ruby_install_gems: [tmuxinator]
       when: maximal
+
+    # This is here because docker needs to be installed for the next section to work properly
+    - name: include pip role
+      include_role:
+        name: geerlingguy.pip
+      vars:
+        pip_executable: pip3
+        pip_install_packages:
+          - td-cli
+          - togglCli
+          - cookiecutter
+          - virtualenv
+          - docker
+          - docker-compose
+          - numpy
+          - pandas
+          - matplotlib
+          - pytest
+          - ipython
+          - ipdb
+          - pre-commit
+          - neovim
+          # for ALE
+          - flake8
+          - pylint
+          - mypy
+          - bump2version
+          - poetry
+          - se
+      when: maximal
+    - name: include docker role
+      include_role:
+        name: geerlingguy.docker
 
     - name: Create default users
       user:
@@ -66,7 +100,7 @@
       apt_repository:
         repo: "{{ item }}"
       with_items:
-        - 'ppa:regolith-linux/release'
+        # - 'ppa:regolith-linux/release'
         - 'ppa:neovim-ppa/unstable'
 
     - name: install standard ubuntu packages
@@ -122,6 +156,9 @@
           - tesseract-ocr
           - ffmpeg
           - ocrmypdf
+          - bat
+          - arbtt
+          - xdotool
 
     - name: install extra ubuntu packages
       apt:
@@ -135,10 +172,10 @@
           - linux-tools-common
           - linux-tools-generic
           # Regolith
-          - regolith-desktop-standard
-          - i3xrocks-net-traffic
-          - i3xrocks-cpu-usage
-          - i3xrocks-time
+          # - regolith-desktop-standard
+          # - i3xrocks-net-traffic
+          # - i3xrocks-cpu-usage
+          # - i3xrocks-time
           # deps for alacritty
           - pkg-config
           - libfreetype6-dev
@@ -168,32 +205,7 @@
       vars:
         pip_executable: pip3
         pip_install_packages:
-          - td-cli
-          - togglCli
-          - cookiecutter
-          - virtualenv
-          - docker
-          - docker-compose
-          - numpy
-          - pandas
-          - matplotlib
-          - pytest
-          - ipython
-          - ipdb
-          - pre-commit
-          - neovim
-          # for ALE
-          - flake8
-          - pylint
-          - mypy
-          - bump2version
           - pdftotext
-          - poetry
-          - se
-      when: maximal
-    - name: include docker role
-      include_role:
-        name: geerlingguy.docker
 
     - name: install cargo for alacritty and dust
       block:
@@ -222,20 +234,18 @@
             src: "/home/ffettes/.cargo/target/release/alacritty"
             path: "/usr/bin/alacritty"
             state: link
-        - name: Other Cargo installs
-          shell:
-            cmd: "cargo install du-dust"
-          sudo: true
+        # - name: Other Cargo installs
+        #   shell:
+        #     cmd: "cargo install du-dust"
+        #   sudo: true
       when: maximal
 
-    - name: install fd, bat
+    - name: install fd
       include_role:
         name: "gantsign.{{ item }}"
       with_items:
         - fd
-        - bat
         - ctop
-        # - atom
         # - swapspace
         # - zswap
 
@@ -255,6 +265,7 @@
               - name: command-not-found
               - name: sudo
               - name: python
+              - name: poetry
               - name: k
                 url: supercrabtree/k
               - name: zsh-syntax-highlighting
@@ -294,9 +305,8 @@
     - name: Install debs
       apt: deb="/home/ffettes/Downloads/{{ item }}"
       with_items:
-        - diskus.deb
-        - pastel.deb
-      sudo: true
+        - "diskus.deb"
+        - "pastel.deb"
 
     - name: Download etcher
       get_url:
@@ -349,7 +359,7 @@
         - "tmuxinator"
         - "tmux"
         - "vim"
-        - "zsh"
+        # - "zsh"
         - "arbtt"
       become: no
 
