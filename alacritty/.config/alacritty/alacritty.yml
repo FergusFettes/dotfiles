@@ -13,7 +13,7 @@ font:
 
 schemes:
   # Colors (Solarized Light)
-  solarized_light: &sol_light
+  solarized_light:
     # Default colors
     primary:
       background: '#fdf6e3' # base3
@@ -21,67 +21,34 @@ schemes:
 
     # Cursor colors
     cursor:
-      text:   '#fdf6e3' # base3
+      text: '#fdf6e3'   # base3
       cursor: '#657b83' # base00
 
     # Normal colors
     normal:
-      black:   '#1f1f1f' # base02
-      red:     '#dc322f' # red
-      green:   '#859900' # green
-      yellow:  '#b58900' # yellow
-      blue:    '#268bd2' # blue
+      black: '#1f1f1f'   # base02
+      red: '#dc322f'     # red
+      green: '#859900'   # green
+      yellow: '#b58900'  # yellow
+      blue: '#268bd2'    # blue
       magenta: '#d33682' # magenta
-      cyan:    '#2aa198' # cyan
-      white:   '#eee8d5' # base2
+      cyan: '#2aa198'    # cyan
+      white: '#eee8d5'   # base2
 
     # Bright colors
     bright:
-      black:   '#002b36' # base03
-      red:     '#cb4b16' # orange
-      green:   '#586e75' # base01
-      yellow:  '#657b83' # base00
-      blue:    '#839496' # base0
+      black: '#002b36'   # base03
+      red: '#cb4b16'     # orange
+      green: '#586e75'   # base01
+      yellow: '#657b83'  # base00
+      blue: '#839496'    # base0
       magenta: '#6c71c4' # violet
-      cyan:    '#93a1a1' # base1
-      white:   '#fdf6e3' # base3
+      cyan: '#93a1a1'    # base1
+      white: '#fdf6e3'   # base3
 
-  # Colors (Solarized Dark)
-  solarized_dark:   &sol_dark
-    # Default colors
-    primary:
-      background: '#002b36' # base03
-      foreground: '#839496' # base0
-
-    # Cursor colors
-    cursor:
-      text:   '#002b36' # base03
-      cursor: '#839496' # base0
-
-    # Normal colors
-    normal:
-      black:   '#1f1f1f' # base02
-      red:     '#dc322f' # red
-      green:   '#859900' # green
-      yellow:  '#b58900' # yellow
-      blue:    '#268bd2' # blue
-      magenta: '#d33682' # magenta
-      cyan:    '#2aa198' # cyan
-      white:   '#eee8d5' # base2
-
-    # Bright colors
-    bright:
-      black:   '#002b36' # base03
-      red:     '#cb4b16' # orange
-      green:   '#586e75' # base01
-      yellow:  '#657b83' # base00
-      blue:    '#839496' # base0
-      magenta: '#6c71c4' # violet
-      cyan:    '#93a1a1' # base1
-      white:   '#fdf6e3' # base3
 
     # Colors (Ayu Dark)
-  ayu_dark: &ayu_dark
+  ayu_dark:
     # Default colors
     primary:
       background: '#000000'
@@ -109,63 +76,34 @@ schemes:
       cyan: '#95E6CB'
       white: '#FFFFFF'
 
-    # Colors (Ayu Mirage)
-  ayu_mirage: &ayu_mirage
-    # Default colors
-    primary:
-      background: '#202734'
-      foreground: '#CBCCC6'
+# This is from here: https://github.com/toggle-corp/alacritty-colorscheme
+# But also check out this, if that is too cumbersome: https://github.com/eendroroy/alacritty-theme
+colors:
+  # COLORSCHEME: tokyo-night.yaml
+  # Default colors
+  primary:
+    # hard contrast: background = '0xf9f5d7'
+    background: '0x1a1b26'
+    foreground: '0xa9b1d6'
 
-    # Normal colors
-    normal:
-      black: '#191E2A'
-      red: '#FF3333'
-      green: '#BAE67E'
-      yellow: '#FFA759'
-      blue: '#73D0FF'
-      magenta: '#FFD580'
-      cyan: '#95E6CB'
-      white: '#C7C7C7'
+  # Normal colors
+  normal:
+    black: '0x32344a'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xad8ee6'
+    cyan: '0x449dab'
+    white: '0x787c99'
 
-    # Bright colors
-    bright:
-      black: '#686868'
-      red: '#F27983'
-      green: '#A6CC70'
-      yellow: '#FFCC66'
-      blue: '#5CCFE6'
-      magenta: '#FFEE99'
-      cyan: '#95E6CB'
-      white: '#FFFFFF'
-
-    # Colors (Nord)
-  nord: &nord
-     # Default colors
-     primary:
-       background: '#2E3440'
-       foreground: '#D8DEE9'
-
-     # Normal colors
-     normal:
-       black:   '#3B4252'
-       red:     '#BF616A'
-       green:   '#A3BE8C'
-       yellow:  '#EBCB8B'
-       blue:    '#81A1C1'
-       magenta: '#B48EAD'
-       cyan:    '#88C0D0'
-       white:   '#E5E9F0'
-
-     # Bright colors
-     bright:
-       black:   '#4C566A'
-       red:     '#BF616A'
-       green:   '#A3BE8C'
-       yellow:  '#EBCB8B'
-       blue:    '#81A1C1'
-       magenta: '#B48EAD'
-       cyan:    '#8FBCBB'
-       white:   '#ECEFF4'
-
-colors: *ayu_dark   # dark_theme
-# colors: *sol_light  # light_theme
+  # Bright colors
+  bright:
+    black: '0x444b6a'
+    red: '0xff7a93'
+    green: '0xb9f27c'
+    yellow: '0xff9e64'
+    blue: '0x7da6ff'
+    magenta: '0xbb9af7'
+    cyan: '0x0db9d7'
+    white: '0xacb0d0'
