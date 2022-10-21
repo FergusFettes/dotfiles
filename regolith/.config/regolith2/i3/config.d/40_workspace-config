@@ -54,8 +54,10 @@ bindsym $mod+Shift+$i3-wm.binding.float_toggle floating toggle
 bindsym $alt+Shift+$i3-wm.binding.float_toggle floating toggle
 
 ## Modify // Move to Scratchpad // <><Ctrl> m ##
-set_from_resource $i3-wm.binding.move_scratchpad i3-wm.binding.move_scratchpad Ctrl+m
-bindsym $mod+$i3-wm.binding.move_scratchpad move to scratchpad
+# bindsym $alt+Shift+b move scratchpad
+# bindsym $alt+b scratchpad show
+bindsym $mod+Shift+b move scratchpad
+bindsym $mod+b scratchpad show
 
 ## Modify // Tile/Float Focus Toggle // <><Shift> t ##
 set_from_resource $i3-wm.binding.focus_toggle i3-wm.binding.focus_toggle Shift+t

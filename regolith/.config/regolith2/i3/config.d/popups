@@ -13,6 +13,18 @@ bindsym $alt+Ctrl+p exec /c/scripts/i3/popup.sh tirm br "90%x40%"
 bindsym $alt+Ctrl+s exec /c/scripts/i3/popup.sh slack c "90%x90%"
 bindsym $alt+Ctrl+a exec /c/scripts/i3/popup.sh ai cl "40%x100%"
 bindsym $alt+Ctrl+m exec /c/scripts/i3/popup.sh music c "100%x100%"
+bindsym $mod+Ctrl+d exec /c/scripts/i3/popup.sh todo tl "40%x40%"
+bindsym $mod+Ctrl+g exec /c/scripts/i3/popup.sh toggl bl "20%x20%"
+bindsym $mod+Ctrl+c exec /c/scripts/i3/popup.sh conf cr "40%x100%"
+bindsym $mod+Ctrl+h exec /c/scripts/i3/popup.sh tips cr "40%x100%"
+bindsym $mod+Ctrl+n exec /c/scripts/i3/popup.sh notes cr "40%x100%"
+bindsym $mod+Ctrl+Return exec /c/scripts/i3/popup.sh term tc "95%x40%"
+bindsym $mod+Ctrl+q exec /c/scripts/i3/popup.sh tarm bl "90%x40%"
+bindsym $mod+Ctrl+p exec /c/scripts/i3/popup.sh tirm br "90%x40%"
+bindsym $mod+Ctrl+s exec /c/scripts/i3/popup.sh slack c "90%x90%"
+bindsym $mod+Ctrl+a exec /c/scripts/i3/popup.sh ai cl "40%x100%"
+bindsym $mod+Ctrl+m exec /c/scripts/i3/popup.sh music c "100%x100%"
 
 bindsym $alt+Ctrl+o exec /dt/scripts/pdf.sh
+bindsym $mod+Ctrl+o exec /dt/scripts/pdf.sh
 # }}}
