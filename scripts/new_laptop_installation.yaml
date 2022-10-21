@@ -44,6 +44,7 @@
       vars:
         pip_executable: pip3
         pip_install_packages:
+          - alacritty-colorscheme
           - td-cli
           - togglCli
           - cookiecutter
@@ -239,6 +240,10 @@
         #     cmd: "cargo install du-dust"
         #   sudo: true
       when: maximal
+    - name: Install alacritty colorschemes
+      git:
+        repo: "https://github.com/eendroroy/alacritty-theme.git"
+        dest: "$HOME/.eendroroy-colorschemes"
 
     - name: install fd
       include_role:

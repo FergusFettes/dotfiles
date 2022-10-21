@@ -1,0 +1,116 @@
+###############################################################################
+# Window and Workspace Configuration
+###############################################################################
+
+## Modify // Window Position // <><Shift> ↑ ↓ ← → ##
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+## Modify // Window Position // <><Shift> k j h l ##
+set_from_resource $i3-wm.binding.move_left i3-wm.binding.move_left Shift+h
+set_from_resource $i3-wm.binding.move_right i3-wm.binding.move_right Shift+l
+set_from_resource $i3-wm.binding.move_up i3-wm.binding.move_up Shift+k
+set_from_resource $i3-wm.binding.move_down i3-wm.binding.move_down Shift+j
+bindsym $mod+$i3-wm.binding.move_left move left
+bindsym $mod+$i3-wm.binding.move_down move down
+bindsym $mod+$i3-wm.binding.move_up move up
+bindsym $mod+$i3-wm.binding.move_right move right
+
+## Modify // Containing Workspace // <><Ctrl><Shift> ↑ ↓ ← → ##
+set_from_resource $i3-wm.binding.move_workspace_output_left i3-wm.binding.move_workspace_output_left Ctrl+Shift+Left
+set_from_resource $i3-wm.binding.move_workspace_output_right i3-wm.binding.move_workspace_output_right Ctrl+Shift+Right
+set_from_resource $i3-wm.binding.move_workspace_output_up i3-wm.binding.move_workspace_output_up Ctrl+Shift+Up
+set_from_resource $i3-wm.binding.move_workspace_output_down i3-wm.binding.move_workspace_output_down Ctrl+Shift+Down
+bindsym $mod+$i3-wm.binding.move_workspace_output_left move workspace to output left
+bindsym $mod+$i3-wm.binding.move_workspace_output_right move workspace to output right
+bindsym $mod+$i3-wm.binding.move_workspace_output_up move workspace to output up
+bindsym $mod+$i3-wm.binding.move_workspace_output_down move workspace to output down
+
+## Modify // Containing Workspace // <><Ctrl><Shift> k j h l ##
+set_from_resource $i3-wm.binding.take_left i3-wm.binding.take_left Ctrl+Shift+h
+set_from_resource $i3-wm.binding.take_right i3-wm.binding.take_right Ctrl+Shift+l
+set_from_resource $i3-wm.binding.take_up i3-wm.binding.take_up Ctrl+Shift+k
+set_from_resource $i3-wm.binding.take_down i3-wm.binding.take_down Ctrl+Shift+j
+bindsym $mod+$i3-wm.binding.take_left move workspace to output left
+bindsym $mod+$i3-wm.binding.take_down move workspace to output down
+bindsym $mod+$i3-wm.binding.take_up move workspace to output up
+bindsym $mod+$i3-wm.binding.take_right move workspace to output right
+
+## Modify // Toggle Window Orientation // <> Backspace ##
+set_from_resource $i3-wm.binding.orientation_toggle i3-wm.binding.orientation_toggle BackSpace
+bindsym $mod+$i3-wm.binding.orientation_toggle split toggle
+bindsym $alt+$i3-wm.binding.orientation_toggle split toggle
+
+## Modify // Window Fullscreen Toggle // <> f ##
+set_from_resource $i3-wm.binding.fullscreen_toggle i3-wm.binding.fullscreen_toggle f
+bindsym $mod+$i3-wm.binding.fullscreen_toggle fullscreen toggle
+bindsym $alt+$i3-wm.binding.fullscreen_toggle fullscreen toggle
+
+## Modify // Window Floating Toggle // <><Shift> f ##
+set_from_resource $i3-wm.binding.float_toggle i3-wm.binding.float_toggle Shift+f
+bindsym $mod+Shift+$i3-wm.binding.float_toggle floating toggle
+bindsym $alt+Shift+$i3-wm.binding.float_toggle floating toggle
+
+## Modify // Move to Scratchpad // <><Ctrl> m ##
+set_from_resource $i3-wm.binding.move_scratchpad i3-wm.binding.move_scratchpad Ctrl+m
+bindsym $mod+$i3-wm.binding.move_scratchpad move to scratchpad
+
+## Modify // Tile/Float Focus Toggle // <><Shift> t ##
+set_from_resource $i3-wm.binding.focus_toggle i3-wm.binding.focus_toggle Shift+t
+bindsym $mod+$i3-wm.binding.focus_toggle focus mode_toggle
+
+## Modify // Window Layout Mode // <> t ##
+set_from_resource $i3-wm.binding.layout_mode i3-wm.binding.layout_mode t
+bindsym $mod+$i3-wm.binding.layout_mode layout toggle tabbed splith splitv
+
+## Modify // Move Window to Workspace 1 - 10 // <><Shift> 0..9 ##
+bindsym $mod+Shift+$ws1_key move container to workspace number $ws1
+bindsym $mod+Shift+$ws2_key move container to workspace number $ws2
+bindsym $mod+Shift+$ws3_key move container to workspace number $ws3
+bindsym $mod+Shift+$ws4_key move container to workspace number $ws4
+bindsym $mod+Shift+$ws5_key move container to workspace number $ws5
+bindsym $mod+Shift+$ws6_key move container to workspace number $ws6
+bindsym $mod+Shift+$ws7_key move container to workspace number $ws7
+bindsym $mod+Shift+$ws8_key move container to workspace number $ws8
+bindsym $mod+Shift+$ws9_key move container to workspace number $ws9
+bindsym $mod+Shift+$ws10_key move container to workspace number $ws10
+## Modify // Move Window to Workspace 11 - 19// <><Ctrl><Shift> 1..9 ##
+bindsym $mod+Shift+Ctrl+$ws1_key move container to workspace number $ws11
+bindsym $mod+Shift+Ctrl+$ws2_key move container to workspace number $ws12
+bindsym $mod+Shift+Ctrl+$ws3_key move container to workspace number $ws13
+bindsym $mod+Shift+Ctrl+$ws4_key move container to workspace number $ws14
+bindsym $mod+Shift+Ctrl+$ws5_key move container to workspace number $ws15
+bindsym $mod+Shift+Ctrl+$ws6_key move container to workspace number $ws16
+bindsym $mod+Shift+Ctrl+$ws7_key move container to workspace number $ws17
+bindsym $mod+Shift+Ctrl+$ws8_key move container to workspace number $ws18
+bindsym $mod+Shift+Ctrl+$ws9_key move container to workspace number $ws19
+
+## altify // Move Window to Workspace 1 - 10 // <><Shift> 0..9 ##
+bindsym $alt+Shift+$ws1_key move container to workspace number $ws1
+bindsym $alt+Shift+$ws2_key move container to workspace number $ws2
+bindsym $alt+Shift+$ws3_key move container to workspace number $ws3
+bindsym $alt+Shift+$ws4_key move container to workspace number $ws4
+bindsym $alt+Shift+$ws5_key move container to workspace number $ws5
+bindsym $alt+Shift+$ws6_key move container to workspace number $ws6
+bindsym $alt+Shift+$ws7_key move container to workspace number $ws7
+bindsym $alt+Shift+$ws8_key move container to workspace number $ws8
+bindsym $alt+Shift+$ws9_key move container to workspace number $ws9
+bindsym $alt+Shift+$ws10_key move container to workspace number $ws10
+## altify // Move Window to Workspace 11 - 19// <><Ctrl><Shift> 1..9 ##
+bindsym $alt+Shift+Ctrl+$ws1_key move container to workspace number $ws11
+bindsym $alt+Shift+Ctrl+$ws2_key move container to workspace number $ws12
+bindsym $alt+Shift+Ctrl+$ws3_key move container to workspace number $ws13
+bindsym $alt+Shift+Ctrl+$ws4_key move container to workspace number $ws14
+bindsym $alt+Shift+Ctrl+$ws5_key move container to workspace number $ws15
+bindsym $alt+Shift+Ctrl+$ws6_key move container to workspace number $ws16
+bindsym $alt+Shift+Ctrl+$ws7_key move container to workspace number $ws17
+bindsym $alt+Shift+Ctrl+$ws8_key move container to workspace number $ws18
+bindsym $alt+Shift+Ctrl+$ws9_key move container to workspace number $ws19
+
+set_from_resource $i3-wm.workspace.auto_back_and_forth i3-wm.workspace.auto_back_and_forth no
+workspace_auto_back_and_forth $i3-wm.workspace.auto_back_and_forth
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod

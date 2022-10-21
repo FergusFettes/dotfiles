@@ -33,6 +33,7 @@ call plug#begin(expand('~/.vim/plugged'))
   Plug 'ayu-theme/ayu-vim'
   Plug 'ajmwagar/vim-deus'
   Plug 'scheakur/vim-scheakur'
+  Plug 'ghifarit53/tokyonight-vim'
 
   "" Markdown two panel
   Plug 'JamshedVesuna/vim-markdown-preview'
@@ -102,6 +103,10 @@ filetype plugin indent on
 if has('termguicolors')
   set termguicolors
 endif
+
+" if filereadable(expand("~/.vimrc_background"))
+"   source ~/.vimrc_background
+" endif
 
 " " can also be 'mirage' or 'dark'
 " let ayucolor="light"|   " light_theme
