@@ -2,10 +2,10 @@
 # System Management
 ###############################################################################
 
-## Modify // Settings // <> c ##
-set_from_resource $i3-wm.binding.settings i3-wm.binding.settings c
-set_from_resource $i3-wm.program.settings i3-wm.program.settings regolith-control-center --class=floating_window
-bindsym $mod+$i3-wm.binding.settings exec --no-startup-id $i3-wm.program.settings
+# ## Modify // Settings // <> c ##
+# set_from_resource $i3-wm.binding.settings i3-wm.binding.settings c
+# set_from_resource $i3-wm.program.settings i3-wm.program.settings regolith-control-center --class=floating_window
+# bindsym $mod+$i3-wm.binding.settings exec --no-startup-id $i3-wm.program.settings
 
 ## Modify // Display Settings // <> d ##
 set_from_resource $i3-wm.binding.display i3-wm.binding.display d

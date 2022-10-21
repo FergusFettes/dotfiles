@@ -2,6 +2,7 @@
 
 mkdir -p /home/ffettes/.password-store
 mkdir -p /home/ffettes/work
+mkdir -p /home/ffettes/scratch
 
 sudo ln -s /home/ffettes/personal /p
 sudo ln -s /home/ffettes/personal/journal /j
@@ -13,3 +14,4 @@ sudo ln -s /home/ffettes/ /h
 sudo ln -s /home/ffettes/.ssh /ss
 sudo ln -s /home/ffettes/work /w
 sudo ln -s /home/ffettes/personal/journal/.Code/secrets /pa
+sudo ln -s /home/ffettes/scratch /s

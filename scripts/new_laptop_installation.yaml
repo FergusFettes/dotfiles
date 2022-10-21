@@ -160,6 +160,7 @@
           - bat
           - arbtt
           - xdotool
+          - postgresql
 
     - name: install extra ubuntu packages
       apt:
