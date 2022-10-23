@@ -8,5 +8,4 @@ exec nvim -p \
   /home/$USER/.config/personal/.zshrc.alias \
   /home/$USER/.config/personal/.zshrc.vars \
   /home/$USER/.config/personal/.zshrc.work \
-  /home/$USER/.config/personal/.zshrc.func \
-  /home/$USER/.config/regolith/i3/config
+  /home/$USER/.config/personal/.zshrc.func
