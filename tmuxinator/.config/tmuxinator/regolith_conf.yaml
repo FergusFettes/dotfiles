@@ -1,0 +1,11 @@
+socket_name: regolith_conf
+name: regolith_conf
+root: /dt/regolith/.config/
+
+windows:
+  - new:
+      layout: main-vertical
+      panes:
+        - vi /dt/regolith/.config/regolith2/i3/config.d/
+        - vi /usr/share/regolith/i3/config.d/
+  - old: vi /dt/regolith/.config/regolith/i3/config
