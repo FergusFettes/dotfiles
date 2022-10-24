@@ -21,6 +21,9 @@ Run `make client IP=<ip of target> TARGET_SUDO=<sudo password of target>`.
 * tmux plugins: prefix + I
 * vim plugins need installed
 * youcompleteme needs installed (`~/.vim/plugged/youcompleteme/install.sh`)
+* install aws cli (this can be done in the makefile?)
+* install terraform (likewise?)
+* install gh cli (also likewise?)
 
 * sign in to firefox!
 * caps and ctrl need swapped in tweaks

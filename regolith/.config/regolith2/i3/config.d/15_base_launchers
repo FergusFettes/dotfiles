@@ -3,9 +3,9 @@
 ###############################################################################
 
 ## Launch // Terminal // <> Enter ##
-set_from_resource $i3-wm.binding.terminal i3-wm.binding.terminal Return
-bindsym $mod+$i3-wm.binding.terminal exec --no-startup-id /usr/bin/alacritty
+bindsym $alt+Return exec --no-startup-id /usr/bin/alacritty
+bindsym $mod+Return exec --no-startup-id /usr/bin/alacritty
 
 ## Launch // Browser // <><Shift> Enter ##
-set_from_resource $i3-wm.binding.browser i3-wm.binding.browser Shift+Return
-bindsym $mod+$i3-wm.binding.browser exec --no-startup-id gtk-launch $(xdg-settings get default-web-browser)
+bindsym $mod+Shift+Return exec --no-startup-id gtk-launch /snap/bin/firefox
+bindsym $lat+Shift+Return exec --no-startup-id gtk-launch /snap/bin/firefox

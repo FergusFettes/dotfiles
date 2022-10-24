@@ -24,7 +24,7 @@ if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty3" ]; then
 fi
 
 export ZSH="/home/$USER/.oh-my-zsh"
-export PATH="$PATH":/snap/bin:/home/$USER/.cargo/bin:/home/$USER/.local:/home/$USER/.local/bin:/usr/local/cuda-11.1/bin:/home/$USER/.local/node/bin:/home/$USER/go/bin
+export PATH="$PATH":/snap/bin:/home/$USER/.cargo/bin:/home/$USER/.local:/home/$USER/.local/bin:/usr/local/cuda-11.1/bin:/home/$USER/.local/node/bin:/home/$USER/go/bin:/home/ffettes/.fnm:$HOME/.trigger:/dt/bin
 # }}}
 # Zsh init {{{
 HYPHEN_INSENSITIVE="true"
@@ -78,11 +78,9 @@ prompt_rotate
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # fnm
-export PATH=/home/ffettes/.fnm:$PATH
 eval "`fnm env`"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 # }}}
 # vim:foldmethod=marker:foldlevel=0
-export PATH="$PATH:$HOME/.trigger"

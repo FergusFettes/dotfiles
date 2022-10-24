@@ -7,6 +7,10 @@ target-pre:
 target-post:
 	cd /dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotgiles
 	/dt/scripts/setup_symlinks.sh
+	curl -fsSL https://fnm.vercel.app/install | bash
+	fnm install v16.18.0
+	npm install -g hexo-cli
+	snap install universal-ctags
 
 client: setup-ansible run-ansible
 	echo success!
@@ -27,6 +31,7 @@ setup-ansible:
 	take /tmp/ansible-pass && /c/scripts/linux/password_manager -u ffettes -p temppass123 -l
 	mv /tmp/ansible-pass/masked-ffettes /pa/
 	ssh-copy-id ffettes@${IP}
+	scp ~/.zsh_history ${IP}:~/.zsh_history
 
 run-ansible:
 	ansible-playbook scripts/new_laptop_installation.yaml --extra-vars 'ansible_sudo_pass=${TARGET_SUDO}'

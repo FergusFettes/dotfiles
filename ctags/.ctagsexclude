@@ -5,3 +5,4 @@
 *layers/*
 *.next/*
 *openpilot/*
+*__pycache__/*
