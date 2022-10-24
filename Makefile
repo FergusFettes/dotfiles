@@ -11,6 +11,7 @@ target-post:
 	fnm install v16.18.0
 	npm install -g hexo-cli
 	snap install universal-ctags
+	setup_syncthing
 
 client: setup-ansible run-ansible
 	echo success!
@@ -35,3 +36,7 @@ setup-ansible:
 
 run-ansible:
 	ansible-playbook scripts/new_laptop_installation.yaml --extra-vars 'ansible_sudo_pass=${TARGET_SUDO}'
+
+setup-moc:
+	cp -r /dt/.moc/* ~/.moc/
+	chmod 600 ~/.moc/config

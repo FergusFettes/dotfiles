@@ -161,6 +161,7 @@
           - arbtt
           - xdotool
           - postgresql
+          - moc
 
     - name: install extra ubuntu packages
       apt:
