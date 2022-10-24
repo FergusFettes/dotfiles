@@ -36,7 +36,8 @@ call plug#begin(expand('~/.vim/plugged'))
   Plug 'ghifarit53/tokyonight-vim'
 
   "" Markdown two panel
-  Plug 'JamshedVesuna/vim-markdown-preview'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+  Plug 'masukomi/vim-markdown-folding'
 
   "" Linter
   Plug 'dense-analysis/ale'
@@ -66,7 +67,7 @@ call plug#begin(expand('~/.vim/plugged'))
   Plug 'racer-rust/vim-racer'
 
   " Completion
-  Plug 'valloric/youcompleteme'
+  Plug 'valloric/youcompleteme', { 'do': './install.py' }
   Plug 'github/copilot.vim'
   Plug 'jessfraz/openai.vim'
 
@@ -452,6 +453,7 @@ let g:vim_redraw = 1
 
 "" Markdown toggle shortcut
 let vim_markdown_preview_hotkey='<leader>pm'
+let g:mkdp_browser = '/usr/bin/firefox'
 
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 if exists("*fugitive#statusline")
@@ -519,6 +521,9 @@ let @g = 'gmbgggcG`bgcap`b'
 let @h = 'gmvgcapgggcG`v'
 " }}}
 " Autogroups {{{
+" Markdown
+autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
+
 augroup configgroup
     autocmd!
     autocmd VimEnter * highlight clear SignColumn
