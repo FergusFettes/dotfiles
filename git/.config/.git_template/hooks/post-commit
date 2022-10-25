@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ctags -R --exclude=@/home/ffettes/.ctagsexclude -o .tags .
+ctags -R --exclude=@/home/ffettes/.ctags.d/exclude.ctags -o .tags .
 
 echo "Tags generated" > /tmp/debug_hooks.txt
 echo "Working dir: $(pwd)" >> /tmp/debug_hooks.txt

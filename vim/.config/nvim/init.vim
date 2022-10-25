@@ -38,6 +38,9 @@ call plug#begin(expand('~/.vim/plugged'))
   "" Markdown two panel
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
   Plug 'masukomi/vim-markdown-folding'
+  "" Quarto
+  Plug 'vim-pandoc/vim-pandoc-syntax'
+  Plug 'quarto-dev/quarto-vim'
 
   "" Linter
   Plug 'dense-analysis/ale'
@@ -431,7 +434,6 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'"
 " Settings for plugs {{{
 "" enable clever sneak
 let g:sneak#s_next = 1
-nnoremap <UP> /
 
 "" Fix for NERDtree window closing
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -523,12 +525,14 @@ let @h = 'gmvgcapgggcG`v'
 " Autogroups {{{
 " Markdown
 autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
+autocmd FileType quarto inoremap jk <esc>:w<CR>
 
 augroup configgroup
     autocmd!
     autocmd VimEnter * highlight clear SignColumn
     autocmd FileType python setlocal commentstring=#\ %s
     autocmd FileType sql setlocal commentstring=--\ %s
+    autocmd FileType quarto setlocal commentstring=<!--#\ %s\ -->
     autocmd BufEnter *.cls setlocal filetype=java
     autocmd BufEnter *.zsh-theme setlocal filetype=zsh
     autocmd BufEnter Makefile setlocal noexpandtab
@@ -585,26 +589,13 @@ let g:repl_filetype_commands = {
 " OpenAI
 nmap <leader>ai :w<CR>:! /c/scripts/openai/api_wrapper.py '%:p'<CR>
 
-" sql
-au FileType sql nmap <leader>rv :w<CR>:Redir ! /c/scripts/sql/postgres_apply.sh %<CR>
-
-" Send file to postgres
-au FileType sql nmap <leader>rr :w<CR>:! /c/scripts/sql/tmux_postgres_script.sh test '%:p'<CR>
-au FileType sql nmap <leader>rt :w<CR>:! /c/scripts/sql/tmux_postgres_script.sh prod '%:p'<CR>
-au FileType sql nmap <leader>rl :w<CR>:! /c/scripts/sql/tmux_postgres_script.sh local '%:p'<CR>
-
 " Send file to DB
 source /pa/passwords.vim
 au FileType sql nmap <leader>d :%:DB g:db<CR>
 
-" Send current block to postgres
-au FileType sql nmap <leader>rap :let temp_filename=printf("%s%s", "/tmp/sql_script_", rand())<CR>vap'<,'>:w `=echo(temp_filename)`<CR>:! /c/scripts/sql/tmux_postgres_script.sh test echo(temp_filename)<CR>
-au FileType sql nmap <leader>rap :let temp_filename=printf("%s%s", "/tmp/sql_script_", rand())<CR>vap'<,'>:w `=echo(temp_filename)`<CR>:! /c/scripts/sql/tmux_postgres_script.sh prod echo(temp_filename)<CR>
-
 nnoremap <leader>nn :set number!<CR>
 nnoremap <leader>t2 :setlocal tabstop=4<CR>:setlocal shiftwidth=4<CR>:setlocal softtabstop=4<CR>
 nnoremap <leader>t4 :setlocal tabstop=4<CR>:setlocal shiftwidth=4<CR>:setlocal softtabstop=4<CR>
-
 
 au FileType make nmap <leader>rr :w<CR>yiw:!make <C-R>"<CR>
 

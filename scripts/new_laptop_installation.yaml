@@ -153,6 +153,7 @@
           - shellcheck
           # Pdf stuff
           - libpoppler-cpp-dev
+          - libfuse-dev
           - pkg-config
           - tesseract-ocr
           - ffmpeg
