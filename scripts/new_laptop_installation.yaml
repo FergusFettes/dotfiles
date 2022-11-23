@@ -159,6 +159,7 @@
           - ffmpeg
           - ocrmypdf
           - bat
+          - fd-find
           - arbtt
           - xdotool
           - postgresql
@@ -244,21 +245,13 @@
         - name: Other Cargo installs
           shell:
             cmd: "cargo install du-dust"
-          sudo: true
+          become: sudo
       when: maximal
+
     - name: Install alacritty colorschemes
       git:
         repo: "https://github.com/eendroroy/alacritty-theme.git"
         dest: "$HOME/.eendroroy-colorschemes"
-
-    - name: install fd
-      include_role:
-        name: "gantsign.{{ item }}"
-      with_items:
-        - fd
-        - ctop
-        # - swapspace
-        # - zswap
 
     - name: install oh-my-zsh and completion
       include_role:
