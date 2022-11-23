@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+RUN_ID=$(gh run list -L 1 --json "databaseId" --jq ".[0].databaseId")
+gh run view "$RUN_ID" --log-failed

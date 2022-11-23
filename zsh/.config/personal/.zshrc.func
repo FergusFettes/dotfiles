@@ -22,17 +22,6 @@ rga-fzf() {
 	xdg-open "$file"
 }
 
-function latest() {
-  # Get the latest versions
-  EXPLORER_VERSION=`git --git-dir /w/explorer-api/.git describe --tags --abbrev=0`
-  DATA_VERSION=`git --git-dir /w/hm-data-utils/.git describe --tags --abbrev=0`
-  LAMBDAS_VERSION=`git --git-dir /w/hypermile-processing-lambdas/.git describe --tags --abbrev=0`
-
-  echo "Explorer: $EXPLORER_VERSION"
-  echo "Data Utils: $DATA_VERSION"
-  echo "Lambdas: $LAMBDAS_VERSION"
-}
-
 function set_xprop() {
   STR="$PWD; `date --iso=seconds`; `history -1 | sed 's/^[ ]*[0-9]*[ ]*//g'`"
   WINDOW=`xdotool getactivewindow` 2>/dev/null
@@ -54,8 +43,12 @@ um() { mdless /c/tips/"$1".md; }
 umls() { ls /c/tips }
 
 function archive(){
-  FOLDER=./.archive/`date --iso-8601=minutes`
-  mkdir -p $FOLDER
+  # Get the number of folders in the archive
+  mkdir -p .archive
+  NUMBER="`ls .archive | wc | awk '{ print $1 }'`"
+  FOLDER="./.archive/$NUMBER"
+  mkdir -p "$FOLDER"
+  echo `date --iso-8601=minutes` > "$FOLDER/.0__ARCHIVE_DATA__"
   mv * $FOLDER
 }
 

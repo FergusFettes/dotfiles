@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+git clone https://github.com/Toqozz/wired-notify.git /tmp/wired
+cd /tmp/wired
+cargo build --release
+sudo cp ./target/release/wired ~/.local/bin/wired

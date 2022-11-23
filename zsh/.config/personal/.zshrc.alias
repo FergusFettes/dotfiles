@@ -139,6 +139,9 @@ alias tik=ticker
 alias scim=sc-im
 # }}}
 # Software Shortcuts {{{
+alias ghlr=last_run
+alias ghrw=gh run watch
+
 alias gl='git log --graph --decorate --oneline $(git rev-list -g --all)'
 alias glp="git log -p"
 alias gll="git pull"

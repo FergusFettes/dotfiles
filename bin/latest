@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Get the latest versions
+EXPLORER_VERSION=`git --git-dir /w/explorer-api/.git describe --tags --abbrev=0`
+DATA_VERSION=`git --git-dir /w/hm-data-utils/.git describe --tags --abbrev=0`
+LAMBDAS_VERSION=`git --git-dir /w/hypermile-processing-lambdas/.git describe --tags --abbrev=0`
+
+echo "Explorer: $EXPLORER_VERSION"
+echo "Data Utils: $DATA_VERSION"
+echo "Lambdas: $LAMBDAS_VERSION"

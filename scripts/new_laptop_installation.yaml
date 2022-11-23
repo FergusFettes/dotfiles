@@ -163,6 +163,9 @@
           - xdotool
           - postgresql
           - moc
+          - zathura
+          - flameshot
+          - vnstat
 
     - name: install extra ubuntu packages
       apt:
@@ -238,10 +241,10 @@
             src: "/home/ffettes/.cargo/target/release/alacritty"
             path: "/usr/bin/alacritty"
             state: link
-        # - name: Other Cargo installs
-        #   shell:
-        #     cmd: "cargo install du-dust"
-        #   sudo: true
+        - name: Other Cargo installs
+          shell:
+            cmd: "cargo install du-dust"
+          sudo: true
       when: maximal
     - name: Install alacritty colorschemes
       git:

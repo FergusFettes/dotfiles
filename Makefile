@@ -13,6 +13,9 @@ target-post:
 	snap install universal-ctags
 	setup_syncthing
 
+install-rclone:
+	sudo -v ; curl https://rclone.org/install.sh | sudo bash
+
 client: setup-ansible run-ansible
 	echo success!
 

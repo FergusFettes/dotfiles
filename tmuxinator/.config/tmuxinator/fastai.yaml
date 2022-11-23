@@ -1,0 +1,6 @@
+socket_name: fastai
+name: fastai
+root: /home/ffettes/personal/fast-ai/FastAI/
+
+windows:
+  - notes:    nvim .

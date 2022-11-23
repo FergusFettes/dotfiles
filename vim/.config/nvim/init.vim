@@ -204,6 +204,7 @@ nnoremap ;12 :!<UP>
 
 " open ag.vim
 nnoremap <leader>as :Ag!
+nnoremap <leader>aw :Ag!<cword><CR>
 
 " Global Marks {{{
 function! SetGMark(mark, filename, line_nr)
@@ -361,7 +362,7 @@ nnoremap <leader>sv :source $VIMRC<CR>
 " nnoremap <leader>t :vsp $TIPS<CR>
 
 " Spellchecker mapped to <leader>o
-map <leader>o :setlocal spell! spelllang=en_us<CR>
+map <leader>d :setlocal spell! spelllang=en_us<CR>
 
 " Goyo map
 map <leader>fk :Goyo \| set linebreak<CR>
@@ -527,6 +528,7 @@ let @h = 'gmvgcapgggcG`v'
 autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
 autocmd FileType quarto inoremap jk <esc>:w<CR>
 
+
 augroup configgroup
     autocmd!
     autocmd VimEnter * highlight clear SignColumn
@@ -587,7 +589,7 @@ let g:repl_filetype_commands = {
     \ }
 
 " OpenAI
-nmap <leader>ai :w<CR>:! /c/scripts/openai/api_wrapper.py '%:p'<CR>
+nmap <leader>ai :w<CR>:! (cd /p/openai && poetry run /c/scripts/openai/api_wrapper.py '%:p')<CR>
 
 " Send file to DB
 source /pa/passwords.vim
