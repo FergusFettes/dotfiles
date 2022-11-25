@@ -5,7 +5,7 @@ target-pre:
 	sudo apt install openssh-server
 
 target-post:
-	cd /dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotgiles
+	cd /dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles
 	/dt/bin/setup_symlinks
 	curl -fsSL https://fnm.vercel.app/install | bash
 	fnm install v16.18.0
