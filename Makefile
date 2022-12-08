@@ -12,6 +12,9 @@ target-post:
 	sudo snap install universal-ctags
 	setup_syncthing
 	cd /h/.vim/plugged/youcompleteme && ./install.py
+	make setup-moc
+	sudo service postgresql stop
+	sudo systemctl disable postgresql.service
 
 install-regolith:
 	wget -qO - https://regolith-desktop.org/regolith.key | \
@@ -21,6 +24,11 @@ install-regolith:
 		sudo tee /etc/apt/sources.list.d/regolith.list
 	sudo apt update
 	sudo apt install regolith-desktop
+
+install-qbittorrent:
+	sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable -y
+	sudo apt update
+	sudo apt install -y qbittorrent
 
 install-rclone:
 	sudo -v ; curl https://rclone.org/install.sh | sudo bash
@@ -51,5 +59,5 @@ run-ansible:
 	ansible-playbook scripts/new_laptop_installation.yaml --extra-vars 'ansible_sudo_pass=${TARGET_SUDO}'
 
 setup-moc:
-	cp -r /dt/.moc/* ~/.moc/
+	cp -r /dt/moc/.moc/* ~/.moc/
 	chmod 600 ~/.moc/config

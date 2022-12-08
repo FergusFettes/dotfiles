@@ -589,7 +589,7 @@ let g:repl_filetype_commands = {
     \ }
 
 " OpenAI
-nmap <leader>ai :w<CR>:! (cd /p/openai && poetry run /c/scripts/openai/api_wrapper.py '%:p')<CR>
+nmap <leader>ai :w<CR>:! (cd /p/openai && poetry run /c/scripts/openai/api_wrapper.py -f '%:p')<CR>
 
 " Send file to DB
 source /pa/passwords.vim

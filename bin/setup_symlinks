@@ -15,3 +15,4 @@ sudo ln -s /home/ffettes/.ssh /ss
 sudo ln -s /home/ffettes/work /w
 sudo ln -s /home/ffettes/personal/journal/.Code/secrets /pa
 sudo ln -s /home/ffettes/scratch /s
+sudo ln -s /home/ffettes/personal/site-backend/ffettes /i

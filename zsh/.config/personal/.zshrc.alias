@@ -50,8 +50,8 @@ alias 😀='echo "
 # Bash Shortcuts {{{
 alias \?='uname -n'
 
-alias l=k
-alias la="k -a"
+alias l="exa -l --git"
+alias la="exa -la --git"
 alias p="pwd -P"
 alias c=z
 alias s="sudo -s"
@@ -120,6 +120,7 @@ alias w="watch -d -n 0.2"
 alias pip=pip3
 alias python=python3
 
+alias fd=fdfind
 alias cat=batcat
 alias bcat=/bin/cat
 alias man=~/.local/bat-extras/src/batman.sh
