@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# # If there are not arguments, print message and exit
+# if [ $# -eq 0 ]; then
+#     echo "Hey how are you feeling today?"
+#     exit 1
+# fi
+
+# cd /p/openai
+# poetry run /c/scripts/openai/api_wrapper.py -f /c/scripts/openai/tarot.qmd -i "$1"
+
+
+function main_loop() {
+    while true; do
+        read -p "Vicky> " line
+        shell_execute "$line"
+    done
+}
+
+function main() {
+    shell_init
+    main_loop
+}
+
+function shell_execute() {
+    local line="$1"
+    cd /p/openai
+    response=$(poetry run /c/scripts/openai/api_wrapper.py -f /c/scripts/openai/tarot.qmd -i "$line")
+    echo "Tara> $response"
+}
+
+function shell_init() {
+    echo "Hey! I haven't seen you in a while! Why don't you tell me whats up?"
+}
+
+main
