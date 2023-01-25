@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+function main_loop() {
+    while true; do
+        read -p "Human> " line
+        shell_execute "$line"
+    done
+}
+
+function main() {
+    shell_init
+    main_loop
+}
+
+function shell_execute() {
+    local line="$1"
+    cd /p/openai
+    response=$(poetry run /c/scripts/openai/api_wrapper.py -f /c/scripts/openai/simulator.qmd -i "$line")
+    echo "Simulator> $response"
+}
+
+function shell_init() {
+    echo "Simulator starting up.."
+}
+
+main

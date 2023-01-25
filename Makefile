@@ -15,6 +15,7 @@ target-post:
 	make setup-moc
 	sudo service postgresql stop
 	sudo systemctl disable postgresql.service
+	git clone https://github.com/sharkdp/trigger ~/.trigger
 
 install-regolith:
 	wget -qO - https://regolith-desktop.org/regolith.key | \
