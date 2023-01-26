@@ -1,5 +1,12 @@
 return {
   -- common dependencies
   { 'nvim-lua/plenary.nvim' },
-  { "zbirenbaum/copilot.lua" },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({})
+    end,
+  }
 }

@@ -17,6 +17,14 @@ end
 -- jk is escape
 vim.keymap.set("i", "jk", "<esc>")
 
+-- easysplits
+vim.keymap.set("n", "<leader>sp", ":sp<CR>")
+vim.keymap.set("n", "<leader>vsp", ":vsp<CR>")
+
+-- buffer nav
+vim.keymap.set("n", "<leader>z", ":bp<CR>")
+vim.keymap.set("n", "<leader>x", ":bn<CR>")
+
 -- save in insert mode
 vim.keymap.set("i", "<C-s>", "<cmd>:w<cr><esc>")
 vim.keymap.set("n", "<C-s>", "<cmd>:w<cr><esc>")
@@ -33,11 +41,11 @@ vim.keymap.set("n", '<C-k>', '<C-W>k')
 vim.keymap.set("n", '<C-h>', '<C-W>h')
 vim.keymap.set("n", '<C-l>', '<C-W>l')
 
--- -- Move between windows using <alt> direction
--- vim.keymap.set("n", '<A-j>', '<C-W>j')
--- vim.keymap.set("n", '<A-k>', '<C-W>k')
--- vim.keymap.set("n", '<A-h>', '<C-W>h')
--- vim.keymap.set("n", '<A-l>', '<C-W>l')
+-- Move between windows using <alt> direction
+vim.keymap.set("n", "<A-j>", ":TmuxMoveJ<CR>", {silent = true})
+vim.keymap.set("n", "<A-k>", ":TmuxMoveK<CR>", {silent = true})
+vim.keymap.set("n", "<A-h>", ":TmuxMoveH<CR>", {silent = true})
+vim.keymap.set("n", "<A-l>", ":TmuxMoveL<CR>", {silent = true})
 
 -- Add undo break-points
 vim.keymap.set("i", ",", ",<c-g>u")
