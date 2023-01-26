@@ -14,6 +14,9 @@ R = function(name)
   return require(name)
 end
 
+-- jk is escape
+vim.keymap.set("i", "jk", "<esc>")
+
 -- save in insert mode
 vim.keymap.set("i", "<C-s>", "<cmd>:w<cr><esc>")
 vim.keymap.set("n", "<C-s>", "<cmd>:w<cr><esc>")
@@ -29,6 +32,12 @@ vim.keymap.set("n", '<C-j>', '<C-W>j')
 vim.keymap.set("n", '<C-k>', '<C-W>k')
 vim.keymap.set("n", '<C-h>', '<C-W>h')
 vim.keymap.set("n", '<C-l>', '<C-W>l')
+
+-- -- Move between windows using <alt> direction
+-- vim.keymap.set("n", '<A-j>', '<C-W>j')
+-- vim.keymap.set("n", '<A-k>', '<C-W>k')
+-- vim.keymap.set("n", '<A-h>', '<C-W>h')
+-- vim.keymap.set("n", '<A-l>', '<C-W>l')
 
 -- Add undo break-points
 vim.keymap.set("i", ",", ",<c-g>u")
