@@ -17,6 +17,10 @@ end
 -- jk is escape
 vim.keymap.set("i", "jk", "<esc>")
 
+-- open/close folds
+vim.keymap.set("n", "<space>", "za")
+
+
 -- easysplits
 vim.keymap.set("n", "<leader>sp", ":sp<CR>")
 vim.keymap.set("n", "<leader>vsp", ":vsp<CR>")
@@ -48,7 +52,7 @@ vim.keymap.set("n", "<A-h>", ":TmuxMoveH<CR>", {silent = true})
 vim.keymap.set("n", "<A-l>", ":TmuxMoveL<CR>", {silent = true})
 
 -- Add undo break-points
-vim.keymap.set("i", ",", ",<c-g>u")
+-- vim.keymap.set("i", ",", ",<c-g>u")
 vim.keymap.set("i", ".", ".<c-g>u")
 vim.keymap.set("i", ";", ";<c-g>u")
 
