@@ -14,20 +14,25 @@ R = function(name)
   return require(name)
 end
 
+-- turn off linenumber
+vim.keymap.set("n", "<leader>nn", ":set nu!<cr>")
+
 -- jk is escape
 vim.keymap.set("i", "jk", "<esc>")
 
 -- open/close folds
 vim.keymap.set("n", "<space>", "za")
 
+-- ranger
+-- remove the default mapping for <leader>f. the new mapping is set below
+vim.keymap.del("n", "<leader>f")
 
--- easysplits
-vim.keymap.set("n", "<leader>sp", ":sp<CR>")
-vim.keymap.set("n", "<leader>vsp", ":vsp<CR>")
+--move vertically by visual line
+vim.keymap.set("n", "j",  "gj")
+vim.keymap.set("n", "k",  "gk")
 
--- buffer nav
-vim.keymap.set("n", "<leader>z", ":bp<CR>")
-vim.keymap.set("n", "<leader>x", ":bn<CR>")
+-- enter behaviour
+vim.keymap.set("n", "<cr>", "o<Esc>")
 
 -- save in insert mode
 vim.keymap.set("i", "<C-s>", "<cmd>:w<cr><esc>")
@@ -46,16 +51,19 @@ vim.keymap.set("n", '<C-h>', '<C-W>h')
 vim.keymap.set("n", '<C-l>', '<C-W>l')
 
 -- Move between windows using <alt> direction
-vim.keymap.set("n", "<A-j>", ":TmuxMoveJ<CR>", {silent = true})
-vim.keymap.set("n", "<A-k>", ":TmuxMoveK<CR>", {silent = true})
-vim.keymap.set("n", "<A-h>", ":TmuxMoveH<CR>", {silent = true})
-vim.keymap.set("n", "<A-l>", ":TmuxMoveL<CR>", {silent = true})
+vim.keymap.set("n", "<A-j>", ":TmuxMoveJ<CR>", {silent = false})
+vim.keymap.set("n", "<A-k>", ":TmuxMoveK<CR>", {silent = false})
+vim.keymap.set("n", "<A-h>", ":TmuxMoveH<CR>", {silent = false})
+vim.keymap.set("n", "<A-l>", ":TmuxMoveL<CR>", {silent = false})
 
 -- Add undo break-points
 -- vim.keymap.set("i", ",", ",<c-g>u")
 vim.keymap.set("i", ".", ".<c-g>u")
 vim.keymap.set("i", ";", ";<c-g>u")
 
+-- source local passwords for DadBod (db manager)
+vim.cmd [[source /pa/passwords.vim]]
+vim.keymap.set("n", "<leader>d", ":%:DB g:db<CR>")
 
 function _G.set_terminal_keymaps()
   local opts = { buffer = 0 }
@@ -189,12 +197,19 @@ wk.register(
       j = {  ':split term://julia<cr>', 'new julia terminal' },
       s = {  ':echo b:terminal_job_id<cr>', 'show terminal id' },
     },
+    b = {
+      name = 'buffer',
+      b = { ':Telescope buffers<cr>', 'buffers' },
+      d = { ':Bdelete menu<cr>', 'delete buffer' },
+      z = { ':bp<cr>', 'previous buffer' },
+      x = { ':bn<cr>', 'next buffer' },
+    },
     v = {
       name = 'vim',
       t = { switchTheme, 'switch theme' },
       l = { ':Lazy<cr>', 'Lazy' },
       m = { ':Mason<cr>', 'Mason' },
-      s = { ':e $MYVIMRC | :cd %:p:h | split . | wincmd k<cr>', 'Settings' },
+      e = { ':e $MYVIMRC | :cd %:p:h | split . | wincmd k<cr>', 'Settings' },
     },
     l = {
       name = 'language/lsp',
@@ -269,9 +284,22 @@ wk.register(
       h = { ":TSNodeUnderCursor<cr>", "hover" },
     },
     w = {
-      name = 'write',
+      name = 'window',
       w = { ":w<cr>", "write" },
+      q = { ":q<cr>", "quit" },
+      s = { ":split<cr>", "split" },
+      v = { ":vsplit<cr>", "vsplit" },
     },
+    { r = {
+      name = 'run/read/ranger',
+      r = { ':lua require("otter").run()<cr>', 'run' },
+      g = { ':Goyo | set linebreak<cr>', 'goyo' },
+      h = { ':Goyo 80% | set linebreak<cr>', 'goyo wide' },
+      e = { ':Ranger<cr>', 'ranger' },
+      -- run pytest in terminal
+      pt = { ':split <cr>:terminal poetry run pytest %<cr>', 'pytest' },
+      pl = { ':split <cr>:terminal poetry run pytest --lf -s %<cr>', 'pytestlf' },
+    }}
   }, { mode = 'n', prefix = '<leader>' }
 )
 

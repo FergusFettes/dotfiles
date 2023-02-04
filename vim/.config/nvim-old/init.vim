@@ -4,7 +4,6 @@ call plug#begin(expand('~/.vim/plugged'))
   Plug 'preservim/nerdtree' |
               \ Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'francoiscabrol/ranger.vim'
-  Plug 'rbgrouleff/bclose.vim'
 
   "" Silver Searcher (note, depreciated, maybe use Ack)
   Plug 'rking/ag.vim'
@@ -64,6 +63,7 @@ call plug#begin(expand('~/.vim/plugged'))
 
   "" Close buffers
   Plug 'Asheq/close-buffers.vim'
+  Plug 'rbgrouleff/bclose.vim'
 
   " " rust
   " " Vim racer

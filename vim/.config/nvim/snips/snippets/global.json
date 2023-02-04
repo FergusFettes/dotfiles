@@ -9,5 +9,13 @@
       "${3:Caption}",
       ":::"
     ]
+  },
+  "shebang": {
+    "prefix": "#",
+    "body": [
+      "#!/usr/bin/env ${1:python}",
+      "",
+      "# ${2:Description}"
+    ]
   }
 }

@@ -360,5 +360,10 @@
     "body": "Fig. \\ref{fig-$1}",
     "description": "refer to a label for a wrap figure",
     "prefix": "@wrap"
+  },
+  "test": {
+    "prefix": "test",
+    "body": "test",
+    "description": "test"
   }
 }

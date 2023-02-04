@@ -4,7 +4,7 @@
 # Popups {{{
 bindsym $alt+Ctrl+d exec /c/scripts/i3/popup.sh todo tl "40%x40%"
 bindsym $alt+Ctrl+g exec /c/scripts/i3/popup.sh toggl bl "20%x20%"
-bindsym $alt+Ctrl+c exec /c/scripts/i3/popup.sh conf cr "40%x100%"
+bindsym $alt+Ctrl+c exec /c/scripts/i3/popup.sh panel c "100%x100%"
 bindsym $alt+Ctrl+h exec /c/scripts/i3/popup.sh tips cr "40%x100%"
 bindsym $alt+Ctrl+n exec /c/scripts/i3/popup.sh notes cr "40%x100%"
 bindsym $alt+Ctrl+f exec /c/scripts/i3/popup.sh fastai cr "40%x100%"
@@ -18,7 +18,7 @@ bindsym $alt+Ctrl+m exec /c/scripts/i3/popup.sh music c "100%x100%"
 
 bindsym $mod+Ctrl+d exec /c/scripts/i3/popup.sh todo tl "40%x40%"
 bindsym $mod+Ctrl+g exec /c/scripts/i3/popup.sh toggl bl "20%x20%"
-bindsym $mod+Ctrl+c exec /c/scripts/i3/popup.sh conf cr "40%x100%"
+bindsym $mod+Ctrl+c exec /c/scripts/i3/popup.sh panel c "100%x100%"
 bindsym $mod+Ctrl+h exec /c/scripts/i3/popup.sh tips cr "40%x100%"
 bindsym $mod+Ctrl+n exec /c/scripts/i3/popup.sh notes cr "40%x100%"
 bindsym $mod+Ctrl+f exec /c/scripts/i3/popup.sh fastai cr "40%x100%"

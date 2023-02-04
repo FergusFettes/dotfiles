@@ -127,16 +127,16 @@ return {
       },
     }
 
-    lspconfig.pyright.setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      flags = lsp_flags,
-      root_dir = function(fname)
-        return util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")(fname) or
-            util.path.dirname(fname)
-      end
-    }
-
+    -- lspconfig.pyright.setup {
+    --   on_attach = on_attach,
+    --   capabilities = capabilities,
+    --   flags = lsp_flags,
+    --   root_dir = function(fname)
+    --     return util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")(fname) or
+    --         util.path.dirname(fname)
+    --   end
+    -- }
+    --
     -- lspconfig.julials.setup {
     --   on_attach = on_attach,
     --   capabilities = capabilities,

@@ -1,10 +1,6 @@
 socket_name: todo
 name: todo
-root: /p/journal/
+root: /home/ffettes/personal/journal/
 
 windows:
-  - NOW:      vi /p/journal/TODO/now.md
-  - main:     vi /p/journal/TODO/week.md
-  - month:    vi /p/journal/TODO/month.md
-  - year:     vi /p/journal/TODO/year.md
-  - tools:    vi /p/journal/Lists/tools.md
+  - todo: nvim TODO

@@ -14,4 +14,5 @@ return {
     require('Comment').setup {}
   end
   },
+  { 'svermeulen/vim-easyclip' },
 }

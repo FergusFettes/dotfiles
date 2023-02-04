@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+# Check for the -n flag
+# If it is present, we create a new thread
+# Otherwise do nothing
+
+FILE=/c/scripts/openai/assistant.qmd
+
+if [[ $1 == "-n" ]]; then
+  # First, backup the current thread
+  cp $FILE /a/assist/`date --iso-8601=seconds`.qmd
+  cp $FILE.template $FILE
+  echo "New thread created"
+fi
+
 function main_loop() {
     while true; do
         read -p "Developer> " line

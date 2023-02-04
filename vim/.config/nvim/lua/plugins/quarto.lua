@@ -26,5 +26,4 @@ return {
   -- paste an image to markdown from the clipboard
   -- with :PasteImg,
   'ekickx/clipboard-image.nvim',
-
 }

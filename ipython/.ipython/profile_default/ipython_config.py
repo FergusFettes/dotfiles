@@ -184,7 +184,7 @@ c.InteractiveShellApp.exec_lines = [
 #c.InteractiveShell.autocall = 0
 
 ## Autoindent IPython code entered interactively.
-#c.InteractiveShell.autoindent = True
+c.InteractiveShell.autoindent = False
 
 ## Enable magic commands to be called without the leading %.
 #c.InteractiveShell.automagic = True
@@ -333,7 +333,7 @@ c.TerminalInteractiveShell.editor = 'nvim'
 
 ## The name or class of a Pygments style to use for syntax highlighting. To see
 #  available styles, run `pygmentize -L styles`.
-c.TerminalInteractiveShell.highlighting_style = "solarized-light"
+# c.TerminalInteractiveShell.highlighting_style = "solarized-light"
 
 ## Override highlighting format for specific tokens
 #c.TerminalInteractiveShell.highlighting_style_overrides = {}

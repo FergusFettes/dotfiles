@@ -59,6 +59,8 @@ vim.opt.winbar = '%t'
 --don't continue comments automagically
 vim.opt.formatoptions:remove({'c', 'r', 'o'})
 
+-- turn off swapfiles!
+vim.opt.swapfile = false
 
 -- hide cmdline when not used
 vim.opt.cmdheight = 0

@@ -167,6 +167,7 @@
           - zathura
           - flameshot
           - vnstat
+          - python3-tk
 
     - name: install extra ubuntu packages
       apt:
