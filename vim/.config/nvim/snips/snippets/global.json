@@ -11,7 +11,7 @@
     ]
   },
   "shebang": {
-    "prefix": "#",
+    "prefix": ["env"],
     "body": [
       "#!/usr/bin/env ${1:python}",
       "",

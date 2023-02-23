@@ -65,18 +65,29 @@ vim.keymap.set("i", ";", ";<c-g>u")
 vim.cmd [[source /pa/passwords.vim]]
 vim.keymap.set("n", "<leader>d", ":%:DB g:db<CR>")
 
+-- setup a toggleterm for ipython
+vim.keymap.set("n", "<leader>ip", ":ToggleTerm direction=float size=20<CR>poetry run ipython<CR>")
+
 function _G.set_terminal_keymaps()
   local opts = { buffer = 0 }
   vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
-  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
-  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
-  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+  vim.keymap.set('t', 'yu', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', '<M-h>', [[<Cmd>wincmd h<CR>]], opts)
+  vim.keymap.set('t', '<M-j>', [[<Cmd>wincmd j<CR>]], opts)
+  vim.keymap.set('t', '<M-k>', [[<Cmd>wincmd k<CR>]], opts)
+  vim.keymap.set('t', '<M-l>', [[<Cmd>wincmd l<CR>]], opts)
 end
+
+function _G.set_toggleterminal_keymaps()
+  local opts = { buffer = 0 }
+  vim.keymap.set('v', '<CR>', ':ToggleTermSendVisualLines<CR>')
+end
+
+-- vmap('<cr>', '<Plug>SlimeRegionSend')
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_toggleterminal_keymaps()')
 
 local nmap = function(key, effect)
   vim.keymap.set('n', key, effect, { silent = true, noremap = true })
@@ -299,6 +310,7 @@ wk.register(
       -- run pytest in terminal
       pt = { ':split <cr>:terminal poetry run pytest %<cr>', 'pytest' },
       pl = { ':split <cr>:terminal poetry run pytest --lf -s %<cr>', 'pytestlf' },
+      pp = { ':split <cr>:terminal python -m %<cr>', 'python' },
     }}
   }, { mode = 'n', prefix = '<leader>' }
 )

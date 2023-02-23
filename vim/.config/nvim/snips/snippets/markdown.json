@@ -361,9 +361,9 @@
     "description": "refer to a label for a wrap figure",
     "prefix": "@wrap"
   },
-  "test": {
-    "prefix": "test",
-    "body": "test",
-    "description": "test"
+  "linkref": {
+    "body": "[^$1]: [$2]($3)",
+    "description": "linkref",
+    "prefix": "linkref"
   }
 }

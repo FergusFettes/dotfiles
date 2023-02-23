@@ -15,4 +15,5 @@ return {
   end
   },
   { 'svermeulen/vim-easyclip' },
+  { 'dhruvasagar/vim-table-mode' },
 }

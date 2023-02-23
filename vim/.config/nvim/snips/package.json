@@ -7,13 +7,15 @@
     "snippets": [
       {
         "language": [
-          "quarto"
+          "quarto",
+          "markdown"
         ],
         "path": "./snippets/quarto.json"
       },
       {
         "language": [
-          "quarto"
+          "quarto",
+          "markdown"
         ],
         "path": "./snippets/tex.json"
       },
@@ -29,7 +31,8 @@
           "markdown",
           "tex",
           "html",
-          "rmd"
+          "rmd",
+          "sh"
         ],
         "path": "./snippets/global.json"
       },
