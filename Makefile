@@ -69,3 +69,6 @@ setup-gcloud:
 	curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 	sudo apt-get update && sudo apt-get install google-cloud-cli
 	gcloud init
+
+build:
+	docker build -t $(IMAGE) -f /b/Dockerfile.$(IMAGE) /b/

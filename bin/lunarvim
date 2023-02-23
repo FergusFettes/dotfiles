@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+docker run \
+    -w /root -it --rm \
+    -v "$(pwd):/root/code" \
+    lvim
