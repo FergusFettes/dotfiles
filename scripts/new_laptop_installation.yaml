@@ -11,7 +11,6 @@
     passwords_folder: "/home/ffettes/.password-store/"
     maximal: yes
     local_install: yes
-    cuda: yes
     gpu: yes
   tasks:
 
@@ -20,15 +19,6 @@
         update_cache: yes
         upgrade: dist
         force_apt_get: yes
-
-    - name: Install NVIDIA
-      include_role:
-        name: nvidia.nvidia_driver
-      when: cuda
-    - name: Install CUDA stuff
-      include_role:
-        name: tyhal.cuda
-      when: cuda
 
     - name: ruby gems
       include_role:
@@ -71,26 +61,27 @@
       include_role:
         name: geerlingguy.docker
 
-    - name: Create default users
-      user:
-        name: "{{ item }}"
-        groups: "{{ user_groups }}"
-        shell: /bin/bash
-        password: "{{ lookup('password', passwords_folder + 'masked-' + item|string + ' length=64 chars=ascii_letters,digits')}}"
-      with_items:
-        - "{{ default_users }}"
-      when: maximal
-    - name: Add user to sudo
-      lineinfile:
-        path: "/etc/sudoers.d/{{ item }}"
-        line: "{{ item }} ALL=(ALL) NOPASSWD: ALL"
-        state: present
-        mode: 0440
-        create: yes
-        validate: 'visudo -cf %s'
-      with_items:
-        - "{{ default_users }}"
-      when: maximal
+    # - name: Create default users
+    #   user:
+    #     name: "{{ item }}"
+    #     groups: "{{ user_groups }}"
+    #     shell: /bin/bash
+    #     password: "{{ lookup('password', passwords_folder + 'masked-' + item|string + ' length=64 chars=ascii_letters,digits')}}"
+    #   with_items:
+    #     - "{{ default_users }}"
+    #   when: maximal
+    # - name: Add user to sudo
+    #   lineinfile:
+    #     path: "/etc/sudoers.d/{{ item }}"
+    #     line: "{{ item }} ALL=(ALL) NOPASSWD: ALL"
+    #     state: present
+    #     mode: 0440
+    #     create: yes
+    #     validate: 'visudo -cf %s'
+    #   with_items:
+    #     - "{{ default_users }}"
+    #   when: maximal
+        
     - name: copy ssh keys for user
       synchronize:
         src: "~/.ssh/"
@@ -243,10 +234,6 @@
             src: "/home/ffettes/.cargo/target/release/alacritty"
             path: "/usr/bin/alacritty"
             state: link
-        - name: Other Cargo installs
-          shell:
-            cmd: "cargo install du-dust"
-          become: sudo
       when: maximal
 
     - name: Install alacritty colorschemes
@@ -323,16 +310,6 @@
         path: "/usr/bin/etcher"
         state: link
 
-    - name: Create dirs for vim plug
-      file:
-        path: "/home/ffettes/.local/share/nvim/site/autoload/"
-        state: directory
-        group: ffettes
-        owner: ffettes
-    - name: Download vim plug
-      get_url:
-        url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        dest: "/home/ffettes/.local/share/nvim/site/autoload/plug.vim"
     - name: Clone dotfiles
       git:
         repo: "https://github.com/fergusfettes/dotfiles"
@@ -343,6 +320,7 @@
         version: master
       become: no
       when: local_install
+
     - name: Clear out .zshrc
       file:
         path: "/home/ffettes/.zshrc"

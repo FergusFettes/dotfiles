@@ -15,9 +15,7 @@ vim.opt.runtimepath:prepend(lazypath)
 
 
 require("lazy").setup("plugins", {
-  defaults = {
-    version = "*",
-  },
+  defaults = {version = "*"},
   -- dev = {
   --   path = "~/projects",
   --   patterns = { "jmbuhr", "quarto-dev" },
