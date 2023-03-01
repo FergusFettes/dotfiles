@@ -38,7 +38,7 @@ client: setup-ansible run-ansible
 	echo success!
 
 setup-ansible:
-	sudo apt install ansible ansible-core
+	sudo apt install -y ansible
 	ansible-galaxy install \
 		geerlingguy.ruby \
 		geerlingguy.pip \
@@ -50,9 +50,10 @@ setup-ansible:
 	sudo mkdir -p /etc/ansible/
 	echo '[new-machine]' | sudo tee /etc/ansible/hosts
 	echo ${IP} | sudo tee -a /etc/ansible/hosts
-	mkdir /tmp/ansible-pass
+	mkdir -p /tmp/ansible-pass
 	cd /tmp/ansible-pass && /c/scripts/linux/password_manager.sh -u ffettes -p temppass123 -l
 	mv /tmp/ansible-pass/masked-ffettes /pa/
+	ssh-keygen -R ${IP}
 	ssh-copy-id ffettes@${IP}
 	scp ~/.zsh_history ${IP}:~/.zsh_history
 

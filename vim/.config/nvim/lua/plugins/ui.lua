@@ -1,7 +1,7 @@
 return {
   -- Goyo beautiful reading mode
-  { 'junegunn/limelight.vim' },
-  { 'junegunn/goyo.vim' },
+  -- { 'junegunn/limelight.vim' },
+  -- { 'junegunn/goyo.vim' },
   -- telescope
   -- a nice seletion UI also to find and open files
   { 'nvim-telescope/telescope.nvim', config = function()
