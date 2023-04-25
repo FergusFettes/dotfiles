@@ -1,7 +1,11 @@
 return {
   -- Goyo beautiful reading mode
-  -- { 'junegunn/limelight.vim' },
-  -- { 'junegunn/goyo.vim' },
+  { 'folke/zen-mode.nvim',
+    config = function()
+    require("zen-mode").setup {}
+    end
+  },
+  { 'folke/twilight.nvim' },
   -- telescope
   -- a nice seletion UI also to find and open files
   { 'nvim-telescope/telescope.nvim', config = function()
@@ -116,7 +120,6 @@ return {
     config = function()
       require 'nvim-tree'.setup {
         disable_netrw       = true,
-        open_on_setup       = true,
         update_focused_file = {
           enable = true,
         },

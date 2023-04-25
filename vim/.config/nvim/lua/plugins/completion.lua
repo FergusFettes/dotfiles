@@ -1,5 +1,20 @@
 return {
+  {
+    'jameshiew/nvim-magic',
+    config = function()
+      require('nvim-magic').setup({use_default_keymap = false})
+    end,
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim'
+    }
+  },
   -- completion
+  -- { 'fergusfettes/turbo-text-transformer.nvim',
+  --   config = function()
+  --   require('_keymaps').set_default()
+  --   end,
+  -- },
   { 'hrsh7th/nvim-cmp',
     dependencies = {
       { 'hrsh7th/cmp-nvim-lsp' },

@@ -19,9 +19,9 @@
 # Note: ZSH seems to read ~/.profile as well, if ~/.zshrc is not present.
 # }}}
 # Pre-init {{{
-if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty3" ]; then
-  exec sway
-fi
+# if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty3" ]; then
+#   exec sway
+# fi
 
 export ZSH="/home/$USER/.oh-my-zsh"
 export PATH="$PATH":/snap/bin:/home/$USER/.cargo/bin:/home/$USER/.local:/home/$USER/.local/bin:/usr/local/cuda-11.1/bin:/home/$USER/.local/node/bin:/home/$USER/go/bin:/home/ffettes/.local/share/fnm:$HOME/.trigger:/dt/bin

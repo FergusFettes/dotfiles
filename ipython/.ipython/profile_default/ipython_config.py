@@ -55,6 +55,7 @@ c.InteractiveShellApp.exec_lines = [
 
 ## A list of dotted module names of IPython extensions to load.
 #c.InteractiveShellApp.extensions = [cython, line_profiler, memory_profiler]
+c.InteractiveShellApp.extensions = ["rich"]
 
 ## dotted module name of an IPython extension to load.
 #c.InteractiveShellApp.extra_extension = ''
@@ -184,7 +185,7 @@ c.InteractiveShellApp.exec_lines = [
 #c.InteractiveShell.autocall = 0
 
 ## Autoindent IPython code entered interactively.
-c.InteractiveShell.autoindent = False
+# c.InteractiveShell.autoindent = False
 
 ## Enable magic commands to be called without the leading %.
 #c.InteractiveShell.automagic = True

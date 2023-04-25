@@ -1,6 +1,15 @@
 return {
-  -- common dependencies
+  --  {
+  --   'Exafunction/codeium.vim',
+  --   config = function ()
+  --     -- Change '<C-g>' here to any keycode you like.
+  --     vim.keymap.set('i', '<C-j>', function () return vim.fn['codeium#Accept']() end, { expr = true })
+  --     vim.keymap.set('i', '<A-]>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+  --     vim.keymap.set('i', '<A-[>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+  --   end
+  -- }, -- common dependencies
   { 'nvim-lua/plenary.nvim' },
+  { 'mbbill/undotree' },
   -- copilot plug with entire config for easy editing
   {
     "zbirenbaum/copilot.lua",

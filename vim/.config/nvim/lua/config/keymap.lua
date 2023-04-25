@@ -56,6 +56,9 @@ vim.keymap.set("n", "<A-k>", ":TmuxMoveK<CR>", {silent = false})
 vim.keymap.set("n", "<A-h>", ":TmuxMoveH<CR>", {silent = false})
 vim.keymap.set("n", "<A-l>", ":TmuxMoveL<CR>", {silent = false})
 
+-- keymaps for nvim magin
+vim.keymap.set("v", "<leader>ec", "<Plug>nvim-magic-append-completion")
+
 -- Add undo break-points
 -- vim.keymap.set("i", ",", ",<c-g>u")
 vim.keymap.set("i", ".", ".<c-g>u")

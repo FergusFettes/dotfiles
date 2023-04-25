@@ -164,6 +164,7 @@ alias tw="/usr/local/bin/t"
 alias fzf="fzf -m --bind 'tab:select-all+accept'"
 # }}}
 # Mini Scripts {{{
+alias xio='xclip -f -sel clip -t image/png -o >'
 alias xi='xclip -f -sel clip'
 alias xo='xclip -o -sel clip'
 alias kill_ssh='kill -9 $(ps aux | rg "ssh -fN" | head -1 | tee /dev/tty | awk '\''{ print $2 }'\'')'
