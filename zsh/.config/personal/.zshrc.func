@@ -8,6 +8,14 @@
 # zle -N globalias
 # bindkey " " globalias # space key to expand globalalias
 
+function a() {
+  sgpt "$*"
+}
+
+function e() {
+  sgpt --shell "$*"
+}
+
 rga-fzf() {
 	RG_PREFIX="rga --files-with-matches"
 	local file
@@ -42,6 +50,10 @@ umedit() { mkdir -p /c/tips; nvim /c/tips/$1.md; }
 um() { mdless /c/tips/"$1".md; }
 umls() { ls /c/tips }
 
+function webm2gif() {
+  ffmpeg -i $1 -vf "fps=10,scale=320:-1:flags=lanczos" ${1%.*}.gif
+}
+
 function archive(){
   # Get the number of folders in the archive
   mkdir -p .archive
@@ -49,7 +61,7 @@ function archive(){
   FOLDER="./.archive/$NUMBER"
   mkdir -p "$FOLDER"
   echo `date --iso-8601=minutes` > "$FOLDER/.0__ARCHIVE_DATA__"
-  mv * $FOLDER
+  mv -- * "$FOLDER"
 }
 
 function logs(){
@@ -307,3 +319,55 @@ function python_do() {
     python3 -c "import $2; print($1)"
   fi
 }
+
+copilot_what-the-shell () {
+  TMPFILE=$(mktemp);
+  trap 'rm -f $TMPFILE' EXIT;
+  if /run/user/1000/fnm_multishells/1154660_1683099828359/bin/github-copilot-cli what-the-shell "$@" --shellout $TMPFILE; then
+    if [ -e "$TMPFILE" ]; then
+      FIXED_CMD=$(cat $TMPFILE);
+      print -s "$FIXED_CMD";
+      eval "$FIXED_CMD"
+    else
+      echo "Apologies! Extracting command failed"
+    fi
+  else
+    return 1
+  fi
+};
+alias '??'='copilot_what-the-shell';
+
+copilot_git-assist () {
+  TMPFILE=$(mktemp);
+  trap 'rm -f $TMPFILE' EXIT;
+  if /run/user/1000/fnm_multishells/1154660_1683099828359/bin/github-copilot-cli git-assist "$@" --shellout $TMPFILE; then
+    if [ -e "$TMPFILE" ]; then
+      FIXED_CMD=$(cat $TMPFILE);
+      print -s "$FIXED_CMD";
+      eval "$FIXED_CMD"
+    else
+      echo "Apologies! Extracting command failed"
+    fi
+  else
+    return 1
+  fi
+};
+alias 'git?'='copilot_git-assist';
+
+copilot_gh-assist () {
+  TMPFILE=$(mktemp);
+  trap 'rm -f $TMPFILE' EXIT;
+  if /run/user/1000/fnm_multishells/1154660_1683099828359/bin/github-copilot-cli gh-assist "$@" --shellout $TMPFILE; then
+    if [ -e "$TMPFILE" ]; then
+      FIXED_CMD=$(cat $TMPFILE);
+      print -s "$FIXED_CMD";
+      eval "$FIXED_CMD"
+    else
+      echo "Apologies! Extracting command failed"
+    fi
+  else
+    return 1
+  fi
+};
+alias 'gh?'='copilot_gh-assist';
+alias 'wts'='copilot_what-the-shell';

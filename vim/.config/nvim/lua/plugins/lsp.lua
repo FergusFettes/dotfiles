@@ -127,25 +127,45 @@ return {
       },
     }
 
-    lspconfig.pyright.setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      flags = lsp_flags,
+    lspconfig.pylsp.setup {
       settings = {
-        python = {
-          analysis = {
-            autoSearchPaths = true,
-            useLibraryCodeForTypes = true,
-            typeCheckingMode = "off",
+        pylsp = {
+          plugins = {
+            pycodestyle = {
+              ignore = {'W391', 'E731'},
+              maxLineLength = 120
+            },
+            flake8 = {
+              ignore = {'W503', 'E731'},
+              maxLineLength = 120
+            },
           }
         }
-      },
-      root_dir = function(fname)
-        return util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")(fname) or
-            util.path.dirname(fname)
-      end
+      }
     }
 
+    -- lspconfig.pyright.setup {
+    --   on_attach = on_attach,
+    --   capabilities = capabilities,
+    --   flags = lsp_flags,
+    --   settings = {
+    --     python = {
+    --       analysis = {
+    --         autoSearchPaths = true,
+    --         useLibraryCodeForTypes = true,
+    --         typeCheckingMode = "off",
+    --       }
+    --     }
+    --   },
+    --   root_dir = function()
+    --     return vim.fn.getcwd()
+    --   end
+    --   -- root_dir = function(fname)
+    --     -- return util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")(fname) or
+    --     --     util.path.dirname(fname)
+    --   -- end
+    -- }
+    
     -- lspconfig.julials.setup {
     --   on_attach = on_attach,
     --   capabilities = capabilities,

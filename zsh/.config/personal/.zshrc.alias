@@ -158,8 +158,11 @@ alias gg="lazygit"
 alias x=exit
 alias xz="exec zsh"
 alias t=tmux
+alias zl=zellij
 alias tk="tmux attach"
 alias tw="/usr/local/bin/t"
+alias htop=btop
+alias top="/usr/bin/htop"
 
 alias fzf="fzf -m --bind 'tab:select-all+accept'"
 # }}}

@@ -11,10 +11,10 @@ set $up k
 set $right l
 
 ## Navigate // Relative Window // <> ↑ ↓ ← → ##
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Ctrl+Shift+$left focus left
+bindsym $mod+Ctrl+Shift+$down focus down
+bindsym $mod+Ctrl+Shift+$up focus up
+bindsym $mod+Ctrl+Shift+$right focus right
 
 ## Navigate // Workspaces 1-10 // <> 0..9 ##
 bindsym $alt+$ws1_key workspace number $ws1
