@@ -121,7 +121,8 @@ alias pip=pip3
 alias python=python3
 
 alias fd=fdfind
-alias cat=batcat
+alias cat=bat
+alias ct=rich --pager --markdown
 alias bcat=/bin/cat
 alias man=~/.local/bat-extras/src/batman.sh
 alias grpcurl=~/.local/grpcurl

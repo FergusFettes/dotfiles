@@ -16,6 +16,17 @@ function e() {
   sgpt --shell "$*"
 }
 
+function pic() {
+  modal run /p/ai/modal-examples/06_gpu_and_ml/stable_diffusion/stable_diffusion_cli.py --prompt "$*"
+}
+
+function rgh() {
+  (
+    cd /da/caps/ocs/
+    rga '$*'
+  )
+}
+
 rga-fzf() {
 	RG_PREFIX="rga --files-with-matches"
 	local file
@@ -49,6 +60,7 @@ function mdless() {
 umedit() { mkdir -p /c/tips; nvim /c/tips/$1.md; }
 um() { mdless /c/tips/"$1".md; }
 umls() { ls /c/tips }
+umc() { cat /c/tips/"$1".md | cb }
 
 function webm2gif() {
   ffmpeg -i $1 -vf "fps=10,scale=320:-1:flags=lanczos" ${1%.*}.gif
@@ -59,9 +71,12 @@ function archive(){
   mkdir -p .archive
   NUMBER="`ls .archive | wc | awk '{ print $1 }'`"
   FOLDER="./.archive/$NUMBER"
+
   mkdir -p "$FOLDER"
+
   echo `date --iso-8601=minutes` > "$FOLDER/.0__ARCHIVE_DATA__"
-  mv -- * "$FOLDER"
+  # If there is an argument, assume it is the file type
+  mv -- *"$@" "$FOLDER"
 }
 
 function logs(){
