@@ -31,6 +31,9 @@ vim.keymap.del("n", "<leader>f")
 vim.keymap.set("n", "j",  "gj")
 vim.keymap.set("n", "k",  "gk")
 
+-- --move vertically by visual line
+-- vim.keymap.set("n", "gm",  "m")
+
 -- enter behaviour
 vim.keymap.set("n", "<cr>", "o<Esc>")
 
@@ -153,11 +156,13 @@ vmap("<leader>p", "\"_dP")
 -- delete and without overwriting register
 vmap("<leader>d", "\"_d")
 
+nmap("<leader>6", ":%!base64 -w 0<cr>")
+nmap("<leader>4", ":%!base64 -d<cr>")
+
 -- center after search and jumps
 nmap('n', "nzz")
 nmap('<c-d>', '<c-d>zz')
 nmap('<c-u>', '<c-u>zz')
-
 
 -- terminal mode
 -- get out ouf terminal insert mode with esc

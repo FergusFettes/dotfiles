@@ -5,6 +5,7 @@ return {
   { "catppuccin/nvim", name = "catppuccin", config = function()
     require("catppuccin").setup {
       flavour = "mocha", -- mocha, macchiato, frappe, latte
+      -- flavour = "latte",
       term_colors = true,
       integrations = {
         nvimtree = true,
