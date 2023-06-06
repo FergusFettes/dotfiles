@@ -65,7 +65,7 @@ return {
     --   capabilities = capabilities,
     --   flags = lsp_flags
     -- }
-    --
+
     lspconfig.emmet_ls.setup {
       on_attach = on_attach,
       capabilities = capabilities,
@@ -171,5 +171,6 @@ return {
     --   capabilities = capabilities,
     --   flags = lsp_flags,
     -- }
+ 
   end
 }
