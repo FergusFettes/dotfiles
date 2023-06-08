@@ -1,6 +1,11 @@
 IP=""
 TARGET_SUDO=""
 
+install:
+	cd /dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles
+	/dt/bin/setup_symlinks
+	stow nvim
+
 target-pre:
 	sudo apt install openssh-server
 
