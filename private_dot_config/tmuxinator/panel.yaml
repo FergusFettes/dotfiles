@@ -1,0 +1,7 @@
+socket_name: panel
+name: panel
+root: /home/ffettes/personal/journal/
+
+windows:
+  - notes: nvim /dt/config_files
+  - nvim: nvim /dt/config_files/nvim

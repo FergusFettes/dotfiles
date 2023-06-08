@@ -1,0 +1,12 @@
+{
+  "ignore type": {
+    "prefix": "tyig",
+    "body": "# type: ignore",
+    "description": "ignore type"
+  },
+  "noqa": {
+    "prefix": "noqa",
+    "body": "\t# noqa:",
+    "description": "ignore errors"
+  }
+}

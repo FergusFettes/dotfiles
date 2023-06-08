@@ -1,0 +1,11 @@
+###############################################################################
+# Launcher dialogs
+###############################################################################
+
+## Launch // Terminal // <> Enter ##
+bindsym $alt+Return exec --no-startup-id /usr/bin/alacritty
+bindsym $mod+Return exec --no-startup-id /usr/bin/alacritty
+
+## Launch // Browser // <><Shift> Enter ##
+bindsym $mod+Shift+Return exec --no-startup-id gtk-launch /snap/bin/firefox
+bindsym $alt+Shift+Return exec --no-startup-id gtk-launch /snap/bin/firefox

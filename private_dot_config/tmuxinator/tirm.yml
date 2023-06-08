@@ -1,0 +1,5 @@
+socket_name: tirm
+name: tirm
+
+windows:
+  - tirm:

@@ -1,0 +1,149 @@
+window:
+  decorations: none
+  startup_mode: Maximized
+
+shell:
+  program: /usr/bin/zsh
+
+font:
+  # Framwork laptop is massive for some reason,
+  # this fixes the term size.
+  size: 13
+  # size: 7
+
+schemes:
+  # Colors (Solarized Light)
+  solarized_light:
+    # Default colors
+    primary:
+      background: '#fdf6e3' # base3
+      foreground: '#657b83' # base00
+
+    # Cursor colors
+    cursor:
+      text: '#fdf6e3'   # base3
+      cursor: '#657b83' # base00
+
+    # Normal colors
+    normal:
+      black: '#1f1f1f'   # base02
+      red: '#dc322f'     # red
+      green: '#859900'   # green
+      yellow: '#b58900'  # yellow
+      blue: '#268bd2'    # blue
+      magenta: '#d33682' # magenta
+      cyan: '#2aa198'    # cyan
+      white: '#eee8d5'   # base2
+
+    # Bright colors
+    bright:
+      black: '#002b36'   # base03
+      red: '#cb4b16'     # orange
+      green: '#586e75'   # base01
+      yellow: '#657b83'  # base00
+      blue: '#839496'    # base0
+      magenta: '#6c71c4' # violet
+      cyan: '#93a1a1'    # base1
+      white: '#fdf6e3'   # base3
+
+
+    # Colors (Ayu Dark)
+  ayu_dark:
+    # Default colors
+    primary:
+      background: '#000000'
+      foreground: '#B3B1AD'
+
+    # Normal colors
+    normal:
+      black: '#1f1f1f'
+      red: '#EA6C73'
+      green: '#91B362'
+      yellow: '#F9AF4F'
+      blue: '#53BDFA'
+      magenta: '#FAE994'
+      cyan: '#90E1C6'
+      white: '#C7C7C7'
+
+    # Bright colors
+    bright:
+      black: '#686868'
+      red: '#F07178'
+      green: '#C2D94C'
+      yellow: '#FFB454'
+      blue: '#59C2FF'
+      magenta: '#FFEE99'
+      cyan: '#95E6CB'
+      white: '#FFFFFF'
+
+# This is from here: https://github.com/toggle-corp/alacritty-colorscheme
+# But also check out this, if that is too cumbersome: https://github.com/eendroroy/alacritty-theme
+colors:
+  # COLORSCHEME: ayu_dark.yaml
+  # Default colors
+  primary:
+    # hard contrast: background = '0xf9f5d7'
+    background: '0x0A0E14'
+    foreground: '0xB3B1AD'
+
+  # Normal colors
+  normal:
+  # Bright colors
+    black: '0x01060E'
+    red: '0xEA6C73'
+    green: '0x91B362'
+    yellow: '0xF9AF4F'
+    blue: '0x53BDFA'
+    magenta: '0xFAE994'
+    cyan: '0x90E1C6'
+    white: '0xC7C7C7'
+
+  # Bright colors
+  bright:
+    black: '0x686868'
+    red: '0xF07178'
+    green: '0xC2D94C'
+    yellow: '0xFFB454'
+    blue: '0x59C2FF'
+    magenta: '0xFFEE99'
+    cyan: '0x95E6CB'
+    white: '0xFFFFFF'
+  indexed_colors: []
+  cursor:
+    text: '0x000b1e'
+    cursor: '0x0abdc6'
+
+  # Normal colors
+  dim:
+    black: '0x31363b'
+    red: '0x783228'
+    green: '0x17a262'
+    yellow: '0xb65619'
+    blue: '0x1b668f'
+    magenta: '0x614a73'
+    cyan: '0x186c60'
+    white: '0x63686d'
+  search:
+    matches:
+      foreground: '0xb2b2b2'
+      background: '0xb26818'
+    focused_match:
+      foreground: CellBackground
+      background: CellForeground
+
+  selection:
+    text: '0x000000'
+    background: '0xb3d7ff'
+  vi_mode_cursor:
+    text: '0xe0def4'
+    cursor: '0x524f67'
+  line_indicator:
+    foreground: None
+    background: None
+  hints:
+    start:
+      foreground: '#908caa'
+      background: '#1f1d2e'
+    end:
+      foreground: '#6e6a86'
+      background: '#1f1d2e'

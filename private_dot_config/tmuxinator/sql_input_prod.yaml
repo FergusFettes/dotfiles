@@ -1,0 +1,6 @@
+socket_name: sys
+name: input_prod
+attach: false
+
+windows:
+  - 0:

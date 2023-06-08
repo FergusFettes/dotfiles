@@ -1,0 +1,21 @@
+{
+  "iframe": {
+    "prefix": ["iframe"],
+    "body": [
+      "::: {#fig-${1:cap}}",
+      "",
+      "${2:paste embed info}",
+      "",
+      "${3:Caption}",
+      ":::"
+    ]
+  },
+  "shebang": {
+    "prefix": ["env"],
+    "body": [
+      "#!/usr/bin/env ${1:python}",
+      "",
+      "# ${2:Description}"
+    ]
+  }
+}

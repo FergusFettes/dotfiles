@@ -1,0 +1,6 @@
+socket_name: blog
+name: blog
+root: /home/ffettes/personal/site-backend/ffettes
+
+windows:
+  - notes:    nvim .

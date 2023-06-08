@@ -1,0 +1,6 @@
+socket_name: popdown
+name: notes
+root: /home/ffettes/
+
+windows:
+  - popdown:

@@ -1,0 +1,19 @@
+[user]
+	email = fergusfettes@gmail.com
+	name = fergus
+[commit]
+	template = /home/ffettes/.gitmessage
+; [merge]
+; 	conflictstyle = diff3
+[init]
+	templatedir = /home/ffettes/.config/.git_template/
+	defaultBranch = main
+[pull]
+	rebase = false
+[credential]
+	helper = store
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
