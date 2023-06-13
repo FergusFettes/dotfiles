@@ -17,4 +17,3 @@ sudo ln -s /home/ffettes/personal/journal/.Code/secrets /pa
 sudo ln -s /home/ffettes/scratch /s
 sudo ln -s /home/ffettes/personal/site-backend/ffettes /i
 sudo ln -s /home/ffettes/.build /b
-sudo ln -s /home/ffettes/.config /conf/
