@@ -2,8 +2,8 @@ IP=""
 TARGET_SUDO=""
 
 install:
+	./bin/setup_symlinks
 	cd /dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles
-	/dt/bin/setup_symlinks
 	stow nvim
 	stow zsh
 
