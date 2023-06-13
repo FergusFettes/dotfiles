@@ -2,7 +2,15 @@ IP=""
 TARGET_SUDO=""
 
 install:
+	sudo ln -s /home/ffettes/dotfiles /dt
 	./bin/setup_symlinks
+	cd /dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles
+	stow nvim
+	stow zsh
+
+boxkit_install:
+	sudo ln -s /dotfiles /dt
+	/dt/bin/setup_symlinks
 	cd /dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles
 	stow nvim
 	stow zsh
