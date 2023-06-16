@@ -59,3 +59,9 @@ bindsym $mod+Ctrl+$ws6_key workspace number $ws16
 bindsym $mod+Ctrl+$ws7_key workspace number $ws17
 bindsym $mod+Ctrl+$ws8_key workspace number $ws18
 bindsym $mod+Ctrl+$ws9_key workspace number $ws19
+
+# move focused workspace between monitors
+bindsym $mod+Ctrl+greater move workspace to output right
+bindsym $mod+Ctrl+less move workspace to output left
+bindsym $alt+Ctrl+greater move workspace to output right
+bindsym $alt+Ctrl+less move workspace to output left
