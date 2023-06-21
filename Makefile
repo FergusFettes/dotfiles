@@ -1,6 +1,12 @@
 IP=""
 TARGET_SUDO=""
 
+install_distrobox:
+	sudo apt-get update
+	sudo apt-get install -y podman
+	curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh
+	distrobox create -i ghcr.io/fergusfettes/boxkit:latest
+
 install:
 	sudo ln -s /home/ffettes/dotfiles /dt
 	./bin/setup_symlinks
