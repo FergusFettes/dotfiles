@@ -17,12 +17,12 @@ function e() {
 }
 
 function pic() {
-  modal run /p/ai/modal-examples/06_gpu_and_ml/stable_diffusion/stable_diffusion_cli.py --prompt "$*"
+  modal run ~/p/ai/modal-examples/06_gpu_and_ml/stable_diffusion/stable_diffusion_cli.py --prompt "$*"
 }
 
 function rgh() {
   (
-    cd /da/caps/ocs/
+    cd ~/da/caps/ocs/
     rga '$*'
   )
 }
@@ -57,10 +57,10 @@ function aliases() {which `compgen -a` | fzf}
 function mdless() {
   pandoc -s -f markdown -t man $1 | groff -T utf8 -man | less
 }
-umedit() { mkdir -p /c/tips; nvim /c/tips/$1.md; }
-um() { mdless /c/tips/"$1".md; }
-umls() { ls /c/tips }
-umc() { cat /c/tips/"$1".md | cb }
+umedit() { mkdir -p ~/c/tips; nvim /c/tips/$1.md; }
+um() { mdless ~/c/tips/"$1".md; }
+umls() { ls ~/c/tips }
+umc() { cat ~/c/tips/"$1".md | cb }
 
 function webm2gif() {
   ffmpeg -i $1 -vf "fps=10,scale=320:-1:flags=lanczos" ${1%.*}.gif

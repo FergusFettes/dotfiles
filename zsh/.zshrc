@@ -24,7 +24,7 @@
 # fi
 
 export ZSH="/home/$USER/.oh-my-zsh"
-export PATH="$PATH":/snap/bin:/home/$USER/.cargo/bin:/home/$USER/.local:/home/$USER/.local/bin:/usr/local/cuda-11.1/bin:/home/$USER/.local/node/bin:/home/$USER/go/bin:/home/ffettes/.local/share/fnm:$HOME/.trigger:/dt/bin
+export PATH="$PATH":/snap/bin:/home/$USER/.cargo/bin:/home/$USER/.local:/home/$USER/.local/bin:/usr/local/cuda-11.1/bin:/home/$USER/.local/node/bin:/home/$USER/go/bin:/home/ffettes/.local/share/fnm:$HOME/.trigger:$HOME/dt/bin
 # }}}
 # Zsh init {{{
 HYPHEN_INSENSITIVE="true"
@@ -67,8 +67,8 @@ eval "$(zoxide init zsh)"
 
 if [ `uname -n` = "ffettes-XPS15" ]; then
   source ~/.config/personal/.zshrc.work
-  source /w/openpilot/activate.sh
-  source /pa/openai
+  source ~/w/openpilot/activate.sh
+  source ~/pa/openai
 #   sk rk
 fi
 

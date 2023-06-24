@@ -12,6 +12,7 @@ install:
 	./bin/setup_symlinks
 	cd /dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles
 	stow vim
+	rm ~/.profile
 	stow zsh
 
 boxkit_install:
