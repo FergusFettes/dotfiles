@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# Useage:
+# mkpop <title> <script> <position> <dimensions>
+
+# Check if a scratchpad with the given title already exists
+(i3-msg -- "[title=$1] scratchpad show;")
+if [ "$?" = 0 ]; then
+	# It exists, so exit the script
+	echo "$1 Exists"
+	exit 0
+fi
+
+# Create a new scratchpad with the given title and run a helper script
+script=(exec --no-startup-id "/usr/bin/alacritty --title=$1 -e '$2'")
+
+i3-msg -- "${script[@]}" && i3-msg -t subscribe '[ "window" ]' | jq '.container.window_properties.title'
+
+# Import functions from screen_dimensions
+. ~/c/scripts/linux/screen_dimensions.sh
+
+# Ensure that the screen dimensions are available
+ensure_screen
+
+# Extract the width and height from the third and fourth arguments
+extract_dimensions "$4" "$5"
+
+# Parse the position and anchor from the second argument
+parse_dimensions "$3"
+
+# Write the parsed values to the debug file
+echo class $class width "$width" height "$height" y_pos "$y_pos" x_pos "$x_pos" anchor "$anchor"
+
+# Define a generic command to move and resize the scratchpad window
+generic="
+[title=$1] move to scratchpad;
+[title=$1] scratchpad show;
+[title=$1] move position $x_pos px $y_pos px;
+[title=$1] resize set $width px $height px;
+"
+
+# Write and run the generic command
+{ echo "$generic"; i3-msg -- "$generic"; }
