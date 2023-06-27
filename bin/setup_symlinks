@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-mkdir -p /home/ffettes/.password-store
-mkdir -p /home/ffettes/work
-mkdir -p /home/ffettes/scratch
+mkdir -p ~/.password-store
+mkdir -p ~/work
+mkdir -p ~/scratch
 
 sudo ln -s /home/ffettes/personal ~/p
 sudo ln -s /home/ffettes/personal/journal ~/j
