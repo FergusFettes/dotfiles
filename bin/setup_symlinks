@@ -4,15 +4,15 @@ mkdir -p ~/.password-store
 mkdir -p ~/work
 mkdir -p ~/scratch
 
-sudo ln -s /home/ffettes/personal ~/p
-sudo ln -s /home/ffettes/personal/journal ~/j
-sudo ln -s /home/ffettes/personal/journal/.Code ~/c
-sudo ln -s /home/ffettes/personal/journal/.archive ~/a
-sudo ln -s /home/ffettes/Downloads ~/d
-sudo ln -s /home/ffettes/.ssh ~/ss
-sudo ln -s /home/ffettes/work ~/w
-sudo ln -s /home/ffettes/personal/journal/.Code/secrets ~/pa
-sudo ln -s /home/ffettes/scratch ~/s
-sudo ln -s /home/ffettes/personal/site-backend/ffettes ~/i
-sudo ln -s /home/ffettes/.build ~/b
-sudo ln -s /home/ffettes/.config ~/conf
+sudo ln -s ~/personal ~/p
+sudo ln -s ~/personal/journal ~/j
+sudo ln -s ~/personal/journal/.Code ~/c
+sudo ln -s ~/personal/journal/.archive ~/a
+sudo ln -s ~/Downloads ~/d
+sudo ln -s ~/.ssh ~/ss
+sudo ln -s ~/work ~/w
+sudo ln -s ~/personal/journal/.Code/secrets ~/pa
+sudo ln -s ~/scratch ~/s
+sudo ln -s ~/personal/site-backend/ffettes ~/i
+sudo ln -s ~/.build ~/b
+sudo ln -s ~/.config ~/conf
