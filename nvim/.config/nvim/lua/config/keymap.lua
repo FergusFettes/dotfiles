@@ -68,7 +68,7 @@ vim.keymap.set("i", ".", ".<c-g>u")
 vim.keymap.set("i", ";", ";<c-g>u")
 
 -- source local passwords for DadBod (db manager)
-vim.cmd [[source /pa/passwords.vim]]
+vim.cmd [[source ~/pa/passwords.vim]]
 vim.keymap.set("n", "<leader>d", ":%:DB g:db<CR>")
 
 -- setup a toggleterm for ipython
