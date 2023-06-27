@@ -8,31 +8,32 @@ install_distrobox:
 	distrobox create -i ghcr.io/fergusfettes/boxkit:latest
 
 install:
-	sudo ln -s /home/ffettes/dotfiles /dt
+	sudo ln -s ~/dotfiles ~/dt
 	./bin/setup_symlinks
-	cd /dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles
+	cd ~/dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles
 	stow vim
 	rm ~/.profile
 	stow zsh
 
 boxkit_install:
-	sudo ln -s /dotfiles /dt
-	/dt/bin/setup_symlinks
-	cd /dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles
+	sudo ln -s /dotfiles ~/dt
+	~/dt/bin/setup_symlinks
+	cd ~/dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles
 	stow vim
+	rm ~/.profile
 	stow zsh
 
 target-pre:
 	sudo apt install openssh-server
 
 target-post:
-	cd /dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles
+	cd ~/dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles
 	/dt/bin/setup_symlinks
 	curl -fsSL https://fnm.vercel.app/install | bash
 	fnm install v16.18.0
 	sudo snap install universal-ctags
 	setup_syncthing
-	cd /h/.vim/plugged/youcompleteme && ./install.py
+	cd ~/.vim/plugged/youcompleteme && ./install.py
 	make setup-moc
 	sudo service postgresql stop
 	sudo systemctl disable postgresql.service
