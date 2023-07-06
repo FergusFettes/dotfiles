@@ -117,7 +117,7 @@ alias nto='notes open'
 alias hd=hyperdrive
 alias w="watch -d -n 0.2"
 
-alias o=hx
+alias o="$EDITOR"
 
 alias pip=pip3
 alias python=python3

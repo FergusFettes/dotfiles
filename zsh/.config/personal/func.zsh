@@ -16,6 +16,26 @@ function e() {
   sgpt --shell "$*"
 }
 
+function ar() {
+  # if no command, 'temp' is used
+  if [ -z $1 ]; then
+    cmd="temp"
+  else
+    cmd="$1"
+  fi
+  sgpt --repl "$cmd" --model gpt-4
+}
+
+function er() {
+  # if no command, 'temp' is used
+  if [ -z $1 ]; then
+    cmd="temp"
+  else
+    cmd="$1"
+  fi
+  sgpt --repl "$cmd" --model gpt-4 --shell
+}
+
 function pic() {
   modal run ~/p/ai/modal-examples/06_gpu_and_ml/stable_diffusion/stable_diffusion_cli.py --prompt "$*"
 }

@@ -28,19 +28,37 @@ export PATH="$PATH":/snap/bin:/home/$USER/.cargo/bin:/home/$USER/.local:/home/$U
 # }}}
 # Zsh init {{{
 HYPHEN_INSENSITIVE="true"
-plugins=(
-	git
-  git-flow
-  python
-	zsh-navigation-tools
-  sudo
-  poetry
-  # zsh-interactive-cd
-  # urltools
-)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.antigenrc
+source ~/conf/personal/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle command-not-found
+antigen bundle git
+antigen bundle git-flow
+antigen bundle web-search
+antigen bundle supercrabtree/k
+antigen bundle pip
+antigen bundle poetry
+antigen bundle python
+antigen bundle sudo
+antigen bundle command-not-found
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-cmd-architect
+antigen bundle zsh-users/zsh-navigation-tools
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# # Load the theme.
+# antigen theme robbyrussell
+
+# Tell Antigen that you're done.
+antigen apply
+
 
 bindkey '^H' beginning-of-line
 bindkey '^J' forward-word
@@ -55,13 +73,13 @@ bindkey '^N' zca-widget
 # Env Setup {{{
 source $HOME/custom/plugins/init.sh
 # Export all the environmental variables
-source ~/.config/personal/.zshrc.vars
+source ~/.config/personal/vars.zsh
 # Export all the aliases
-source ~/.config/personal/.zshrc.alias
+source ~/.config/personal/alias.zsh
 # Export all the functions
-source ~/.config/personal/.zshrc.func
+source ~/.config/personal/func.zsh
 # Export the work stuff
-source ~/.config/personal/.zshrc.work
+source ~/.config/personal/work.zsh
 
 eval "$(zoxide init zsh)"
 

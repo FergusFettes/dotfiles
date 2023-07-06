@@ -1,6 +1,6 @@
 # FILES {{{
 export ZSH="/home/$USER/.oh-my-zsh"
-export EDITOR="/usr/bin/nvim"
+export EDITOR="/usr/bin/hx"
 
 export ALACRITTYRC="/home/$USER/.config/alacritty/alacritty.yml"
 export VIMRC="/home/$USER/.config/nvim/init.lua"
