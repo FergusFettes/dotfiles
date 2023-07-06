@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+file=$1
+zipfile=$1.zip
+
+pw=$(pwgen -s 12 1)
+
+# Hide the password for 24 hours with at
+echo "echo $pw > ~/slow_pass.txt" | at now + 24 hours
+
+# Zip the file
+zip -P $pw $zipfile $file
+
+# Delete the original file
+rm -rf $file

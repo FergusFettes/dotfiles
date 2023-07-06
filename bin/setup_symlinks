@@ -4,15 +4,15 @@ mkdir -p ~/.password-store
 mkdir -p ~/work
 mkdir -p ~/scratch
 
-sudo ln -s ~/personal ~/p
-sudo ln -s ~/personal/journal ~/j
-sudo ln -s ~/personal/journal/.Code ~/c
-sudo ln -s ~/personal/journal/.archive ~/a
-sudo ln -s ~/Downloads ~/d
-sudo ln -s ~/.ssh ~/ss
-sudo ln -s ~/work ~/w
-sudo ln -s ~/personal/journal/.Code/secrets ~/pa
-sudo ln -s ~/scratch ~/s
-sudo ln -s ~/personal/site-backend/ffettes ~/i
-sudo ln -s ~/.build ~/b
-sudo ln -s ~/.config ~/conf
+ln -s ~/personal ~/p
+ln -s ~/personal/journal ~/j
+ln -s ~/personal/journal/.Code ~/c
+ln -s ~/personal/journal/.archive ~/a
+ln -s ~/Downloads ~/d
+ln -s ~/.ssh ~/ss
+ln -s ~/work ~/w
+ln -s ~/personal/journal/.Code/secrets ~/pa
+ln -s ~/scratch ~/s
+ln -s ~/personal/site-backend/ffettes ~/i
+ln -s ~/.build ~/b
+ln -s ~/.config ~/conf
