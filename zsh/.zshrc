@@ -37,6 +37,8 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle command-not-found
+antigen bundle emoji-clock
+antigen bundle emoji
 antigen bundle git
 antigen bundle git-flow
 antigen bundle web-search
