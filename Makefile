@@ -1,6 +1,12 @@
 IP=""
 TARGET_SUDO=""
 
+install_zsh:
+	# First install antigen
+	curl -L git.io/antigen > ~/conf/personal/antigen.zsh
+	# Then instsall oh-my-zsh
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 install_distrobox:
 	sudo apt-get update
 	sudo apt-get install -y podman
