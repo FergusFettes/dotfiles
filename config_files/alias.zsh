@@ -1,0 +1,1 @@
+./../zsh/.config/personal/alias.zsh
