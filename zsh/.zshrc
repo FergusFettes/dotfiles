@@ -30,6 +30,8 @@ export PATH="$PATH":/snap/bin:/home/$USER/.cargo/bin:/home/$USER/.local:/home/$U
 HYPHEN_INSENSITIVE="true"
 
 source $ZSH/oh-my-zsh.sh
+
+# Activate and check all the antigen stuff
 source ~/conf/personal/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -51,6 +53,7 @@ antigen bundle command-not-found
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-cmd-architect
 antigen bundle zsh-users/zsh-navigation-tools
+antigen bundle fastfile
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -60,7 +63,9 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Tell Antigen that you're done.
 antigen apply
+# /antigen
 
+fastfile_var_prefix=':'
 
 bindkey '^H' beginning-of-line
 bindkey '^J' forward-word
@@ -73,7 +78,7 @@ bindkey '^E' delete-word
 bindkey '^N' zca-widget
 # }}}
 # Env Setup {{{
-source $HOME/custom/plugins/init.sh
+source $HOME/enhancd/init.sh
 # Export all the environmental variables
 source ~/.config/personal/vars.zsh
 # Export all the aliases

@@ -6,6 +6,9 @@ install_zsh:
 	curl -L git.io/antigen > ~/conf/personal/antigen.zsh
 	# Then instsall oh-my-zsh
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	git clone https://github.com/b4b4r07/enhancd ~/enhancd
+	rm ~/.zshrc
+	cd ~/dt && stow zsh
 
 install_distrobox:
 	sudo apt-get update
@@ -17,7 +20,7 @@ install:
 	sudo ln -s ~/dotfiles ~/dt
 	./bin/setup_symlinks
 	cd ~/dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles
-	stow vim
+	stow nvim
 	rm ~/.profile
 	stow zsh
 
