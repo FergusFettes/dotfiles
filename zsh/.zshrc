@@ -73,7 +73,7 @@ bindkey '^E' delete-word
 bindkey '^N' zca-widget
 # }}}
 # Env Setup {{{
-source $HOME/custom/plugins/init.sh
+source $HOME/enhancd/init.sh
 # Export all the environmental variables
 source ~/.config/personal/vars.zsh
 # Export all the aliases
@@ -96,9 +96,6 @@ prompt_rotate
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-# fnm
-eval "`fnm env`"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
