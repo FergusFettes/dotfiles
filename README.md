@@ -30,3 +30,13 @@ Run `make client IP=<ip of target> TARGET_SUDO=<sudo password of target>`.
 * install brave `./scripts/setup_brave.sh`
 * install chrome (download from website, `dpkg -i /d/<download>`)
 * add the zshprofle? so that zsh vars get initialized even when used as a script.
+
+
+# QuickScript
+
+```bash
+git clone https://github.com/fergusfettes/dotfiles
+cd dotfiles
+make install
+make install_zsh
+```
