@@ -1,8 +1,15 @@
 [keys.normal]
-C-o = ":open ~/.config/helix/config.toml" # Maps Ctrl-o to opening of the helix config file
-"C-S-esc" = "extend_line" # Maps Ctrl-Shift-Escape to extend_line
-g = { a = "code_action" } # Maps `ga` to show possible code actions
+C-p = ":open ~/.config/helix/config.toml" # Maps Ctrl-s to opening of the helix config file
+C-S-p = ":open ~/.config/helix/languages.toml" 
 "ret" = ["open_below", "normal_mode"] # Maps the enter key to open_below then re-enter normal mode
+C-l = "jump_view_right"
+C-h = "jump_view_left"
+C-j = "jump_view_down"
+C-k = "jump_view_up"
+"tab" = { "tab" = [":pipe sgpt --code --temperature 0.3 --no-cache 'Replace this code with a better version and complete it.'"], "ret" = [":sh echo working...", ":pipe-to cat > /tmp/helix-gpt", ":append-output cat /tmp/helix-gpt | sgpt --code --temperature 0.3 --no-cache 'Finish this code. Start typing from where I left.'", ":sh echo done!"] }
 
 [keys.insert]
 j = { k = "normal_mode" } # Maps `jk` to exit insert mode
+
+[editor]
+text-width = 120
