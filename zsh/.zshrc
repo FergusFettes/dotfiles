@@ -50,9 +50,8 @@ antigen bundle poetry
 antigen bundle python
 antigen bundle sudo
 antigen bundle command-not-found
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-cmd-architect
-antigen bundle zsh-users/zsh-navigation-tools
+antigen bundle --url=zsh-users/zsh-autosuggestions
+antigen bundle z-shell/zsh-navigation-tools@main
 antigen bundle fastfile
 
 # Syntax highlighting bundle.
@@ -111,3 +110,5 @@ complete -o nospace -C /usr/bin/terraform terraform
 # vim:foldmethod=marker:foldlevel=0
 
 export PATH="/home/ffettes/.detaspace/bin:$PATH"
+
+eval "$(atuin init zsh)"

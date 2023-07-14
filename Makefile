@@ -10,6 +10,10 @@ install_zsh:
 	rm ~/.zshrc
 	cd ~/dt && stow zsh
 
+copy_ssh:
+	sudo cp -r $OLD_HOME/.ssh ~/
+	sudo chown -R $NEW_USER: ~/.ssh
+
 install_distrobox:
 	sudo apt-get update
 	sudo apt-get install -y podman
@@ -19,15 +23,18 @@ install_distrobox:
 install:
 	sudo ln -s ~/dotfiles ~/dt
 	./bin/setup_symlinks
-	cd ~/dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles
+	cd ~/dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles && git branch --set-upstream-to=origin/master master
 	stow nvim
 	rm ~/.profile
+	rm ~/.zshrc
 	stow zsh
+	stow git
+	stow helix
 
 boxkit_install:
 	sudo ln -s /dotfiles ~/dt
 	~/dt/bin/setup_symlinks
-	cd ~/dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles
+	cd ~/dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles && git branch --set-upstream-to=origin/master master
 	stow vim
 	rm ~/.profile
 	stow zsh

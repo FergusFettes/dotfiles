@@ -3,4 +3,4 @@ name: notes
 root: /home/ffettes/personal/journal/Notes
 
 windows:
-  - notes:    nvim .
+  - notes:    o .

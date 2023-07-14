@@ -1,0 +1,9 @@
+init:
+	sudo chown -R $USER: /distrobox
+	ln -s /distrobox/dotfiles ~/
+	ln -s /distrobox/enhancd ~/
+	chmod +x /distrobox/zsh-install.sh
+	/distrobox/zsh-install.sh
+
+install:
+	make install

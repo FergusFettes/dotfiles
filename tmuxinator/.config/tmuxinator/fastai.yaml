@@ -3,4 +3,4 @@ name: fastai
 root: /home/ffettes/personal/fast-ai/FastAI/
 
 windows:
-  - notes:    nvim .
+  - notes:    o .

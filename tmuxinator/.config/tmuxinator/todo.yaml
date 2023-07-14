@@ -1,6 +1,6 @@
 socket_name: todo
 name: todo
-root: /home/ffettes/personal/journal/
+root: /home/ffettes/personal/journal/TODO/
 
 windows:
-  - todo: nvim TODO
+  - todo: o *
