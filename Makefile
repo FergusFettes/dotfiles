@@ -2,13 +2,8 @@ IP=""
 TARGET_SUDO=""
 
 install_zsh:
-	# First install antigen
-	curl -L git.io/antigen > ~/conf/personal/antigen.zsh
-	# Then instsall oh-my-zsh
-	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	git clone https://github.com/b4b4r07/enhancd ~/enhancd
-	rm ~/.zshrc
-	cd ~/dt && stow zsh
+	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 copy_ssh:
 	sudo cp -r $OLD_HOME/.ssh ~/
@@ -25,11 +20,13 @@ install:
 	./bin/setup_symlinks
 	cd ~/dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles && git branch --set-upstream-to=origin/master master
 	stow nvim
-	rm ~/.profile
-	rm ~/.zshrc
-	stow zsh
 	stow git
 	stow helix
+
+stow_zsh:
+	rm ~/.profile
+	rm ~/.zshrc
+	cd ~/dt && stow zsh
 
 boxkit_install:
 	sudo ln -s /dotfiles ~/dt

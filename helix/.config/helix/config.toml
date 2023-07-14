@@ -1,6 +1,6 @@
 [keys.normal]
 C-p = ":open ~/.config/helix/config.toml" # Maps Ctrl-s to opening of the helix config file
-C-S-p = ":open ~/.config/helix/languages.toml" 
+C-q = ":open ~/.config/helix/languages.toml" 
 "ret" = ["open_below", "normal_mode"] # Maps the enter key to open_below then re-enter normal mode
 C-l = "jump_view_right"
 C-h = "jump_view_left"
@@ -10,6 +10,32 @@ C-k = "jump_view_up"
 
 [keys.insert]
 j = { k = "normal_mode" } # Maps `jk` to exit insert mode
+C-n = [
+  ":insert-output echo '# FILL'",
+  "join_selections",
+  "extend_line_above",
+  "extend_line_above",
+  "extend_line_above",
+  "extend_line_above",
+  "extend_line_above",
+  "extend_line_above",
+  "extend_line_above",
+  "extend_line_above",
+  "extend_line_below",
+  "extend_line_below",
+  "extend_line_below",
+  "extend_line_below",
+  "extend_line_below",
+  "extend_line_below",
+  "extend_line_below",
+  ":pipe sgpt --code --model gpt-3.5-turbo --temperature 0.3 --no-cache 'Using this code, fill the line having the comment \"# FILL\". Return the whole code, including previous and next lines and tabs as in the input, without the comment.'",
+]
 
 [editor]
+auto-save = true
+bufferline = 'always'
 text-width = 120
+soft-wrap.enable = true
+
+[keys.normal.space]
+"H" = ":toggle lsp.display-inlay-hints"

@@ -13,8 +13,15 @@ yapf = {enabled = false}
 enabled = true
 maxLineLength = 120
 
-[language.config.completion.snippets.custom.ipdb]
-prefix = ["ipdb"]
-body = ["__import__('ipdb').set_trace()"]
-description = "Insert IpDB call."
-scope = "expr"
+# For this, I need a language server that handles custom snippets.
+# [language.config.completion.snippets.custom.ipdb]
+# prefix = ["ipdb"]
+# body = ["__import__('ipdb').set_trace()"]
+# description = "Insert IpDB call."
+# scope = "expr"
+
+# [[language]]
+# name = "quarto-markdown"
+# file-types = ["qmd"]
+# comment-token = "#"
+# scope = "source.quarto-markdown"

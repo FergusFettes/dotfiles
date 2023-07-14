@@ -109,3 +109,5 @@ complete -o nospace -C /usr/bin/terraform terraform
 export PATH="/home/ffettes/.detaspace/bin:$PATH"
 
 eval "$(atuin init zsh)"
+bindkey "^[[A" history-beginning-search-backward
+bindkey '^[OA' history-beginning-search-backward
