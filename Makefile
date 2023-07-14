@@ -2,7 +2,8 @@ IP=""
 TARGET_SUDO=""
 
 install_zsh:
-	git clone https://github.com/b4b4r07/enhancd ~/enhancd
+	sudo apt install -y zsh
+	-git clone https://github.com/b4b4r07/enhancd ~/enhancd
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 copy_ssh:
