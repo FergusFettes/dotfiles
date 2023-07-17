@@ -3,5 +3,6 @@ name: panel
 root: /home/ffettes/personal/journal/
 
 windows:
-  - notes: nvim /dt/config_files
-  - nvim: nvim /dt/config_files/nvim
+  - notes: cd ~/dt/config_files/
+  - nvim: cd ~/dt/config_files/nvim/
+  - pop: cd ~/pop/
