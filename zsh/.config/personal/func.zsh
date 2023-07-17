@@ -92,7 +92,7 @@ function webm2gif() {
   ffmpeg -i $1 -vf "fps=10,scale=320:-1:flags=lanczos" ${1%.*}.gif
 }
 
-function archive(){
+function arch(){
   # Get the number of folders in the archive
   mkdir -p .archive
   NUMBER="`ls .archive | wc | awk '{ print $1 }'`"
