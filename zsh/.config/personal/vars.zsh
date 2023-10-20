@@ -13,6 +13,7 @@ export BROWSER="/usr/bin/google-chrome"
 # }}}
 # Misc vars {{{
 export IP=$(ip a | grep 192 | head -1 | awk '{ print $2 }' | sed -e 's/\/24$//')
+export OPENAI_API_KEY=`cat ~/pa/openai`
 # }}}
 # Program Vars {{{
 # export BAT_THEME="zenburn"

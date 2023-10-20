@@ -4,9 +4,10 @@ file=$1
 zipfile=$1.zip
 
 pw=$(pwgen -s 4 1)
+time=$(date +%s)
 
 # Hide the password for 24 hours with at
-echo "echo $pw > ~/slow_pass.txt" | at now + 24 hours
+echo "echo $pw $file $zipfile $time >> ~/slow_pass.txt" | at now + 30 days
 
 # Zip the file
 zip -P $pw -r $zipfile $file

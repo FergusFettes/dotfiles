@@ -9,6 +9,15 @@ return {
       'MunifTanjim/nui.nvim'
     }
   },
+  {
+    'gsuuon/llm.nvim',
+    -- config = function()
+    -- require('llm').setup({
+    -- prompts = {
+    --   ['prompt name'] = ...
+    --   }
+    -- })
+  },
   -- completion
   -- { 'fergusfettes/turbo-text-transformer.nvim',
   --   config = function()

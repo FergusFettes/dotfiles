@@ -14,13 +14,16 @@ install_distrobox:
 	sudo apt-get install -y podman podman-toolbox
 	distrobox create -i ghcr.io/fergusfettes/boxkit:latest
 
-packages:
+packages: nvim
 	sudo add-apt-repository ppa:maveonair/helix-editor
 	sudo apt update
 	sudo apt install -y stow make zsh fuse helix python3 python3-pip
+
+.PHONY: nvim
+nvim:
 	curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 	chmod u+x nvim.appimage
-	mv nvim.appimage /usr/local/bin/nvim
+	sudo mv nvim.appimage /usr/local/bin/nvim
 
 install:
 	sudo ln -s ~/dotfiles ~/dt

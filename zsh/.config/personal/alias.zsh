@@ -64,6 +64,7 @@ alias pp="poetry shell"
 alias pr="poetry run"
 
 alias matrix='LC_ALL=C tr -c "[:digit:]" " " < /dev/urandom | dd cbs=$COLUMNS conv=unblock | GREP_COLOR="1;32" grep --color "[^ ]"'
+alias mpv2='mpv --input-conf=~/conf/mpv/input2.conf'
 # }}}
 # Scripts {{{
 alias bu='~/c/scripts/linux/backlight.sh up'

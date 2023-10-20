@@ -8,10 +8,34 @@
 # zle -N globalias
 # bindkey " " globalias # space key to expand globalalias
 
+function trans() {
+  # Useage
+  # trans "Text to translate" [LANG] [FROMLANG]
+  # Default language is English
+  if [ -z $2 ]; then
+    lang="EN-GB"
+  else
+    lang=$2
+  fi
+
+  # Default from language is English
+  if [ -z $3 ]; then
+    from="EN-GB"
+  else
+    from=$3
+  fi
+
+  deepl text --to="$lang" --from="$from" "$1" | xclip -f -selection clipboard
+}
+
 function ghpr() { GH_FORCE_TTY=100% gh pr list --limit 300 |
     fzf --ansi --preview 'GH_FORCE_TTY=100% gh pr view {1}' --preview-window 'down,70%' --header-lines 3 |
     awk '{print $1}' |
     xargs gh pr checkout; 
+}
+
+function unreturn() {
+  xclip -selection clipboard -o | tr '\n' ' ' | tr '\r' ' ' | xclip -selection clipboard
 }
 
 function a() {

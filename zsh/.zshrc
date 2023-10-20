@@ -89,13 +89,6 @@ source ~/.config/personal/work.zsh
 
 eval "$(zoxide init zsh)"
 
-if [ `uname -n` = "ffettes-XPS15" ]; then
-  source ~/.config/personal/.zshrc.work
-  source ~/w/openpilot/activate.sh
-  source ~/pa/openai
-#   sk rk
-fi
-
 prompt_rotate
 
 # Generated for envman. Do not edit.

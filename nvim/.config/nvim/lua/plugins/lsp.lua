@@ -128,15 +128,18 @@ return {
     }
 
     lspconfig.pylsp.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      flags = lsp_flags,
       settings = {
         pylsp = {
           plugins = {
             pycodestyle = {
-              ignore = {'W391', 'W503', 'E731', 'E402'},
+              ignore = {'W391', 'W503', 'W504', 'E731', 'E402'},
               maxLineLength = 120
             },
             flake8 = {
-              ignore = {'W503', 'E731'},
+              ignore = {'W503', 'W504', 'E731'},
               maxLineLength = 120
             },
           }

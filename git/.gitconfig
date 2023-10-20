@@ -17,3 +17,11 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[help]
+	autocorrect = 1
+[diff "exif"]
+	textconv = exiftool
+[core]
+	attributesfile = /home/ffettes/.config/.git_template/.gitattributes
+[diff "word"]
+	textconv = doc2txt
