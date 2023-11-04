@@ -9,9 +9,15 @@ copy_ssh:
 	sudo cp -r $OLD_HOME/.ssh ~/
 	sudo chown -R $NEW_USER: ~/.ssh
 
+install_toolbox:
+	sudo apt-get update
+	sudo apt-get install -y podman podman-toolbox
+	toolbox create -i ghcr.io/fergusfettes/boxkit:latest
+
 install_distrobox:
 	sudo apt-get update
 	sudo apt-get install -y podman podman-toolbox
+	curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh
 	distrobox create -i ghcr.io/fergusfettes/boxkit:latest
 
 packages: nvim
@@ -36,7 +42,7 @@ install:
 stow_zsh:
 	-rm ~/.profile
 	-rm ~/.zshrc
-	cd ~/dt && stow zsh
+	cd ~/dotfiles && stow zsh
 
 boxkit_install:
 	sudo ln -s /dotfiles ~/dt

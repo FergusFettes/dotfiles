@@ -32,7 +32,7 @@ HYPHEN_INSENSITIVE="true"
 source $ZSH/oh-my-zsh.sh
 
 # Activate and check all the antigen stuff
-source ~/conf/personal/antigen.zsh
+source ~/.config/personal/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
