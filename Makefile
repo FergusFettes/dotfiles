@@ -1,6 +1,11 @@
 IP=""
 TARGET_SUDO=""
 
+minimal:
+	rm ~/.tmux.conf ~/.vimrc
+	cp tmux/.tmux.conf ~/
+	cp mini/.vimrc ~/
+
 install_zsh:
 	-git clone https://github.com/b4b4r07/enhancd ~/enhancd
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
