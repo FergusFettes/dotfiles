@@ -204,6 +204,10 @@ wk.register(
     --   g = { "<cmd>Telescope live_grep<cr>", "grep" },
     --   b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "fuzzy" },
     -- },
+    a = {
+      name = 'AI Asisstant',
+      n = { ':BFFilePrompt ', 'Prompt'},
+    },
     c = {
       name = 'code',
       c = { ':SlimeConfig<cr>', 'slime config' },
@@ -213,6 +217,10 @@ wk.register(
       i = {  ':split term://ipython<cr>', 'new ipython terminal' },
       j = {  ':split term://julia<cr>', 'new julia terminal' },
       s = {  ':echo b:terminal_job_id<cr>', 'show terminal id' },
+      a = {  ':w !autopep8 -i %<cr> && :e %<cr>', 'autopep8' },
+      f = {  ':w !black -<cr> && :e %<cr>', 'black' },
+      x = {  ':w !prettier --stdin-filepath --parser babel %<cr> && :e %<cr>', 'prettier' },
+      b = {  ':!./build.sh<cr>', 'build' },
     },
     b = {
       name = 'buffer',
@@ -276,7 +284,7 @@ wk.register(
       n = { ']s', 'next' },
       p = { '[s', 'previous' },
       g = { 'zg', 'good' },
-      r = { 'zg', 'rigth' },
+      r = { 'zg', 'right' },
       w = { 'zw', 'wrong' },
       b = { 'zw', 'bad' },
       ['?'] = { '<cmd>Telescope spell_suggest<cr>', 'suggest' },

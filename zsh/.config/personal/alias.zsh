@@ -62,9 +62,28 @@ alias ,=prompt_rotate
 
 alias pp="poetry shell"
 alias pr="poetry run"
+alias prp="poetry run python"
+alias prt="poetry run pytest"
 
 alias matrix='LC_ALL=C tr -c "[:digit:]" " " < /dev/urandom | dd cbs=$COLUMNS conv=unblock | GREP_COLOR="1;32" grep --color "[^ ]"'
 alias mpv2='mpv --input-conf=~/conf/mpv/input2.conf'
+
+alias va='nvim -c "set nofixeol | set autoread | au CursorHold * checktime | call feedkeys(\"lh\")"'
+
+alias et='exercism test'
+alias es='exercism submit'
+alias eo='exercism open'
+alias edp='exercism download --track python --exercise'
+alias edb='exercism download --track bash --exercise'
+
+alias vp='export VAST_PORT=`vastai show instances --raw | jq ".[0].ssh_port"`'
+alias vh='export VAST_HOST=`vastai show instances --raw | jq -r ".[0].ssh_host"`'
+# Both at once
+alias vv='export VAST_PORT=`vastai show instances --raw | jq ".[0].ssh_port"` && export VAST_HOST=`vastai show instances --raw | jq -r ".[0].ssh_host"`'
+alias vs="vastai search offers 'reliability > 0.98 num_gpus = 1 gpu_ram >= 16 rented=False disk_space > 32 cuda_vers >= 12.0' -o 'dph'"
+alias vsl="vastai search offers 'reliability > 0.98 num_gpus = 1 gpu_ram >= 40 rented=False disk_space > 180 cuda_vers >= 12.0' -o 'dph'"
+
+alias ms='cd /home/ffettes/affordances/ && poetry shell && cd -'
 # }}}
 # Scripts {{{
 alias bu='~/c/scripts/linux/backlight.sh up'

@@ -136,11 +136,11 @@ return {
           plugins = {
             pycodestyle = {
               ignore = {'W391', 'W503', 'W504', 'E731', 'E402'},
-              maxLineLength = 120
+              maxLineLength = 140
             },
             flake8 = {
               ignore = {'W503', 'W504', 'E731'},
-              maxLineLength = 120
+              maxLineLength = 140
             },
           }
         }

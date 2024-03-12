@@ -99,7 +99,8 @@ complete -o nospace -C /usr/bin/terraform terraform
 # }}}
 # vim:foldmethod=marker:foldlevel=0
 
-export PATH="/home/ffettes/.detaspace/bin:$PATH"
+export MODULAR_HOME="$HOME/.modular"
+export PATH="$MODULAR_HOME/pkg/packages.modular.com_mojo/bin:$PATH"
 
 eval "$(atuin init zsh)"
 bindkey "^[[A" history-beginning-search-backward

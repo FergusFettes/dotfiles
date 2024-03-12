@@ -7,9 +7,11 @@ C-h = "jump_view_left"
 C-j = "jump_view_down"
 C-k = "jump_view_up"
 "tab" = { "tab" = [":pipe sgpt --code --temperature 0.3 --no-cache 'Replace this code with a better version and complete it.'"], "ret" = [":sh echo working...", ":pipe-to cat > /tmp/helix-gpt", ":append-output cat /tmp/helix-gpt | sgpt --code --temperature 0.3 --no-cache 'Finish this code. Start typing from where I left.'", ":sh echo done!"] }
+"esc" = ":wq"
 
 [keys.insert]
-j = { k = "normal_mode" } # Maps `jk` to exit insert mode
+"esc" = [":write", "normal_mode", ":wq!"]
+j = { k = "normal_mode" }
 C-n = [
   ":insert-output echo '# FILL'",
   "join_selections",
@@ -36,6 +38,7 @@ auto-save = true
 bufferline = 'always'
 text-width = 120
 soft-wrap.enable = true
+insert-final-newline = false
 
 [keys.normal.space]
 "H" = ":toggle lsp.display-inlay-hints"

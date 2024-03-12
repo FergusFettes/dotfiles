@@ -1,5 +1,12 @@
 return {
   {
+    'bakks/butterfish.nvim',
+    config = function()
+      require('butterfish')
+    end,
+     requires = {'tpope/vim-commentary'}
+  },
+  {
     'jameshiew/nvim-magic',
     config = function()
       require('nvim-magic').setup({use_default_keymap = false})
