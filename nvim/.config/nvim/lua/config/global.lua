@@ -10,6 +10,38 @@ vim.opt.mouse= 'a' -- enable mouse
 vim.opt.mousefocus = true
 vim.opt.clipboard:append 'unnamedplus' -- use system clipboard
 
+-- -- set auto read and make sure it triggers
+-- -- oneliner: :set autoread | au CursorHold * checktime | call feedkeys("lh")
+-- -- alias va='nvim -c "set autoread | au CursorHold * checktime | call feedkeys(\"lh\")"'
+-- vim.opt.autoread = true
+-- vim.cmd [[
+--   augroup autoread
+--     autocmd!
+--     autocmd CursorHold * checktime | call feedkeys("lh")
+--   augroup END
+-- ]]
+
+-- autocommand for formatting json files on opening
+-- vimscript: autocmd FileType json silent execute '!jq . % > /tmp/vimjson' | read !cat /tmp/vimjson | 0d_
+local jq_format = function()
+  local json_file_path = vim.api.nvim_buf_get_name(0)
+  local formatted_json = vim.fn.system('jq . ' .. json_file_path)
+
+  if vim.v.shell_error == 0 then
+    local lines = vim.split(formatted_json, "\n")
+    vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+  else
+    vim.api.nvim_err_writeln('Failed to format JSON with jq.')
+  end
+end
+
+vim.api.nvim_create_augroup('JsonFormat', {clear = true})
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+  pattern = {"*.json", "*.JSON"},
+  group = 'JsonFormat',
+  callback = jq_format,
+})
+
 -- use spaces as tabs
 local tabsize = 2
 vim.opt.expandtab = true

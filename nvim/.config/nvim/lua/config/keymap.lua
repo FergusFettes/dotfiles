@@ -20,9 +20,6 @@ vim.keymap.set("n", "<leader>nn", ":set nu!<cr>")
 -- jk is escape
 vim.keymap.set("i", "jk", "<esc>")
 
--- open/close folds
-vim.keymap.set("n", "<space>", "za")
-
 -- ranger
 -- remove the default mapping for <leader>f. the new mapping is set below
 vim.keymap.del("n", "<leader>f")
@@ -40,12 +37,6 @@ vim.keymap.set("n", "<cr>", "o<Esc>")
 -- save in insert mode
 vim.keymap.set("i", "<C-s>", "<cmd>:w<cr><esc>")
 vim.keymap.set("n", "<C-s>", "<cmd>:w<cr><esc>")
-
--- Resize window using <shift> arrow keys
-vim.keymap.set("n", "<S-Up>", "<cmd>resize +2<CR>")
-vim.keymap.set("n", "<S-Down>", "<cmd>resize -2<CR>")
-vim.keymap.set("n", "<S-Left>", "<cmd>vertical resize -2<CR>")
-vim.keymap.set("n", "<S-Right>", "<cmd>vertical resize +2<CR>")
 
 -- Move between windows using <ctrl> direction
 vim.keymap.set("n", '<C-j>', '<C-W>j')
@@ -206,6 +197,17 @@ vim.keymap.set('n', '<leader>vp', open_plugin)
 --show up in the popup as well
 wk.register(
   {
+    -- "Space" = {
+    --   f = { '<cmd>Telescope find_files<cr>', 'files' },
+    --   k = { '<cmd>Telescope keymaps<cr>', 'keymaps' },
+    --   r = { '<cmd>Telescope lsp_references<cr>', 'references' },
+    --   g = { "<cmd>Telescope live_grep<cr>", "grep" },
+    --   b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "fuzzy" },
+    -- },
+    a = {
+      name = 'AI Asisstant',
+      n = { ':BFFilePrompt ', 'Prompt'},
+    },
     c = {
       name = 'code',
       c = { ':SlimeConfig<cr>', 'slime config' },
@@ -215,6 +217,10 @@ wk.register(
       i = {  ':split term://ipython<cr>', 'new ipython terminal' },
       j = {  ':split term://julia<cr>', 'new julia terminal' },
       s = {  ':echo b:terminal_job_id<cr>', 'show terminal id' },
+      a = {  ':w !autopep8 -i %<cr> && :e %<cr>', 'autopep8' },
+      f = {  ':w !black -<cr> && :e %<cr>', 'black' },
+      x = {  ':w !prettier --stdin-filepath --parser babel %<cr> && :e %<cr>', 'prettier' },
+      b = {  ':!./build.sh<cr>', 'build' },
     },
     b = {
       name = 'buffer',
@@ -278,7 +284,7 @@ wk.register(
       n = { ']s', 'next' },
       p = { '[s', 'previous' },
       g = { 'zg', 'good' },
-      r = { 'zg', 'rigth' },
+      r = { 'zg', 'right' },
       w = { 'zw', 'wrong' },
       b = { 'zw', 'bad' },
       ['?'] = { '<cmd>Telescope spell_suggest<cr>', 'suggest' },
@@ -301,13 +307,6 @@ wk.register(
     t = {
       name = 'treesitter',
       h = { ":TSNodeUnderCursor<cr>", "hover" },
-    },
-    w = {
-      name = 'window',
-      w = { ":w<cr>", "write" },
-      q = { ":q<cr>", "quit" },
-      s = { ":split<cr>", "split" },
-      v = { ":vsplit<cr>", "vsplit" },
     },
     { r = {
       name = 'run/read/ranger',

@@ -1,6 +1,11 @@
 IP=""
 TARGET_SUDO=""
 
+minimal:
+	rm ~/.tmux.conf ~/.vimrc
+	cp tmux/.tmux.conf ~/
+	cp mini/.vimrc ~/
+
 install_zsh:
 	-git clone https://github.com/b4b4r07/enhancd ~/enhancd
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -9,18 +14,27 @@ copy_ssh:
 	sudo cp -r $OLD_HOME/.ssh ~/
 	sudo chown -R $NEW_USER: ~/.ssh
 
+install_toolbox:
+	sudo apt-get update
+	sudo apt-get install -y podman podman-toolbox
+	toolbox create -i ghcr.io/fergusfettes/boxkit:latest
+
 install_distrobox:
 	sudo apt-get update
 	sudo apt-get install -y podman podman-toolbox
+	curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh
 	distrobox create -i ghcr.io/fergusfettes/boxkit:latest
 
-packages:
+packages: nvim
 	sudo add-apt-repository ppa:maveonair/helix-editor
 	sudo apt update
 	sudo apt install -y stow make zsh fuse helix python3 python3-pip
+
+.PHONY: nvim
+nvim:
 	curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 	chmod u+x nvim.appimage
-	mv nvim.appimage /usr/local/bin/nvim
+	sudo mv nvim.appimage /usr/local/bin/nvim
 
 install:
 	ln -s ~/dotfiles ~/dt
@@ -32,7 +46,7 @@ install:
 stow_zsh:
 	-rm ~/.profile
 	-rm ~/.zshrc
-	cd ~/dt && stow zsh
+	cd ~/dotfiles && stow zsh
 
 boxkit_install:
 	sudo ln -s /dotfiles ~/dt

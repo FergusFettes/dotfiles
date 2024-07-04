@@ -1,5 +1,12 @@
 return {
   {
+    'bakks/butterfish.nvim',
+    config = function()
+      require('butterfish')
+    end,
+     requires = {'tpope/vim-commentary'}
+  },
+  {
     'jameshiew/nvim-magic',
     config = function()
       require('nvim-magic').setup({use_default_keymap = false})
@@ -8,6 +15,15 @@ return {
       'nvim-lua/plenary.nvim',
       'MunifTanjim/nui.nvim'
     }
+  },
+  {
+    'gsuuon/llm.nvim',
+    -- config = function()
+    -- require('llm').setup({
+    -- prompts = {
+    --   ['prompt name'] = ...
+    --   }
+    -- })
   },
   -- completion
   -- { 'fergusfettes/turbo-text-transformer.nvim',

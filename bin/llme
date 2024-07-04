@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+PROMPT='Linux system admin assistant. Using zsh, fd, rg. If possible, reply with only an executable command that can be run directly, with no commentary or wrapping or code block. Otherwise, give succinct advice.'
+
+llm_output=$(llm -m 3.5 -s "$PROMPT" "$*")
+
+# Sometimes it is returned with "`" at the beginning and end, strip them
+llm_output=$(echo "${llm_output}" | sed -e 's/^`//' -e 's/`$//')
+
+echo "${llm_output}"
+
+read -p "Execute? (y/n): " choice
+if [ "$choice" = "y" ]; then
+    echo "${llm_output}" | bash
+fi

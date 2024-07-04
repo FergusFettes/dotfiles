@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Create a new user account with a home directory and a password.
+# Must be run as root.
+
+set -euo pipefail
+
+sudo useradd -m -s /bin/bash -G sudo "$1"
+sudo passwd "$1"
+
+# Clone dotfiles into their home
+sudo -u "$1" git clone git clone https://github.com/fergusfettes/dotfiles
+sudo -u "$1" cd dotfiles && make install_toolbox stow_zsh

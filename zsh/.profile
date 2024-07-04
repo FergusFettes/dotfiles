@@ -14,6 +14,7 @@ if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
 	. "$HOME/.bashrc"
     fi
+    zsh
 fi
 
 # set PATH so it includes user's private bin if it exists
@@ -27,3 +28,5 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 export PATH="$HOME/.poetry/bin:$PATH"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

@@ -8,6 +8,47 @@
 # zle -N globalias
 # bindkey " " globalias # space key to expand globalalias
 
+countdown() {
+    start="$(( $(date +%s) + $1))"
+    while [ "$start" -ge $(date +%s) ]; do
+        ## Is this more than 24h away?
+        days="$(($(($(( $start - $(date +%s) )) * 1 )) / 86400))"
+        time="$(( $start - `date +%s` ))"
+        printf '%s day(s) and %s\r' "$days" "$(date -u -d "@$time" +%H:%M:%S)"
+        sleep 0.1
+    done
+}
+
+stopwatch() {
+    start=$(date +%s)
+    while true; do
+        days="$(($(( $(date +%s) - $start )) / 86400))"
+        time="$(( $(date +%s) - $start ))"
+        printf '%s day(s) and %s\r' "$days" "$(date -u -d "@$time" +%H:%M:%S)"
+        sleep 0.1
+    done
+}
+
+function trans() {
+  # Useage
+  # trans "Text to translate" [LANG] [FROMLANG]
+  # Default language is English
+  if [ -z $2 ]; then
+    lang="EN-GB"
+  else
+    lang=$2
+  fi
+
+  # Default from language is English
+  if [ -z $3 ]; then
+    from="EN-GB"
+  else
+    from=$3
+  fi
+
+  deepl text --to="$lang" --from="$from" "$1" | xclip -f -selection clipboard
+}
+
 function ghpr() { GH_FORCE_TTY=100% gh pr list --limit 300 |
     fzf --ansi --preview 'GH_FORCE_TTY=100% gh pr view {1}' --preview-window 'down,70%' --header-lines 3 |
     awk '{print $1}' |
@@ -24,6 +65,9 @@ function oracle() {
 
 function simp() {
   cat ~/chunks/simple.txt | llm "$*"
+
+function unreturn() {
+  xclip -selection clipboard -o | tr '\n' ' ' | tr '\r' ' ' | xclip -selection clipboard
 }
 
 function a() {

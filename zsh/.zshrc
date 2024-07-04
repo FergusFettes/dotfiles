@@ -32,7 +32,7 @@ HYPHEN_INSENSITIVE="true"
 source $ZSH/oh-my-zsh.sh
 
 # Activate and check all the antigen stuff
-source ~/conf/personal/antigen.zsh
+source ~/.config/personal/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -89,13 +89,6 @@ source ~/.config/personal/work.zsh
 
 eval "$(zoxide init zsh)"
 
-if [ `uname -n` = "ffettes-XPS15" ]; then
-  source ~/.config/personal/.zshrc.work
-  source ~/w/openpilot/activate.sh
-  source ~/pa/openai
-#   sk rk
-fi
-
 prompt_rotate
 
 # Generated for envman. Do not edit.
@@ -106,7 +99,8 @@ complete -o nospace -C /usr/bin/terraform terraform
 # }}}
 # vim:foldmethod=marker:foldlevel=0
 
-export PATH="/home/ffettes/.detaspace/bin:$PATH"
+export MODULAR_HOME="$HOME/.modular"
+export PATH="$MODULAR_HOME/pkg/packages.modular.com_mojo/bin:$PATH"
 
 eval "$(atuin init zsh)"
 bindkey "^[[A" history-beginning-search-backward
