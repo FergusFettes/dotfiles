@@ -2,11 +2,11 @@
 	email = fergusfettes@gmail.com
 	name = fergus
 [commit]
-	template = /home/ffettes/.gitmessage
+	template = ~/.gitmessage
 ; [merge]
 ; 	conflictstyle = diff3
 [init]
-	templatedir = /home/ffettes/.config/.git_template/
+	templatedir = ~/.config/.git_template/
 	defaultBranch = main
 [pull]
 	rebase = false

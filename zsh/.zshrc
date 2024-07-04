@@ -23,8 +23,8 @@
 #   exec sway
 # fi
 
-export ZSH="/home/$USER/.oh-my-zsh"
-export PATH="$PATH":/snap/bin:/home/$USER/.cargo/bin:/home/$USER/.local:/home/$USER/.local/bin:/usr/local/cuda-11.1/bin:/home/$USER/.local/node/bin:/home/$USER/go/bin:/home/ffettes/.local/share/fnm:$HOME/.trigger:$HOME/dt/bin
+export ZSH="/$HOME/.oh-my-zsh"
+export PATH="$PATH":/snap/bin:/$HOME/.cargo/bin:/$HOME/.local:/$HOME/.local/bin:/usr/local/cuda-11.1/bin:/$HOME/.local/node/bin:/$HOME/go/bin:/$HOME/.local/share/fnm:$HOME/.trigger:$HOME/dt/bin
 # }}}
 # Zsh init {{{
 HYPHEN_INSENSITIVE="true"

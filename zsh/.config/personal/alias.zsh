@@ -108,7 +108,7 @@ alias tls='toggl ls'
 alias dk=docker
 alias dc=docker-compose
 alias dc-restart="docker-compose down && docker-compose build && docker-compose up -d && docker-compose logs -f"
-alias vi=nvim
+alias vi=hx
 alias v="vi ."
 alias vf='vi $(fzf)'
 

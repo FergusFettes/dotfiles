@@ -14,6 +14,18 @@ function ghpr() { GH_FORCE_TTY=100% gh pr list --limit 300 |
     xargs gh pr checkout; 
 }
 
+function lc() {
+   llm --continue "$*"
+}
+
+function oracle() {
+  cat ~/chunks/oracle.txt | llm "$*"
+}
+
+function simp() {
+  cat ~/chunks/simple.txt | llm "$*"
+}
+
 function a() {
   sgpt "$*"
 }

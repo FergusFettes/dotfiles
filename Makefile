@@ -23,10 +23,9 @@ packages:
 	mv nvim.appimage /usr/local/bin/nvim
 
 install:
-	sudo ln -s ~/dotfiles ~/dt
+	ln -s ~/dotfiles ~/dt
 	./bin/setup_symlinks
 	cd ~/dt/ && git remote remove origin && git remote add origin git@github.com:fergusfettes/dotfiles && git branch --set-upstream-to=origin/master master
-	stow nvim
 	stow git
 	stow helix
 
