@@ -65,6 +65,7 @@ function oracle() {
 
 function simp() {
   cat ~/chunks/simple.txt | llm "$*"
+}
 
 function unreturn() {
   xclip -selection clipboard -o | tr '\n' ' ' | tr '\r' ' ' | xclip -selection clipboard
