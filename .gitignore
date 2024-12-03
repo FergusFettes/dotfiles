@@ -5,3 +5,7 @@ passwords/
 pip/
 **/__pycache__/
 **/dhist
+llm/.config/io.datasette.llm/keys.json
+llm/.config/io.datasette.llm/logs.db
+zsh/.config/gh/
+zsh/.config/znt/

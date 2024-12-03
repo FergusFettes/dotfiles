@@ -65,6 +65,7 @@ function oracle() {
 
 function simp() {
   cat ~/chunks/simple.txt | llm "$*"
+}
 
 function unreturn() {
   xclip -selection clipboard -o | tr '\n' ' ' | tr '\r' ' ' | xclip -selection clipboard
@@ -466,5 +467,6 @@ copilot_gh-assist () {
     return 1
   fi
 };
+
 alias 'gh?'='copilot_gh-assist';
 alias 'wts'='copilot_what-the-shell';
