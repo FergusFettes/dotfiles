@@ -109,3 +109,5 @@ bindkey '^[OA' history-beginning-search-backward
 # if `which fnm`; then;
 eval "`fnm env`"
 # fi
+
+cat ~/dotfiles/welcome.txt
