@@ -1,0 +1,160 @@
+# Sway config - Alt-based for tablet agent workflow
+# Leaves Mod4 (Super) free, tmux uses prefix (Ctrl-a)
+
+# Basic settings
+set $alt Mod1
+
+# Home row direction keys (vim-style)
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Default terminal
+set $term foot
+set $term2 x-terminal-emulator
+
+# Application launcher
+set $menu wofi --show drun
+
+# Keyboard layout
+input "type:keyboard" {
+    xkb_layout us
+    xkb_options ctrl:nocaps
+}
+
+# Touchpad config (for tablet)
+input "type:touchpad" {
+    tap enabled
+    natural_scroll enabled
+}
+
+# Basic window management
+bindsym $alt+Shift+q kill
+
+# Reload/exit sway
+bindsym $alt+Shift+c reload
+bindsym $alt+Shift+e exec swaymsg exit
+
+# Start terminal
+bindsym $alt+Return exec $term
+bindsym $alt+Shift+Return exec $term2
+
+# Application launcher
+bindsym $alt+d exec $menu
+bindsym $alt+space exec $menu
+
+# Window focus (vim keys)
+bindsym $alt+$left focus left
+bindsym $alt+$down focus down
+bindsym $alt+$up focus up
+bindsym $alt+$right focus right
+
+# Window focus (arrow keys)
+bindsym $alt+Left focus left
+bindsym $alt+Down focus down
+bindsym $alt+Up focus up
+bindsym $alt+Right focus right
+
+# Move windows (vim keys)
+bindsym $alt+Shift+$left move left
+bindsym $alt+Shift+$down move down
+bindsym $alt+Shift+$up move up
+bindsym $alt+Shift+$right move right
+
+# Move windows (arrow keys)
+bindsym $alt+Shift+Left move left
+bindsym $alt+Shift+Down move down
+bindsym $alt+Shift+Up move up
+bindsym $alt+Shift+Right move right
+
+# Workspaces
+bindsym $alt+1 workspace 1
+bindsym $alt+2 workspace 2
+bindsym $alt+3 workspace 3
+bindsym $alt+4 workspace 4
+bindsym $alt+5 workspace 5
+bindsym $alt+6 workspace 6
+bindsym $alt+7 workspace 7
+bindsym $alt+8 workspace 8
+bindsym $alt+9 workspace 9
+bindsym $alt+0 workspace 10
+
+# Move to workspaces
+bindsym $alt+Shift+1 move container to workspace 1
+bindsym $alt+Shift+2 move container to workspace 2
+bindsym $alt+Shift+3 move container to workspace 3
+bindsym $alt+Shift+4 move container to workspace 4
+bindsym $alt+Shift+5 move container to workspace 5
+bindsym $alt+Shift+6 move container to workspace 6
+bindsym $alt+Shift+7 move container to workspace 7
+bindsym $alt+Shift+8 move container to workspace 8
+bindsym $alt+Shift+9 move container to workspace 9
+bindsym $alt+Shift+0 move container to workspace 10
+
+# Workspace navigation
+bindsym $alt+Tab workspace next
+bindsym $alt+Shift+Tab workspace prev
+
+# Layout
+bindsym $alt+v split toggle
+bindsym $alt+q layout stacking
+bindsym $alt+w layout tabbed
+bindsym $alt+e layout toggle split
+
+# Fullscreen
+bindsym $alt+f fullscreen
+
+# Floating
+bindsym $alt+Shift+space floating toggle
+bindsym $alt+Ctrl+space focus mode_toggle
+
+# Scratchpad
+bindsym $alt+Shift+b move scratchpad
+bindsym $alt+b scratchpad show
+
+# Resize mode
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $alt+r mode "resize"
+
+# Floating modifier (for dragging windows)
+floating_modifier $alt normal
+
+# Window borders
+default_border pixel 1
+default_floating_border pixel 1
+
+# Focus follows mouse
+focus_follows_mouse no
+
+# Font
+font pango:monospace 10
+
+# Status bar
+bar {
+    position top
+    status_command i3status
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
+
+# Include system config
+include /etc/sway/config.d/*
+
+# vim:foldmethod=marker:foldlevel=0
