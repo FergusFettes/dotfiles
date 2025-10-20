@@ -155,7 +155,7 @@ bar {
 }
 
 # Startup applications
-exec foot -D /home/ffettes opencode
+exec foot sh -c 'cd /home/ffettes && /home/ffettes/.opencode/bin/opencode'
 
 # Include system config
 include /etc/sway/config.d/*
