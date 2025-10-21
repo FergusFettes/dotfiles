@@ -155,7 +155,7 @@ bar {
 }
 
 # Startup applications
-exec foot sh -c 'cd /home/ffettes && /home/ffettes/.opencode/bin/opencode'
+exec bash -c 'if [ ! -f /tmp/sway-opencode-started ]; then touch /tmp/sway-opencode-started && foot zsh -c "cd /home/ffettes && /home/ffettes/.opencode/bin/opencode"; fi'
 
 # Include system config
 include /etc/sway/config.d/*
