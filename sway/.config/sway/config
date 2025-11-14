@@ -1,6 +1,9 @@
 # Sway config - Alt-based for tablet agent workflow
 # Leaves Mod4 (Super) free, tmux uses prefix (Ctrl-a)
 
+# Enable XWayland for X11 app compatibility
+xwayland enable
+
 # Basic settings
 set $alt Mod1
 
@@ -154,6 +157,11 @@ bar {
     }
 }
 
+# Idle and screen power management
+exec swayidle -w \
+    timeout 300 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"'
+
 # Startup applications
 exec bash -c 'if [ ! -f /tmp/sway-opencode-started ]; then touch /tmp/sway-opencode-started && foot zsh -c "cd /home/ffettes && /home/ffettes/.opencode/bin/opencode"; fi'
 
@@ -161,3 +169,8 @@ exec bash -c 'if [ ! -f /tmp/sway-opencode-started ]; then touch /tmp/sway-openc
 include /etc/sway/config.d/*
 
 # vim:foldmethod=marker:foldlevel=0
+
+# Auto-start Anki on login (for AnkiConnect API)
+exec anki
+# Start Anki in scratchpad so it doesn't show up
+for_window [app_id="anki"] move scratchpad
