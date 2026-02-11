@@ -78,31 +78,6 @@ return {
       flags = lsp_flags
     }
 
-    local function strsplit(s, delimiter)
-      local result = {}
-      for match in (s .. delimiter):gmatch("(.-)" .. delimiter) do
-        table.insert(result, match)
-      end
-      return result
-    end
-
-    local function get_quarto_resource_path()
-      local f = io.popen('quarto --paths', 'r')
-      if not f then return nil end
-      local s = f:read('*a')
-      f:close()
-      if not s or s == '' then return nil end
-      return strsplit(s, '\n')[2]
-    end
-
-    local lua_library_files = vim.api.nvim_get_runtime_file("", true)
-    local resource_path = get_quarto_resource_path()
-    local lua_plugin_paths = {}
-    if resource_path then
-      table.insert(lua_library_files, resource_path .. '/lua-types')
-      table.insert(lua_plugin_paths, resource_path .. '/lua-plugin/plugin.lua')
-    end
-
     lspconfig.lua_ls.setup {
       on_attach = on_attach,
       capabilities = capabilities,
@@ -114,10 +89,9 @@ return {
           },
           runtime = {
             version = 'LuaJIT',
-            plugin = lua_plugin_paths[1],
           },
           diagnostics = {
-            globals = { 'vim', 'quarto', 'pandoc', 'io', 'string', 'print', 'require', 'table' },
+            globals = { 'vim', 'io', 'string', 'print', 'require', 'table' },
             disable = { 'trailing-space' },
           },
           workspace = {

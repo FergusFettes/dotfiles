@@ -117,7 +117,6 @@ return {
           format = lspkind.cmp_format {
             with_text = true,
             menu = {
-              otter = "[🦦]",
               luasnip = "[snip]",
               nvim_lsp = "[LSP]",
               buffer = "[buf]",
@@ -133,12 +132,10 @@ return {
           },
         },
         sources = {
-          { name = 'otter' },
           { name = 'path' },
           { name = 'plugins' },
           { name = 'nvim_lsp' },
           { name = 'luasnip', keyword_length = 3, max_item_count = 3 },
-          { name = 'pandoc_references' },
           { name = 'buffer', keyword_length = 5, max_item_count = 3 },
           { name = 'spell' },
           { name = 'treesitter', keyword_length = 5, max_item_count = 3 },

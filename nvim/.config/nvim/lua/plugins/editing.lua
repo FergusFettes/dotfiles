@@ -8,10 +8,13 @@ return {
   end
   },
   -- commenting with e.g. `gcc` or `gcip`
-  -- respects TS, so it works in quarto documents
   { 'numToStr/Comment.nvim', config = function()
     require('Comment').setup {}
   end
   },
+  -- d/c/x don't yank; use 'm' (move) to cut to clipboard (replaces vim-easyclip)
+  { 'gbprod/cutlass.nvim', config = function()
+    require('cutlass').setup { cut_key = 'm' }
+  end },
   { 'dhruvasagar/vim-table-mode' },
 }
