@@ -5,7 +5,7 @@ return {
     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
     { "folke/neodev.nvim", config = true },
     { "williamboman/mason.nvim" },
-    { "williamboman/mason-lspconfig.nvim", config = { automatic_installation = true } },
+    { "williamboman/mason-lspconfig.nvim" },
     "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
@@ -87,19 +87,23 @@ return {
     end
 
     local function get_quarto_resource_path()
-      local f = assert(io.popen('quarto --paths', 'r'))
-      local s = assert(f:read('*a'))
+      local f = io.popen('quarto --paths', 'r')
+      if not f then return nil end
+      local s = f:read('*a')
       f:close()
+      if not s or s == '' then return nil end
       return strsplit(s, '\n')[2]
     end
 
     local lua_library_files = vim.api.nvim_get_runtime_file("", true)
     local resource_path = get_quarto_resource_path()
-    table.insert(lua_library_files, resource_path .. '/lua-types')
     local lua_plugin_paths = {}
-    table.insert(lua_plugin_paths, resource_path .. '/lua-plugin/plugin.lua')
+    if resource_path then
+      table.insert(lua_library_files, resource_path .. '/lua-types')
+      table.insert(lua_plugin_paths, resource_path .. '/lua-plugin/plugin.lua')
+    end
 
-    lspconfig.sumneko_lua.setup {
+    lspconfig.lua_ls.setup {
       on_attach = on_attach,
       capabilities = capabilities,
       flags = lsp_flags,
