@@ -17,7 +17,7 @@ alias -g C2="| cut -f2 Y"
 alias -g C3="| cut -f3 Y"
 alias -g C4="| cut -f4 Y"
 alias -g C5="| cut -f5 Y"
-alias -g Y='| xclip -f -sel clip'
+alias -g Y='| tee >(pbcopy)'
 alias -g NF='./*(oc[1])'
 alias -g G='| grep'
 alias -g H='| head '
@@ -123,7 +123,7 @@ alias tls='toggl ls'
 alias dk=docker
 alias dc=docker-compose
 alias dc-restart="docker-compose down && docker-compose build && docker-compose up -d && docker-compose logs -f"
-alias vi=hx
+alias vi=nvim
 alias v="vi ."
 alias vf='vi $(fzf)'
 
@@ -137,7 +137,6 @@ alias o="$EDITOR"
 alias pip=pip3
 alias python=python3
 
-alias fd=fdfind
 alias cat=bat
 alias ct=rich --pager --markdown
 alias bcat=/bin/cat
@@ -185,7 +184,7 @@ alias top="/usr/bin/htop"
 alias fzf="fzf -m --bind 'tab:select-all+accept'"
 # }}}
 # Mini Scripts {{{
-alias xio='xclip -f -sel clip -t image/png -o >'
+alias xio='pngpaste'
 alias xi='xclip -f -sel clip'
 alias xo='xclip -o -sel clip'
 alias kill_ssh='kill -9 $(ps aux | rg "ssh -fN" | head -1 | tee /dev/tty | awk '\''{ print $2 }'\'')'
@@ -201,5 +200,31 @@ alias cpup="watch -n 0.2 'sudo cpupower frequency-info'"
 # Config Shortcuts {{{
 alias rk="sk rk"
 alias rk2="sk rk2"
+alias code='/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'
+# }}}
+# Beads shortcuts {{{
+alias bdr='bd list --ready --priority-max 1 -t task'
+
+bdepics() {
+  local data min_prio ids id_pattern
+  data=$(bd list -t epic --json 2>/dev/null)
+  min_prio=$(echo "$data" | jq '[.[].priority] | min')
+  ids=($(echo "$data" | jq -r --argjson mp "$min_prio" '.[] | select(.priority == $mp) | .id'))
+  id_pattern=$(echo "${ids[@]}" | tr ' ' '|')
+  echo "Top priority epics (P${min_prio}):"
+  # bd graph <id> is bugged and ignores deps; --all correctly builds full graphs
+  bd graph --all --compact 2>/dev/null | awk -v pat="$id_pattern" '
+    /^────/ { if (keep) printf "%s", buf; keep=0; buf=""; next }
+    { buf = buf $0 "\n" }
+    $0 ~ pat { keep=1 }
+    END { if (keep) printf "%s", buf }
+  '
+}
+# }}}
+# Agent shortcuts {{{
+alias aclaude="agent --exe claude"
+alias claude="claude --dangerously-skip-permissions"
+alias acodex="agent --exe codex"
+alias codex="codex --dangerously-bypass-approvals-and-sandbox"
 # }}}
 # vim:foldmethod=marker:foldlevel=0

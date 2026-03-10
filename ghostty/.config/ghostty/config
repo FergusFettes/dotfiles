@@ -1,0 +1,75 @@
+# Ghostty Configuration
+
+# Font settings
+font-size = 13
+
+# Enable Option key as Alt/Meta for tmux and other CLI tools
+# This makes Option+letter send escape sequences instead of special characters
+macos-option-as-alt = true
+
+# Theme/Colors - using a dark theme similar to your alacritty config
+background = 0a0e14
+foreground = b3b1ad
+
+# Cursor
+cursor-color = 0abdc6
+cursor-text = 000b1e
+
+# Normal colors
+palette = 0=#01060e
+palette = 1=#ea6c73
+palette = 2=#91b362
+palette = 3=#f9af4f
+palette = 4=#53bdfa
+palette = 5=#fae994
+palette = 6=#90e1c6
+palette = 7=#c7c7c7
+
+# Bright colors
+palette = 8=#686868
+palette = 9=#f07178
+palette = 10=#c2d94c
+palette = 11=#ffb454
+palette = 12=#59c2ff
+palette = 13=#ffee99
+palette = 14=#95e6cb
+palette = 15=#ffffff
+
+# Window settings
+window-decoration = false
+window-padding-x = 2
+window-padding-y = 2
+
+# Shell
+shell-integration = detect
+
+# Keybindings
+# Map Cmd+j to Ctrl+j (forward-word in your zshrc)
+keybind = cmd+j=text:\x0a
+
+# Map Cmd+q to Ctrl+q (backward-word in your zshrc)
+# WARNING: This overrides the system "Quit" shortcut for Ghostty
+keybind = cmd+q=text:\x11
+
+# Map Cmd+w to Ctrl+w (backward-delete-word in your zshrc)
+# WARNING: This overrides the system "Close Window" shortcut
+keybind = cmd+w=text:\x17
+
+# Map Cmd+h to Ctrl+h (beginning-of-line in your zshrc)
+# WARNING: This overrides the system "Hide" shortcut
+keybind = cmd+h=text:\x08
+
+# Map Cmd+k to Ctrl+k (forward-char in your zshrc)
+# WARNING: This overrides the system "Clear Buffer" shortcut
+keybind = cmd+k=text:\x0b
+
+# Map Cmd+e to Ctrl+e (delete-word in your zshrc)
+keybind = cmd+e=text:\x05
+
+# Map Cmd+n to Ctrl+n (zca-widget in your zshrc)
+# WARNING: This overrides the system "New Window" shortcut
+keybind = cmd+n=text:\x0e
+
+# Map Cmd+i to Ctrl+i (autosuggest-accept in your zshrc)
+keybind = cmd+i=text:\x09
+

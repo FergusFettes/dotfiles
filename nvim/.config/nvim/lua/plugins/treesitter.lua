@@ -4,6 +4,7 @@ return {
       ensure_installed = { 'python', 'lua', 'sql', 'markdown', 'markdown_inline', 'yaml', 'vim', 'vimdoc', 'bash' },
       highlight = {
         enable = true,
+        disable = { 'vimdoc' },
         additional_vim_regex_highlighting = false,
       },
       indent = {

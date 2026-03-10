@@ -1,11 +1,11 @@
 # FILES {{{
-export ZSH="/home/$USER/.oh-my-zsh"
-export EDITOR="/usr/bin/hx"
+export ZSH="$HOME/.oh-my-zsh"
+export EDITOR="nvim"
 
-export ALACRITTYRC="/home/$USER/.config/alacritty/alacritty.yml"
-export VIMRC="/home/$USER/.config/nvim/init.lua"
+export ALACRITTYRC="$HOME/.config/alacritty/alacritty.yml"
+export VIMRC="$HOME/.config/nvim/init.lua"
 export MYVIMRC=$VIMRC
-export ZSHRC="/home/$USER/.zshrc"
+export ZSHRC="$HOME/.zshrc"
 
 # export BROWSER="/usr/bin/nyxt"
 export BROWSER="/usr/bin/google-chrome"
@@ -13,7 +13,6 @@ export BROWSER="/usr/bin/google-chrome"
 # }}}
 # Misc vars {{{
 export IP=$(ip a | grep 192 | head -1 | awk '{ print $2 }' | sed -e 's/\/24$//')
-export OPENAI_API_KEY=`cat ~/pa/openai`
 # }}}
 # Program Vars {{{
 # export BAT_THEME="zenburn"

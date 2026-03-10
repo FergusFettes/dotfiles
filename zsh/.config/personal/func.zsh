@@ -71,6 +71,14 @@ function unreturn() {
   xclip -selection clipboard -o | tr '\n' ' ' | tr '\r' ' ' | xclip -selection clipboard
 }
 
+function cb() {
+  if [ -t 0 ]; then
+    pbpaste
+  else
+    pbcopy
+  fi
+}
+
 function a() {
   sgpt "$*"
 }
@@ -125,7 +133,7 @@ rga-fzf() {
 }
 
 function set_xprop() {
-  STR="$PWD; `date --iso=seconds`; `history -1 | sed 's/^[ ]*[0-9]*[ ]*//g'`"
+  STR="$PWD; `date +%Y-%m-%dT%H:%M:%S%z`; `history -1 | sed 's/^[ ]*[0-9]*[ ]*//g'`"
   WINDOW=`xdotool getactivewindow` 2>/dev/null
   if [ -n "$WINDOW" ]; then
     xprop -id $WINDOW -f WM_CLASS 8s -set WM_CLASS "$STR"
@@ -157,7 +165,7 @@ function arch(){
 
   mkdir -p "$FOLDER"
 
-  echo `date --iso-8601=minutes` > "$FOLDER/.0__ARCHIVE_DATA__"
+  echo `date +%Y-%m-%dT%H:%M%z` > "$FOLDER/.0__ARCHIVE_DATA__"
   # If there is an argument, assume it is the file type
   mv -- *"$@" "$FOLDER"
 }
@@ -469,3 +477,9 @@ copilot_gh-assist () {
 };
 alias 'gh?'='copilot_gh-assist';
 alias 'wts'='copilot_what-the-shell';
+
+# Open db command center with dadbod UI auto-launched
+function dbc() {
+  cd ~/worldtree/work/command-center
+  nvim -c "DBUI" sql/scratch.sql
+}

@@ -23,8 +23,8 @@
 #   exec sway
 # fi
 
-export ZSH="/$HOME/.oh-my-zsh"
-export PATH="$PATH":/snap/bin:/$HOME/.cargo/bin:/$HOME/.local:/$HOME/.local/bin:/usr/local/cuda-11.1/bin:/$HOME/.local/node/bin:/$HOME/go/bin:/$HOME/.local/share/fnm:$HOME/.trigger:$HOME/dt/bin
+export ZSH="$HOME/.oh-my-zsh"
+export PATH="$PATH":/snap/bin:/$HOME/.cargo/bin:/$HOME/.local:/$HOME/.local/bin:/usr/local/cuda-11.1/bin:/$HOME/.local/node/bin:/$HOME/go/bin:/$HOME/.local/share/fnm:$HOME/.trigger:$HOME/dt/bin:$HOME/worldtree/meta/bin:/opt/homebrew/opt/postgresql@16/bin
 # }}}
 # Zsh init {{{
 HYPHEN_INSENSITIVE="true"
@@ -73,11 +73,12 @@ bindkey '^Q' backward-word
 bindkey '^W' backward-delete-word
 bindkey '^E' delete-word
 
+
 # bindkey for Zsh Command Architect
 bindkey '^N' zca-widget
+
 # }}}
 # Env Setup {{{
-source $HOME/enhancd/init.sh
 # Export all the environmental variables
 source ~/.config/personal/vars.zsh
 # Export all the aliases
@@ -102,7 +103,6 @@ complete -o nospace -C /usr/bin/terraform terraform
 export MODULAR_HOME="$HOME/.modular"
 export PATH="$MODULAR_HOME/pkg/packages.modular.com_mojo/bin:$PATH"
 
-eval "$(atuin init zsh)"
 bindkey "^[[A" history-beginning-search-backward
 bindkey '^[OA' history-beginning-search-backward
 
@@ -110,4 +110,7 @@ bindkey '^[OA' history-beginning-search-backward
 eval "`fnm env`"
 # fi
 
-cat ~/dotfiles/welcome.txt
+export SANDBOX_REPO_ROOT="$HOME/worldtree/projects/llm-sandbox"
+export BEADS_DIR="$HOME/worldtree/projects/.beads"
+
+export PATH="$HOME/bin:$PATH"

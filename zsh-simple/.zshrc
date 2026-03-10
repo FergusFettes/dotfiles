@@ -3,7 +3,7 @@
 
 # Path setup
 export PATH="$PATH":/snap/bin:/usr/local/bin:/usr/bin:/bin:/home/ffettes/.opencode/bin:/home/ffettes/.local/share/fnm:/home/ffettes/go/bin
-export EDITOR="hx"  # or vim, nano, etc.
+export EDITOR="nvim"  # or vim, nano, etc.
 
 # Oh-My-Zsh setup
 export ZSH="$HOME/.oh-my-zsh"

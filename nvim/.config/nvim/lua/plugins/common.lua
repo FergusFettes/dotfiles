@@ -35,13 +35,24 @@ return {
   { 'francoiscabrol/ranger.vim' },
   { 'rbgrouleff/bclose.vim' },
   { 'Asheq/close-buffers.vim' },
+  { 'echasnovski/mini.icons' },
   { 'tpope/vim-dadbod' },
+  {
+    'preservim/vim-markdown',
+    ft = { 'markdown' },
+    init = function()
+      vim.g.vim_markdown_conceal = 2
+      vim.g.vim_markdown_strikethrough = 1
+    end,
+  },
   {
     'kristijanhusak/vim-dadbod-ui',
     dependencies = { 'tpope/vim-dadbod' },
     cmd = { 'DBUI', 'DBUIToggle', 'DBUIAddConnection', 'DBUIFindBuffer' },
     init = function()
       vim.g.db_ui_use_nerd_fonts = 1
+      vim.g.db_ui_save_location = vim.fn.expand('~/worldtree/work/command-center/.dadbod-ui')
+      vim.fn.mkdir(vim.g.db_ui_save_location, 'p')
     end,
   },
   {
