@@ -89,10 +89,7 @@ bindkey '^N' zca-widget
 
 # }}}
 # Env Setup {{{
-<<<<<<< HEAD
-=======
 # source $HOME/enhancd/init.sh
->>>>>>> b40f409 (various updates)
 # Export all the environmental variables
 source ~/.config/personal/vars.zsh
 # Export all the aliases
