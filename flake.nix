@@ -11,15 +11,19 @@
 
   outputs = { nixpkgs, home-manager, ... }:
     let
-      system = builtins.currentSystem;
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = false;
-      };
+      mkHome = system:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = false;
+          };
+          modules = [ ./home/remote.nix ];
+        };
     in {
-      homeConfigurations.ffettes = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./home/remote.nix ];
+      homeConfigurations = {
+        ffettes = mkHome "aarch64-darwin";
+        ffettes-linux = mkHome "x86_64-linux";
+        ffettes-mac = mkHome "aarch64-darwin";
       };
     };
 }
