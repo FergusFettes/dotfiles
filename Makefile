@@ -1,7 +1,7 @@
 IP=""
 TARGET_SUDO=""
 
-.PHONY: minimal nvim nix-install nix-ffettes
+.PHONY: minimal nvim nix-install nix-ffettes fish-login-shell
 
 minimal:
 	rm ~/.tmux.conf ~/.vimrc
@@ -53,6 +53,9 @@ nix-ffettes:
 	ln -s ~/dotfiles/nix/.config/nix/nix.conf ~/.config/nix/nix.conf
 	NIX_CONFIG='experimental-features = nix-command flakes' nix profile add github:nix-community/home-manager
 	NIX_CONFIG='experimental-features = nix-command flakes' home-manager switch -b backup --flake ~/dotfiles#ffettes-linux
+
+fish-login-shell:
+	sudo chsh -s "$$(which fish)" $${USER}
 
 install:
 	ln -s ~/dotfiles ~/dt
