@@ -1,0 +1,78 @@
+[colors.bright]
+black = "0x686868"
+blue = "0x59C2FF"
+cyan = "0x95E6CB"
+green = "0xC2D94C"
+magenta = "0xFFEE99"
+red = "0xF07178"
+white = "0xFFFFFF"
+yellow = "0xFFB454"
+
+[colors.cursor]
+cursor = "0x0abdc6"
+text = "0x000b1e"
+
+[colors.dim]
+black = "0x31363b"
+blue = "0x1b668f"
+cyan = "0x186c60"
+green = "0x17a262"
+magenta = "0x614a73"
+red = "0x783228"
+white = "0x63686d"
+yellow = "0xb65619"
+
+[colors.hints.end]
+background = "#1f1d2e"
+foreground = "#6e6a86"
+
+[colors.hints.start]
+background = "#1f1d2e"
+foreground = "#908caa"
+
+[colors.line_indicator]
+background = "None"
+foreground = "None"
+
+[colors.normal]
+black = "0x01060E"
+blue = "0x53BDFA"
+cyan = "0x90E1C6"
+green = "0x91B362"
+magenta = "0xFAE994"
+red = "0xEA6C73"
+white = "0xC7C7C7"
+yellow = "0xF9AF4F"
+
+[colors.primary]
+background = "0x0A0E14"
+foreground = "0xB3B1AD"
+
+[colors.search.focused_match]
+background = "CellForeground"
+foreground = "CellBackground"
+
+[colors.search.matches]
+background = "0xb26818"
+foreground = "0xb2b2b2"
+
+[colors.selection]
+background = "0xb3d7ff"
+text = "0x000000"
+
+[colors.vi_mode_cursor]
+cursor = "0x524f67"
+text = "0xe0def4"
+
+[font]
+size = 13
+
+[terminal.shell]
+program = "/bin/zsh"
+
+[window]
+decorations = "none"
+startup_mode = "Maximized"
+option_as_alt = 'Both'
+
+[terminal]

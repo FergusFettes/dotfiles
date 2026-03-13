@@ -5,3 +5,4 @@ export ZSHRC="/home/$USER/.zshrc"
 
 # Codon compiler path (added by install script)
 export PATH=/home/ffettes/.codon/bin:$PATH
+. "$HOME/.cargo/env"
