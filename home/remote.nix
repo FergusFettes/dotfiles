@@ -1,7 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 let
-  username = "ffettes";
   homeDirectory = if pkgs.stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
 in
 {
