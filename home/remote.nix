@@ -30,8 +30,6 @@ in
     zoxide
   ];
 
-  programs.fish.enable = true;
-
   home.file = {
     ".config/fish/config.fish".source = ../fish/.config/fish/config.fish;
     ".gitconfig".source = ../git/.gitconfig;

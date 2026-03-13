@@ -1,6 +1,8 @@
 IP=""
 TARGET_SUDO=""
 
+.PHONY: minimal nvim nix-install nix-ffettes
+
 minimal:
 	rm ~/.tmux.conf ~/.vimrc
 	cp tmux/.tmux.conf ~/
@@ -30,11 +32,27 @@ packages: nvim
 	sudo apt update
 	sudo apt install -y stow make zsh fuse helix python3 python3-pip
 
-.PHONY: nvim
 nvim:
 	curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 	chmod u+x nvim.appimage
 	sudo mv nvim.appimage /usr/local/bin/nvim
+
+nix-install:
+	sudo apt-get update
+	sudo apt-get install -y curl git xz-utils
+	mkdir -p ~/.config/nix
+	rm -f ~/.config/nix/nix.conf
+	ln -s ~/dotfiles/nix/.config/nix/nix.conf ~/.config/nix/nix.conf
+	sh <(curl -L https://nixos.org/nix/install) --daemon
+	@echo ''
+	@echo 'Nix installed. Log out and back in, then run: make nix-ffettes'
+
+nix-ffettes:
+	mkdir -p ~/.config/nix
+	rm -f ~/.config/nix/nix.conf
+	ln -s ~/dotfiles/nix/.config/nix/nix.conf ~/.config/nix/nix.conf
+	NIX_CONFIG='experimental-features = nix-command flakes' nix profile add github:nix-community/home-manager
+	NIX_CONFIG='experimental-features = nix-command flakes' home-manager switch -b backup --flake ~/dotfiles#ffettes-linux
 
 install:
 	ln -s ~/dotfiles ~/dt
