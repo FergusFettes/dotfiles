@@ -24,7 +24,17 @@
 # fi
 
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$PATH":/snap/bin:/$HOME/.cargo/bin:/$HOME/.local:/$HOME/.local/bin:/usr/local/cuda-11.1/bin:/$HOME/.local/node/bin:/$HOME/go/bin:/$HOME/.local/share/fnm:$HOME/.trigger:$HOME/dt/bin:$HOME/worldtree/meta/bin:/opt/homebrew/opt/postgresql@16/bin
+
+# Base PATH
+export PATH="$PATH:/snap/bin:$HOME/.cargo/bin:$HOME/.local:$HOME/.local/bin:/usr/local/cuda-11.1/bin:$HOME/.local/node/bin:$HOME/go/bin:$HOME/.local/share/fnm:$HOME/.trigger:$HOME/dt/bin"
+
+# Platform-specific PATH additions
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export PATH="$PATH:/opt/homebrew/bin"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export PATH="$PATH:$HOME/worldtree/meta/bin"
+  [ -d /opt/homebrew/opt/postgresql@16/bin ] && export PATH="$PATH:/opt/homebrew/opt/postgresql@16/bin"
+fi
 # }}}
 # Zsh init {{{
 HYPHEN_INSENSITIVE="true"
@@ -79,6 +89,10 @@ bindkey '^N' zca-widget
 
 # }}}
 # Env Setup {{{
+<<<<<<< HEAD
+=======
+# source $HOME/enhancd/init.sh
+>>>>>>> b40f409 (various updates)
 # Export all the environmental variables
 source ~/.config/personal/vars.zsh
 # Export all the aliases
@@ -110,7 +124,21 @@ bindkey '^[OA' history-beginning-search-backward
 eval "`fnm env`"
 # fi
 
-export SANDBOX_REPO_ROOT="$HOME/worldtree/projects/llm-sandbox"
-export BEADS_DIR="$HOME/worldtree/projects/.beads"
+# Platform-specific configurations
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS-specific
+  [ -f ~/worldtree/.welcome.txt ] && glow ~/worldtree/.welcome.txt
 
-export PATH="$HOME/bin:$PATH"
+  # opencode
+  [ -d ~/.opencode/bin ] && export PATH="$HOME/.opencode/bin:$PATH"
+
+  # Added by Antigravity
+  [ -d ~/.antigravity/antigravity/bin ] && export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  # Linux-specific
+  [ -d "$HOME/worldtree/projects/llm-sandbox" ] && export SANDBOX_REPO_ROOT="$HOME/worldtree/projects/llm-sandbox"
+  [ -d "$HOME/worldtree/projects/.beads" ] && export BEADS_DIR="$HOME/worldtree/projects/.beads"
+fi
+
+# Common bin path
+[ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"

@@ -12,7 +12,17 @@ export BROWSER="/usr/bin/google-chrome"
 
 # }}}
 # Misc vars {{{
-export IP=$(ip a | grep 192 | head -1 | awk '{ print $2 }' | sed -e 's/\/24$//')
+# Dynamic IP detection based on OS
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export IP=$(ipconfig getifaddr en0 2>/dev/null || echo "")
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export IP=$(ip a | grep 192 | head -1 | awk '{ print $2 }' | sed -e 's/\/24$//' 2>/dev/null || echo "")
+fi
+
+# API Keys (load if files exist)
+[ -f ~/pa/openai ] && export OPENAI_API_KEY=`cat ~/pa/openai`
+[ -f ~/pa/together ] && export TOGETHER_API_KEY=`cat ~/pa/together`
+[ -f ~/pa/anthropic ] && export ANTHROPIC_API_KEY=`cat ~/pa/anthropic`
 # }}}
 # Program Vars {{{
 # export BAT_THEME="zenburn"

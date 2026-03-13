@@ -8,6 +8,8 @@
 # zle -N globalias
 # bindkey " " globalias # space key to expand globalalias
 
+function fcat() { awk 'FNR==1{print "\n==> " FILENAME " <=="}1' "$@" }
+
 countdown() {
     start="$(( $(date +%s) + $1))"
     while [ "$start" -ge $(date +%s) ]; do
@@ -56,7 +58,15 @@ function ghpr() { GH_FORCE_TTY=100% gh pr list --limit 300 |
 }
 
 function lc() {
-   llm --continue "$*"
+    if [ -n "$LLM_CID" ]; then
+        llm --continue --cid "$LLM_CID" "$*"
+    else
+        llm --continue "$*"
+    fi
+}
+
+function intro() {
+  cat ~/chunks/claude-intro.txt | llm "$*"
 }
 
 function oracle() {
@@ -65,6 +75,10 @@ function oracle() {
 
 function simp() {
   cat ~/chunks/simple.txt | llm "$*"
+}
+
+function simpc() {
+  cat ~/chunks/simple.txt - | llm "$*"
 }
 
 function unreturn() {
@@ -132,16 +146,18 @@ rga-fzf() {
 	xdg-open "$file"
 }
 
-function set_xprop() {
-  STR="$PWD; `date +%Y-%m-%dT%H:%M:%S%z`; `history -1 | sed 's/^[ ]*[0-9]*[ ]*//g'`"
-  WINDOW=`xdotool getactivewindow` 2>/dev/null
-  if [ -n "$WINDOW" ]; then
-    xprop -id $WINDOW -f WM_CLASS 8s -set WM_CLASS "$STR"
-  fi
-}
-
-# Add the function to the precmd_functions array
-precmd_functions+=(set_xprop)
+# X11-specific function for Linux
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  function set_xprop() {
+    STR="$PWD; `date +%Y-%m-%dT%H:%M:%S%z`; `history -1 | sed 's/^[ ]*[0-9]*[ ]*//g'`"
+    WINDOW=`xdotool getactivewindow` 2>/dev/null
+    if [ -n "$WINDOW" ]; then
+      xprop -id $WINDOW -f WM_CLASS 8s -set WM_CLASS "$STR"
+    fi
+  }
+  # Add the function to the precmd_functions array
+  precmd_functions+=(set_xprop)
+fi
 
 function aliases() {which `compgen -a` | fzf}
 
@@ -149,9 +165,9 @@ function mdless() {
   pandoc -s -f markdown -t man $1 | groff -T utf8 -man | less
 }
 umedit() { mkdir -p ~/c/tips; o ~/c/tips/$1.md; }
-um() { mdless ~/c/tips/"$1".md; }
+um() { bcat ~/c/tips/"$1".md; }
 umls() { ls ~/c/tips }
-umc() { cat ~/c/tips/"$1".md | cb }
+umc() { bcat ~/c/tips/"$1".md | cb }
 
 function webm2gif() {
   ffmpeg -i $1 -vf "fps=10,scale=320:-1:flags=lanczos" ${1%.*}.gif
@@ -165,7 +181,7 @@ function arch(){
 
   mkdir -p "$FOLDER"
 
-  echo `date +%Y-%m-%dT%H:%M%z` > "$FOLDER/.0__ARCHIVE_DATA__"
+  echo `date +"%Y-%m-%dT%H:%M:%S%z"` > "$FOLDER/.0__ARCHIVE_DATA__"
   # If there is an argument, assume it is the file type
   mv -- *"$@" "$FOLDER"
 }

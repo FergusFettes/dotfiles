@@ -86,6 +86,11 @@ alias vsl="vastai search offers 'reliability > 0.98 num_gpus = 1 gpu_ram >= 40 r
 alias ms='cd /home/ffettes/affordances/ && poetry shell && cd -'
 # }}}
 # Scripts {{{
+# alias bu='~/c/scripts/linux/backlight.sh up'
+# alias bd='~/c/scripts/linux/backlight.sh down'
+# alias bm='~/c/scripts/linux/backlight.sh max'
+# alias bz='~/c/scripts/linux/backlight.sh zero'
+# alias bl='~/c/scripts/linux/backlight.sh lo'
 # }}}
 # File Shortcuts {{{
 alias blog='cd /home/$USER/site-backend/ffettes'

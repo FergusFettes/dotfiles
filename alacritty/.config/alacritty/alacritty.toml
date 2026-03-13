@@ -67,58 +67,6 @@ text = "0xe0def4"
 [font]
 size = 13
 
-[schemes.ayu_dark.bright]
-black = "#686868"
-blue = "#59C2FF"
-cyan = "#95E6CB"
-green = "#C2D94C"
-magenta = "#FFEE99"
-red = "#F07178"
-white = "#FFFFFF"
-yellow = "#FFB454"
-
-[schemes.ayu_dark.normal]
-black = "#1f1f1f"
-blue = "#53BDFA"
-cyan = "#90E1C6"
-green = "#91B362"
-magenta = "#FAE994"
-red = "#EA6C73"
-white = "#C7C7C7"
-yellow = "#F9AF4F"
-
-[schemes.ayu_dark.primary]
-background = "#000000"
-foreground = "#B3B1AD"
-
-[schemes.solarized_light.bright]
-black = "#002b36"
-blue = "#839496"
-cyan = "#93a1a1"
-green = "#586e75"
-magenta = "#6c71c4"
-red = "#cb4b16"
-white = "#fdf6e3"
-yellow = "#657b83"
-
-[schemes.solarized_light.cursor]
-cursor = "#657b83"
-text = "#fdf6e3"
-
-[schemes.solarized_light.normal]
-black = "#1f1f1f"
-blue = "#268bd2"
-cyan = "#2aa198"
-green = "#859900"
-magenta = "#d33682"
-red = "#dc322f"
-white = "#eee8d5"
-yellow = "#b58900"
-
-[schemes.solarized_light.primary]
-background = "#fdf6e3"
-foreground = "#657b83"
-
 [terminal.shell]
 program = "/bin/zsh"
 
