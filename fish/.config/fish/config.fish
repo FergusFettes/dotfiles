@@ -77,17 +77,29 @@ alias htop btop
 alias top /usr/bin/htop
 
 # Git shortcuts
+alias ga "git add"
+alias gc "git commit -v"
+alias gcam "git commit -a -m"
+alias gcaM "git commit -a --no-verify -m"
+alias gcb "git checkout -b"
+alias gcm "git checkout master"
+alias gco "git checkout"
+alias gcn "git clean -i"
+alias gcnn "git clean -f"
+alias gd "git diff"
+alias gg lazygit
 alias gl 'git log --graph --decorate --oneline (git rev-list -g --all)'
 alias glp "git log -p"
 alias gll "git pull"
+alias gm "git merge"
 alias gp "git push --follow-tags"
+alias gpt "git push --tags"
+alias grhh "git reset --hard"
 alias gs "git stash"
 alias gsp "git stash pop"
-alias gcaM "git commit -a --no-verify -m"
-alias gcn "git clean -i"
-alias gcnn "git clean -f"
-alias gpt "git push --tags"
-alias gg lazygit
+alias gst "git status"
+alias ghlr last_run
+alias ghrw "gh run watch"
 
 # Docker
 alias dk docker
