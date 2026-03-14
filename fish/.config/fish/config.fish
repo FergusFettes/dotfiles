@@ -111,7 +111,7 @@ alias zl zellij
 
 # Misc
 alias x exit
-alias xf "exec fish"
+alias xz "exec fish"
 alias s "sudo -s"
 alias rsync "rsync -Phav"
 alias rsync_remote "rsync -Phavz"
