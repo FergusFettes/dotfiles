@@ -5,3 +5,5 @@ passwords/
 pip/
 **/__pycache__/
 **/dhist
+
+privhist.db
